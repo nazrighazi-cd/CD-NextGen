@@ -2,12 +2,16 @@
   "name": "host-app",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "ios": "npx react-native run-ios"
+  },
   "dependencies": {
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*",
-    "metro-config": "*"
+    "metro-config": "*",
+    "@react-native/metro-config": "*"
   }
 }
