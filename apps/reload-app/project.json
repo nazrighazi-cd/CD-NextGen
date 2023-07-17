@@ -1,22 +1,25 @@
 {
-  "name": "host-app",
+  "name": "reload-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/host-app/src",
+  "sourceRoot": "apps/reload-app/src",
   "projectType": "application",
   "targets": {
-    "start-webpack": {
-      "command": "npx react-native webpack-start"
-    },
     "start": {
       "executor": "@nx/react-native:start",
       "options": {
         "port": 8081
       }
     },
+    "start-webpack": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx react-native webpack-start"
+      }
+    },
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx start host-app"
+        "command": "nx start reload-app"
       }
     },
     "run-ios": {
@@ -31,7 +34,7 @@
       "options": {
         "entryFile": "index.js",
         "platform": "ios",
-        "bundleOutput": "dist/apps/host-app/ios/main.jsbundle"
+        "bundleOutput": "dist/apps/reload-app/ios/main.jsbundle"
       }
     },
     "run-android": {
@@ -65,7 +68,7 @@
       "options": {
         "entryFile": "index.js",
         "platform": "android",
-        "bundleOutput": "dist/apps/host-app/android/main.jsbundle"
+        "bundleOutput": "dist/apps/reload-app/android/main.jsbundle"
       }
     },
     "sync-deps": {
@@ -83,7 +86,7 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "apps/host-app/**/*.{ts,tsx,js,jsx}"
+          "apps/reload-app/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
@@ -93,7 +96,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/host-app/jest.config.ts",
+        "jestConfig": "apps/reload-app/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
