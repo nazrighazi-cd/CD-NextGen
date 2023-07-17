@@ -4,6 +4,12 @@
   "sourceRoot": "apps/host-app/src",
   "projectType": "application",
   "targets": {
+    "start-webpack": {
+      "executor": "nx/run-commands",
+      "options": {
+        "script": "npx react-native webpack-start"
+      }
+    },
     "start": {
       "executor": "@nx/react-native:start",
       "options": {
@@ -22,9 +28,11 @@
     },
     "bundle-ios": {
       "executor": "@nx/react-native:bundle",
-      "outputs": ["{options.bundleOutput}"],
+      "outputs": [
+        "{options.bundleOutput}"
+      ],
       "options": {
-        "entryFile": "src/main.tsx",
+        "entryFile": "index.js",
         "platform": "ios",
         "bundleOutput": "dist/apps/host-app/ios/main.jsbundle"
       }
@@ -43,7 +51,9 @@
     },
     "build-ios": {
       "executor": "@nx/react-native:build-ios",
-      "outputs": ["{projectRoot}/ios/build/Build"],
+      "outputs": [
+        "{projectRoot}/ios/build/Build"
+      ],
       "options": {}
     },
     "pod-install": {
@@ -52,9 +62,11 @@
     },
     "bundle-android": {
       "executor": "@nx/react-native:bundle",
-      "outputs": ["{options.bundleOutput}"],
+      "outputs": [
+        "{options.bundleOutput}"
+      ],
       "options": {
-        "entryFile": "src/main.tsx",
+        "entryFile": "index.js",
         "platform": "android",
         "bundleOutput": "dist/apps/host-app/android/main.jsbundle"
       }
@@ -69,14 +81,20 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/host-app/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/host-app/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/host-app/jest.config.ts",
         "passWithNoTests": true

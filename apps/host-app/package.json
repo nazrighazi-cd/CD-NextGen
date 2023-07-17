@@ -3,15 +3,22 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "ios": "npx react-native run-ios"
+    "ios": "npx react-native run-ios",
+    "android": "npx react-native run-android",
+    "start-webpack": "npx react-native webpack-start"
   },
   "dependencies": {
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "metro-config": "*",
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*",
-    "metro-config": "*",
-    "@react-native/metro-config": "*"
+    "terser-webpack-plugin": "*",
+    "@callstack/repack": "*",
+    "babel-loader": "*",
+    "webpack": "*",
+    "native-base": "*",
+    "react-native-safe-area-context": "*"
   }
 }
