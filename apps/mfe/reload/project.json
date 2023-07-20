@@ -1,12 +1,9 @@
 {
-  "name": "host-app",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/host-app/src",
+  "name": "mfe-reload",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mfe/reload/src",
   "projectType": "application",
   "targets": {
-    "start-webpack": {
-      "command": "npx react-native webpack-start"
-    },
     "start": {
       "executor": "@nx/react-native:start",
       "options": {
@@ -16,13 +13,13 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx start host-app"
+        "command": "nx start reload"
       }
     },
     "patch-ios-incremental-build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "touch apps/host-app/ios/.xcode.env"
+        "command": "touch apps/mfe/reload/ios/.xcode.env"
       }
     },
     "run-ios": {
@@ -40,7 +37,7 @@
       "options": {
         "entryFile": "index.js",
         "platform": "ios",
-        "bundleOutput": "dist/apps/host-app/ios/main.jsbundle"
+        "bundleOutput": "dist/apps/mfe/reload/ios/main.jsbundle"
       }
     },
     "run-android": {
@@ -74,7 +71,7 @@
       "options": {
         "entryFile": "index.js",
         "platform": "android",
-        "bundleOutput": "dist/apps/host-app/android/main.jsbundle"
+        "bundleOutput": "dist/apps/mfe/reload/android/main.jsbundle"
       }
     },
     "sync-deps": {
@@ -92,7 +89,7 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "apps/host-app/**/*.{ts,tsx,js,jsx}"
+          "apps/mfe/reload/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
@@ -102,7 +99,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/host-app/jest.config.ts",
+        "jestConfig": "apps/mfe/reload/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
