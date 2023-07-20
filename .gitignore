@@ -98,7 +98,7 @@ yarn-error.log
 *.jsbundle
 
 # Ruby / CocoaPods
-/ios/Pods/
+**/ios/Pods/
 /vendor/bundle/
 
 # Temporary files created by Metro to check the health of the file watcher
@@ -109,3 +109,4 @@ yarn-error.log
 
 
 apps/host-app-e2e/artifacts
+apps/mfe/reload-e2e/artifacts
