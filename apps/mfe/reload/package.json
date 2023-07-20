@@ -21,6 +21,9 @@
     "native-base": "*",
     "react-native-safe-area-context": "*",
     "webpack-cli": "*",
-    "@react-native/metro-config": "*"
+    "@react-native/metro-config": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*"
   }
 }
