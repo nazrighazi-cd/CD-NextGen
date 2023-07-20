@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
+import { NativeBaseProvider } from 'native-base';
 import React, { useRef, useState } from 'react';
 import {
   SafeAreaView,
@@ -17,7 +18,7 @@ export const App = () => {
   const scrollViewRef = useRef<null | ScrollView>(null);
 
   return (
-    <>
+    <NativeBaseProvider>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -576,7 +577,7 @@ export const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
+    </NativeBaseProvider>
   );
 };
 const styles = StyleSheet.create({
