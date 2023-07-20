@@ -19,7 +19,16 @@
         "command": "nx start host-app"
       }
     },
+    "patch-ios-incremental-build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "touch apps/host-app/ios/.xcode.env"
+      }
+    },
     "run-ios": {
+      "dependsOn": [
+        "patch-ios-incremental-build"
+      ],
       "executor": "@nx/react-native:run-ios",
       "options": {}
     },
