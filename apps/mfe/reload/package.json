@@ -5,9 +5,17 @@
   "dependencies": {
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "metro-config": "*",
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*",
-    "metro-config": "*"
+    "terser-webpack-plugin": "*",
+    "@callstack/repack": "*",
+    "babel-loader": "*",
+    "webpack": "*",
+    "native-base": "*",
+    "react-native-safe-area-context": "*",
+    "webpack-cli": "*",
+    "@react-native/metro-config": "*"
   }
 }
