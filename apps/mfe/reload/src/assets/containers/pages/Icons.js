@@ -28,6 +28,7 @@ import AutoBilling from '../../icons/auto-billing-01.svg';
 import FileMedal from '../../icons/file-medal.svg';
 import History from '../../icons/history.svg';
 import Passcode from '../../icons/passcode.svg';
+import Settings from '../../icons/settings-04.svg';
 import CurrencyRefresh from '../../icons/currency-ringgit-malaysia-refresh.svg';
 import Contact from '../../icons/contact.svg';
 import Plus from '../../icons/plus.svg';
@@ -223,6 +224,13 @@ const Icons = () => {
               <Copy width={120} height={40} />{' '}
               <Text textAlign="center" width={120} color="black">
                 copy-01
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <Settings width={120} height={40} />{' '}
+              <Text textAlign="center" width={120} color="black">
+                settings-04
               </Text>
             </Box>
           </HStack>
