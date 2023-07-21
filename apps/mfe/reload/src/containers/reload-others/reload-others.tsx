@@ -1,23 +1,19 @@
 import React from 'react';
+// React Native Components
 import { TouchableOpacity } from 'react-native';
-
 //  Native Base Components
 import {
   useTheme,
-  NativeBaseProvider,
   Box,
   Text,
   Button,
-  Icon,
   Badge,
   HStack,
   VStack,
   Input,
   ScrollView,
 } from 'native-base';
-
 // Icons
-import { ChevronRightIcon } from 'native-base';
 import Contact from '../../assets/icons/contact.svg';
 
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
@@ -63,137 +59,128 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
 
   return (
     <ScrollView>
-      <NativeBaseProvider>
-        <Box flex={9} m="16px">
-          {/* Reload Card - OTHERS */}
-          <Box bg="#F9FAFB" p="16px" rounded="lg">
-            <Text bold fontSize="12px" pb="16px">
-              1. Select or Enter Mobile Number
-            </Text>
-            <Box w="100%">
-              <Input
-                placeholder="+60"
-                InputRightElement={<Contact />}
-                py={4}
-              ></Input>
-            </Box>
-          </Box>
+      <Box flex={9} m="16px">
+        {/* RELOAD CARD - OTHERS */}
+        <Box variant="shadow" rounded="lg">
+          <Text variant="body2" bold pb="16px">
+            1. Select or Enter Mobile Number
+          </Text>
+          <Input
+            placeholder="+60"
+            InputRightElement={
+              <Box pr={3}>
+                <Contact />
+              </Box>
+            }
+            py={4}
+          ></Input>
+        </Box>
 
-          {/* Select Amount Card */}
-          <Box mt="16px" bg="#F9FAFB" pt="16px" px="16px" rounded="lg">
-            <Text bold fontSize="12px" pb="16px">
-              2. Select Amount
-            </Text>
-            {/* Card Reload */}
-            <VStack justifyContent="center">
-              {rowsAmount.map((row, index) => (
-                <HStack key={index} justifyContent="space-between">
-                  {row.map((amount, itemIndex) => (
+        {/* SELECT AMOUNT CARD */}
+        <Box variant="shadow" mt="16px">
+          <Text variant="body2" bold pb="16px">
+            2. Select Amount
+          </Text>
+          {/* Card Reload */}
+          <VStack justifyContent="center">
+            {rowsAmount.map((row, index) => (
+              <HStack key={index} justifyContent="space-between">
+                {row.map((amount, itemIndex) => (
+                  <Box
+                    variant="border"
+                    key={itemIndex}
+                    w="94px"
+                    h="72px"
+                    px="4px"
+                    justifyContent="center"
+                    alignItems="center"
+                    mb="16px"
+                  >
+                    <Text variant="h6" bold>
+                      RM{amount.price}
+                    </Text>
+                    <Text variant="label">{amount.validity}</Text>
+                    {/* Tag */}
+                    {amount.tag ? (
+                      <Badge variant="popular" position="absolute" top="-10">
+                        {amount.tag}
+                      </Badge>
+                    ) : null}
+                  </Box>
+                ))}
+              </HStack>
+            ))}
+          </VStack>
+          {/* Additional Text */}
+          <Text variant="label" pb="8px" color="gray.500">
+            Non-Malaysians will be subjected to 6% SST.
+          </Text>
+        </Box>
+
+        {/* SELECT PAYMENT METHOD CARD */}
+        <Box variant="shadow" mt="16px">
+          <Text variant="body2" bold pb="16px">
+            2. Select Payment Method
+          </Text>
+          {/* Payment Option Card */}
+          <VStack justifyContent="center">
+            {rowsPayment.map((row, index) => (
+              <HStack key={index} justifyContent="space-between">
+                {row.map((payment, itemIndex) => (
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate(payment.pages)}
+                  >
                     <Box
+                      variant="border"
                       key={itemIndex}
-                      bg="#FFFFFF"
                       w="94px"
                       h="72px"
                       px="4px"
-                      borderWidth="1"
-                      borderRadius="md"
-                      borderColor="#EAECF0"
                       justifyContent="center"
                       alignItems="center"
                       mb="16px"
                     >
-                      <Text bold fontSize="16px">
-                        RM{amount.price}
+                      <Text variant="body2" bold>
+                        {payment.method}
                       </Text>
-                      <Text fontSize="10px">{amount.validity}</Text>
-                      {/* Tag */}
-                      {amount.tag ? (
-                        <Badge position="absolute" top="-10">
-                          <Text fontSize="8px">{amount.tag}</Text>
+                      {payment.extra ? (
+                        <Text variant="label" color="primary.600">
+                          {payment.extra}
+                        </Text>
+                      ) : null}
+
+                      {/* Tag  */}
+                      {payment.tag ? (
+                        <Badge variant="info" position="absolute" top="-10">
+                          {payment.tag}
                         </Badge>
                       ) : null}
                     </Box>
-                  ))}
-                </HStack>
-              ))}
-            </VStack>
-            {/* Additional Text */}
-            <Text fontSize="10px" pb="8px" color="#667085">
-              Non-Malaysians will be subjected to 6% SST.
-            </Text>
-          </Box>
-
-          {/* Select Payment Method Card */}
-          <Box mt="16px" bg="#F9FAFB" pt="16px" px="16px" rounded="lg">
-            <Text bold fontSize="12px" pb="16px">
-              2. Select Payment Method
-            </Text>
-            {/* Payment Option Card */}
-            <VStack justifyContent="center">
-              {rowsPayment.map((row, index) => (
-                <HStack key={index} justifyContent="space-between">
-                  {row.map((payment, itemIndex) => (
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate(payment.pages)}
-                    >
-                      <Box
-                        key={itemIndex}
-                        bg="#FFFFFF"
-                        w="94px"
-                        h="72px"
-                        px="4px"
-                        borderWidth="1"
-                        borderRadius="md"
-                        borderColor="#EAECF0"
-                        justifyContent="center"
-                        alignItems="center"
-                        mb="16px"
-                      >
-                        <Text bold fontSize="12px">
-                          {payment.method}
-                        </Text>
-                        {payment.extra ? (
-                          <Text fontSize="10px" color="#1561E8">
-                            {payment.extra}
-                          </Text>
-                        ) : null}
-
-                        {/* Tag  */}
-                        {payment.tag ? (
-                          <Badge position="absolute" top="-10">
-                            <Text fontSize="8px">{payment.tag}</Text>
-                          </Badge>
-                        ) : null}
-                      </Box>
-                    </TouchableOpacity>
-                  ))}
-                </HStack>
-              ))}
-            </VStack>
-          </Box>
+                  </TouchableOpacity>
+                ))}
+              </HStack>
+            ))}
+          </VStack>
         </Box>
+      </Box>
 
-        {/* Footer */}
-        <Box flex={1} m="16px" mt="6px">
-          {/* Total Payment */}
-          <Box mt="16px">
-            <HStack justifyContent="space-between">
-              <Box>
-                <Text fontSize="12px">Total Payment</Text>
-                <Text bold fontSize="16px" color="#1561E8">
-                  RM XXX
-                </Text>
-              </Box>
-              <Button
-                bg="#1561E8"
-                onPress={() => navigation.navigate('Select Card')}
-              >
-                <Text color="#FFFFFF"> Continue </Text>
-              </Button>
-            </HStack>
-          </Box>
+      {/* FOOTER */}
+      <Box m="16px" mt="6px">
+        {/* Total Payment */}
+        <Box mt="16px">
+          <HStack justifyContent="space-between">
+            <Box>
+              <Text variant="body2">Total Payment</Text>
+              <Text variant="h6" bold color="primary.600">
+                RM XXX
+              </Text>
+            </Box>
+            <Button onPress={() => navigation.navigate('Select Card')}>
+              Continue
+            </Button>
+          </HStack>
         </Box>
-      </NativeBaseProvider>
+      </Box>
     </ScrollView>
   );
 };

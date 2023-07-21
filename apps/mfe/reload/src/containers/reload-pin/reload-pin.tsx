@@ -1,6 +1,7 @@
 import React from 'react';
+// Native Base Components
 import {
-  NativeBaseProvider,
+  useTheme,
   Box,
   Text,
   HStack,
@@ -10,55 +11,60 @@ import {
   Button,
   Spacer,
 } from 'native-base';
-
 // Icons
-import {ChevronRightIcon} from 'native-base';
+import Info from '../../assets/icons/info-circle.svg';
 
-const ReloadPin = ({navigation}: {navigation: any}) => {
+const ReloadPin = ({ navigation }: { navigation: any }) => {
+  const theme = useTheme();
+
   return (
-    <NativeBaseProvider>
+    <>
       <Box flex={9} m="16px">
-        {/* Reload Card */}
-        <Box bg="#4481ED" p="16px" rounded="lg">
+        {/* RELOAD CARD */}
+        <Box variant="shadow" bg="#4481ED">
           <HStack space={[2, 3]} justifyContent="space-between">
             <Box>
-              <Icon bg="#FFFFFF" p="16px"></Icon>
+              <Icon bg="white" p="22px"></Icon>
             </Box>
             <Box>
-              <Text color="#FFFFFF" fontSize="16px">
+              <Text variant="h6" color="white" pb="1.5">
                 60 19 23456789
               </Text>
-              <Text bold color="#FFFFFF" fontSize="10px" pt="10px">
+              <Text variant="label" bold color="white">
                 Reload before 28/07/2023
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="flex-end">
-              <Badge>Active</Badge>
-              <Text bold color="#FFFFFF" fontSize="20px">
+              <Badge variant="success">Active</Badge>
+              <Text variant="h5" bold color="#FFFFFF">
                 RM XX.XX
               </Text>
             </Box>
           </HStack>
         </Box>
 
-        {/* Enter Digit */}
-        <Box bg="#F9FAFB" p="16px" rounded="lg" mt="16px">
-          <HStack>
-            <Text bold fontSize="12px" pb="16px" pr="10px">
+        {/* ENTER DIGIT */}
+        <Box variant="shadow" mt="16px">
+          <HStack alignContent="center">
+            <Text variant="body2" bold pb="16px" pr={2}>
               Enter 16-Digit Reload PIN
             </Text>
-            <ChevronRightIcon></ChevronRightIcon>
+            <Box mt={-0.5}>
+              <Info width="16px" />
+            </Box>
           </HStack>
           <Input placeholder="16-Digit Pin Number" py={4} />
         </Box>
       </Box>
+
+      {/* FOOTER */}
       <Box flex={1} mx="16px">
         <Button onPress={() => navigation.navigate('Reload Via Pin')}>
           Continue
         </Button>
       </Box>
-    </NativeBaseProvider>
+    </>
   );
 };
 

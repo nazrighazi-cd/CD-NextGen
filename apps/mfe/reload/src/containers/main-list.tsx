@@ -1,11 +1,8 @@
 import React from 'react';
-
 // React Native Components
 import { TouchableOpacity } from 'react-native';
-
 // Native Base Components
 import { useTheme, Text, Box, HStack, VStack } from 'native-base';
-
 // Icons
 import Medal from '../assets/icons/file-medal.svg';
 import File from '../assets/icons/file-06.svg';
@@ -34,12 +31,12 @@ const MainList = ({ navigation }: { navigation: any }) => {
     },
     { name: 'PIN Reload', pages: 'Reload Pin', icons: <Passcode /> },
     {
-      name: 'Auto Reload by Limit',
+      name: 'Auto Reload Limit',
       pages: 'Reload Pin',
       icons: <AutoBilling />,
     },
     {
-      name: 'Auto Reload by Calendar',
+      name: 'Auto Reload Calendar',
       pages: 'Reload Pin',
       icons: <CalendarRefresh />,
     },
@@ -63,22 +60,17 @@ const MainList = ({ navigation }: { navigation: any }) => {
 
   return (
     <Box mx="16px" my="50px">
-      <Text bold fontSize="14px" mb="16px">
+      <Text bold variant="h7" mb="16px">
         Reload
       </Text>
       <VStack justifyContent="center" mx="16px">
         {rowsListing.map((row, index) => (
-          <HStack key={index} space={[6, 4]}>
+          <HStack key={index} space={[7, 4]}>
             {row.map((list, itemIndex) => (
               <TouchableOpacity onPress={() => navigation.navigate(list.pages)}>
                 <Box key={itemIndex} alignItems="center" mb="16px">
                   {list.icons}
-                  <Text
-                    pt={2}
-                    fontSize="11px"
-                    numberOfLines={2}
-                    textAlign="center"
-                  >
+                  <Text variant="label" pt={2} textAlign="center">
                     {list.name.length > max_length
                       ? list.name.replace(/(.{11})/g, '$1\n')
                       : list.name}

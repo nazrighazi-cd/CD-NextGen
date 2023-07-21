@@ -1,5 +1,4 @@
 import React from 'react';
-
 //  Native Base Components
 import { useTheme, NativeBaseProvider, Box, Text } from 'native-base';
 

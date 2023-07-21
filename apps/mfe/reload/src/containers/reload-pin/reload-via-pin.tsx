@@ -1,81 +1,78 @@
 import React, { useState } from 'react';
-
 // Native Base Components
-import {
-  NativeBaseProvider,
-  Box,
-  Text,
-  HStack,
-  Icon,
-  Input,
-  Button,
-  Modal,
-} from 'native-base';
-
+import { useTheme, Box, Text, HStack, Input, Button, Modal } from 'native-base';
 // Icons
-import { ChevronRightIcon } from 'native-base';
+import Contact from '../../assets/icons/contact.svg';
+import Info from '../../assets/icons/info-circle.svg';
 
 const ReloadViaPin = () => {
-  const [showModal, setShowModal] = useState(false);
+  const theme = useTheme();
+
+  const [bottomModal, setBottomModal] = useState(false);
 
   return (
-    <NativeBaseProvider>
+    <>
       <Box flex={9} m="16px">
-        {/* Enter Mobile Number */}
-        <Box bg="#F9FAFB" p="16px" rounded="lg" mt="16px">
-          <Text bold fontSize="12px" pb="16px" pr="10px">
+        {/* ENTER MOBILE NUMBER */}
+        <Box variant="shadow" rounded="lg">
+          <Text variant="body2" bold pb="16px">
             1. Select or Enter Mobile Number
           </Text>
           <Input
             placeholder="+60"
+            InputRightElement={
+              <Box pr={3}>
+                <Contact />
+              </Box>
+            }
             py={4}
-            InputRightElement={<ChevronRightIcon mr={2} />}
-          />
+          ></Input>
         </Box>
-        {/* Enter Digit */}
-        <Box bg="#F9FAFB" p="16px" rounded="lg" mt="16px">
+
+        {/* ENTER RELOAD PIN */}
+        <Box variant="shadow" mt="16px">
           <HStack>
-            <Text bold fontSize="12px" pb="16px" pr="10px">
+            <Text variant="body2" bold pb="16px" pr={2}>
               2. Enter Reload PIN
             </Text>
-            <ChevronRightIcon></ChevronRightIcon>
+            <Box mt={-0.5}>
+              <Info width="16px" />
+            </Box>
           </HStack>
           <Input placeholder="16-Digit Pin Number" py={4} />
         </Box>
       </Box>
       <Box flex={1} mx="16px">
-        <Button onPress={() => setShowModal(true)}>Continue</Button>
+        <Button onPress={() => setBottomModal(true)}>Continue</Button>
       </Box>
 
-      {/* Pin Reload Modal */}
+      {/* PIN RELOAD MODAL */}
       <Modal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
+        variant="bottom"
+        isOpen={bottomModal}
+        onClose={() => setBottomModal(false)}
+        accessibilityLabel="Default Modal"
         _backdrop={{
-          _dark: {
-            bg: '#000000',
-          },
-          bg: '#000000',
+          bg: 'black',
         }}
       >
         <Modal.Content
-          marginBottom={0}
-          marginTop="auto"
+          justifyContent="flex-end"
           width="100%"
-          borderBottomRadius={0}
-          borderTopRadius="20px"
+          borderTopRadius="24px"
+          borderBottomRadius="0px"
         >
           <Modal.CloseButton />
-          <Text bold fontSize="18px" p="16px" pb="8px">
+          <Text variant="h6" bold color="gray.900" pb={2}>
             What is PIN Reload
           </Text>
-          <Text fontSize="14px" color="#475467" p="16px" pt="0px">
+          <Text variant="body" color="gray.600">
             Copy Explaining PIN Reload and Steps to Reload Copy max 120 char
             with max 3 lines. Line 3 example.
           </Text>
         </Modal.Content>
       </Modal>
-    </NativeBaseProvider>
+    </>
   );
 };
 

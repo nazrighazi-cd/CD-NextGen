@@ -1,19 +1,18 @@
 import React from 'react';
-
+// React Native Components
+import { TouchableOpacity } from 'react-native';
 // Native Base Components
-import {
-  useTheme,
-  NativeBaseProvider,
-  Box,
-  Text,
-  HStack,
-  FlatList,
-  Image,
-  Spacer,
-} from 'native-base';
-
+import { useTheme, Box, Text, HStack, FlatList, Spacer } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
+import AffinBank from '../../assets/icons/payment-methods/bank/affin-bank.svg';
+import AgroBank from '../../assets/icons/payment-methods/bank/agro-bank.svg';
+import AllianceBank from '../../assets/icons/payment-methods/bank/alliance-bank.svg';
+import AmBank from '../../assets/icons/payment-methods/bank/AmBank.svg';
+import BankIslam from '../../assets/icons/payment-methods/bank/bank-islam.svg';
+import BankMuamalat from '../../assets/icons/payment-methods/bank/muamalat.svg';
+import BankRakyat from '../../assets/icons/payment-methods/bank/bank-rakyat.svg';
+import CIMBClicks from '../../assets/icons/payment-methods/bank/cimb-clicks.svg';
 
 const Banks = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -23,58 +22,50 @@ const Banks = ({ navigation }: { navigation: any }) => {
     {
       id: '1',
       method: 'Affin Bank',
-      iconsUrl:
-        'https://vtlogo.com/wp-content/uploads/2020/03/boost-Banks-vector-logo.png',
+      icons: <AffinBank />,
     },
     {
       id: '2',
       method: 'Agro Bank',
-      iconsUrl:
-        'https://assets.grab.com/wp-content/uploads/sites/8/2021/11/26235244/GrabPay_Final_Logo_RGB_green_horizontal-01.png',
+      icons: <AgroBank />,
     },
     {
       id: '3',
       method: 'Alliance Bank',
-      iconsUrl:
-        'https://www.maybank2u.com.my/iwov-resources/microsite/driveitaway_assets/images/float-mae-logo.png',
+      icons: <AllianceBank />,
     },
     {
       id: '4',
       method: 'AmBank',
-      iconsUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Touch_%27n_Go_eWallet_logo.svg/1200px-Touch_%27n_Go_eWallet_logo.svg.png',
+      icons: <AmBank />,
     },
     {
       id: '5',
       method: 'Bank Islam',
-      iconsUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Touch_%27n_Go_eWallet_logo.svg/1200px-Touch_%27n_Go_eWallet_logo.svg.png',
+      icons: <BankIslam />,
     },
     {
       id: '6',
       method: 'Bank Mualamat',
-      iconsUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Touch_%27n_Go_eWallet_logo.svg/1200px-Touch_%27n_Go_eWallet_logo.svg.png',
+      icons: <BankMuamalat />,
     },
     {
       id: '7',
       method: 'Bank Rakyat',
-      iconsUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Touch_%27n_Go_eWallet_logo.svg/1200px-Touch_%27n_Go_eWallet_logo.svg.png',
+      icons: <BankRakyat />,
     },
     {
       id: '8',
       method: 'CIMB Clicks',
-      iconsUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Touch_%27n_Go_eWallet_logo.svg/1200px-Touch_%27n_Go_eWallet_logo.svg.png',
+      icons: <CIMBClicks />,
     },
   ];
 
   return (
-    <NativeBaseProvider>
+    <>
       <Box m="16px">
-        <Box bg="#F9FAFB" px="16px" pt="16px" rounded="lg">
-          {/* Flat List */}
+        <Box variant="shadow">
+          {/* List of Banks */}
           <FlatList
             data={paymentData}
             renderItem={({ item, index }) => (
@@ -86,21 +77,26 @@ const Banks = ({ navigation }: { navigation: any }) => {
                 alignItems="center"
               >
                 <HStack space={[2, 3]} justifyContent="space-between">
-                  <Box w="50px" h="40px">
-                    <Image
-                      source={{
-                        uri: item.iconsUrl,
-                      }}
-                      alt="Image Description"
-                      resizeMode="contain"
-                      flex={1}
-                    />
+                  <Box
+                    w="50px"
+                    h="40px"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    {React.cloneElement(item.icons, {
+                      width: '100%',
+                      height: '100%',
+                    })}
                   </Box>
                   <Text fontSize="14px" pt="10px">
                     {item.method}
                   </Text>
                   <Spacer />
-                  <ChevronRightIcon mt={3} color="#344054" />
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate('Reload Others')}
+                  >
+                    <ChevronRightIcon mt={3} color="#344054" />
+                  </TouchableOpacity>
                 </HStack>
               </Box>
             )}
@@ -108,7 +104,7 @@ const Banks = ({ navigation }: { navigation: any }) => {
           />
         </Box>
       </Box>
-    </NativeBaseProvider>
+    </>
   );
 };
 

@@ -1,8 +1,6 @@
 import React from 'react';
-
 //  React Native Components
 import { TouchableOpacity } from 'react-native';
-
 //  Native Base Components
 import {
   useTheme,
@@ -19,6 +17,7 @@ import {
 
 const ReloadWallet = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
+
   // Mock Data
   const reloadAmount = [
     { id: '1', price: '5', validity: 'Valid for 5 Days', tag: 'Popular' },
@@ -60,33 +59,33 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
   return (
     <ScrollView>
       <Box m="16px">
-        {/* Reload Card */}
+        {/* RELOAD CARD */}
         <Box variant="shadow" bg="#4481ED">
           <HStack space={[2, 3]} justifyContent="space-between">
             <Box>
               <Icon bg="white" p="22px"></Icon>
             </Box>
             <Box>
-              <Text color="white" variant="h6" pb="1.5">
+              <Text variant="h6" color="white" pb="1.5">
                 60 19 23456789
               </Text>
-              <Text bold color="white" fontSize="10px">
+              <Text variant="label" bold color="white">
                 Reload before 28/07/2023
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="flex-end">
               <Badge variant="success">Active</Badge>
-              <Text bold variant="h5" color="#FFFFFF">
+              <Text variant="h5" bold color="#FFFFFF">
                 RM XX.XX
               </Text>
             </Box>
           </HStack>
         </Box>
 
-        {/* Select Amount Card */}
-        <Box mt="16px" variant="shadow">
-          <Text bold variant="body2" pb="16px">
+        {/* SELECT AMOUNT CARD */}
+        <Box variant="shadow" mt="16px">
+          <Text variant="body2" bold pb="16px">
             2. Select Amount
           </Text>
           {/* Card Reload */}
@@ -104,7 +103,7 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
                     alignItems="center"
                     mb="16px"
                   >
-                    <Text bold variant="h6">
+                    <Text variant="h6" bold>
                       RM{amount.price}
                     </Text>
                     <Text variant="label">{amount.validity}</Text>
@@ -125,9 +124,9 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
           </Text>
         </Box>
 
-        {/* Select Payment Method Card */}
-        <Box mt="16px" variant="shadow">
-          <Text bold variant="body2" pb="16px">
+        {/* SELECT PAYMENT METHOD CARD */}
+        <Box variant="shadow" mt="16px">
+          <Text variant="body2" bold pb="16px">
             3. Select Payment Method
           </Text>
           {/* Payment Option Card */}
@@ -148,7 +147,7 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
                       alignItems="center"
                       mb="16px"
                     >
-                      <Text bold variant="body2">
+                      <Text variant="body2" bold>
                         {payment.method}
                       </Text>
                       {payment.extra ? (
@@ -172,14 +171,14 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
         </Box>
       </Box>
 
-      {/* Footer */}
+      {/* FOOTER */}
       <Box m="16px" mt="6px">
         {/* Total Payment */}
         <Box mt="16px">
           <HStack justifyContent="space-between">
             <Box>
               <Text variant="body2">Total Payment</Text>
-              <Text bold variant="h6" color="primary.600">
+              <Text variant="h6" bold color="primary.600">
                 RM XXX
               </Text>
             </Box>
