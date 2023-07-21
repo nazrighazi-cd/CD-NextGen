@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {ScrollView} from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 import {
   useTheme,
   HStack,
@@ -13,12 +13,12 @@ import {
   Checkbox,
   Radio,
   FlatList,
-  Pressable,
   Modal,
 } from 'native-base';
 
 // NativeBase Icons
 import {
+  ArrowBackIcon,
   MoonIcon,
   FavouriteIcon,
   DeleteIcon,
@@ -31,6 +31,10 @@ const Cheatsheet = () => {
 
   // Font Icons
   const icons = [
+    {
+      icon: <ArrowBackIcon />,
+      iconName: 'arrow-back',
+    },
     {
       icon: <MoonIcon />,
       iconName: 'moon',
@@ -57,17 +61,6 @@ const Cheatsheet = () => {
   const [defaultModal, setDefaultModal] = useState(false);
   const [bottomModal, setBottomModal] = useState(false);
 
-  // const data = [
-  //   {
-  //     bankId: 'Maybank 1234',
-  //     label: 'Default',
-  //   },
-  //   {
-  //     bankId: 'Citibank 0929',
-  //     label: 'Default',
-  //   },
-  // ];
-
   return (
     <ScrollView>
       <Box bg="white" px="3" py="4">
@@ -81,16 +74,8 @@ const Cheatsheet = () => {
         <Text variant="h6">Heading 6</Text>
         <Text variant="h7">Heading 7</Text>
         <Text>Default Body</Text>
+        <Text variant="body2">Body small</Text>
         <Text variant="label">Label</Text>
-
-        {/* Box */}
-        <Text color="primary.600" mt="4" mb="2">
-          Cards (Box)
-        </Text>
-        <Box variant="shadow" mb="2">
-          Shadow
-        </Box>
-        <Box variant="border">Border</Box>
 
         {/* Badges */}
         <Text color="primary.600" mt="4" mb="2">
@@ -166,7 +151,8 @@ const Cheatsheet = () => {
         <Input
           placeholder="Input with icon"
           mb="2"
-          InputRightElement={<MoonIcon mr="3" />}></Input>
+          InputRightElement={<MoonIcon mr="3" />}
+        ></Input>
 
         {/* Form Control */}
         <Text color="primary.600" mt="4" mb="2">
@@ -184,34 +170,6 @@ const Cheatsheet = () => {
           </Radio.Group>
         </HStack>
 
-        {/* Selection */}
-        <Text color="primary.600" mt="4" mb="2">
-          Selection (Box)
-        </Text>
-        <Box variant="selection">
-          <Text>Threshold</Text>
-          <Radio.Group>
-            <Radio></Radio>
-          </Radio.Group>
-        </Box>
-
-        {/* Listing */}
-        <Text color="primary.600" mt="4" mb="2">
-          Listing
-        </Text>
-        <Box variant="listing">
-          <HStack alignItems="center">
-            <MoonIcon />
-            <Text ml="4">Maybank 1234</Text>
-            <Badge variant="blue" ml="2">
-              Default
-            </Badge>
-          </HStack>
-          <Box>
-            <ChevronRightIcon />
-          </Box>
-        </Box>
-
         {/* Modal */}
         <Text color="primary.600" mt="4" mb="2">
           Modal
@@ -227,7 +185,8 @@ const Cheatsheet = () => {
         <Modal
           isOpen={defaultModal}
           onClose={() => setDefaultModal(false)}
-          accessibilityLabel="Default Modal">
+          accessibilityLabel="Default Modal"
+        >
           <Modal.Content>
             <Modal.CloseButton />
             <Text variant="h6" bold>
@@ -242,7 +201,8 @@ const Cheatsheet = () => {
           variant="bottom"
           isOpen={bottomModal}
           onClose={() => setBottomModal(false)}
-          accessibilityLabel="Default Modal">
+          accessibilityLabel="Default Modal"
+        >
           <Modal.Content variant="bottom">
             <Modal.CloseButton />
             <Text variant="h6" bold>
@@ -252,23 +212,91 @@ const Cheatsheet = () => {
           </Modal.Content>
         </Modal>
 
-        {/* Sample Usage */}
+        {/* Custom Components */}
+        {/* App Bar */}
+        <Text color="primary.600" mt="3">
+          App Bar (Custom Component)
+        </Text>
+        <Box variant="header">
+          <ArrowBackIcon size="md" color="black" />
+          <Text variant="h6" bold>
+            Reload
+          </Text>
+          <MoonIcon color="white" />
+        </Box>
+
+        {/* Box */}
         <Text color="primary.600" mt="4" mb="2">
-          Sample Usage
+          Cards (Custom Component)
         </Text>
         <Box variant="shadow" mb="2">
-          <HStack alignItems="center" justifyContent="space-between">
-            <Text variant="h7" bold>
-              Auto Reload
-            </Text>
-            <Switch />
-          </HStack>
+          Shadow
         </Box>
-        <Box variant="shadow">
-          <Text variant="h7" bold>
-            Enter 16-Digit Reload Pin
-          </Text>
-          <Input placeholder="16-Digit PIN" mt="2"></Input>
+        <Box variant="border">Border</Box>
+
+        {/* Tab */}
+        <Text color="primary.600" mt="4" mb="2">
+          Tabs (Custom Component)
+        </Text>
+        <HStack>
+          <Box
+            bg="#F9FAFB"
+            borderLeftRadius="6.5"
+            borderWidth="1"
+            borderColor="gray.300"
+          >
+            <Text p="8px" variant="body2">
+              All Transactions
+            </Text>
+          </Box>
+          <Box borderWidth="1" borderLeftWidth="0" borderColor="gray.300">
+            <Text p="8px" variant="body2">
+              Billing
+            </Text>
+          </Box>
+          <Box borderWidth="1" borderLeftWidth="0" borderColor="gray.300">
+            <Text p="8px" variant="body2">
+              Add-Ons
+            </Text>
+          </Box>
+          <Box
+            borderWidth="1"
+            borderLeftWidth="0"
+            borderColor="gray.300"
+            borderRightRadius="6.5"
+          >
+            <Text p="8px" variant="body2">
+              Subscriptions
+            </Text>
+          </Box>
+        </HStack>
+
+        {/* Selection */}
+        <Text color="primary.600" mt="4" mb="2">
+          Selection (Custom Component)
+        </Text>
+        <Box variant="selection">
+          <Text>Threshold</Text>
+          <Radio.Group>
+            <Radio></Radio>
+          </Radio.Group>
+        </Box>
+
+        {/* Listing */}
+        <Text color="primary.600" mt="4" mb="2">
+          Listing (Custom Component)
+        </Text>
+        <Box variant="listing">
+          <HStack alignItems="center">
+            <MoonIcon />
+            <Text ml="4">Maybank 1234</Text>
+            <Badge variant="blue" ml="2">
+              Default
+            </Badge>
+          </HStack>
+          <Box>
+            <ChevronRightIcon />
+          </Box>
         </Box>
       </Box>
     </ScrollView>
