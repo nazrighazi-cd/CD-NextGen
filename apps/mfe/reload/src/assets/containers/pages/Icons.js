@@ -41,6 +41,10 @@ import Close from '../../icons/x-close.svg';
 import ApplePay from '../../icons/payment-methods/ApplePay.svg';
 import Mastercard from '../../icons/payment-methods/Mastercard.svg';
 import Visa from '../../icons/payment-methods/Visa.svg';
+import GrabPay from '../../icons/payment-methods/e-wallet/GrabPay.svg';
+import MAE from '../../icons/payment-methods/e-wallet/MAE.svg';
+import TouchnGo from '../../icons/payment-methods/e-wallet/TnG-eWallet.svg';
+import Boost from '../../icons/payment-methods/e-wallet/Boost.svg';
 import AffinBank from '../../icons/payment-methods/bank/affin-bank.svg';
 import AgroBank from '../../icons/payment-methods/bank/agro-bank.svg';
 import AllianceBank from '../../icons/payment-methods/bank/alliance-bank.svg';
@@ -263,6 +267,36 @@ const Icons = () => {
               <Visa width={120} height={40} />{' '}
               <Text textAlign="center" color="black">
                 visa
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <GrabPay width={120} height={40} />{' '}
+              <Text textAlign="center" color="black">
+                grab-pay
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <TouchnGo width={120} height={40} />{' '}
+              <Text textAlign="center" color="black">
+                TnG-eWallet
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <Boost width={120} height={40} />{' '}
+              <Text textAlign="center" color="black">
+                boost
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <MAE width={120} height={40} />{' '}
+              <Text textAlign="center" color="black">
+                MAE
               </Text>
             </Box>
             <Spacer></Spacer>
