@@ -1,6 +1,9 @@
 import React from 'react';
 
-//  Native Base Components
+// React Native Components
+import { TouchableOpacity } from 'react-native';
+
+// Native Base Components
 import {
   useTheme,
   NativeBaseProvider,
@@ -46,17 +49,17 @@ const EWallet = ({ navigation }: { navigation: any }) => {
   ];
 
   return (
-    <NativeBaseProvider>
+    <>
       <Box m="16px">
-        <Box bg="#F9FAFB" px="16px" pt="16px" rounded="lg">
+        <Box variant="shadow">
           {/* Flat List */}
           <FlatList
             data={paymentData}
             renderItem={({ item, index }) => (
               <Box
                 borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-                borderColor="#EAECF0"
-                py="3"
+                borderColor="gray.200"
+                py="2"
                 justifyContent="center"
                 alignItems="center"
               >
@@ -71,19 +74,18 @@ const EWallet = ({ navigation }: { navigation: any }) => {
                       flex={1}
                     />
                   </Box>
-                  <Text
-                    fontSize="14px"
-                    pt="10px"
-                    onPress={() => navigation.navigate('Partners')}
-                  >
+                  <Text variant="h7" pt="10px">
                     {item.method}
                   </Text>
                   <Spacer />
-                  <ChevronRightIcon
-                    mt={3}
-                    color="#344054"
+                  <TouchableOpacity
                     onPress={() => navigation.navigate('Partners')}
-                  />
+                  >
+                    <ChevronRightIcon
+                      mt={3}
+                      onPress={() => navigation.navigate('Partners')}
+                    />
+                  </TouchableOpacity>
                 </HStack>
               </Box>
             )}
@@ -91,7 +93,7 @@ const EWallet = ({ navigation }: { navigation: any }) => {
           />
         </Box>
       </Box>
-    </NativeBaseProvider>
+    </>
   );
 };
 

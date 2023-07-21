@@ -15,14 +15,14 @@ const SuccessReceipt = () => {
   const theme = useTheme();
 
   return (
-    <NativeBaseProvider>
+    <>
       <Box m="24px" flex={1} justifyContent="center" alignItems="center">
         <VStack justifyContent="space-between" alignItems="center" space={4}>
           <Avatar></Avatar>
-          <Text bold fontSize="16px">
+          <Text bold variant="h6">
             Main label with max 32 Char(s)
           </Text>
-          <Text fontSize="14px">
+          <Text variant="h7">
             Copy with max 90 Char(s). Up to 3 lines. Line 3, for example.
           </Text>
         </VStack>
@@ -30,12 +30,10 @@ const SuccessReceipt = () => {
 
       {/* Footer */}
       <Box m="16px">
-        <Button bg="#1561E8" mb="10px">
-          CTA
-        </Button>
-        <Button>Secondary CTA</Button>
+        <Button mb="10px">CTA</Button>
+        <Button variant="secondaryGray">Secondary CTA</Button>
       </Box>
-    </NativeBaseProvider>
+    </>
   );
 };
 

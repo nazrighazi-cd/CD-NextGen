@@ -32,7 +32,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Cheatsheet">
+        <Stack.Navigator initialRouteName="Main List">
           {/* Styling Cheatsheet */}
           <Stack.Screen name="Cheatsheet" component={Cheatsheet} />
           <Stack.Screen name="Icons" component={Icons} />

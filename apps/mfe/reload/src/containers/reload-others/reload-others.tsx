@@ -18,6 +18,7 @@ import {
 
 // Icons
 import { ChevronRightIcon } from 'native-base';
+import Contact from '../../assets/icons/contact.svg';
 
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -72,7 +73,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
             <Box w="100%">
               <Input
                 placeholder="+60"
-                InputRightElement={<ChevronRightIcon mr={2} />}
+                InputRightElement={<Contact />}
                 py={4}
               ></Input>
             </Box>

@@ -7,17 +7,17 @@ const OpenLink = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
   return (
-    <NativeBaseProvider>
+    <>
       <Box flex={1} justifyContent="center" alignItems="center">
         <Text
-          fontSize="14px"
-          color="#667085"
+          variant="h7"
+          color="gray.500"
           onPress={() => navigation.navigate('Receipt')}
         >
           Open Link
         </Text>
       </Box>
-    </NativeBaseProvider>
+    </>
   );
 };
 
