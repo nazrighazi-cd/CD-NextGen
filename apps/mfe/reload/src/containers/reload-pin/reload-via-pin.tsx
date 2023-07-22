@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // Native Base Components
-import { useTheme, Box, Text, HStack, Input, Button, Modal } from 'native-base';
+import { useTheme, Box, HStack, Text, Input, Button, Modal } from 'native-base';
 // Icons
 import Contact from '../../assets/icons/contact.svg';
 import Info from '../../assets/icons/info-circle.svg';
@@ -12,38 +12,40 @@ const ReloadViaPin = () => {
 
   return (
     <>
-      <Box flex={9} m="16px">
-        {/* ENTER MOBILE NUMBER */}
-        <Box variant="shadow" rounded="lg">
-          <Text variant="body2" bold pb="16px">
-            1. Select or Enter Mobile Number
-          </Text>
-          <Input
-            placeholder="+60"
-            InputRightElement={
-              <Box pr={3}>
-                <Contact />
-              </Box>
-            }
-            py={4}
-          ></Input>
-        </Box>
-
-        {/* ENTER RELOAD PIN */}
-        <Box variant="shadow" mt="16px">
-          <HStack>
-            <Text variant="body2" bold pb="16px" pr={2}>
-              2. Enter Reload PIN
+      <Box flex={1} bg="white">
+        <Box flex={1} m="16px">
+          {/* ENTER MOBILE NUMBER */}
+          <Box variant="shadow" rounded="lg">
+            <Text variant="body2" bold pb="16px">
+              1. Select or Enter Mobile Number
             </Text>
-            <Box mt={-0.5}>
-              <Info width="16px" />
-            </Box>
-          </HStack>
-          <Input placeholder="16-Digit Pin Number" py={4} />
+            <Input
+              placeholder="+60"
+              InputRightElement={
+                <Box pr={3}>
+                  <Contact />
+                </Box>
+              }
+              py={4}
+            ></Input>
+          </Box>
+
+          {/* ENTER RELOAD PIN */}
+          <Box variant="shadow" mt="16px">
+            <HStack>
+              <Text variant="body2" bold pb="16px" pr={2}>
+                2. Enter Reload PIN
+              </Text>
+              <Box mt={-0.5}>
+                <Info width="16px" />
+              </Box>
+            </HStack>
+            <Input placeholder="16-Digit Pin Number" py={4} />
+          </Box>
         </Box>
-      </Box>
-      <Box flex={1} mx="16px">
-        <Button onPress={() => setBottomModal(true)}>Continue</Button>
+        <Box m="16px">
+          <Button onPress={() => setBottomModal(true)}>Continue</Button>
+        </Box>
       </Box>
 
       {/* PIN RELOAD MODAL */}

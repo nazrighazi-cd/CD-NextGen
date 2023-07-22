@@ -1,16 +1,11 @@
 import * as React from 'react';
-import {} from 'react-native';
-
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 // NativeBase
 import { NativeBaseProvider } from 'native-base';
-
 // Theme
 import theme from '../themes/theme';
-
 // Pages
 import Cheatsheet from '../assets/containers/pages/Cheatsheet';
 import Icons from '../assets/containers/pages/Icons';
@@ -25,6 +20,14 @@ import AddCard from '../containers/reload-others/add-card';
 import Banks from '../containers/reload-others/select-banks';
 import ReloadPin from '../containers/reload-pin/reload-pin';
 import ReloadViaPin from '../containers/reload-pin/reload-via-pin';
+import AutoReloadLimit from '../containers/auto-reload-limit/auto-reload-limit';
+import AutoReloadCalendar from '../containers/auto-reload-calendar/auto-reload-calendar';
+import AutoReloadActive from '../containers/auto-reload-calendar/auto-reload-active';
+import TransactionHistory from '../containers/transaction-history/transaction-history';
+import TransactionHistoryDetails from '../containers/transaction-history/transaction-history-details';
+import SelectCards from '../containers/auto-reload-limit/select-cards';
+// Icons
+import ArrowLeft from '../assets/icons/arrow-left.svg';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +35,12 @@ export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Main List">
+        <Stack.Navigator
+          initialRouteName="Main List"
+          screenOptions={{
+            headerBackTitleVisible: false,
+          }}
+        >
           {/* Styling Cheatsheet */}
           <Stack.Screen name="Cheatsheet" component={Cheatsheet} />
           <Stack.Screen name="Icons" component={Icons} />
@@ -43,7 +51,11 @@ export default function App() {
             name="Main List"
             component={MainList}
           />
-          <Stack.Screen name="Reload Wallet" component={ReloadWallet} />
+          <Stack.Screen
+            options={{ title: 'Reload' }}
+            name="Reload Wallet"
+            component={ReloadWallet}
+          />
           <Stack.Screen name="Select eWallet" component={EWallet} />
           <Stack.Screen name="Partners" component={OpenLink} />
           <Stack.Screen
@@ -51,12 +63,49 @@ export default function App() {
             name="Receipt"
             component={SuccessReceipt}
           />
-          <Stack.Screen name="Reload Others" component={ReloadOthers} />
+          <Stack.Screen
+            options={{ title: 'Reload' }}
+            name="Reload Others"
+            component={ReloadOthers}
+          />
           <Stack.Screen name="Select Card" component={SelectCard} />
           <Stack.Screen name="Add Card" component={AddCard} />
           <Stack.Screen name="Select Banks" component={Banks} />
-          <Stack.Screen name="Reload Pin" component={ReloadPin} />
+          <Stack.Screen
+            options={{ title: 'Reload' }}
+            name="Reload Pin"
+            component={ReloadPin}
+          />
           <Stack.Screen name="Reload Via Pin" component={ReloadViaPin} />
+          <Stack.Screen
+            options={{ title: 'Auto Reload' }}
+            name="Auto Reload Limit"
+            component={AutoReloadLimit}
+          />
+          <Stack.Screen
+            options={{ title: 'Select Card' }}
+            name="Select Cards"
+            component={SelectCards}
+          />
+          <Stack.Screen
+            options={{ title: 'Auto Reload' }}
+            name="Auto Reload Calendar"
+            component={AutoReloadCalendar}
+          />
+          <Stack.Screen
+            options={{ title: 'Auto Reload' }}
+            name="Auto Reload Active"
+            component={AutoReloadActive}
+          />
+          <Stack.Screen
+            name="Transaction History"
+            component={TransactionHistory}
+          />
+          <Stack.Screen
+            options={{ title: 'Notifications' }}
+            name="Transaction History Details"
+            component={TransactionHistoryDetails}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>

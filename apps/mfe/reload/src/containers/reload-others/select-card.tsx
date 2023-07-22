@@ -1,19 +1,8 @@
 import React, { useState } from 'react';
-// React Native Components
-import { TouchableOpacity } from 'react-native';
 // Native Base Components
-import {
-  useTheme,
-  Box,
-  Text,
-  HStack,
-  AddIcon,
-  FlatList,
-  Badge,
-  Spacer,
-} from 'native-base';
+import { useTheme, HStack, Box, Text, Badge, Pressable } from 'native-base';
 //Icons
-import { ChevronRightIcon } from 'native-base';
+import { ChevronRightIcon, AddIcon } from 'native-base';
 import Check from '../../assets/icons/check.svg';
 import Visa from '../../assets/icons/payment-methods/Visa.svg';
 import MasterCard from '../../assets/icons/payment-methods/Mastercard.svg';
@@ -43,39 +32,29 @@ const SelectCard = ({ navigation }: { navigation: any }) => {
 
   return (
     <>
-      <Box m="16px">
-        {/* ADD CARD (Show When showCardOptions is false) */}
-        {!showCardOptions && (
-          <Box variant="shadow">
-            <HStack space={2} alignItems="center">
-              <TouchableOpacity
-                onPress={() => setShowCardOptions(!showCardOptions)}
-              >
-                <AddIcon color="primary.600" />
-              </TouchableOpacity>
-              <Text variant="body2" color="primary.600">
-                Add Card
-              </Text>
-            </HStack>
-          </Box>
-        )}
+      <Box flex={1} bg="white">
+        <Box m="16px">
+          {/* ADD CARD (Show When showCardOptions is false) */}
+          {!showCardOptions && (
+            <Box variant="shadow">
+              <HStack space={2} alignItems="center">
+                <Pressable onPress={() => setShowCardOptions(!showCardOptions)}>
+                  <AddIcon color="primary.600" />
+                </Pressable>
+                <Text variant="body2" color="primary.600">
+                  Add Card
+                </Text>
+              </HStack>
+            </Box>
+          )}
 
-        {/* CARD OPTIONS (Show When showCardOptions is true) */}
-        {showCardOptions && (
-          <Box variant="shadow">
-            {/* List of Card Options */}
-            <FlatList
-              data={paymentData}
-              renderItem={({ item, index }) => (
-                <Box
-                  // borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-                  borderBottomWidth={1}
-                  borderColor="gray.200"
-                  py={2}
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <HStack space={[2, 4]} justifyContent="space-between">
+          {/* CARD OPTIONS (Show When showCardOptions is true) */}
+          {showCardOptions && (
+            <Box variant="shadow">
+              {/* List of Card Options */}
+              {paymentData.map((item, index) => (
+                <Box key={index} variant="listing">
+                  <HStack alignItems="center">
                     <Box
                       w="50px"
                       h="40px"
@@ -95,37 +74,32 @@ const SelectCard = ({ navigation }: { navigation: any }) => {
                         <Badge variant="blue">{item.tag}</Badge>
                       ) : null}
                     </Box>
-
-                    <Spacer />
-
-                    {item.check ? (
-                      <Box mt={3}>
-                        <Check />
-                      </Box>
-                    ) : (
-                      <TouchableOpacity
-                        onPress={() => navigation.navigate('Partners')}
-                      >
-                        <ChevronRightIcon
-                          mt={3}
-                          onPress={() => navigation.navigate('Partners')}
-                        />
-                      </TouchableOpacity>
-                    )}
                   </HStack>
+                  {item.check ? (
+                    <Box mt={3}>
+                      <Check />
+                    </Box>
+                  ) : (
+                    <Pressable onPress={() => navigation.navigate('Partners')}>
+                      <ChevronRightIcon
+                        mt={3}
+                        onPress={() => navigation.navigate('Partners')}
+                      />
+                    </Pressable>
+                  )}
                 </Box>
-              )}
-            />
-            <HStack space={2} alignItems="center" pt={4}>
-              <TouchableOpacity onPress={() => navigation.navigate('Add Card')}>
-                <AddIcon color="primary.600" />
-              </TouchableOpacity>
-              <Text variant="body2" color="primary.600">
-                Add Card
-              </Text>
-            </HStack>
-          </Box>
-        )}
+              ))}
+              <HStack space={2} alignItems="center" pt={5}>
+                <Pressable onPress={() => navigation.navigate('Add Card')}>
+                  <AddIcon color="primary.600" />
+                </Pressable>
+                <Text variant="body2" color="primary.600">
+                  Add Card
+                </Text>
+              </HStack>
+            </Box>
+          )}
+        </Box>
       </Box>
     </>
   );

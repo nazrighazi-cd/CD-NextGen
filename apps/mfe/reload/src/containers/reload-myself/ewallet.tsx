@@ -1,8 +1,6 @@
 import React from 'react';
-// React Native Components
-import { TouchableOpacity } from 'react-native';
 // Native Base Components
-import { useTheme, Box, Text, HStack, FlatList, Spacer } from 'native-base';
+import { useTheme, Box, HStack, Text, Pressable } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
 import Boost from '../../assets/icons/payment-methods/e-wallet/Boost.svg';
@@ -39,22 +37,22 @@ const EWallet = ({ navigation }: { navigation: any }) => {
 
   return (
     <>
-      <Box m="16px">
-        <Box variant="shadow">
-          {/* List of eWallet */}
-          <FlatList
-            data={paymentData}
-            renderItem={({ item, index }) => (
+      <Box flex={1} bg="white">
+        <Box m="16px">
+          <Box variant="shadow">
+            {/* List of eWallet */}
+            {paymentData.map((item, index) => (
               <Box
                 borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
                 borderColor="gray.200"
                 py={2}
-                justifyContent="center"
+                flexDir="row"
                 alignItems="center"
+                justifyContent="space-between"
               >
-                <HStack space={[2, 3]} justifyContent="space-between">
+                <HStack alignItems="center">
                   <Box
-                    w="50px"
+                    w="40px"
                     h="40px"
                     justifyContent="center"
                     alignItems="center"
@@ -64,23 +62,17 @@ const EWallet = ({ navigation }: { navigation: any }) => {
                       height: '100%',
                     })}
                   </Box>
-                  <Text variant="h7" pt="10px">
-                    {item.method}
-                  </Text>
-                  <Spacer />
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate('Partners')}
-                  >
-                    <ChevronRightIcon
-                      mt={3}
-                      onPress={() => navigation.navigate('Partners')}
-                    />
-                  </TouchableOpacity>
+                  <Text variant="h7">{item.method}</Text>
                 </HStack>
+                <Pressable onPress={() => navigation.navigate('Partners')}>
+                  <ChevronRightIcon
+                    mt={3}
+                    onPress={() => navigation.navigate('Partners')}
+                  />
+                </Pressable>
               </Box>
-            )}
-            keyExtractor={(item) => item.id}
-          />
+            ))}
+          </Box>
         </Box>
       </Box>
     </>

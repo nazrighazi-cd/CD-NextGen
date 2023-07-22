@@ -1,6 +1,6 @@
 import React from 'react';
 //  Native Base Components
-import { useTheme, NativeBaseProvider, Box, Text } from 'native-base';
+import { useTheme, Box, Text } from 'native-base';
 
 const OpenLink = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

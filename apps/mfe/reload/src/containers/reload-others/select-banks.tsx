@@ -1,8 +1,6 @@
 import React from 'react';
-// React Native Components
-import { TouchableOpacity } from 'react-native';
 // Native Base Components
-import { useTheme, Box, Text, HStack, FlatList, Spacer } from 'native-base';
+import { useTheme, Box, HStack, Text, Pressable } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
 import AffinBank from '../../assets/icons/payment-methods/bank/affin-bank.svg';
@@ -63,20 +61,20 @@ const Banks = ({ navigation }: { navigation: any }) => {
 
   return (
     <>
-      <Box m="16px">
-        <Box variant="shadow">
-          {/* List of Banks */}
-          <FlatList
-            data={paymentData}
-            renderItem={({ item, index }) => (
+      <Box flex={1} bg="white">
+        <Box m="16px">
+          <Box variant="shadow">
+            {/* List of Banks */}
+            {paymentData.map((item, index) => (
               <Box
                 borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-                borderColor="#EAECF0"
-                py="3"
-                justifyContent="center"
+                borderColor="gray.200"
+                py={2}
+                flexDir="row"
                 alignItems="center"
+                justifyContent="space-between"
               >
-                <HStack space={[2, 3]} justifyContent="space-between">
+                <HStack alignItems="center">
                   <Box
                     w="50px"
                     h="40px"
@@ -88,20 +86,16 @@ const Banks = ({ navigation }: { navigation: any }) => {
                       height: '100%',
                     })}
                   </Box>
-                  <Text fontSize="14px" pt="10px">
+                  <Text variant="h7" pl={4}>
                     {item.method}
                   </Text>
-                  <Spacer />
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate('Reload Others')}
-                  >
-                    <ChevronRightIcon mt={3} color="#344054" />
-                  </TouchableOpacity>
                 </HStack>
+                <Pressable onPress={() => navigation.navigate('Reload Others')}>
+                  <ChevronRightIcon />
+                </Pressable>
               </Box>
-            )}
-            keyExtractor={(item) => item.id}
-          />
+            ))}
+          </Box>
         </Box>
       </Box>
     </>
