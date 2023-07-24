@@ -93,10 +93,8 @@ function filterPastSevenDaysTransactions(transactions) {
   const currentDate = new Date();
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(currentDate.getDate() - 7);
-
   return transactions.filter((transaction) => {
     const transactionDate = new Date(transaction.date);
-
     return transactionDate >= sevenDaysAgo && transactionDate <= currentDate;
   });
 }
@@ -105,7 +103,6 @@ function filterTransactionsByMonth(transactions, targetMonth) {
   return transactions.filter((transaction) => {
     const transactionDate = new Date(transaction.date);
     const transactionMonth = transactionDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
-
     return transactionMonth === targetMonth;
   });
 }
@@ -114,15 +111,12 @@ function filterLastThreeMonthsTransactions(transactions) {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
   const currentYear = currentDate.getFullYear();
-
   return transactions.filter((transaction) => {
     const transactionDate = new Date(transaction.date);
     const transactionMonth = transactionDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
     const transactionYear = transactionDate.getFullYear();
-    // 3 Months
     const monthsDiff =
       (currentYear - transactionYear) * 12 + (currentMonth - transactionMonth);
-
     return monthsDiff <= 3 && monthsDiff > 0;
   });
 }
@@ -130,39 +124,28 @@ function filterLastThreeMonthsTransactions(transactions) {
 function filterLastYearTransactions(transactions) {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-
   return transactions.filter((transaction) => {
     const transactionDate = new Date(transaction.date);
     const transactionYear = transactionDate.getFullYear();
     const yearsDiff = currentYear - transactionYear;
-    // Last year
     return yearsDiff === 1;
   });
 }
 
 const TransactionHistory = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
-
   // Bottom Modal
   const [bottomModal, setBottomModal] = useState(false);
-
-  // Tab Filter
+  // Filter (Badge)
   const [selectedFilter, setSelectedFilter] = useState('Today');
-
-  // Function to handle selecting a filter from the modal
+  // Select Filter from Modal
   const handleFilterSelection = (filter) => {
     setSelectedFilter(filter);
     setBottomModal(false);
   };
-
-  // Function to determine if the filter badge should have the "solid" style
-  const isFilterSelected = (filter) => {
-    return selectedFilter === filter;
-  };
-
-  // Filter transactions based on the selected tab
+  // Filter transactions based on the selected badge
   let filteredTransactions = [];
-
+  // Filter by:
   if (selectedFilter === 'Today') {
     const today = new Date();
     filteredTransactions = transactions.filter((transaction) => {
