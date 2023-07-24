@@ -22,12 +22,10 @@ import ReloadPin from '../containers/reload-pin/reload-pin';
 import ReloadViaPin from '../containers/reload-pin/reload-via-pin';
 import AutoReloadLimit from '../containers/auto-reload-limit/auto-reload-limit';
 import AutoReloadCalendar from '../containers/auto-reload-calendar/auto-reload-calendar';
-import AutoReloadActive from '../containers/auto-reload-calendar/auto-reload-active';
 import TransactionHistory from '../containers/transaction-history/transaction-history';
 import TransactionHistoryDetails from '../containers/transaction-history/transaction-history-details';
 import SelectCards from '../containers/auto-reload-limit/select-cards';
-// Icons
-import ArrowLeft from '../assets/icons/arrow-left.svg';
+import AutoReloadActive from '../containers/auto-reload-management/auto-reload-active';
 
 const Stack = createNativeStackNavigator();
 
@@ -93,11 +91,6 @@ export default function App() {
             component={AutoReloadCalendar}
           />
           <Stack.Screen
-            options={{ title: 'Auto Reload' }}
-            name="Auto Reload Active"
-            component={AutoReloadActive}
-          />
-          <Stack.Screen
             name="Transaction History"
             component={TransactionHistory}
           />
@@ -105,6 +98,11 @@ export default function App() {
             options={{ title: 'Notifications' }}
             name="Transaction History Details"
             component={TransactionHistoryDetails}
+          />
+          <Stack.Screen
+            options={{ title: 'Auto Reload' }}
+            name="Auto Reload Active"
+            component={AutoReloadActive}
           />
         </Stack.Navigator>
       </NavigationContainer>

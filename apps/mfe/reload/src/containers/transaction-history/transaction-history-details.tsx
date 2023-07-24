@@ -15,6 +15,8 @@ import Copy from '../../assets/icons/copy-01.svg';
 import Twitter from '../../assets/icons/social/twitter.svg';
 import Facebook from '../../assets/icons/social/facebook.svg';
 import LinkedIn from '../../assets/icons/social/linkedin.svg';
+// Images
+import Transaction from '../../assets/images/transactionHistory.png';
 
 const TransactionHistoryDetails = () => {
   const theme = useTheme();
@@ -40,32 +42,40 @@ const TransactionHistoryDetails = () => {
           Pretium enim amet et amet a congue quis. Convallis duis neque viverra
           sed ante cum sodales. Fermentum orci ornare purus sem.
         </Text>
-        <Text variant="h4" textAlign="center" mt={5}>
-          IMAGE HERE
-        </Text>
+        <Box alignItems="center" mt="16px">
+          <Image source={Transaction} width="100%" height="70%" />
+        </Box>
       </Box>
 
       {/* FOOTER */}
       <Box flex={1} m="16px">
         <HStack space={3} justifyContent="space-betwen">
-          <Button variant="secondaryGray" width="40%" justifyContent="flex-end">
+          <Button
+            variant="secondaryGray"
+            paddingRight="16px"
+            paddingLeft="16px"
+            paddingTop="10px"
+            paddingBottom="10px"
+          >
             <HStack>
-              <Copy width="30px" />
-              <Text textAlign="left">Copy Link</Text>
+              <Copy width="20px" />
+              <Text textAlign="left" pl="8px">
+                Copy Link
+              </Text>
             </HStack>
           </Button>
           <IconButton
-            icon={<Twitter width="30px" />}
+            icon={<Twitter width="20px" />}
             width="40px"
             height="40px"
           />
           <IconButton
-            icon={<Facebook width="30px" />}
+            icon={<Facebook width="20px" />}
             width="40px"
             height="40px"
           />
           <IconButton
-            icon={<LinkedIn width="30px" />}
+            icon={<LinkedIn width="20px" />}
             width="40px"
             height="40px"
           />

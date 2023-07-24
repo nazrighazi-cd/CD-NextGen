@@ -44,9 +44,43 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
 
   return (
     <Box bg="white" h="100%" w="100%" maxWidth="100%">
-      {/* MY TRANSACTION */}
       <Box m="16px">
-        <Box flexDir="row" justifyContent="space-between">
+        {/* TAB */}
+        <HStack>
+          <Box
+            bg="#F9FAFB"
+            borderLeftRadius="6.5"
+            borderWidth="1"
+            borderColor="gray.300"
+          >
+            <Text p="10px" variant="body2">
+              All Transactions
+            </Text>
+          </Box>
+          <Box borderWidth="1" borderLeftWidth="0" borderColor="gray.300">
+            <Text p="10px" variant="body2">
+              Billing
+            </Text>
+          </Box>
+          <Box borderWidth="1" borderLeftWidth="0" borderColor="gray.300">
+            <Text p="10px" variant="body2">
+              Add-Ons
+            </Text>
+          </Box>
+          <Box
+            borderWidth="1"
+            borderLeftWidth="0"
+            borderColor="gray.300"
+            borderRightRadius="6.5"
+          >
+            <Text p="10px" variant="body2">
+              Subscriptions
+            </Text>
+          </Box>
+        </HStack>
+
+        {/* MY TRANSACTION */}
+        <Box flexDir="row" justifyContent="space-between" mt="16px">
           <Text
             variant="h7"
             onPress={() => navigation.navigate('Transaction History Details')}
