@@ -10,8 +10,8 @@
     "composite": true,
     "declaration": true
   },
-  "files": ["../../node_modules/@nx/react-native/typings/svg.d.ts"],
-  "include": [],
+  "files": ["apps/mfe/reload/declarations.d.ts"],
+  "include": ["apps/mfe/reload/custom.d.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"
