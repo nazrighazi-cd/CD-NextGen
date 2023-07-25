@@ -171,6 +171,17 @@ const Cheatsheet = () => {
           </Radio.Group>
         </HStack>
 
+        {/* Tabs */}
+        <Text color="primary.600" mt="4" mb="2">
+          Tabs (Button)
+        </Text>
+        <Button.Group isAttached>
+          <Button variant="tabActive">All Transactions</Button>
+          <Button variant="tab">Billing</Button>
+          <Button variant="tab">Add-Ons</Button>
+          <Button variant="tab">Subscriptions</Button>
+        </Button.Group>
+
         {/* Modal */}
         <Text color="primary.600" mt="4" mb="2">
           Modal
@@ -234,43 +245,6 @@ const Cheatsheet = () => {
           Shadow
         </Box>
         <Box variant="border">Border</Box>
-
-        {/* Tabs */}
-        <Text color="primary.600" mt="4" mb="2">
-          Tabs (Custom Component)
-        </Text>
-        <HStack>
-          <Box
-            bg="#F9FAFB"
-            borderLeftRadius="6.5"
-            borderWidth="1"
-            borderColor="gray.300"
-          >
-            <Text p="8px" variant="body2">
-              All Transactions
-            </Text>
-          </Box>
-          <Box borderWidth="1" borderLeftWidth="0" borderColor="gray.300">
-            <Text p="8px" variant="body2">
-              Billing
-            </Text>
-          </Box>
-          <Box borderWidth="1" borderLeftWidth="0" borderColor="gray.300">
-            <Text p="8px" variant="body2">
-              Add-Ons
-            </Text>
-          </Box>
-          <Box
-            borderWidth="1"
-            borderLeftWidth="0"
-            borderColor="gray.300"
-            borderRightRadius="6.5"
-          >
-            <Text p="8px" variant="body2">
-              Subscriptions
-            </Text>
-          </Box>
-        </HStack>
 
         {/* Selection */}
         <Text color="primary.600" mt="4" mb="2">

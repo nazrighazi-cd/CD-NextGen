@@ -40,23 +40,23 @@ const theme = extendTheme({
       },
       variants: {
         h1: {
-          fontSize: '48px',
-          fontFamily: 'heading',
-        },
-        h2: {
           fontSize: '32px',
           fontFamily: 'heading',
         },
-        h3: {
+        h2: {
           fontSize: '28px',
           fontFamily: 'heading',
         },
-        h4: {
+        h3: {
           fontSize: '24px',
           fontFamily: 'heading',
         },
-        h5: {
+        h4: {
           fontSize: '20px',
+          fontFamily: 'heading',
+        },
+        h5: {
+          fontSize: '18px',
           fontFamily: 'heading',
         },
         h6: {
@@ -172,13 +172,30 @@ const theme = extendTheme({
     },
     Button: {
       defaultProps: {
-        _text: { fontSize: '16px' },
+        // _pressed: {
+        //   bg: 'primary.600',
+        // },
+        // size: 'lg',
+      },
+      baseStyle: {
         rounded: 'full',
         paddingLeft: '50px',
         paddingRight: '50px',
       },
       variants: {
-        link: {},
+        tab: {
+          paddingLeft: '8px',
+          paddingRight: '8px',
+          borderColor: 'gray.300',
+          borderWidth: 1,
+        },
+        tabActive: {
+          bg: 'gray.50',
+          paddingLeft: '8px',
+          paddingRight: '8px',
+          borderColor: 'gray.300',
+          borderWidth: 1,
+        },
         secondaryGray: {
           bg: 'white',
           _text: { color: 'gray.700' },
