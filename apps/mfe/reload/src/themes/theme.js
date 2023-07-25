@@ -2,8 +2,8 @@ import { extendTheme } from 'native-base';
 
 const theme = extendTheme({
   fonts: {
-    heading: 'Montserrat',
-    body: 'Lato',
+    heading: 'Montserrat-Regular',
+    body: 'Lato-Regular',
   },
   colors: {
     white: '#FFFFFF',
@@ -172,10 +172,7 @@ const theme = extendTheme({
     },
     Button: {
       defaultProps: {
-        // _pressed: {
-        //   bg: 'primary.600',
-        // },
-        // size: 'lg',
+        variant: 'default',
       },
       baseStyle: {
         rounded: 'full',
@@ -183,6 +180,13 @@ const theme = extendTheme({
         paddingRight: '50px',
       },
       variants: {
+        default: {
+          bg: 'primary.600',
+          _text: { color: 'white' },
+          _pressed: {
+            bg: 'primary.600',
+          },
+        },
         tab: {
           paddingLeft: '8px',
           paddingRight: '8px',
@@ -217,7 +221,7 @@ const theme = extendTheme({
         borderWidth: 1,
         borderColor: 'gray.300',
         _icon: {
-          color: 'gray.400',
+          color: '#98A2B3',
         },
       },
     },
