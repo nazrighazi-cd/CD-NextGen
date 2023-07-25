@@ -45,7 +45,7 @@ const MainList = ({ navigation }: { navigation: any }) => {
     },
     {
       name: 'Auto Reload Management',
-      pages: 'Reload Pin',
+      pages: 'Auto Reload Active',
       icons: <Currency />,
     },
   ];

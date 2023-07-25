@@ -47,16 +47,15 @@ const AddCard = () => {
                     <MasterCard />
                   </Box>
                 }
-                py={3}
                 mx={2}
               />
             </Box>
             <HStack justifyContent="space-between">
               <Box w="50%">
-                <Input placeholder="Expiry Date" mx={2} py={3} />
+                <Input placeholder="Expiry Date" mx={2} />
               </Box>
               <Box w="50%">
-                <Input placeholder="CVV/CVC" mx={2} py={3} />
+                <Input placeholder="CVV/CVC" mx={2} />
               </Box>
             </HStack>
 

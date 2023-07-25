@@ -37,14 +37,14 @@ const ReloadViaPin = () => {
                 2. Enter Reload PIN
               </Text>
               <Box mt={-0.5}>
-                <Info width="16px" />
+                <Info width="16px" onPress={() => setBottomModal(true)} />
               </Box>
             </HStack>
             <Input placeholder="16-Digit Pin Number" py={4} />
           </Box>
         </Box>
         <Box m="16px">
-          <Button onPress={() => setBottomModal(true)}>Continue</Button>
+          <Button>Continue</Button>
         </Box>
       </Box>
 

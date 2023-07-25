@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Native Base Components
 import {
   useTheme,
-  Pressable,
   Box,
+  HStack,
+  VStack,
   Text,
   Icon,
   Badge,
-  HStack,
-  VStack,
-  ScrollView,
   Input,
   Button,
   Spacer,
+  Modal,
+  ScrollView,
+  Pressable,
 } from 'native-base';
 // Icons
-import Calendar from '../../assets/icons/calendar.svg';
+import CalendarIcon from '../../assets/icons/calendar.svg';
 
 const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
+
+  const [defaultModal, setDefaultModal] = useState(false);
 
   // Mock Data
   const reloadAmount = [
@@ -54,124 +57,142 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <Box flex={1} bg="white">
-      <ScrollView>
-        <Box flex={1} m="16px">
-          {/* RELOAD CARD */}
-          <Box variant="shadow" bg="#4481ED">
-            <HStack space={[2, 3]} justifyContent="space-between">
-              <Box>
-                <Icon bg="white" p="22px"></Icon>
-              </Box>
-              <Box>
-                <Text variant="h6" color="white" pb="1.5">
-                  60 19 23456789
-                </Text>
-                <Text variant="label" bold color="white">
-                  Reload before 28/07/2023
-                </Text>
-              </Box>
-              <Spacer />
-              <Box alignItems="flex-end">
-                <Badge variant="success">Active</Badge>
-                <Text variant="h5" bold color="#FFFFFF">
-                  RM XX.XX
-                </Text>
-              </Box>
-            </HStack>
-          </Box>
-
-          {/* DATE MONTH */}
-          <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
-              1. Date of the month
-            </Text>
-            {/* Amount Input */}
-            <Box pb="5px">
-              <Input
-                placeholder="Choose between 1 and 28 of the month"
-                InputRightElement={
-                  <Box pr={3}>
-                    <Calendar />
-                  </Box>
-                }
-                onChangeText={onChangeNumber}
-                value={number}
-                keyboardType="numeric"
-              ></Input>
+    <>
+      <Box flex={1} bg="white">
+        <ScrollView>
+          <Box flex={1} m="16px">
+            {/* RELOAD CARD */}
+            <Box variant="shadow" bg="#4481ED">
+              <HStack space={[2, 3]} justifyContent="space-between">
+                <Box>
+                  <Icon bg="white" p="22px"></Icon>
+                </Box>
+                <Box>
+                  <Text variant="h6" color="white" pb="1.5">
+                    60 19 23456789
+                  </Text>
+                  <Text variant="label" bold color="white">
+                    Reload before 28/07/2023
+                  </Text>
+                </Box>
+                <Spacer />
+                <Box alignItems="flex-end">
+                  <Badge variant="success">Active</Badge>
+                  <Text variant="h5" bold color="#FFFFFF">
+                    RM XX.XX
+                  </Text>
+                </Box>
+              </HStack>
             </Box>
-            {/* Additional Text */}
-            <Text variant="label" pb="8px" color="gray.500">
-              Amount must be between RM5 - RM100
-            </Text>
+
+            {/* DATE MONTH */}
+            <Box variant="shadow" mt="16px">
+              <Text variant="body2" bold pb="16px">
+                1. Date of the month
+              </Text>
+              {/* Amount Input */}
+              <Box pb="5px">
+                <Input
+                  placeholder="Choose between 1 and 28 of the month"
+                  InputRightElement={
+                    <Box pr={3}>
+                      <CalendarIcon onPress={() => setDefaultModal(true)} />
+                    </Box>
+                  }
+                  onChangeText={onChangeNumber}
+                  value={number}
+                  keyboardType="numeric"
+                ></Input>
+              </Box>
+              {/* Additional Text */}
+              <Text variant="label" pb="8px" color="gray.500">
+                Amount must be between RM5 - RM100
+              </Text>
+            </Box>
+
+            {/* SELECT AMOUNT CARD */}
+            <Box variant="shadow" mt="16px">
+              <Text variant="body2" bold pb="16px">
+                2. Select Amount
+              </Text>
+              {/* Card Reload */}
+              <VStack justifyContent="center">
+                {rowsAmount.map((row, index) => (
+                  <HStack key={index} justifyContent="space-between">
+                    {row.map((amount, itemIndex) => (
+                      <Pressable>
+                        {({ isPressed }) => {
+                          return (
+                            <Box
+                              variant="border"
+                              key={itemIndex}
+                              w="94px"
+                              h="72px"
+                              px="4px"
+                              justifyContent="center"
+                              alignItems="center"
+                              mb="16px"
+                              bg={isPressed ? 'primary.5' : 'white'}
+                              borderColor={
+                                isPressed ? 'primary.600' : 'gray.300'
+                              }
+                              borderWidth={isPressed ? '2' : '1'}
+                            >
+                              <Text variant="h6" bold>
+                                RM{amount.price}
+                              </Text>
+                              <Text variant="label">{amount.validity}</Text>
+                              {/* Tag */}
+                              {amount.tag ? (
+                                <Badge
+                                  variant="popular"
+                                  position="absolute"
+                                  top="-10"
+                                >
+                                  {amount.tag}
+                                </Badge>
+                              ) : null}
+                            </Box>
+                          );
+                        }}
+                      </Pressable>
+                    ))}
+                  </HStack>
+                ))}
+              </VStack>
+              {/* Additional Text */}
+              <Text variant="label" pb="8px" color="gray.500">
+                Non-Malaysians will be subjected to 6% SST.
+              </Text>
+            </Box>
           </Box>
 
-          {/* SELECT AMOUNT CARD */}
-          <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
-              2. Select Amount
-            </Text>
-            {/* Card Reload */}
-            <VStack justifyContent="center">
-              {rowsAmount.map((row, index) => (
-                <HStack key={index} justifyContent="space-between">
-                  {row.map((amount, itemIndex) => (
-                    <Pressable>
-                      {({ isPressed }) => {
-                        return (
-                          <Box
-                            variant="border"
-                            key={itemIndex}
-                            w="94px"
-                            h="72px"
-                            px="4px"
-                            justifyContent="center"
-                            alignItems="center"
-                            mb="16px"
-                            bg={isPressed ? 'primary.5' : 'white'}
-                            borderColor={isPressed ? 'primary.600' : 'gray.300'}
-                            borderWidth={isPressed ? '2' : '1'}
-                          >
-                            <Text variant="h6" bold>
-                              RM{amount.price}
-                            </Text>
-                            <Text variant="label">{amount.validity}</Text>
-                            {/* Tag */}
-                            {amount.tag ? (
-                              <Badge
-                                variant="popular"
-                                position="absolute"
-                                top="-10"
-                              >
-                                {amount.tag}
-                              </Badge>
-                            ) : null}
-                          </Box>
-                        );
-                      }}
-                    </Pressable>
-                  ))}
-                </HStack>
-              ))}
-            </VStack>
-            {/* Additional Text */}
-            <Text variant="label" pb="8px" color="gray.500">
-              Non-Malaysians will be subjected to 6% SST.
-            </Text>
-          </Box>
-        </Box>
-
-        {/* FOOTER */}
-        <Box m="16px">
-          <Button
+          {/* FOOTER */}
+          <Box m="16px">
+            <Button
             // isDisabled={!number || !isNaN || number < 5 || number > 100}
-            onPress={() => navigation.navigate('Auto Reload Active')}
-          >
-            Continue
-          </Button>
-        </Box>
-      </ScrollView>
-    </Box>
+            >
+              Continue
+            </Button>
+          </Box>
+        </ScrollView>
+      </Box>
+
+      {/* CALENDAR MODAL */}
+      <Modal
+        isOpen={defaultModal}
+        onClose={() => setDefaultModal(false)}
+        accessibilityLabel="Default Modal"
+      >
+        <Modal.Content>
+          <Modal.CloseButton />
+          <Text variant="h6" bold>
+            Select Activation Date
+          </Text>
+          <Box>Calendar</Box>
+        </Modal.Content>
+      </Modal>
+    </>
   );
 };
 export default AutoReloadCalendar;
