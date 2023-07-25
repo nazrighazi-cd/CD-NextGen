@@ -79,8 +79,8 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
             {/* RELOAD CARD */}
             <Box variant="shadow" bg="#4481ED" mt="16px">
               <HStack space={[2, 3]} justifyContent="space-between">
-                <Box>
-                  <Icon bg="white" p="22px"></Icon>
+                <Box variant="iconRounded">
+                  <Icon></Icon>
                 </Box>
                 <Box>
                   <Text variant="h6" color="white" pb="1.5">

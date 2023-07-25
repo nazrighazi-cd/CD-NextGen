@@ -20,33 +20,37 @@ const MainList = ({ navigation }: { navigation: any }) => {
     {
       name: 'Reload for Myself',
       pages: 'Reload Wallet',
-      icons: <Medal />,
+      icons: <Medal color="#000000" />,
     },
     {
       name: 'Reload for Others',
       pages: 'Reload Others',
-      icons: <File />,
+      icons: <File color="#000000" />,
     },
-    { name: 'PIN Reload', pages: 'Reload Pin', icons: <Passcode /> },
+    {
+      name: 'PIN Reload',
+      pages: 'Reload Pin',
+      icons: <Passcode color="#000000" />,
+    },
     {
       name: 'Auto Reload Limit',
       pages: 'Auto Reload Limit',
-      icons: <AutoBilling />,
+      icons: <AutoBilling color="#000000" />,
     },
     {
       name: 'Auto Reload Calendar',
       pages: 'Auto Reload Calendar',
-      icons: <CalendarRefresh />,
+      icons: <CalendarRefresh color="#000000" />,
     },
     {
       name: 'Transaction History',
       pages: 'Transaction History',
-      icons: <History />,
+      icons: <History color="#000000" />,
     },
     {
       name: 'Auto Reload Management',
       pages: 'Auto Reload Active',
-      icons: <Currency />,
+      icons: <Currency color="#000000" />,
     },
   ];
 
@@ -62,12 +66,17 @@ const MainList = ({ navigation }: { navigation: any }) => {
         <Text bold variant="h7" mb="16px">
           Reload
         </Text>
-        <VStack justifyContent="center" mx="16px">
+        <VStack justifyContent="center">
           {rowsListing.map((row, index) => (
-            <HStack key={index} space={[7, 4]}>
+            <HStack key={index}>
               {row.map((list, itemIndex) => (
                 <Pressable onPress={() => navigation.navigate(list.pages)}>
-                  <Box key={itemIndex} alignItems="center" mb="16px">
+                  <Box
+                    key={itemIndex}
+                    width="85px"
+                    alignItems="center"
+                    mb="16px"
+                  >
                     {list.icons}
                     <Text variant="label" pt={2} textAlign="center">
                       {list.name.length > max_length

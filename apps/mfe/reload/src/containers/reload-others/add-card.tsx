@@ -39,7 +39,7 @@ const AddCard = () => {
                 placeholder="Card Number"
                 InputRightElement={
                   <Box pr={2}>
-                    <Help />
+                    <Help color="#98A2B3" />
                   </Box>
                 }
                 InputLeftElement={

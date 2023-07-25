@@ -64,8 +64,8 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
             {/* RELOAD CARD */}
             <Box variant="shadow" bg="#4481ED">
               <HStack space={[2, 3]} justifyContent="space-between">
-                <Box>
-                  <Icon bg="white" p="22px"></Icon>
+                <Box variant="iconRounded">
+                  <Icon></Icon>
                 </Box>
                 <Box>
                   <Text variant="h6" color="white" pb="1.5">
@@ -96,7 +96,10 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                   placeholder="Choose between 1 and 28 of the month"
                   InputRightElement={
                     <Box pr={3}>
-                      <CalendarIcon onPress={() => setDefaultModal(true)} />
+                      <CalendarIcon
+                        color="#667085"
+                        onPress={() => setDefaultModal(true)}
+                      />
                     </Box>
                   }
                   onChangeText={onChangeNumber}

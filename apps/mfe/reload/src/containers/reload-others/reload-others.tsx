@@ -69,7 +69,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
               placeholder="+60"
               InputRightElement={
                 <Box pr={3}>
-                  <Contact />
+                  <Contact color="#667085" />
                 </Box>
               }
               py={4}

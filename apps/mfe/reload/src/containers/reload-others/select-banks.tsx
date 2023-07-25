@@ -1,6 +1,13 @@
 import React from 'react';
 // Native Base Components
-import { useTheme, Box, HStack, Text, Pressable } from 'native-base';
+import {
+  useTheme,
+  Box,
+  HStack,
+  Text,
+  Pressable,
+  ScrollView,
+} from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
 import AffinBank from '../../assets/icons/payment-methods/bank/affin-bank.svg';
@@ -62,41 +69,45 @@ const Banks = ({ navigation }: { navigation: any }) => {
   return (
     <>
       <Box flex={1} bg="white">
-        <Box m="16px">
-          <Box variant="shadow">
-            {/* List of Banks */}
-            {paymentData.map((item, index) => (
-              <Box
-                borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-                borderColor="gray.200"
-                py={2}
-                flexDir="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <HStack alignItems="center">
-                  <Box
-                    w="50px"
-                    h="40px"
-                    justifyContent="center"
-                    alignItems="center"
+        <ScrollView>
+          <Box m="16px">
+            <Box variant="shadow" py="0px">
+              {/* List of Banks */}
+              {paymentData.map((item, index) => (
+                <Box
+                  borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
+                  borderColor="gray.200"
+                  py="16px"
+                  flexDir="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  <HStack alignItems="center">
+                    <Box
+                      w="50px"
+                      h="40px"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      {React.cloneElement(item.icons, {
+                        width: '100%',
+                        height: '100%',
+                      })}
+                    </Box>
+                    <Text variant="h7" pl={4}>
+                      {item.method}
+                    </Text>
+                  </HStack>
+                  <Pressable
+                    onPress={() => navigation.navigate('Reload Others')}
                   >
-                    {React.cloneElement(item.icons, {
-                      width: '100%',
-                      height: '100%',
-                    })}
-                  </Box>
-                  <Text variant="h7" pl={4}>
-                    {item.method}
-                  </Text>
-                </HStack>
-                <Pressable onPress={() => navigation.navigate('Reload Others')}>
-                  <ChevronRightIcon />
-                </Pressable>
-              </Box>
-            ))}
+                    <ChevronRightIcon />
+                  </Pressable>
+                </Box>
+              ))}
+            </Box>
           </Box>
-        </Box>
+        </ScrollView>
       </Box>
     </>
   );

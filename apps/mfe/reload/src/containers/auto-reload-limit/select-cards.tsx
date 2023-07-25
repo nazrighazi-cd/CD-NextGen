@@ -37,7 +37,7 @@ const SelecCards = ({ navigation }: { navigation: any }) => {
           <Box variant="shadow">
             {/* List of Card Options */}
             {paymentData.map((item, index) => (
-              <Box key={index} variant="listing">
+              <Box key={index} variant="listing" pt="0px">
                 <HStack alignItems="center">
                   <Box
                     w="50px"
@@ -58,20 +58,19 @@ const SelecCards = ({ navigation }: { navigation: any }) => {
                   </Box>
                 </HStack>
                 {item.check ? (
-                  <Box mt={3}>
+                  <Box>
                     <Check />
                   </Box>
                 ) : (
                   <Pressable onPress={() => navigation.navigate('Partners')}>
                     <ChevronRightIcon
-                      mt={3}
                       onPress={() => navigation.navigate('Partners')}
                     />
                   </Pressable>
                 )}
               </Box>
             ))}
-            <HStack space={2} alignItems="center" pt={5}>
+            <HStack space={2} alignItems="center" pt={5} pb={1}>
               <Pressable onPress={() => navigation.navigate('Add Card')}>
                 <AddIcon color="primary.600" />
               </Pressable>

@@ -39,13 +39,13 @@ const EWallet = ({ navigation }: { navigation: any }) => {
     <>
       <Box flex={1} bg="white">
         <Box m="16px">
-          <Box variant="shadow">
+          <Box variant="shadow" py="0px">
             {/* List of eWallet */}
             {paymentData.map((item, index) => (
               <Box
                 borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
                 borderColor="gray.200"
-                py={2}
+                py="16px"
                 flexDir="row"
                 alignItems="center"
                 justifyContent="space-between"
