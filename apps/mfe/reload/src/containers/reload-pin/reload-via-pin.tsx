@@ -59,9 +59,6 @@ const ReloadViaPin = () => {
         isOpen={bottomModal}
         onClose={() => setBottomModal(false)}
         accessibilityLabel="Default Modal"
-        _backdrop={{
-          bg: 'black',
-        }}
       >
         <Modal.Content
           justifyContent="flex-end"

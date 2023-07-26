@@ -81,9 +81,6 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
         isOpen={bottomModal}
         onClose={() => setBottomModal(false)}
         accessibilityLabel="Default Modal"
-        _backdrop={{
-          bg: 'black',
-        }}
       >
         <Modal.Content
           justifyContent="flex-end"
