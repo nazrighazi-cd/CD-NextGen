@@ -230,11 +230,21 @@ const theme = extendTheme({
         bg: 'white',
         borderRadius: '8px',
         padding: '16px',
-        fontSize: '15px',
+        fontSize: '14px',
+        placeholderTextColor: 'gray.500',
+        _focus: {
+          bg: 'white',
+          borderColor: 'gray.300',
+        },
       },
     },
     Modal: {
-      defaultProps: {},
+      defaultProps: {
+        _backdrop: {
+          bg: 'gray.700',
+          opacity: '80',
+        },
+      },
       variants: {
         bottom: {
           justifyContent: 'flex-end',
