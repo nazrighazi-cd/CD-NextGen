@@ -19,7 +19,7 @@ const MainList = ({ navigation }: { navigation: any }) => {
   const listing = [
     {
       name: 'Reload for Myself',
-      pages: 'Reload Wallet',
+      pages: 'Reload Myself',
       icons: <Medal color="#000000" />,
     },
     {

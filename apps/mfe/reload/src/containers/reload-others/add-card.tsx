@@ -29,7 +29,7 @@ const AddCard = () => {
         {/* CARD DETAILS  */}
         <Box flex={1} m="16px">
           <Box variant="shadow">
-            <Text variant="body2" bold mb="16px">
+            <Text variant="h7" bold mb="16px">
               Card Details
             </Text>
 
@@ -62,12 +62,12 @@ const AddCard = () => {
             {/* Checkbox */}
             <HStack justifyContent="space-between" mt="16px" px="16px">
               <Checkbox value="red" defaultIsChecked>
-                <Text variant="h7" color="gray.700">
+                <Text variant="body" color="gray.700">
                   Save this card
                 </Text>
               </Checkbox>
               <Checkbox value="red">
-                <Text variant="h7" color="gray.700">
+                <Text variant="body" color="gray.700">
                   Save as default
                 </Text>
               </Checkbox>

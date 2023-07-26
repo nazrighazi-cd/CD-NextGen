@@ -51,7 +51,7 @@ const SelecCards = ({ navigation }: { navigation: any }) => {
                     })}
                   </Box>
                   <Box flexDirection="row" alignItems="center">
-                    <Text variant="h7" pr={2}>
+                    <Text variant="body" pr={2}>
                       {item.method}
                     </Text>
                     {item.tag ? <Badge variant="blue">{item.tag}</Badge> : null}

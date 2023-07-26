@@ -7,12 +7,13 @@ import {
   VStack,
   Text,
   Button,
-  Icon,
   Badge,
   Spacer,
   Pressable,
   ScrollView,
 } from 'native-base';
+//Icons
+import Copy from '../../assets/icons/copy-01.svg';
 
 const ReloadWallet = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -61,12 +62,12 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
         <Box flex={1} m="16px">
           {/* RELOAD CARD */}
           <Box variant="shadow" bg="#4481ED">
-            <HStack space={[2, 3]} justifyContent="space-between">
+            <HStack space={[4, 3]} justifyContent="space-between">
               <Box variant="iconRounded">
-                <Icon></Icon>
+                <Copy width="14px" height="14px" />
               </Box>
               <Box>
-                <Text variant="h6" color="white" pb="1.5">
+                <Text variant="h6" color="white" pb="1.0">
                   60 19 23456789
                 </Text>
                 <Text variant="label" bold color="white">

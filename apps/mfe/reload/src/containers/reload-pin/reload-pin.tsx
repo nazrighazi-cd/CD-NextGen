@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Native Base Components
 import {
   useTheme,
   Box,
   HStack,
   Text,
-  Icon,
   Badge,
   Input,
   Button,
   Spacer,
+  Modal,
 } from 'native-base';
 // Icons
 import Info from '../../assets/icons/info-circle.svg';
+import Copy from '../../assets/icons/copy-01.svg';
 
 const ReloadPin = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
+
+  // Modal
+  const [bottomModal, setBottomModal] = useState(false);
 
   return (
     <>
@@ -23,19 +27,19 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
         <Box flex={1} m="16px">
           {/* RELOAD CARD */}
           <Box variant="shadow" bg="#4481ED">
-            <HStack space={[2, 3]} justifyContent="space-between">
-              <Box>
-                <Icon bg="white" p="22px"></Icon>
+            <HStack space={[4, 3]} justifyContent="space-between">
+              <Box variant="iconRounded">
+                <Copy width="14px" height="14px" />
               </Box>
               <Box>
-                <Text variant="h6" color="white" pb="1.5">
+                <Text variant="h6" color="white" pb="1.0">
                   60 19 23456789
                 </Text>
                 <Text variant="label" bold color="white">
                   Reload before 28/07/2023
                 </Text>
               </Box>
-              <Spacer></Spacer>
+              <Spacer />
               <Box alignItems="flex-end">
                 <Badge variant="success">Active</Badge>
                 <Text variant="h5" bold color="#FFFFFF">
@@ -52,7 +56,11 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
                 Enter 16-Digit Reload PIN
               </Text>
               <Box mt={-0.5}>
-                <Info width="16px" />
+                <Info
+                  width="16px"
+                  color="#000000"
+                  onPress={() => setBottomModal(true)}
+                />
               </Box>
             </HStack>
             <Input placeholder="16-Digit Pin Number" py={4} />
@@ -66,6 +74,33 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
           </Button>
         </Box>
       </Box>
+
+      {/* PIN RELOAD MODAL */}
+      <Modal
+        variant="bottom"
+        isOpen={bottomModal}
+        onClose={() => setBottomModal(false)}
+        accessibilityLabel="Default Modal"
+        _backdrop={{
+          bg: 'black',
+        }}
+      >
+        <Modal.Content
+          justifyContent="flex-end"
+          width="100%"
+          borderTopRadius="24px"
+          borderBottomRadius="0px"
+        >
+          <Modal.CloseButton />
+          <Text variant="h5" bold color="gray.900" pb={2}>
+            What is PIN Reload
+          </Text>
+          <Text variant="body" color="gray.600">
+            Copy Explaining PIN Reload and Steps to Reload Copy max 120 char
+            with max 3 lines. Line 3 example.
+          </Text>
+        </Modal.Content>
+      </Modal>
     </>
   );
 };

@@ -94,7 +94,7 @@ const Banks = ({ navigation }: { navigation: any }) => {
                         height: '100%',
                       })}
                     </Box>
-                    <Text variant="h7" pl={4}>
+                    <Text variant="body" pl={4}>
                       {item.method}
                     </Text>
                   </HStack>

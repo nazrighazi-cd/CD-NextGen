@@ -8,6 +8,7 @@ import Info from '../../assets/icons/info-circle.svg';
 const ReloadViaPin = () => {
   const theme = useTheme();
 
+  // Modal
   const [bottomModal, setBottomModal] = useState(false);
 
   return (
@@ -23,7 +24,7 @@ const ReloadViaPin = () => {
               placeholder="+60"
               InputRightElement={
                 <Box pr={3}>
-                  <Contact />
+                  <Contact color="#667085" />
                 </Box>
               }
               py={4}
@@ -37,7 +38,11 @@ const ReloadViaPin = () => {
                 2. Enter Reload PIN
               </Text>
               <Box mt={-0.5}>
-                <Info width="16px" onPress={() => setBottomModal(true)} />
+                <Info
+                  width="16px"
+                  color="#000000"
+                  onPress={() => setBottomModal(true)}
+                />
               </Box>
             </HStack>
             <Input placeholder="16-Digit Pin Number" py={4} />
@@ -65,7 +70,7 @@ const ReloadViaPin = () => {
           borderBottomRadius="0px"
         >
           <Modal.CloseButton />
-          <Text variant="h6" bold color="gray.900" pb={2}>
+          <Text variant="h5" bold color="gray.900" pb={2}>
             What is PIN Reload
           </Text>
           <Text variant="body" color="gray.600">

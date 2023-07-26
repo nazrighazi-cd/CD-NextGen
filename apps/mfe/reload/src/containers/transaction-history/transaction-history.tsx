@@ -224,7 +224,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
             {/* MY TRANSACTION */}
             <Box flexDir="row" justifyContent="space-between">
               <Text
-                variant="h7"
+                variant="body"
                 onPress={() =>
                   navigation.navigate('Transaction History Details')
                 }
@@ -237,7 +237,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
                 </Box>
                 <Box pl="10px">
                   <Text
-                    variant="h7"
+                    variant="body"
                     color="primary.600"
                     onPress={() => setBottomModal(true)}
                   >

@@ -17,6 +17,7 @@ import {
 // Icons
 import Info from '../../assets/icons/info-circle.svg';
 import Visa from '../../assets/icons/payment-methods/Visa.svg';
+import Copy from '../../assets/icons/copy-01.svg';
 
 const AutoReloadActive = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -78,22 +79,22 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
 
             {/* RELOAD CARD */}
             <Box variant="shadow" bg="#4481ED" mt="16px">
-              <HStack space={[2, 3]} justifyContent="space-between">
+              <HStack space={[4, 3]} justifyContent="space-between">
                 <Box variant="iconRounded">
-                  <Icon></Icon>
+                  <Copy width="14px" height="14px" />
                 </Box>
                 <Box>
-                  <Text variant="h6" color="white" pb="1.5">
+                  <Text variant="h6" color="white" pb="1.0">
                     60 19 23456789
                   </Text>
                   <Text variant="label" bold color="white">
                     Reload before 28/07/2023
                   </Text>
                 </Box>
-                <Spacer></Spacer>
+                <Spacer />
                 <Box alignItems="flex-end">
                   <Badge variant="success">Active</Badge>
-                  <Text variant="h5" bold color="white">
+                  <Text variant="h5" bold color="#FFFFFF">
                     RM XX.XX
                   </Text>
                 </Box>
@@ -131,7 +132,9 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
               {paymentData.map((item, index) => (
                 <Box key={index} variant="listing">
                   <Box>
-                    <Text>{item.info}</Text>
+                    <Text variant="body" color="#344054">
+                      {item.info}
+                    </Text>
                   </Box>
                   <HStack alignItems="center">
                     {item.icons ? (
@@ -147,7 +150,9 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
                         })}
                       </Box>
                     ) : null}
-                    <Text>{item.value}</Text>
+                    <Text variant="body" color="#344054">
+                      {item.value}
+                    </Text>
                   </HStack>
                 </Box>
               ))}
@@ -182,7 +187,7 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
           borderBottomRadius="0px"
         >
           <Modal.CloseButton />
-          <Text variant="h6" bold color="gray.900" pb={2}>
+          <Text variant="h5" bold color="gray.900" pb={2}>
             Label with max 30 Char(s)
           </Text>
           <Text variant="body" color="gray.600">

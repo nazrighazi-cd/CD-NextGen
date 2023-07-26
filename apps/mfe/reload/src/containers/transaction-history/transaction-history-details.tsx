@@ -54,11 +54,11 @@ const TransactionHistoryDetails = () => {
             variant="secondaryGray"
             paddingRight="16px"
             paddingLeft="16px"
-            paddingTop="10px"
-            paddingBottom="10px"
+            paddingTop="8px"
+            paddingBottom="8px"
           >
             <HStack>
-              <Copy width="20px" />
+              <Copy width="20px" color="#344054" />
               <Text textAlign="left" pl="8px">
                 Copy Link
               </Text>

@@ -9,7 +9,7 @@ const OpenLink = ({ navigation }: { navigation: any }) => {
     <>
       <Box flex={1} justifyContent="center" alignItems="center">
         <Text
-          variant="h7"
+          variant="body"
           color="gray.500"
           onPress={() => navigation.navigate('Receipt')}
         >

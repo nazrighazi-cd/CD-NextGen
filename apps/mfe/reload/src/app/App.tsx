@@ -10,7 +10,7 @@ import theme from '../themes/theme';
 import Cheatsheet from '../assets/containers/pages/Cheatsheet';
 import Icons from '../assets/containers/pages/Icons';
 import MainList from '../containers/main-list';
-import ReloadWallet from '../containers/reload-myself/reload-wallet';
+import ReloadMyself from '../containers/reload-myself/reload-myself';
 import EWallet from '../containers/reload-myself/ewallet';
 import OpenLink from '../containers/reload-myself/open-link';
 import SuccessReceipt from '../containers/reload-myself/success-receipt';
@@ -51,8 +51,8 @@ export default function App() {
           />
           <Stack.Screen
             options={{ title: 'Reload' }}
-            name="Reload Wallet"
-            component={ReloadWallet}
+            name="Reload Myself"
+            component={ReloadMyself}
           />
           <Stack.Screen name="Select eWallet" component={EWallet} />
           <Stack.Screen name="Partners" component={OpenLink} />
