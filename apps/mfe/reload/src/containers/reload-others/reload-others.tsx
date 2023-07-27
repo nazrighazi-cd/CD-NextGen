@@ -185,25 +185,23 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
             </VStack>
           </Box>
         </Box>
-
-        {/* FOOTER */}
-        <Box m="16px" mt="6px">
-          {/* Total Payment */}
-          <Box mt="16px">
-            <HStack justifyContent="space-between">
-              <Box>
-                <Text variant="body2">Total Payment</Text>
-                <Text variant="h6" bold color="primary.600">
-                  RM XXX
-                </Text>
-              </Box>
-              <Button onPress={() => navigation.navigate('Select Card')}>
-                Continue
-              </Button>
-            </HStack>
-          </Box>
-        </Box>
       </ScrollView>
+      {/* FOOTER */}
+      <Box m="16px">
+        {/* Total Payment */}
+
+        <HStack justifyContent="space-between">
+          <Box>
+            <Text variant="body2">Total Payment</Text>
+            <Text variant="h6" bold color="primary.600">
+              RM XXX
+            </Text>
+          </Box>
+          <Button onPress={() => navigation.navigate('Select Card')}>
+            Continue
+          </Button>
+        </HStack>
+      </Box>
     </Box>
   );
 };
