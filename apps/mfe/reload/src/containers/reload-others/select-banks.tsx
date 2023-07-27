@@ -67,49 +67,46 @@ const Banks = ({ navigation }: { navigation: any }) => {
   ];
 
   return (
-    <>
-      <Box flex={1} bg="white">
-        <ScrollView>
-          <Box m="16px">
-            <Box variant="shadow" py="0px">
-              {/* List of Banks */}
-              {paymentData.map((item, index) => (
-                <Box
-                  borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-                  borderColor="gray.200"
-                  py="16px"
-                  flexDir="row"
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
-                  <HStack alignItems="center">
-                    <Box
-                      w="50px"
-                      h="25px"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      {React.cloneElement(item.icons, {
-                        width: '100%',
-                        height: '100%',
-                      })}
-                    </Box>
-                    <Text variant="body" pl={4}>
-                      {item.method}
-                    </Text>
-                  </HStack>
-                  <Pressable
-                    onPress={() => navigation.navigate('Reload Others')}
+    <Box flex={1} bg="white">
+      <ScrollView>
+        <Box m="16px">
+          <Box variant="shadow" py="0px">
+            {/* List of Banks */}
+            {paymentData.map((item, index) => (
+              <Box
+                borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
+                borderColor="gray.200"
+                py="16px"
+                flexDir="row"
+                alignItems="center"
+                justifyContent="space-between"
+                key={index}
+              >
+                <HStack alignItems="center">
+                  <Box
+                    w="50px"
+                    h="25px"
+                    justifyContent="center"
+                    alignItems="center"
                   >
-                    <ChevronRightIcon />
-                  </Pressable>
-                </Box>
-              ))}
-            </Box>
+                    {React.cloneElement(item.icons, {
+                      width: '100%',
+                      height: '100%',
+                    })}
+                  </Box>
+                  <Text variant="body" pl={4}>
+                    {item.method}
+                  </Text>
+                </HStack>
+                <Pressable onPress={() => navigation.navigate('Reload Others')}>
+                  <ChevronRightIcon />
+                </Pressable>
+              </Box>
+            ))}
           </Box>
-        </ScrollView>
-      </Box>
-    </>
+        </Box>
+      </ScrollView>
+    </Box>
   );
 };
 

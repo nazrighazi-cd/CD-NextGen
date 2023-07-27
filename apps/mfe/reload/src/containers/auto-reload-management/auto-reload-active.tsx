@@ -115,11 +115,11 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
                 <HStack justifyContent="center">
                   <Box variant="selection">
                     <Text>Threshold</Text>
-                    <Radio value="one"></Radio>
+                    <Radio value="one" accessibilityLabel="Threshold"></Radio>
                   </Box>
                   <Box variant="selection" ml="2">
                     <Text>Calendar</Text>
-                    <Radio value="one"></Radio>
+                    <Radio value="one" accessibilityLabel="Calendar"></Radio>
                   </Box>
                 </HStack>
               </Radio.Group>

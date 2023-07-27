@@ -85,7 +85,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
               {rowsAmount.map((row, index) => (
                 <HStack key={index} justifyContent="space-between">
                   {row.map((amount, itemIndex) => (
-                    <Pressable>
+                    <Pressable key={itemIndex}>
                       {({ isPressed }) => {
                         return (
                           <Box
@@ -140,6 +140,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
                   {row.map((payment, itemIndex) => (
                     <Pressable
                       onPress={() => navigation.navigate(payment.pages)}
+                      key={itemIndex}
                     >
                       {({ isPressed }) => {
                         return (

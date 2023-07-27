@@ -167,7 +167,9 @@ const Cheatsheet = () => {
             <Text ml="2">Checkbox</Text>
           </Checkbox.Group>
           <Radio.Group>
-            <Radio ml="4">Radio</Radio>
+            <Radio ml="4" accessibilityLabel="Radio">
+              Radio
+            </Radio>
           </Radio.Group>
         </HStack>
 
@@ -253,7 +255,7 @@ const Cheatsheet = () => {
         <Box variant="selection">
           <Text>Threshold</Text>
           <Radio.Group>
-            <Radio></Radio>
+            <Radio accessibilityLabel="Threshold"></Radio>
           </Radio.Group>
         </Box>
 
