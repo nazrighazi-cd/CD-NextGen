@@ -31,76 +31,72 @@ const SelectCard = ({ navigation }: { navigation: any }) => {
   ];
 
   return (
-    <>
-      <Box flex={1} bg="white">
-        <Box m="16px">
-          {/* ADD CARD (Show When showCardOptions is false) */}
-          {!showCardOptions && (
-            <Box variant="shadow">
-              <HStack space={2} alignItems="center">
-                <Pressable onPress={() => setShowCardOptions(!showCardOptions)}>
-                  <AddIcon color="primary.600" />
-                </Pressable>
-                <Text variant="body2" color="primary.600">
-                  Add Card
-                </Text>
-              </HStack>
-            </Box>
-          )}
+    <Box flex={1} bg="white">
+      <Box m="16px">
+        {/* ADD CARD (Show When showCardOptions is false) */}
+        {!showCardOptions && (
+          <Box variant="shadow">
+            <HStack space={2} alignItems="center">
+              <Pressable onPress={() => setShowCardOptions(!showCardOptions)}>
+                <AddIcon color="primary.600" />
+              </Pressable>
+              <Text variant="body2" color="primary.600">
+                Add Card
+              </Text>
+            </HStack>
+          </Box>
+        )}
 
-          {/* CARD OPTIONS (Show When showCardOptions is true) */}
-          {showCardOptions && (
-            <Box variant="shadow" pt="0px">
-              {/* List of Card Options */}
-              {paymentData.map((item, index) => (
-                <Box key={index} variant="listing">
-                  <HStack alignItems="center">
-                    <Box
-                      w="50px"
-                      h="40px"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      {React.cloneElement(item.icons, {
-                        width: '75%',
-                        height: '100%',
-                      })}
-                    </Box>
-                    <Box flexDirection="row" alignItems="center">
-                      <Text variant="body" pr={2}>
-                        {item.method}
-                      </Text>
-                      {item.tag ? (
-                        <Badge variant="blue">{item.tag}</Badge>
-                      ) : null}
-                    </Box>
-                  </HStack>
-                  {item.check ? (
-                    <Box>
-                      <Check />
-                    </Box>
-                  ) : (
-                    <Pressable onPress={() => navigation.navigate('Partners')}>
-                      <ChevronRightIcon
-                        onPress={() => navigation.navigate('Partners')}
-                      />
-                    </Pressable>
-                  )}
-                </Box>
-              ))}
-              <HStack space={2} alignItems="center" pt={5} pb={1}>
-                <Pressable onPress={() => navigation.navigate('Add Card')}>
-                  <AddIcon color="primary.600" />
-                </Pressable>
-                <Text variant="body2" color="primary.600">
-                  Add Card
-                </Text>
-              </HStack>
-            </Box>
-          )}
-        </Box>
+        {/* CARD OPTIONS (Show When showCardOptions is true) */}
+        {showCardOptions && (
+          <Box variant="shadow" pt="0px">
+            {/* List of Card Options */}
+            {paymentData.map((item, index) => (
+              <Box key={index} variant="listing">
+                <HStack alignItems="center">
+                  <Box
+                    w="50px"
+                    h="40px"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    {React.cloneElement(item.icons, {
+                      width: '75%',
+                      height: '100%',
+                    })}
+                  </Box>
+                  <Box flexDirection="row" alignItems="center">
+                    <Text variant="body" pr={2}>
+                      {item.method}
+                    </Text>
+                    {item.tag ? <Badge variant="blue">{item.tag}</Badge> : null}
+                  </Box>
+                </HStack>
+                {item.check ? (
+                  <Box>
+                    <Check />
+                  </Box>
+                ) : (
+                  <Pressable onPress={() => navigation.navigate('Partners')}>
+                    <ChevronRightIcon
+                      onPress={() => navigation.navigate('Partners')}
+                    />
+                  </Pressable>
+                )}
+              </Box>
+            ))}
+            <HStack space={2} alignItems="center" pt={5} pb={1}>
+              <Pressable onPress={() => navigation.navigate('Add Card')}>
+                <AddIcon color="primary.600" />
+              </Pressable>
+              <Text variant="body2" color="primary.600">
+                Add Card
+              </Text>
+            </HStack>
+          </Box>
+        )}
       </Box>
-    </>
+    </Box>
   );
 };
 
