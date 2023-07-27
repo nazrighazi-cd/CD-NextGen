@@ -23,70 +23,70 @@ const transactions = [
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-07-24',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-07-20',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Add-Ons',
     amount: '7',
     description: 'Postpaid 50 Bill',
     date: '2023-07-25',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Subscriptions',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-06-15',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-06-20',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Add-Ons',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-05-10',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Subscriptions',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-05-04',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-06-20',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Add-Ons',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-05-10',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
   {
     service: 'Subscriptions',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-05-04',
-    icon: <Calendar />,
+    icon: <Calendar color="#667085" />,
   },
 ];
 
@@ -271,12 +271,14 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
                         })}
                       </Box>
                       <Box>
-                        <Text variant="h7">{item.service}</Text>
-                        <Text fontSize="10px">{item.description}</Text>
+                        <Text variant="body">{item.service}</Text>
+                        <Text variant="label" color="gray.500">
+                          {item.description}
+                        </Text>
                       </Box>
                     </HStack>
                     <HStack py="3">
-                      <Text variant="h7">RM {item.amount}</Text>
+                      <Text variant="body">RM {item.amount}</Text>
                     </HStack>
                   </Box>
                 )}
@@ -299,10 +301,10 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
                   borderBottomRadius="0px"
                 >
                   <Modal.CloseButton />
-                  <Text variant="h6" bold color="gray.900" pb={2}>
+                  <Text variant="h6" bold color="gray.900">
                     Filter by
                   </Text>
-                  <HStack alignItems="center">
+                  <HStack alignItems="center" pt={2}>
                     <Pressable onPress={() => handleFilterSelection('Today')}>
                       <Badge variant="outline">{'Today'}</Badge>
                     </Pressable>
