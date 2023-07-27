@@ -67,6 +67,14 @@ const theme = extendTheme({
           fontSize: '14px',
           fontFamily: 'heading',
         },
+        h8: {
+          fontSize: '12px',
+          fontFamily: 'heading',
+        },
+        body1: {
+          fontSize: '16px',
+          fontFamily: 'body',
+        },
         body: {
           fontSize: '14px',
           fontFamily: 'body',
@@ -78,6 +86,14 @@ const theme = extendTheme({
         label: {
           fontSize: '10px',
           fontFamily: 'body',
+        },
+        floating: {
+          position: 'absolute',
+          fontSize: '10px',
+          fontFamily: 'body',
+          marginLeft: '12px',
+          top: '7px',
+          color: 'gray.500',
         },
       },
     },
@@ -229,12 +245,17 @@ const theme = extendTheme({
       defaultProps: {
         bg: 'white',
         borderRadius: '8px',
-        padding: '16px',
+        padding: '12px',
+        paddingTop: '18px',
+        paddingBottom: '18px',
         fontSize: '14px',
         placeholderTextColor: 'gray.500',
         _focus: {
           bg: 'white',
+          placeholderTextColor: 'white',
           borderColor: 'gray.300',
+          paddingTop: '24px',
+          paddingBottom: '12px',
         },
       },
     },

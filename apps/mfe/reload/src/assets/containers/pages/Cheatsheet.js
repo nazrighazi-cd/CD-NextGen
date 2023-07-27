@@ -12,7 +12,6 @@ import {
   Switch,
   Checkbox,
   Radio,
-  FlatList,
   Modal,
 } from 'native-base';
 
@@ -74,8 +73,10 @@ const Cheatsheet = () => {
         <Text variant="h5">Heading 5</Text>
         <Text variant="h6">Heading 6</Text>
         <Text variant="h7">Heading 7</Text>
+        <Text variant="h8">Heading 8</Text>
+        <Text variant="body1">Body larger</Text>
         <Text>Default Body</Text>
-        <Text variant="body2">Body small</Text>
+        <Text variant="body2">Body smaller</Text>
         <Text variant="label">Label</Text>
 
         {/* Badges */}
@@ -148,10 +149,15 @@ const Cheatsheet = () => {
         <Text color="primary.600" mt="4" mb="2">
           Input
         </Text>
-        <Input placeholder="Default input" mb="2"></Input>
+        <Input
+          InputLeftElement={<Text variant="floating">Default Input</Text>}
+          placeholder="Default input"
+          mb="2"
+        ></Input>
         <Input
           placeholder="Input with icon"
           mb="2"
+          InputLeftElement={<Text variant="floating">Input with icon</Text>}
           InputRightElement={<MoonIcon mr="3" />}
         ></Input>
 

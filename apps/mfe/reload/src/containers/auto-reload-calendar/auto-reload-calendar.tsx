@@ -155,16 +155,16 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
               </Text>
             </Box>
           </Box>
-
-          {/* FOOTER */}
-          <Box m="16px">
-            <Button
-            // isDisabled={!number || !isNaN || number < 5 || number > 100}
-            >
-              Continue
-            </Button>
-          </Box>
         </ScrollView>
+
+        {/* FOOTER */}
+        <Box m="16px">
+          <Button
+          // isDisabled={!number || !isNaN || number < 5 || number > 100}
+          >
+            Continue
+          </Button>
+        </Box>
       </Box>
 
       {/* CALENDAR MODAL */}

@@ -39,7 +39,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
   return (
     <Box flex={1} bg="white">
       <ScrollView>
-        <Box m="16px">
+        <Box flex={1} m="16px">
           {/* RELOAD CARD */}
           <Box variant="shadow" bg="#4481ED">
             <HStack space={[4, 3]} justifyContent="space-between">
@@ -137,18 +137,17 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
               Non-Malaysians will be subjected to 6% SST.
             </Text>
           </Box>
-
-          {/* FOOTER */}
-          <Box pt="16px">
-            <Button
-              isDisabled={!number || !isNaN || number < '5' || number > '100'}
-              onPress={() => navigation.navigate('Select Cards')}
-            >
-              Continue
-            </Button>
-          </Box>
         </Box>
       </ScrollView>
+      {/* FOOTER */}
+      <Box m="16px">
+        <Button
+          isDisabled={!number || !isNaN || number < '5' || number > '100'}
+          onPress={() => navigation.navigate('Select Cards')}
+        >
+          Continue
+        </Button>
+      </Box>
     </Box>
   );
 };

@@ -85,7 +85,7 @@ const Banks = ({ navigation }: { navigation: any }) => {
                 <HStack alignItems="center">
                   <Box
                     w="50px"
-                    h="40px"
+                    h="25px"
                     justifyContent="center"
                     alignItems="center"
                   >
