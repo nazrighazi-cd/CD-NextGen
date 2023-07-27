@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// Calendar
+import { Calendar } from 'react-native-calendars';
 // Native Base Components
 import {
   useTheme,
@@ -21,7 +23,9 @@ import Copy from '../../assets/icons/copy-01.svg';
 const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
+  // CALENDAR
   const [defaultModal, setDefaultModal] = useState(false);
+  const [selected, setSelected] = React.useState(null);
 
   // Mock Data
   const reloadAmount = [
@@ -38,23 +42,6 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
     const row = reloadAmount.slice(i, i + 3);
     rowsAmount.push(row);
   }
-  const [number, onChangeNumber] = React.useState('');
-
-  const [showDatePicker, setShowDatePicker] = React.useState(false);
-
-  const openDatePicker = () => {
-    setShowDatePicker(true);
-  };
-
-  const onCancel = () => {
-    setShowDatePicker(false);
-  };
-
-  const onConfirm = (date) => {
-    setShowDatePicker(false);
-
-    console.log(date.getDate());
-  };
 
   return (
     <>
@@ -102,8 +89,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                       />
                     </Box>
                   }
-                  onChangeText={onChangeNumber}
-                  value={number}
+                  value={selected?.slice(-2)}
                   keyboardType="numeric"
                 ></Input>
               </Box>
@@ -123,7 +109,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                 {rowsAmount.map((row, index) => (
                   <HStack key={index} justifyContent="space-between">
                     {row.map((amount, itemIndex) => (
-                      <Pressable>
+                      <Pressable key={itemIndex}>
                         {({ isPressed }) => {
                           return (
                             <Box
@@ -169,16 +155,16 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
               </Text>
             </Box>
           </Box>
-
-          {/* FOOTER */}
-          <Box m="16px">
-            <Button
-            // isDisabled={!number || !isNaN || number < 5 || number > 100}
-            >
-              Continue
-            </Button>
-          </Box>
         </ScrollView>
+
+        {/* FOOTER */}
+        <Box m="16px">
+          <Button
+          // isDisabled={!number || !isNaN || number < 5 || number > 100}
+          >
+            Continue
+          </Button>
+        </Box>
       </Box>
 
       {/* CALENDAR MODAL */}
@@ -187,12 +173,31 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
         onClose={() => setDefaultModal(false)}
         accessibilityLabel="Default Modal"
       >
-        <Modal.Content>
-          <Modal.CloseButton />
-          <Text variant="h6" bold>
+        <Modal.Content
+          justifyContent="flex-end"
+          width="90%"
+          bgColor="white"
+          p="10px"
+        >
+          <Text variant="body" bold>
             Select Activation Date
           </Text>
-          <Box>Calendar</Box>
+          <Modal.CloseButton />
+          <Calendar
+            hideArrows={true}
+            hideDayNames={true}
+            onDayPress={(day) => setSelected(`${day.dateString}`)}
+            markedDates={{
+              [selected]: {
+                selected: true,
+                disableTouchEvent: true,
+              },
+            }}
+            // selectedDayColor="#1561E8"
+          />
+          <Text py="10px" variant="body2" color="gray.500">
+            *Next auto reload will be performed on 19th June 2023
+          </Text>
         </Modal.Content>
       </Modal>
     </>

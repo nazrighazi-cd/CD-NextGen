@@ -24,6 +24,7 @@
     "@react-native/metro-config": "*",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
-    "react-native-screens": "*"
+    "react-native-screens": "*",
+    "react-native-calendars": "*"
   }
 }

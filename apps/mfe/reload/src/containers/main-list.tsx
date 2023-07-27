@@ -70,7 +70,10 @@ const MainList = ({ navigation }: { navigation: any }) => {
           {rowsListing.map((row, index) => (
             <HStack key={index}>
               {row.map((list, itemIndex) => (
-                <Pressable onPress={() => navigation.navigate(list.pages)}>
+                <Pressable
+                  onPress={() => navigation.navigate(list.pages)}
+                  key={itemIndex}
+                >
                   <Box
                     key={itemIndex}
                     width="85px"

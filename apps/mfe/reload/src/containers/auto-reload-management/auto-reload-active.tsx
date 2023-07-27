@@ -5,7 +5,6 @@ import {
   Pressable,
   Box,
   Text,
-  Icon,
   Badge,
   HStack,
   ScrollView,
@@ -116,11 +115,11 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
                 <HStack justifyContent="center">
                   <Box variant="selection">
                     <Text>Threshold</Text>
-                    <Radio value="one"></Radio>
+                    <Radio value="one" accessibilityLabel="Threshold"></Radio>
                   </Box>
                   <Box variant="selection" ml="2">
                     <Text>Calendar</Text>
-                    <Radio value="one"></Radio>
+                    <Radio value="one" accessibilityLabel="Calendar"></Radio>
                   </Box>
                 </HStack>
               </Radio.Group>
@@ -163,7 +162,7 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
                 mt={5}
                 onPress={() => navigation.navigate('Add Card')}
               >
-                Edit Setting
+                Edit Settings
               </Text>
             </Box>
           </Box>
@@ -184,10 +183,10 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
           borderBottomRadius="0px"
         >
           <Modal.CloseButton />
-          <Text variant="h5" bold color="gray.900" pb={2}>
+          <Text variant="h5" bold color="gray.900">
             Label with max 30 Char(s)
           </Text>
-          <Text variant="body" color="gray.600">
+          <Text variant="body" color="gray.600" pt={3}>
             Help / Tooltips copy for max 200 Char(s) Up to 5 lines.
           </Text>
         </Modal.Content>
