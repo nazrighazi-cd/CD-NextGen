@@ -141,7 +141,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
           {/* FOOTER */}
           <Box pt="16px">
             <Button
-              // isDisabled={!number || !isNaN || number < '5' || number > '100'}
+              isDisabled={!number || !isNaN || number < '5' || number > '100'}
               onPress={() => navigation.navigate('Select Cards')}
             >
               Continue

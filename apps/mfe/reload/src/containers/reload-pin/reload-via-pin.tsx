@@ -67,10 +67,10 @@ const ReloadViaPin = () => {
           borderBottomRadius="0px"
         >
           <Modal.CloseButton />
-          <Text variant="h5" bold color="gray.900" pb={2}>
+          <Text variant="h5" bold color="gray.900">
             What is PIN Reload
           </Text>
-          <Text variant="body" color="gray.600">
+          <Text variant="body" color="gray.600" pt={2}>
             Copy Explaining PIN Reload and Steps to Reload Copy max 120 char
             with max 3 lines. Line 3 example.
           </Text>
