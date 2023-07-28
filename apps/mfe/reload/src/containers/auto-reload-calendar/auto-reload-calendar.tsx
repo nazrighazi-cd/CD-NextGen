@@ -33,8 +33,6 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   const day = String(date.getDate()).padStart(2, '0');
   const today = `${year}-${month}-${day}`;
 
-  console.log('date', today);
-
   // Mock Data
   const reloadAmount = [
     { price: '5', validity: 'Valid for 5 Days', tag: 'Popular' },
@@ -60,7 +58,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
             <Box variant="shadow" bg="#4481ED">
               <HStack space={[4, 3]} justifyContent="space-between">
                 <Box variant="iconRounded">
-                  <Copy width="14px" height="14px" />
+                  <Copy width="14px" height="14px" color="#1561E8" />
                 </Box>
                 <Box>
                   <Text variant="body1" color="white" pb="1.0">

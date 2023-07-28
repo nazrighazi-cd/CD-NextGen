@@ -66,7 +66,7 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
                 </Box>
                 <Box>
                   <Pressable onPress={() => setBottomModal(true)}>
-                    <Info width="18px" />
+                    <Info width="18px" color="#1561E8" />
                   </Pressable>
                 </Box>
                 <Spacer />
@@ -80,10 +80,10 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
             <Box variant="shadow" bg="#4481ED" mt="16px">
               <HStack space={[4, 3]} justifyContent="space-between">
                 <Box variant="iconRounded">
-                  <Copy width="14px" height="14px" />
+                  <Copy width="14px" height="14px" color="#1561E8" />
                 </Box>
                 <Box>
-                  <Text variant="h6" color="white" pb="1.0">
+                  <Text variant="body1" color="white" pb="1.0">
                     60 19 23456789
                   </Text>
                   <Text variant="label" bold color="white">

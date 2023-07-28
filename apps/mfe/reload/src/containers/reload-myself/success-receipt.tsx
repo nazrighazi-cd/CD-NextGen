@@ -12,7 +12,7 @@ const SuccessReceipt = ({ navigation }: { navigation: any }) => {
       <Box m="24px" flex={1} justifyContent="center" alignItems="center">
         <VStack justifyContent="space-between" alignItems="center" space={4}>
           <Box variant="iconCircle" bg="gray.300" p="40px">
-            <Copy />
+            <Copy color="#1561E8" />
           </Box>
           <Text variant="h6" bold>
             Main label with max 32 Char(s)

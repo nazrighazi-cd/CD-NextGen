@@ -230,7 +230,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
               <Text variant="body">My Transaction</Text>
               <Box alignContent="flex-end" flexDir="row" alignItems="center">
                 <Box>
-                  <Setting width="20px" />
+                  <Setting width="20px" color="#1561E8" />
                 </Box>
                 <Box pl="10px">
                   <Text
