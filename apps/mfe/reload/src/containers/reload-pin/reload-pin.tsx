@@ -32,7 +32,7 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
                 <Copy width="14px" height="14px" />
               </Box>
               <Box>
-                <Text variant="h6" color="white" pb="1.0">
+                <Text variant="body1" color="white" pb="1.0">
                   60 19 23456789
                 </Text>
                 <Text variant="label" bold color="white">
@@ -52,7 +52,7 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
           {/* ENTER DIGIT */}
           <Box variant="shadow" mt="16px">
             <HStack alignContent="center">
-              <Text variant="body2" bold pb="16px" pr={2}>
+              <Text variant="h8" bold pb="16px" pr={2}>
                 Enter 16-Digit Reload PIN
               </Text>
               <Box mt={-0.5}>

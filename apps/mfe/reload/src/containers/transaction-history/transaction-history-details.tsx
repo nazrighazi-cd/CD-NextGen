@@ -43,7 +43,7 @@ const TransactionHistoryDetails = () => {
           sed ante cum sodales. Fermentum orci ornare purus sem.
         </Text>
         <Box alignItems="center" mt="16px">
-          <Image source={Transaction} width="100%" height="70%" />
+          <Image source={Transaction} width="100%" height="70%" alt="Image" />
         </Box>
       </Box>
 

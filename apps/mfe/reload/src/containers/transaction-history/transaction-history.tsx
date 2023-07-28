@@ -223,14 +223,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
           <Box m="16px">
             {/* MY TRANSACTION */}
             <Box flexDir="row" justifyContent="space-between">
-              <Text
-                variant="body"
-                onPress={() =>
-                  navigation.navigate('Transaction History Details')
-                }
-              >
-                My Transaction
-              </Text>
+              <Text variant="body">My Transaction</Text>
               <Box alignContent="flex-end" flexDir="row" alignItems="center">
                 <Box>
                   <Setting width="20px" />
@@ -271,7 +264,14 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
                         })}
                       </Box>
                       <Box>
-                        <Text variant="body">{item.service}</Text>
+                        <Text
+                          variant="body"
+                          onPress={() =>
+                            navigation.navigate('Transaction History Details')
+                          }
+                        >
+                          {item.service}
+                        </Text>
                         <Text variant="label" color="gray.500">
                           {item.description}
                         </Text>

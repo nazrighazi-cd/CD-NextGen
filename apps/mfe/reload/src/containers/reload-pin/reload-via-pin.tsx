@@ -17,7 +17,7 @@ const ReloadViaPin = () => {
         <Box flex={1} m="16px">
           {/* ENTER MOBILE NUMBER */}
           <Box variant="shadow" rounded="lg">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>
             <Input
@@ -34,7 +34,7 @@ const ReloadViaPin = () => {
           {/* ENTER RELOAD PIN */}
           <Box variant="shadow" mt="16px">
             <HStack>
-              <Text variant="body2" bold pb="16px" pr={2}>
+              <Text variant="h8" bold pb="16px" pr={2}>
                 2. Enter Reload PIN
               </Text>
               <Box mt={-0.5}>

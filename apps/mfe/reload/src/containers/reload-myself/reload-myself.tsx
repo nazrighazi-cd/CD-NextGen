@@ -67,7 +67,7 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
                 <Copy width="14px" height="14px" />
               </Box>
               <Box>
-                <Text variant="h6" color="white" pb="1.0">
+                <Text variant="body1" color="white" pb="1.0">
                   60 19 23456789
                 </Text>
                 <Text variant="label" bold color="white">
@@ -86,7 +86,7 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
 
           {/* SELECT AMOUNT CARD */}
           <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               2. Select Amount
             </Text>
             {/* Card Reload */}
@@ -140,7 +140,7 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
 
           {/* SELECT PAYMENT METHOD CARD */}
           <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               3. Select Payment Method
             </Text>
             {/* Payment Option Card */}

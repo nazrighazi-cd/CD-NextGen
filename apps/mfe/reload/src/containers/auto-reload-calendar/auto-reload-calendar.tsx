@@ -55,7 +55,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                   <Copy width="14px" height="14px" />
                 </Box>
                 <Box>
-                  <Text variant="h6" color="white" pb="1.0">
+                  <Text variant="body1" color="white" pb="1.0">
                     60 19 23456789
                   </Text>
                   <Text variant="label" bold color="white">
@@ -74,7 +74,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
 
             {/* DATE MONTH */}
             <Box variant="shadow" mt="16px">
-              <Text variant="body2" bold pb="16px">
+              <Text variant="h8" bold pb="16px">
                 1. Date of the month
               </Text>
               {/* Amount Input */}
@@ -101,7 +101,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
 
             {/* SELECT AMOUNT CARD */}
             <Box variant="shadow" mt="16px">
-              <Text variant="body2" bold pb="16px">
+              <Text variant="h8" bold pb="16px">
                 2. Select Amount
               </Text>
               {/* Card Reload */}
