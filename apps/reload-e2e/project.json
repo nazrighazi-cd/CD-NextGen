@@ -1,7 +1,7 @@
 {
-  "name": "mfe-reload-e2e",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/mfe/reload-e2e/src",
+  "name": "reload-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/reload-e2e/src",
   "projectType": "application",
   "targets": {
     "build-ios": {
@@ -56,10 +56,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/mfe/reload-e2e/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/reload-e2e/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["mfe-reload"]
+  "implicitDependencies": ["reload"]
 }

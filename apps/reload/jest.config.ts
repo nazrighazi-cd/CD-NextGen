@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'mfe-reload',
+  displayName: 'reload',
   preset: 'react-native',
   resolver: '@nx/jest/plugins/resolver',
   moduleFileExtensions: ['ts', 'js', 'html', 'tsx', 'jsx'],
