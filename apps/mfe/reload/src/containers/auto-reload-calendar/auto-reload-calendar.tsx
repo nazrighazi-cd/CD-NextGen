@@ -26,6 +26,14 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   // CALENDAR
   const [defaultModal, setDefaultModal] = useState(false);
   const [selected, setSelected] = React.useState(null);
+  //date today
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const today = `${year}-${month}-${day}`;
+
+  console.log('date', today);
 
   // Mock Data
   const reloadAmount = [
@@ -186,14 +194,20 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
           <Calendar
             hideArrows={true}
             hideDayNames={true}
+            customHeaderTitle={<Text></Text>}
             onDayPress={(day) => setSelected(`${day.dateString}`)}
             markedDates={{
               [selected]: {
                 selected: true,
                 disableTouchEvent: true,
+                selectedColor: '#1561E8',
+              },
+              [today]: {
+                selected: true,
+                selectedColor: '#FFFFFF',
+                selectedTextColor: '#1561E8',
               },
             }}
-            // selectedDayColor="#1561E8"
           />
           <Text py="10px" variant="body2" color="gray.500">
             *Next auto reload will be performed on 19th June 2023
