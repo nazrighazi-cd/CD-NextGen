@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // Native Base Components
 import {
   useTheme,
@@ -141,31 +141,35 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
 
   // FILTER TABS
   const [activeTab, setActiveTab] = useState('All Transactions');
-  const [filteredData, setFilteredData] = useState([]);
-  // Filter Tab by:
+  const [filteredTabData, setFilteredTabData] = useState([]);
+  // Filter by Tab
   const handleTabClick = (tab) => {
     setActiveTab(tab);
     if (tab === 'All Transactions') {
-      setFilteredData(transactions);
+      setFilteredTabData(transactions);
     } else {
       const filtered = transactions.filter((item) => item.service === tab);
-      setFilteredData(filtered);
+      setFilteredTabData(filtered);
     }
   };
+  // Initialize filteredData with all transactions when the component mounts
+  useEffect(() => {
+    setFilteredTabData(transactions);
+  }, []);
 
   // FILTER BADGE
-  const [selectedFilter, setSelectedFilter] = useState('Today');
+  const [selectedBadge, setSelectedBadge] = useState('Today');
   // Select Filter from Modal
   const handleFilterSelection = (filter) => {
-    setSelectedFilter(filter);
+    setSelectedBadge(filter);
     setBottomModal(false);
   };
   // Filter transactions based on the selected badge
   let filteredTransactions = [];
   // Filter by:
-  if (selectedFilter === 'Today') {
+  if (selectedBadge === 'Today') {
     const today = new Date();
-    filteredTransactions = filteredData.filter((transaction) => {
+    filteredTransactions = filteredTabData.filter((transaction) => {
       const transactionDate = new Date(transaction.date);
       return (
         transactionDate.getDate() === today.getDate() &&
@@ -173,18 +177,18 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
         transactionDate.getFullYear() === today.getFullYear()
       );
     });
-  } else if (selectedFilter === 'Last 7 Days') {
-    filteredTransactions = filterPastSevenDaysTransactions(filteredData);
-  } else if (selectedFilter === 'This Month') {
+  } else if (selectedBadge === 'Last 7 Days') {
+    filteredTransactions = filterPastSevenDaysTransactions(filteredTabData);
+  } else if (selectedBadge === 'This Month') {
     const currentMonth = new Date().getMonth() + 1;
     filteredTransactions = filterTransactionsByMonth(
-      filteredData,
+      filteredTabData,
       currentMonth
     );
-  } else if (selectedFilter === 'Last 3 Months') {
-    filteredTransactions = filterLastThreeMonthsTransactions(filteredData);
-  } else if (selectedFilter === '2022') {
-    filteredTransactions = filterLastYearTransactions(filteredData);
+  } else if (selectedBadge === 'Last 3 Months') {
+    filteredTransactions = filterLastThreeMonthsTransactions(filteredTabData);
+  } else if (selectedBadge === '2022') {
+    filteredTransactions = filterLastYearTransactions(filteredTabData);
   }
 
   return (
@@ -242,12 +246,12 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
 
             {/* TRANSACTION HISTORY LIST */}
             <Box mt="16px">
-              <Text variant="label" bold color="#667085">
+              {/* <Text variant="label" bold color="#667085">
                 {selectedFilter}
-              </Text>
+              </Text> */}
               {/* History List */}
               <FlatList
-                data={filteredTransactions}
+                data={filteredTabData}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item, index }) => (
                   <Box key={index} flexDir="row" justifyContent="space-between">
@@ -304,7 +308,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
                   <Text variant="h6" bold color="gray.900">
                     Filter by
                   </Text>
-                  <HStack alignItems="center" pt={2}>
+                  <HStack alignItems="center" pt={2} space={1}>
                     <Pressable onPress={() => handleFilterSelection('Today')}>
                       <Badge variant="outline">{'Today'}</Badge>
                     </Pressable>
