@@ -26,6 +26,8 @@ import TransactionHistory from '../containers/transaction-history/transaction-hi
 import TransactionHistoryDetails from '../containers/transaction-history/transaction-history-details';
 import SelectCards from '../containers/auto-reload-limit/select-cards';
 import AutoReloadActive from '../containers/auto-reload-management/auto-reload-active';
+// Icons
+import ArrowLeft from '../assets/icons/arrow-left.svg';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +39,12 @@ export default function App() {
           initialRouteName="Main List"
           screenOptions={{
             headerBackTitleVisible: false,
+            headerTitleAlign: 'center',
+            headerTitleStyle: {
+              fontFamily: 'Montserrat-Bold',
+            },
+            // headerLeft: ({ canGoBack, onPress }) =>
+            //   canGoBack && <ArrowLeft color="#000000" onPress={onPress} />,
           }}
         >
           {/* Styling Cheatsheet */}
