@@ -11,10 +11,10 @@ import {
   IconButton,
 } from 'native-base';
 // Icons
-import Copy from '../../assets/icons/copy-01.svg';
-import Twitter from '../../assets/icons/social/twitter.svg';
-import Facebook from '../../assets/icons/social/facebook.svg';
-import LinkedIn from '../../assets/icons/social/linkedin.svg';
+import { Copy } from '../../assets/icons';
+import { Twitter } from '../../assets/icons';
+import { Facebook } from '../../assets/icons';
+import { LinkedIn } from '../../assets/icons';
 // Images
 import Transaction from '../../assets/images/transactionHistory.png';
 
@@ -43,7 +43,7 @@ const TransactionHistoryDetails = () => {
           sed ante cum sodales. Fermentum orci ornare purus sem.
         </Text>
         <Box alignItems="center" mt="16px">
-          <Image source={Transaction} width="100%" height="70%" />
+          <Image source={Transaction} width="100%" height="70%" alt="Image" />
         </Box>
       </Box>
 

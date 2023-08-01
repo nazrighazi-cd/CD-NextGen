@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'native-base';
 // Icons
-import Contact from '../../assets/icons/contact.svg';
+import { Contact } from '../../assets/icons';
 
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -62,7 +62,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
         <Box flex={1} m="16px">
           {/* RELOAD CARD - OTHERS */}
           <Box variant="shadow" rounded="lg">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>
             <Input
@@ -77,7 +77,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
           </Box>
           {/* SELECT AMOUNT CARD */}
           <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               2. Select Amount
             </Text>
             {/* Card Reload */}
@@ -130,7 +130,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
           </Box>
           {/* SELECT PAYMENT METHOD CARD */}
           <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               3. Select Payment Method
             </Text>
             {/* Payment Option Card */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // Calendar
 import { Calendar } from 'react-native-calendars';
+
 // Native Base Components
 import {
   useTheme,
@@ -16,9 +17,10 @@ import {
   ScrollView,
   Pressable,
 } from 'native-base';
+
 // Icons
-import CalendarIcon from '../../assets/icons/calendar.svg';
-import Copy from '../../assets/icons/copy-01.svg';
+import { Calendars } from '../../assets/icons';
+import { Copy } from '../../assets/icons';
 
 const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -26,6 +28,12 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   // CALENDAR
   const [defaultModal, setDefaultModal] = useState(false);
   const [selected, setSelected] = React.useState(null);
+  //date today
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const today = `${year}-${month}-${day}`;
 
   // Mock Data
   const reloadAmount = [
@@ -52,10 +60,10 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
             <Box variant="shadow" bg="#4481ED">
               <HStack space={[4, 3]} justifyContent="space-between">
                 <Box variant="iconRounded">
-                  <Copy width="14px" height="14px" />
+                  <Copy width="14px" height="14px" color="#1561E8" />
                 </Box>
                 <Box>
-                  <Text variant="h6" color="white" pb="1.0">
+                  <Text variant="body1" color="white" pb="1.0">
                     60 19 23456789
                   </Text>
                   <Text variant="label" bold color="white">
@@ -74,7 +82,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
 
             {/* DATE MONTH */}
             <Box variant="shadow" mt="16px">
-              <Text variant="body2" bold pb="16px">
+              <Text variant="h8" bold pb="16px">
                 1. Date of the month
               </Text>
               {/* Amount Input */}
@@ -83,7 +91,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                   placeholder="Choose between 1 and 28 of the month"
                   InputRightElement={
                     <Box pr={3}>
-                      <CalendarIcon
+                      <Calendars
                         color="#667085"
                         onPress={() => setDefaultModal(true)}
                       />
@@ -101,7 +109,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
 
             {/* SELECT AMOUNT CARD */}
             <Box variant="shadow" mt="16px">
-              <Text variant="body2" bold pb="16px">
+              <Text variant="h8" bold pb="16px">
                 2. Select Amount
               </Text>
               {/* Card Reload */}
@@ -186,14 +194,20 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
           <Calendar
             hideArrows={true}
             hideDayNames={true}
+            customHeaderTitle={<Text></Text>}
             onDayPress={(day) => setSelected(`${day.dateString}`)}
             markedDates={{
               [selected]: {
                 selected: true,
                 disableTouchEvent: true,
+                selectedColor: '#1561E8',
+              },
+              [today]: {
+                selected: true,
+                selectedColor: '#FFFFFF',
+                selectedTextColor: '#1561E8',
               },
             }}
-            // selectedDayColor="#1561E8"
           />
           <Text py="10px" variant="body2" color="gray.500">
             *Next auto reload will be performed on 19th June 2023

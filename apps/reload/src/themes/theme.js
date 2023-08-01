@@ -87,14 +87,6 @@ const theme = extendTheme({
           fontSize: '10px',
           fontFamily: 'body',
         },
-        floating: {
-          position: 'absolute',
-          fontSize: '10px',
-          fontFamily: 'body',
-          marginLeft: '12px',
-          top: '7px',
-          color: 'gray.500',
-        },
       },
     },
     Badge: {
@@ -232,12 +224,14 @@ const theme = extendTheme({
     },
     IconButton: {
       defaultProps: {
-        padding: '12px',
+        padding: '10px',
         borderRadius: '8px',
         borderWidth: 1,
         borderColor: 'gray.300',
         _icon: {
           color: '#98A2B3',
+          width: '24px',
+          height: '24px',
         },
       },
     },
@@ -265,7 +259,11 @@ const theme = extendTheme({
           bg: 'gray.700',
           opacity: '80',
         },
+        contentSize: {
+          width: '100%',
+        },
       },
+
       variants: {
         bottom: {
           justifyContent: 'flex-end',
@@ -285,7 +283,6 @@ const theme = extendTheme({
         bottom: {
           borderTopRadius: '24px',
           borderBottomRadius: '0px',
-          width: '100%',
           justifyContent: 'flex-end',
         },
       },

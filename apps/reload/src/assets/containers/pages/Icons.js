@@ -1,97 +1,55 @@
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
-import {
-  useTheme,
-  HStack,
-  Box,
-  Text,
-  Badge,
-  Button,
-  IconButton,
-  Input,
-  Switch,
-  Checkbox,
-  Radio,
-  FlatList,
-  Pressable,
-  Modal,
-  VStack,
-  Spacer,
-} from 'native-base';
+import { useTheme, HStack, Box, Text, VStack, Spacer } from 'native-base';
 
 //Icons
-import CalendarRefresh from '../../icons/calendar-refresh.svg';
-import ArrowLeft from '../../icons/arrow-left.svg';
-import ChevronRight from '../../icons/chevron-right.svg';
-import File from '../../icons/file-06.svg';
-import AutoBilling from '../../icons/auto-billing-01.svg';
-import FileMedal from '../../icons/file-medal.svg';
-import History from '../../icons/history.svg';
-import Passcode from '../../icons/passcode.svg';
-import Settings from '../../icons/settings-04.svg';
-import CurrencyRefresh from '../../icons/currency-ringgit-malaysia-refresh.svg';
-import Contact from '../../icons/contact.svg';
-import Plus from '../../icons/plus.svg';
-import HelpCircle from '../../icons/help-circle.svg';
-import InfoCircle from '../../icons/info-circle.svg';
-import Copy from '../../icons/copy-01.svg';
-import Calendar from '../../icons/calendar.svg';
-import Check from '../../icons/check.svg';
-import Close from '../../icons/x-close.svg';
-import ApplePay from '../../icons/payment-methods/ApplePay.svg';
-import Mastercard from '../../icons/payment-methods/Mastercard.svg';
-import Visa from '../../icons/payment-methods/Visa.svg';
-import GrabPay from '../../icons/payment-methods/e-wallet/GrabPay.svg';
-import MAE from '../../icons/payment-methods/e-wallet/MAE.svg';
-import TouchnGo from '../../icons/payment-methods/e-wallet/TnG-eWallet.svg';
-import Boost from '../../icons/payment-methods/e-wallet/Boost.svg';
-import AffinBank from '../../icons/payment-methods/bank/affin-bank.svg';
-import AgroBank from '../../icons/payment-methods/bank/agro-bank.svg';
-import AllianceBank from '../../icons/payment-methods/bank/alliance-bank.svg';
-import AmBank from '../../icons/payment-methods/bank/AmBank.svg';
-import BankIslam from '../../icons/payment-methods/bank/bank-islam.svg';
-import Muamalat from '../../icons/payment-methods/bank/muamalat.svg';
-import BankRakyat from '../../icons/payment-methods/bank/bank-rakyat.svg';
-import CIMB from '../../icons/payment-methods/bank/cimb-clicks.svg';
-import Facebook from '../../icons/social/facebook.svg';
-import Twitter from '../../icons/social/twitter.svg';
-import Linkedin from '../../icons/social/linkedin.svg';
+import { Arrowleft } from '../../icons';
+import { AutoBilling } from '../../icons';
+import { Calendars } from '../../icons';
+import { CalendarRefresh } from '../../icons';
+import { Check } from '../../icons';
+import { ChevronRight } from '../../icons';
+import { Close } from '../../icons';
+import { Contact } from '../../icons';
+import { Copy } from '../../icons';
+import { CurrencyRefresh } from '../../icons';
+import { File } from '../../icons';
+import { FileMedal } from '../../icons';
+import { HelpCircle } from '../../icons';
+import { History } from '../../icons';
+import { InfoCircle } from '../../icons';
+import { Passcode } from '../../icons';
+import { Plus } from '../../icons';
+import { Settings } from '../../icons';
 
-// NativeBase Icons
-import {
-  MoonIcon,
-  FavouriteIcon,
-  DeleteIcon,
-  ChevronRightIcon,
-  SmallCloseIcon,
-} from 'native-base';
+// Social Icons
+import { Facebook } from '../../icons';
+import { LinkedIn } from '../../icons';
+import { Twitter } from '../../icons';
+
+//Payment Method Icons
+import { ApplePay } from '../../icons';
+import { Mastercard } from '../../icons';
+import { Visa } from '../../icons';
+
+//e-Wallet Icons
+import { Boost } from '../../icons';
+import { GrabPay } from '../../icons';
+import { MAE } from '../../icons';
+import { TouchnGo } from '../../icons';
+
+//Bank Icons
+import { AffinBank } from '../../icons';
+import { AgroBank } from '../../icons';
+import { AllianceBank } from '../../icons';
+import { AmBank } from '../../icons';
+import { BankIslam } from '../../icons';
+import { BankRakyat } from '../../icons';
+import { CIMB } from '../../icons';
+import { Muamalat } from '../../icons';
 
 const Icons = () => {
   const theme = useTheme();
-
-  // Font Icons
-  const icons = [
-    {
-      icon: <MoonIcon />,
-      iconName: 'moon',
-    },
-    {
-      icon: <FavouriteIcon />,
-      iconName: 'favourite',
-    },
-    {
-      icon: <DeleteIcon />,
-      iconName: 'delete',
-    },
-    {
-      icon: <ChevronRightIcon />,
-      iconName: 'chevron-right',
-    },
-    {
-      icon: <SmallCloseIcon />,
-      iconName: 'small-close',
-    },
-  ];
 
   return (
     <ScrollView>
@@ -105,119 +63,119 @@ const Icons = () => {
         <VStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <CalendarRefresh width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <CalendarRefresh />{' '}
+              <Text textAlign="center" width={120} color="black">
                 calendar-refresh
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <ArrowLeft width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <Arrowleft />{' '}
+              <Text textAlign="center" width={120} color="black">
                 arrow-left
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <ChevronRight width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <ChevronRight />{' '}
+              <Text textAlign="center" width={120} color="black">
                 chevron-right
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <File width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <File />{' '}
+              <Text textAlign="center" width={120} color="black">
                 file-06
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <AutoBilling width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <AutoBilling />{' '}
+              <Text textAlign="center" width={120} color="black">
                 auto-billing-01
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <FileMedal width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <FileMedal />{' '}
+              <Text textAlign="center" width={120} color="black">
                 file-medal
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <History width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <History />{' '}
+              <Text textAlign="center" width={120} color="black">
                 history
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <Passcode width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <Passcode />{' '}
+              <Text textAlign="center" width={120} color="black">
                 passcode
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <CurrencyRefresh width={120} height={40} />{' '}
+              <CurrencyRefresh />{' '}
               <Text textAlign="center" width={120} color="black">
                 currency-ringgit-malaysia-refresh
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <Plus width={120} height={40} />{' '}
-              <Text textAlign="center" color="black">
+              <Plus />{' '}
+              <Text textAlign="center" width={120} color="black">
                 plus
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
-            <Box p="10px">
-              <HelpCircle width={120} height={40} />{' '}
+            <Box alignItems="center" p="10px">
+              <HelpCircle />{' '}
               <Text textAlign="center" width={120} color="black">
                 help-circle
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <Contact width={120} height={40} />{' '}
+              <Contact />{' '}
               <Text textAlign="center" width={120} color="black">
                 contact
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
-            <Box p="10px">
-              <Check width={120} height={40} />{' '}
+            <Box alignItems="center" p="10px">
+              <Check />{' '}
               <Text textAlign="center" width={120} color="black">
                 check{' '}
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <Close width={120} height={40} />{' '}
+              <Close />{' '}
               <Text textAlign="center" width={120} color="black">
                 close
               </Text>
             </Box>
           </HStack>
           <HStack mt="5">
-            <Box p="10px">
-              <InfoCircle width={120} height={40} />{' '}
+            <Box alignItems="center" p="10px">
+              <InfoCircle />{' '}
               <Text textAlign="center" width={120} color="black">
                 info-circle{' '}
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <Calendar width={120} height={40} />{' '}
+              <Calendars />{' '}
               <Text textAlign="center" width={120} color="black">
                 calendar
               </Text>
@@ -225,14 +183,14 @@ const Icons = () => {
           </HStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <Copy width={120} height={40} />{' '}
+              <Copy />{' '}
               <Text textAlign="center" width={120} color="black">
                 copy-01
               </Text>
             </Box>
             <Spacer></Spacer>
             <Box alignItems="center" p="10px">
-              <Settings width={120} height={40} />{' '}
+              <Settings />{' '}
               <Text textAlign="center" width={120} color="black">
                 settings-04
               </Text>
@@ -396,7 +354,7 @@ const Icons = () => {
           </HStack>
           <HStack mt="5">
             <Box alignItems="center" p="10px">
-              <Linkedin width={120} height={40} />{' '}
+              <LinkedIn width={120} height={40} />{' '}
               <Text textAlign="center" color="black">
                 linkedin
               </Text>

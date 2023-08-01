@@ -14,7 +14,7 @@ import {
   ScrollView,
 } from 'native-base';
 //Icons
-import Copy from '../../assets/icons/copy-01.svg';
+import { Copy } from '../../assets/icons';
 
 const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -44,10 +44,10 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
           <Box variant="shadow" bg="#4481ED">
             <HStack space={[4, 3]} justifyContent="space-between">
               <Box variant="iconRounded">
-                <Copy width="14px" height="14px" />
+                <Copy width="14px" height="14px" color="#1561E8" />
               </Box>
               <Box>
-                <Text variant="h6" color="white" pb="1.0">
+                <Text variant="body1" color="white" pb="1.0">
                   60 19 23456789
                 </Text>
                 <Text variant="label" bold color="white">
@@ -66,7 +66,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
 
           {/* AUTO RELOAD BALANCE FALLS */}
           <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               1. Auto Reload when credit balance falls below:
             </Text>
             {/* Amount Input */}
@@ -86,7 +86,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
 
           {/* SELECT AMOUNT CARD */}
           <Box variant="shadow" mt="16px">
-            <Text variant="body2" bold pb="16px">
+            <Text variant="h8" bold pb="16px">
               2. Select Amount
             </Text>
             {/* Card Reload */}

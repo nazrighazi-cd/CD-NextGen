@@ -15,51 +15,21 @@ import {
   Modal,
 } from 'native-base';
 
-// NativeBase Icons
-import {
-  ArrowBackIcon,
-  MoonIcon,
-  FavouriteIcon,
-  DeleteIcon,
-  ChevronRightIcon,
-  SmallCloseIcon,
-} from 'native-base';
+// Components
+import FloatingInput from '../../../themes/components/FloatingInput';
 
-import Arrowleft from '../../icons/Arrowleft';
+// Icons
+import { CalendarRefresh } from '../../icons';
+import { Twitter } from '../../icons';
+import { LinkedIn } from '../../icons';
+import { Visa } from '../../icons';
+import { Arrowleft } from '../../icons';
+import { ChevronRight } from '../../icons';
 
 import { Card } from '@cd-next-gen-app/ui-components';
 
 const Cheatsheet = () => {
   const theme = useTheme();
-
-  // Font Icons
-  const icons = [
-    {
-      icon: <ArrowBackIcon />,
-      iconName: 'arrow-back',
-    },
-
-    {
-      icon: <MoonIcon />,
-      iconName: 'moon',
-    },
-    {
-      icon: <FavouriteIcon />,
-      iconName: 'favourite',
-    },
-    {
-      icon: <DeleteIcon />,
-      iconName: 'delete',
-    },
-    {
-      icon: <ChevronRightIcon />,
-      iconName: 'chevron-right',
-    },
-    {
-      icon: <SmallCloseIcon />,
-      iconName: 'small-close',
-    },
-  ];
 
   // Modal States
   const [defaultModal, setDefaultModal] = useState(false);
@@ -133,9 +103,8 @@ const Cheatsheet = () => {
           Icon Buttons
         </Text>
         <HStack>
-          <IconButton icon={<MoonIcon />} />
-          <IconButton icon={<FavouriteIcon />} mx="2" />
-          <IconButton icon={<DeleteIcon />} />
+          <IconButton icon={<Twitter />} />
+          <IconButton icon={<LinkedIn />} mx="2" />
         </HStack>
 
         {/* Icon Variations */}
@@ -144,10 +113,10 @@ const Cheatsheet = () => {
         </Text>
         <HStack>
           <Box variant="iconRounded">
-            <MoonIcon color="primary.600" />
+            <Twitter color="#000" width="24px" height="24px" />
           </Box>
           <Box variant="iconCircle" ml="2">
-            <FavouriteIcon color="success.500" />
+            <LinkedIn width="24px" height="24px" />
           </Box>
         </HStack>
 
@@ -155,17 +124,12 @@ const Cheatsheet = () => {
         <Text color="primary.600" mt="4" mb="2">
           Input
         </Text>
-        <Input
-          InputLeftElement={<Text variant="floating">Default Input</Text>}
-          placeholder="Default input"
-          mb="2"
-        ></Input>
-        <Input
-          placeholder="Input with icon"
-          mb="2"
-          InputLeftElement={<Text variant="floating">Input with icon</Text>}
-          InputRightElement={<MoonIcon mr="3" />}
-        ></Input>
+        <FloatingInput label="Default Input" placeholder="Default Input" />
+        <FloatingInput
+          label="Input with Icon"
+          placeholder="Input with Icon"
+          InputRightElement={<CalendarRefresh />}
+        />
 
         {/* Form Control */}
         <Text color="primary.600" mt="4" mb="2">
@@ -175,7 +139,7 @@ const Cheatsheet = () => {
         <HStack alignItems="center">
           <Switch />
           <Checkbox.Group flexDirection="row" alignItems="center" ml="3">
-            <Checkbox></Checkbox>
+            <Checkbox accessibilityLabel="Checkbox"></Checkbox>
             <Text ml="2">Checkbox</Text>
           </Checkbox.Group>
           <Radio.Group>
@@ -244,11 +208,11 @@ const Cheatsheet = () => {
           App Bar (Custom Component)
         </Text>
         <Box variant="header">
-          <ArrowBackIcon size="md" color="black" />
+          <Arrowleft color="black" />
           <Text variant="h6" bold>
             Reload
           </Text>
-          <MoonIcon color="white" />
+          <Twitter color="white" />
         </Box>
 
         {/* Cards */}
@@ -277,14 +241,14 @@ const Cheatsheet = () => {
         </Text>
         <Box variant="listing">
           <HStack alignItems="center">
-            <MoonIcon />
+            <Visa />
             <Text ml="4">Maybank 1234</Text>
             <Badge variant="blue" ml="2">
               Default
             </Badge>
           </HStack>
           <Box>
-            <ChevronRightIcon />
+            <ChevronRight color="#aaa" />
           </Box>
         </Box>
       </Box>
