@@ -25,13 +25,14 @@
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
     "@callstack/repack": "^3.3.0",
-    "@nx/detox": "16.6.0-beta.8",
-    "@nx/eslint-plugin": "16.6.0-beta.8",
-    "@nx/jest": "16.6.0-beta.8",
-    "@nx/js": "16.6.0-beta.8",
-    "@nx/linter": "16.6.0-beta.8",
-    "@nx/react-native": "16.6.0-beta.8",
-    "@nx/workspace": "16.6.0-beta.8",
+    "@nx/detox": "16.6.0",
+    "@nx/eslint-plugin": "16.6.0",
+    "@nx/jest": "16.6.0",
+    "@nx/js": "16.6.0",
+    "@nx/linter": "16.6.0",
+    "@nx/react-native": "16.6.0",
+    "@nx/webpack": "16.6.0",
+    "@nx/workspace": "16.6.0",
     "@react-native-community/cli": "11.3.5",
     "@react-native-community/cli-platform-android": "11.3.5",
     "@react-native-community/cli-platform-ios": "11.3.5",
@@ -61,11 +62,12 @@
     "jest-react-native": "18.0.0",
     "metro": "0.76.7",
     "metro-babel-register": "0.76.7",
+    "metro-config": "0.76.7",
     "metro-react-native-babel-preset": "0.76.7",
     "metro-react-native-babel-transformer": "0.76.7",
     "metro-resolver": "0.76.7",
-    "nx": "16.6.0-beta.8",
-    "nx-cloud": "16.1.1",
+    "nx": "16.6.0",
+    "nx-cloud": "16.2.0",
     "prettier": "^2.6.2",
     "react-native-svg-transformer": "^1.0.0",
     "react-test-renderer": "18.2.0",
@@ -102,4 +104,3 @@
     }
   }
 }
-

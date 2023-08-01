@@ -31,7 +31,8 @@
       "dependsOn": [
         "ensure-symlink",
         "sync-deps",
-        "pod-install"
+        "pod-install",
+        "patch-ios-incremental-build"
       ],
       "executor": "@nx/react-native:run-ios",
       "options": {}
