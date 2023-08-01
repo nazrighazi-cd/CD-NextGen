@@ -269,7 +269,11 @@ const theme = extendTheme({
           bg: 'gray.700',
           opacity: '80',
         },
+        contentSize: {
+          width: '100%',
+        },
       },
+
       variants: {
         bottom: {
           justifyContent: 'flex-end',
@@ -289,7 +293,6 @@ const theme = extendTheme({
         bottom: {
           borderTopRadius: '24px',
           borderBottomRadius: '0px',
-          width: '100%',
           justifyContent: 'flex-end',
         },
       },
