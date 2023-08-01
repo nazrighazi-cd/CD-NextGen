@@ -2,13 +2,13 @@ import React from 'react';
 // Native Base Components
 import { useTheme, Pressable, Text, Box, HStack, VStack } from 'native-base';
 // Icons
-import Medal from '../assets/icons/file-medal.svg';
-import File from '../assets/icons/file-06.svg';
-import Passcode from '../assets/icons/passcode.svg';
-import AutoBilling from '../assets/icons/auto-billing-01.svg';
-import CalendarRefresh from '../assets/icons/calendar-refresh.svg';
-import History from '../assets/icons/history.svg';
-import Currency from '../assets/icons/currency-ringgit-malaysia-refresh.svg';
+import { FileMedal } from '../assets/icons';
+import { File } from '../assets/icons';
+import { Passcode } from '../assets/icons';
+import { AutoBilling } from '../assets/icons';
+import { CalendarRefresh } from '../assets/icons';
+import { History } from '../assets/icons';
+import { CurrencyRefresh } from '../assets/icons';
 
 const max_length = 11;
 
@@ -20,7 +20,7 @@ const MainList = ({ navigation }: { navigation: any }) => {
     {
       name: 'Reload for Myself',
       pages: 'Reload Myself',
-      icons: <Medal color="#000000" />,
+      icons: <FileMedal color="#000000" />,
     },
     {
       name: 'Reload for Others',
@@ -50,7 +50,7 @@ const MainList = ({ navigation }: { navigation: any }) => {
     {
       name: 'Auto Reload Management',
       pages: 'Auto Reload Active',
-      icons: <Currency color="#000000" />,
+      icons: <CurrencyRefresh color="#000000" />,
     },
   ];
 

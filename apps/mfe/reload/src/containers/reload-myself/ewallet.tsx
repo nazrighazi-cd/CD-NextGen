@@ -3,10 +3,10 @@ import React from 'react';
 import { useTheme, Box, HStack, Text, Pressable } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
-import Boost from '../../assets/icons/payment-methods/e-wallet/Boost.svg';
-import GrabPay from '../../assets/icons/payment-methods/e-wallet/GrabPay.svg';
-import MAE from '../../assets/icons/payment-methods/e-wallet/MAE.svg';
-import TnG from '../../assets/icons/payment-methods/e-wallet/TnG-eWallet.svg';
+import { Boost } from '../../assets/icons';
+import { GrabPay } from '../../assets/icons';
+import { MAE } from '../../assets/icons';
+import { TouchnGo } from '../../assets/icons';
 
 const EWallet = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -31,7 +31,7 @@ const EWallet = ({ navigation }: { navigation: any }) => {
     {
       id: '4',
       method: 'TnG eWallet',
-      icons: <TnG />,
+      icons: <TouchnGo />,
     },
   ];
 

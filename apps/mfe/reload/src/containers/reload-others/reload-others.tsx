@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'native-base';
 // Icons
-import Contact from '../../assets/icons/contact.svg';
+import { Contact } from '../../assets/icons';
 
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

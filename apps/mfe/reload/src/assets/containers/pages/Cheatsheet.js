@@ -19,12 +19,12 @@ import {
 import FloatingInput from '../../../themes/components/FloatingInput';
 
 // Icons
-import Calendar from '../../icons/calendar-refresh.svg';
-import Twitter from '../../icons/social/twitter.svg';
-import Linkedin from '../../icons/social/linkedin.svg';
-import Visa from '../../icons/payment-methods/Visa.svg';
-import BackArrow from '../../icons/arrow-left.svg';
-import ChevronRight from '../../icons/chevron-right.svg';
+import { CalendarRefresh } from '../../icons';
+import { Twitter } from '../../icons';
+import { LinkedIn } from '../../icons';
+import { Visa } from '../../icons';
+import { BackArrow } from '../../icons';
+import { ChevronRight } from '../../icons';
 
 const Cheatsheet = () => {
   const theme = useTheme();
@@ -100,7 +100,7 @@ const Cheatsheet = () => {
         </Text>
         <HStack>
           <IconButton icon={<Twitter />} />
-          <IconButton icon={<Linkedin />} mx="2" />
+          <IconButton icon={<LinkedIn />} mx="2" />
         </HStack>
 
         {/* Icon Variations */}
@@ -112,7 +112,7 @@ const Cheatsheet = () => {
             <Twitter color="#000" width="24px" height="24px" />
           </Box>
           <Box variant="iconCircle" ml="2">
-            <Linkedin width="24px" height="24px" />
+            <LinkedIn width="24px" height="24px" />
           </Box>
         </HStack>
 
@@ -124,7 +124,7 @@ const Cheatsheet = () => {
         <FloatingInput
           label="Input with Icon"
           placeholder="Input with Icon"
-          InputRightElement={<Calendar />}
+          InputRightElement={<CalendarRefresh />}
         />
 
         {/* Form Control */}

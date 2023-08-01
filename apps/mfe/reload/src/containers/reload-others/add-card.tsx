@@ -12,8 +12,9 @@ import {
   Button,
 } from 'native-base';
 // Icons
-import MasterCard from '../../assets/icons/payment-methods/Mastercard.svg';
-import Help from '../../assets/icons/help-circle.svg';
+
+import { Mastercard } from '../../assets/icons';
+import { HelpCircle } from '../../assets/icons';
 
 const AddCard = () => {
   const theme = useTheme();
@@ -39,12 +40,12 @@ const AddCard = () => {
                 placeholder="Card Number"
                 InputRightElement={
                   <Box pr={2}>
-                    <Help color="#98A2B3" />
+                    <HelpCircle color="#98A2B3" />
                   </Box>
                 }
                 InputLeftElement={
                   <Box pl={2}>
-                    <MasterCard />
+                    <Mastercard />
                   </Box>
                 }
                 mx={2}

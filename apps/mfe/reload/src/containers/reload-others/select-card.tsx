@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { useTheme, HStack, Box, Text, Badge, Pressable } from 'native-base';
 //Icons
 import { ChevronRightIcon, AddIcon } from 'native-base';
-import Check from '../../assets/icons/check.svg';
-import Visa from '../../assets/icons/payment-methods/Visa.svg';
-import MasterCard from '../../assets/icons/payment-methods/Mastercard.svg';
+import { Check } from '../../assets/icons';
+import { Visa } from '../../assets/icons';
+import { Mastercard } from '../../assets/icons';
 
 const SelectCard = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -24,7 +24,7 @@ const SelectCard = ({ navigation }: { navigation: any }) => {
     {
       id: '2',
       method: 'Citibank 0929',
-      icons: <MasterCard />,
+      icons: <Mastercard />,
       tag: null,
       check: null,
     },

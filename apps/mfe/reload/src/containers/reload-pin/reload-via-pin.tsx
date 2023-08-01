@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 // Native Base Components
 import { useTheme, Box, HStack, Text, Input, Button, Modal } from 'native-base';
 // Icons
-import Contact from '../../assets/icons/contact.svg';
-import Info from '../../assets/icons/info-circle.svg';
+import { Contact } from '../../assets/icons';
+import { InfoCircle } from '../../assets/icons';
 
 const ReloadViaPin = () => {
   const theme = useTheme();
@@ -38,7 +38,7 @@ const ReloadViaPin = () => {
                 2. Enter Reload PIN
               </Text>
               <Box mt={-0.5}>
-                <Info
+                <InfoCircle
                   width="16px"
                   color="#000000"
                   onPress={() => setBottomModal(true)}

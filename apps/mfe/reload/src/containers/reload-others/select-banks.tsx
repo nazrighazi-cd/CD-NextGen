@@ -10,15 +10,15 @@ import {
 } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
-import AffinBank from '../../assets/icons/payment-methods/bank/affin-bank.svg';
-import AgroBank from '../../assets/icons/payment-methods/bank/agro-bank.svg';
-import AllianceBank from '../../assets/icons/payment-methods/bank/alliance-bank.svg';
-import AmBank from '../../assets/icons/payment-methods/bank/AmBank.svg';
-import BankIslam from '../../assets/icons/payment-methods/bank/bank-islam.svg';
-import BankMuamalat from '../../assets/icons/payment-methods/bank/muamalat.svg';
-import BankRakyat from '../../assets/icons/payment-methods/bank/bank-rakyat.svg';
-import CIMBClicks from '../../assets/icons/payment-methods/bank/cimb-clicks.svg';
 
+import { AffinBank } from '../../assets/icons';
+import { AgroBank } from '../../assets/icons';
+import { AllianceBank } from '../../assets/icons';
+import { AmBank } from '../../assets/icons';
+import { BankIslam } from '../../assets/icons';
+import { Muamalat } from '../../assets/icons';
+import { BankRakyat } from '../../assets/icons';
+import { CIMB } from '../../assets/icons';
 const Banks = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
@@ -52,7 +52,7 @@ const Banks = ({ navigation }: { navigation: any }) => {
     {
       id: '6',
       method: 'Bank Mualamat',
-      icons: <BankMuamalat />,
+      icons: <Muamalat />,
     },
     {
       id: '7',
@@ -62,7 +62,7 @@ const Banks = ({ navigation }: { navigation: any }) => {
     {
       id: '8',
       method: 'CIMB Clicks',
-      icons: <CIMBClicks />,
+      icons: <CIMB />,
     },
   ];
 

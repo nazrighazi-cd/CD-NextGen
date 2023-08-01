@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // Calendar
 import { Calendar } from 'react-native-calendars';
+
 // Native Base Components
 import {
   useTheme,
@@ -16,9 +17,10 @@ import {
   ScrollView,
   Pressable,
 } from 'native-base';
+
 // Icons
-import CalendarIcon from '../../assets/icons/calendar.svg';
-import Copy from '../../assets/icons/copy-01.svg';
+import { Calendars } from '../../assets/icons';
+import { Copy } from '../../assets/icons';
 
 const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -89,7 +91,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                   placeholder="Choose between 1 and 28 of the month"
                   InputRightElement={
                     <Box pr={3}>
-                      <CalendarIcon
+                      <Calendars
                         color="#667085"
                         onPress={() => setDefaultModal(true)}
                       />

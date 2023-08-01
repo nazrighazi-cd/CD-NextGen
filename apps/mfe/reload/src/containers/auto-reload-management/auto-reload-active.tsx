@@ -14,9 +14,10 @@ import {
   Modal,
 } from 'native-base';
 // Icons
-import Info from '../../assets/icons/info-circle.svg';
-import Visa from '../../assets/icons/payment-methods/Visa.svg';
-import Copy from '../../assets/icons/copy-01.svg';
+
+import { InfoCircle } from '../../assets/icons';
+import { Visa } from '../../assets/icons';
+import { Copy } from '../../assets/icons';
 
 const AutoReloadActive = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -66,7 +67,7 @@ const AutoReloadActive = ({ navigation }: { navigation: any }) => {
                 </Box>
                 <Box>
                   <Pressable onPress={() => setBottomModal(true)}>
-                    <Info width="18px" color="#1561E8" />
+                    <InfoCircle width="18px" color="#1561E8" />
                   </Pressable>
                 </Box>
                 <Spacer />

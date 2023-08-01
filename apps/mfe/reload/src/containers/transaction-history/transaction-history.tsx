@@ -13,8 +13,8 @@ import {
   ScrollView,
 } from 'native-base';
 // Icons
-import Setting from '../../assets/icons/settings-04.svg';
-import Calendar from '../../assets/icons/calendar.svg';
+import { Settings } from '../../assets/icons';
+import { Calendars } from '../../assets/icons';
 
 // MOCK DATA
 const transactions = [
@@ -23,70 +23,70 @@ const transactions = [
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-07-26',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-07-20',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Add-Ons',
     amount: '7',
     description: 'Postpaid 50 Bill',
     date: '2023-07-25',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Subscriptions',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-06-15',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-06-20',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Add-Ons',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-05-10',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Subscriptions',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2023-05-04',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-06-20',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Add-Ons',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-05-10',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
   {
     service: 'Subscriptions',
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-05-04',
-    icon: <Calendar color="#667085" />,
+    icon: <Calendars color="#667085" />,
   },
 ];
 
@@ -236,7 +236,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
             <Text variant="body">My Transaction</Text>
             <Box alignContent="flex-end" flexDir="row" alignItems="center">
               <Box>
-                <Setting width="20px" color="#1561E8" />
+                <Settings width="20px" color="#1561E8" />
               </Box>
               <Box pl="10px">
                 <Text

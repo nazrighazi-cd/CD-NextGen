@@ -12,8 +12,8 @@ import {
   Modal,
 } from 'native-base';
 // Icons
-import Info from '../../assets/icons/info-circle.svg';
-import Copy from '../../assets/icons/copy-01.svg';
+import { InfoCircle } from '../../assets/icons';
+import { Copy } from '../../assets/icons';
 
 const ReloadPin = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -56,7 +56,7 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
                 Enter 16-Digit Reload PIN
               </Text>
               <Box mt={-0.5}>
-                <Info
+                <InfoCircle
                   width="16px"
                   color="#000000"
                   onPress={() => setBottomModal(true)}
