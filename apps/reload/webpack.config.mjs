@@ -93,9 +93,13 @@ export default (env) => {
        * dependency. You might need it when using workspaces/monorepos or unconventional project
        * structure. For simple/typical project you won't need it.
        */
-      // alias: {
-      //   'react-native': reactNativePath,
-      // },
+      alias: {
+        'react-native': reactNativePath,
+        '@cd-next-gen-app/ui-components': new URL(
+          '../../libs/ui-components/src/index.ts',
+          import.meta.url
+        ).pathname,
+      },
     },
     /**
      * Configures output.

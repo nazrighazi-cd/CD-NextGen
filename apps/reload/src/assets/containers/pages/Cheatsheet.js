@@ -27,6 +27,8 @@ import {
 
 import Arrowleft from '../../icons/Arrowleft';
 
+import { Card } from '@cd-next-gen-app/ui-components';
+
 const Cheatsheet = () => {
   const theme = useTheme();
 
@@ -67,6 +69,7 @@ const Cheatsheet = () => {
     <ScrollView>
       <Arrowleft />
       <Box bg="white" px="3" py="4">
+        <Card />
         {/* Typography */}
         <Text color="primary.600">Typography (Text)</Text>
         <Text variant="h1">Heading 1</Text>
