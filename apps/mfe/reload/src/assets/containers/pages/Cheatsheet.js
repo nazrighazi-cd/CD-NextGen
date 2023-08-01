@@ -15,6 +15,10 @@ import {
   Modal,
 } from 'native-base';
 
+// Components
+import FloatingInput from '../../../themes/components/FloatingInput';
+
+// Icons
 import Calendar from '../../icons/calendar-refresh.svg';
 import Twitter from '../../icons/social/twitter.svg';
 import Linkedin from '../../icons/social/linkedin.svg';
@@ -28,7 +32,6 @@ const Cheatsheet = () => {
   // Modal States
   const [defaultModal, setDefaultModal] = useState(false);
   const [bottomModal, setBottomModal] = useState(false);
-  const [showLeftElement, setShowLeftElement] = useState(false);
 
   return (
     <ScrollView>
@@ -106,10 +109,10 @@ const Cheatsheet = () => {
         </Text>
         <HStack>
           <Box variant="iconRounded">
-            <Twitter color="primary.600" width="24px" height="24px" />
+            <Twitter color="#000" width="24px" height="24px" />
           </Box>
           <Box variant="iconCircle" ml="2">
-            <Linkedin color="success.500" width="24px" height="24px" />
+            <Linkedin width="24px" height="24px" />
           </Box>
         </HStack>
 
@@ -117,18 +120,12 @@ const Cheatsheet = () => {
         <Text color="primary.600" mt="4" mb="2">
           Input
         </Text>
-        <Input
-          // InputLeftElement={<Text variant="floating">Default Input</Text>}
-          placeholder="Default input"
-          mb="2"
-        ></Input>
-        <Input
-          placeholder="Input with icon"
-          mb="2"
-          InputRightElement={
-            <Calendar color="#98A2B3" style={{ marginRight: 8 }} />
-          }
-        ></Input>
+        <FloatingInput label="Default Input" placeholder="Default Input" />
+        <FloatingInput
+          label="Input with Icon"
+          placeholder="Input with Icon"
+          InputRightElement={<Calendar />}
+        />
 
         {/* Form Control */}
         <Text color="primary.600" mt="4" mb="2">

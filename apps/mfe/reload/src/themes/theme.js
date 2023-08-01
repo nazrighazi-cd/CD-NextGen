@@ -87,14 +87,6 @@ const theme = extendTheme({
           fontSize: '10px',
           fontFamily: 'body',
         },
-        floating: {
-          position: 'absolute',
-          fontSize: '10px',
-          fontFamily: 'body',
-          marginLeft: '12px',
-          top: '7px',
-          color: 'gray.500',
-        },
       },
     },
     Badge: {
@@ -254,13 +246,11 @@ const theme = extendTheme({
         placeholderTextColor: 'gray.500',
         _focus: {
           bg: 'white',
-          // placeholderTextColor: 'white',
+          placeholderTextColor: 'white',
           borderColor: 'gray.300',
+          paddingTop: '24px',
+          paddingBottom: '12px',
         },
-        // _input: {
-        //   paddingTop: '24px',
-        //   paddingBottom: '12px',
-        // },
       },
     },
     Modal: {
