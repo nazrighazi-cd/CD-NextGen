@@ -23,7 +23,7 @@ import { CalendarRefresh } from '../../icons';
 import { Twitter } from '../../icons';
 import { LinkedIn } from '../../icons';
 import { Visa } from '../../icons';
-import { BackArrow } from '../../icons';
+import { Arrowleft } from '../../icons';
 import { ChevronRight } from '../../icons';
 
 const Cheatsheet = () => {
@@ -204,7 +204,7 @@ const Cheatsheet = () => {
           App Bar (Custom Component)
         </Text>
         <Box variant="header">
-          <BackArrow color="black" />
+          <Arrowleft color="black" />
           <Text variant="h6" bold>
             Reload
           </Text>
