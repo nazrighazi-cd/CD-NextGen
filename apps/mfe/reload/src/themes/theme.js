@@ -232,12 +232,14 @@ const theme = extendTheme({
     },
     IconButton: {
       defaultProps: {
-        padding: '12px',
+        padding: '10px',
         borderRadius: '8px',
         borderWidth: 1,
         borderColor: 'gray.300',
         _icon: {
           color: '#98A2B3',
+          width: '24px',
+          height: '24px',
         },
       },
     },
@@ -252,11 +254,13 @@ const theme = extendTheme({
         placeholderTextColor: 'gray.500',
         _focus: {
           bg: 'white',
-          placeholderTextColor: 'white',
+          // placeholderTextColor: 'white',
           borderColor: 'gray.300',
-          paddingTop: '24px',
-          paddingBottom: '12px',
         },
+        // _input: {
+        //   paddingTop: '24px',
+        //   paddingBottom: '12px',
+        // },
       },
     },
     Modal: {

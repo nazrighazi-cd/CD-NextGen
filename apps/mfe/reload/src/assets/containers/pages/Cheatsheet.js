@@ -15,51 +15,20 @@ import {
   Modal,
 } from 'native-base';
 
-// NativeBase Icons
-import {
-  ArrowBackIcon,
-  MoonIcon,
-  FavouriteIcon,
-  DeleteIcon,
-  ChevronRightIcon,
-  SmallCloseIcon,
-} from 'native-base';
+import Calendar from '../../icons/calendar-refresh.svg';
+import Twitter from '../../icons/social/twitter.svg';
+import Linkedin from '../../icons/social/linkedin.svg';
+import Visa from '../../icons/payment-methods/Visa.svg';
+import BackArrow from '../../icons/arrow-left.svg';
+import ChevronRight from '../../icons/chevron-right.svg';
 
 const Cheatsheet = () => {
   const theme = useTheme();
 
-  // Font Icons
-  const icons = [
-    {
-      icon: <ArrowBackIcon />,
-      iconName: 'arrow-back',
-    },
-
-    {
-      icon: <MoonIcon />,
-      iconName: 'moon',
-    },
-    {
-      icon: <FavouriteIcon />,
-      iconName: 'favourite',
-    },
-    {
-      icon: <DeleteIcon />,
-      iconName: 'delete',
-    },
-    {
-      icon: <ChevronRightIcon />,
-      iconName: 'chevron-right',
-    },
-    {
-      icon: <SmallCloseIcon />,
-      iconName: 'small-close',
-    },
-  ];
-
   // Modal States
   const [defaultModal, setDefaultModal] = useState(false);
   const [bottomModal, setBottomModal] = useState(false);
+  const [showLeftElement, setShowLeftElement] = useState(false);
 
   return (
     <ScrollView>
@@ -127,9 +96,8 @@ const Cheatsheet = () => {
           Icon Buttons
         </Text>
         <HStack>
-          <IconButton icon={<MoonIcon />} />
-          <IconButton icon={<FavouriteIcon />} mx="2" />
-          <IconButton icon={<DeleteIcon />} />
+          <IconButton icon={<Twitter />} />
+          <IconButton icon={<Linkedin />} mx="2" />
         </HStack>
 
         {/* Icon Variations */}
@@ -138,10 +106,10 @@ const Cheatsheet = () => {
         </Text>
         <HStack>
           <Box variant="iconRounded">
-            <MoonIcon color="primary.600" />
+            <Twitter color="primary.600" width="24px" height="24px" />
           </Box>
           <Box variant="iconCircle" ml="2">
-            <FavouriteIcon color="success.500" />
+            <Linkedin color="success.500" width="24px" height="24px" />
           </Box>
         </HStack>
 
@@ -150,15 +118,16 @@ const Cheatsheet = () => {
           Input
         </Text>
         <Input
-          InputLeftElement={<Text variant="floating">Default Input</Text>}
+          // InputLeftElement={<Text variant="floating">Default Input</Text>}
           placeholder="Default input"
           mb="2"
         ></Input>
         <Input
           placeholder="Input with icon"
           mb="2"
-          InputLeftElement={<Text variant="floating">Input with icon</Text>}
-          InputRightElement={<MoonIcon mr="3" />}
+          InputRightElement={
+            <Calendar color="#98A2B3" style={{ marginRight: 8 }} />
+          }
         ></Input>
 
         {/* Form Control */}
@@ -169,7 +138,7 @@ const Cheatsheet = () => {
         <HStack alignItems="center">
           <Switch />
           <Checkbox.Group flexDirection="row" alignItems="center" ml="3">
-            <Checkbox></Checkbox>
+            <Checkbox accessibilityLabel="Checkbox"></Checkbox>
             <Text ml="2">Checkbox</Text>
           </Checkbox.Group>
           <Radio.Group>
@@ -238,11 +207,11 @@ const Cheatsheet = () => {
           App Bar (Custom Component)
         </Text>
         <Box variant="header">
-          <ArrowBackIcon size="md" color="black" />
+          <BackArrow color="black" />
           <Text variant="h6" bold>
             Reload
           </Text>
-          <MoonIcon color="white" />
+          <Twitter color="white" />
         </Box>
 
         {/* Cards */}
@@ -271,14 +240,14 @@ const Cheatsheet = () => {
         </Text>
         <Box variant="listing">
           <HStack alignItems="center">
-            <MoonIcon />
+            <Visa />
             <Text ml="4">Maybank 1234</Text>
             <Badge variant="blue" ml="2">
               Default
             </Badge>
           </HStack>
           <Box>
-            <ChevronRightIcon />
+            <ChevronRight color="#aaa" />
           </Box>
         </Box>
       </Box>
