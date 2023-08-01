@@ -25,6 +25,8 @@ import {
   SmallCloseIcon,
 } from 'native-base';
 
+import Arrowleft from '../../icons/Arrowleft';
+
 const Cheatsheet = () => {
   const theme = useTheme();
 
@@ -63,6 +65,7 @@ const Cheatsheet = () => {
 
   return (
     <ScrollView>
+      <Arrowleft />
       <Box bg="white" px="3" py="4">
         {/* Typography */}
         <Text color="primary.600">Typography (Text)</Text>
