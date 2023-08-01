@@ -162,6 +162,7 @@ export default (env) => {
             /node_modules(.*[/\\])+@callstack\/repack/,
             /node_modules(.*[/\\])+native-base/,
             /node_modules(.*[/\\])+@react-stately/,
+            /node_modules(.*[/\\])+react-freeze/,
           ],
           use: 'babel-loader',
         },
