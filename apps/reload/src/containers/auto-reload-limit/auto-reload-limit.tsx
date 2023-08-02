@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Native Base Components
 import {
   useTheme,
@@ -15,6 +15,8 @@ import {
 } from 'native-base';
 //Icons
 import { Copy } from '../../assets/icons';
+// Components
+import FloatingInput from '../../themes/components/FloatingInput';
 
 const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -34,7 +36,12 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
     const row = reloadAmount.slice(i, i + 3);
     rowsAmount.push(row);
   }
-  const [number, onChangeNumber] = React.useState('');
+
+  //Input Disabled
+  const [number, setNumber] = useState('');
+  const onHandleNumber = (number) => {
+    setNumber(number);
+  };
 
   return (
     <Box flex={1} bg="white">
@@ -44,7 +51,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
           <Box variant="shadow" bg="#4481ED">
             <HStack space={[4, 3]} justifyContent="space-between">
               <Box variant="iconRounded">
-                <Copy width="14px" height="14px" color="#1561E8" />
+                <Copy width={14} height={14} color="#1561E8" />
               </Box>
               <Box>
                 <Text variant="body1" color="white" pb="1.0">
@@ -71,11 +78,12 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
             </Text>
             {/* Amount Input */}
             <Box pb="5px">
-              <Input
+              <FloatingInput
+                label="Bill Amount"
                 placeholder="Enter an amount"
-                onChangeText={onChangeNumber}
                 value={number}
-                keyboardType="numeric"
+                onChangeText={onHandleNumber}
+                type="number"
               />
             </Box>
             {/* Additional Text */}
@@ -119,7 +127,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
                               <Badge
                                 variant="popular"
                                 position="absolute"
-                                top="-10"
+                                top={isPressed ? '-11' : '-10'}
                               >
                                 {amount.tag}
                               </Badge>
@@ -139,10 +147,11 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
           </Box>
         </Box>
       </ScrollView>
+
       {/* FOOTER */}
       <Box m="16px">
         <Button
-          isDisabled={!number || !isNaN || number < '5' || number > '100'}
+          isDisabled={!number}
           onPress={() => navigation.navigate('Select Cards')}
         >
           Continue

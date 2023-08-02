@@ -4,12 +4,20 @@ import { useTheme, Box, HStack, Text, Input, Button, Modal } from 'native-base';
 // Icons
 import { Contact } from '../../assets/icons';
 import { InfoCircle } from '../../assets/icons';
+// Components
+import FloatingInput from '../../themes/components/FloatingInput';
 
 const ReloadViaPin = () => {
   const theme = useTheme();
 
   // Modal
   const [bottomModal, setBottomModal] = useState(false);
+
+  //Input Disabled
+  const [pinNumber, setPinNumber] = useState('');
+  const onHandlePin = (pinNumber) => {
+    setPinNumber(pinNumber);
+  };
 
   return (
     <>
@@ -20,15 +28,11 @@ const ReloadViaPin = () => {
             <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>
-            <Input
+            <FloatingInput
+              label="Mobile Number"
               placeholder="+60"
-              InputRightElement={
-                <Box pr={3}>
-                  <Contact color="#667085" />
-                </Box>
-              }
-              py={4}
-            ></Input>
+              InputRightElement={<Contact color="#667085" />}
+            />
           </Box>
 
           {/* ENTER RELOAD PIN */}
@@ -45,11 +49,15 @@ const ReloadViaPin = () => {
                 />
               </Box>
             </HStack>
-            <Input placeholder="16-Digit Pin Number" py={4} />
+            <Input
+              value={pinNumber}
+              onChangeText={onHandlePin}
+              placeholder="16-Digit Pin Number"
+            />
           </Box>
         </Box>
         <Box m="16px">
-          <Button>Continue</Button>
+          <Button isDisabled={!pinNumber}>Continue</Button>
         </Box>
       </Box>
 

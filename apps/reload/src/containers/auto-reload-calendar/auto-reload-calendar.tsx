@@ -60,7 +60,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
             <Box variant="shadow" bg="#4481ED">
               <HStack space={[4, 3]} justifyContent="space-between">
                 <Box variant="iconRounded">
-                  <Copy width="14px" height="14px" color="#1561E8" />
+                  <Copy width={14} height={14} color="#1561E8" />
                 </Box>
                 <Box>
                   <Text variant="body1" color="white" pb="1.0">
@@ -144,7 +144,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
                                 <Badge
                                   variant="popular"
                                   position="absolute"
-                                  top="-10"
+                                  top={isPressed ? '-11' : '-10'}
                                 >
                                   {amount.tag}
                                 </Badge>

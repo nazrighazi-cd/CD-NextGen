@@ -14,6 +14,8 @@ import {
 } from 'native-base';
 // Icons
 import { Contact } from '../../assets/icons';
+// Components
+import FloatingInput from '../../themes/components/FloatingInput';
 
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -65,15 +67,11 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
             <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>
-            <Input
+            <FloatingInput
+              label="Mobile Number"
               placeholder="+60"
-              InputRightElement={
-                <Box pr={3}>
-                  <Contact color="#667085" />
-                </Box>
-              }
-              py={4}
-            ></Input>
+              InputRightElement={<Contact color="#667085" />}
+            />
           </Box>
           {/* SELECT AMOUNT CARD */}
           <Box variant="shadow" mt="16px">
@@ -110,7 +108,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
                               <Badge
                                 variant="popular"
                                 position="absolute"
-                                top="-10"
+                                top={isPressed ? '-11' : '-10'}
                               >
                                 {amount.tag}
                               </Badge>
@@ -171,7 +169,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
                               <Badge
                                 variant="info"
                                 position="absolute"
-                                top="-10"
+                                top={isPressed ? '-11' : '-10'}
                               >
                                 {payment.tag}
                               </Badge>

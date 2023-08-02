@@ -12,9 +12,10 @@ import {
   Button,
 } from 'native-base';
 // Icons
-
 import { Mastercard } from '../../assets/icons';
 import { HelpCircle } from '../../assets/icons';
+// Components
+import FloatingInput from '../../themes/components/FloatingInput';
 
 const AddCard = () => {
   const theme = useTheme();
@@ -48,15 +49,14 @@ const AddCard = () => {
                     <Mastercard />
                   </Box>
                 }
-                mx={2}
               />
             </Box>
             <HStack justifyContent="space-between">
-              <Box w="50%">
-                <Input placeholder="Expiry Date" mx={2} />
+              <Box w="48%">
+                <FloatingInput label="Exp. Date" placeholder="Expiry Date" />
               </Box>
-              <Box w="50%">
-                <Input placeholder="CVV/CVC" mx={2} />
+              <Box w="48%">
+                <FloatingInput label="CVV/CVC" placeholder="CVV/CVC" />
               </Box>
             </HStack>
 

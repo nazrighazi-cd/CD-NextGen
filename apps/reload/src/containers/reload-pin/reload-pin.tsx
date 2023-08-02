@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 // Native Base Components
 import {
   useTheme,
@@ -21,6 +22,12 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
   // Modal
   const [bottomModal, setBottomModal] = useState(false);
 
+  //Input Disabled
+  const [pinNumber, setPinNumber] = useState('');
+  const onHandlePin = (pinNumber) => {
+    setPinNumber(pinNumber);
+  };
+
   return (
     <>
       <Box flex={1} bg="white">
@@ -29,7 +36,7 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
           <Box variant="shadow" bg="#4481ED">
             <HStack space={[4, 3]} justifyContent="space-between">
               <Box variant="iconRounded">
-                <Copy width="14px" height="14px" color="#1561E8" />
+                <Copy width={14} height={14} color="#1561E8" />
               </Box>
               <Box>
                 <Text variant="body1" color="white" pb="1.0">
@@ -63,13 +70,20 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
                 />
               </Box>
             </HStack>
-            <Input placeholder="16-Digit Pin Number" py={4} />
+            <Input
+              value={pinNumber}
+              onChangeText={onHandlePin}
+              placeholder="16-Digit Pin Number"
+            />
           </Box>
         </Box>
 
         {/* FOOTER */}
         <Box m="16px">
-          <Button onPress={() => navigation.navigate('Reload Via Pin')}>
+          <Button
+            onPress={() => navigation.navigate('Reload Via Pin')}
+            isDisabled={!pinNumber}
+          >
             Continue
           </Button>
         </Box>

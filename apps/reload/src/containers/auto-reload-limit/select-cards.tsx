@@ -53,7 +53,7 @@ const SelecCards = ({ navigation }: { navigation: any }) => {
                   <Text variant="body" pr={2}>
                     {item.method}
                   </Text>
-                  {item.tag ? <Badge variant="blue">{item.tag}</Badge> : null}
+                  {item.tag ? <Badge variant="indigo">{item.tag}</Badge> : null}
                 </Box>
               </HStack>
               {item.check ? (
