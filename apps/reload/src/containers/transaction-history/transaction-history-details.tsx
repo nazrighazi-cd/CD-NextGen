@@ -30,7 +30,7 @@ const TransactionHistoryDetails = () => {
         </Text>
         <HStack flexDir="row" mt="16px" space={3}>
           <Badge>5G Add-Ons</Badge>
-          <Badge variant="blue">7.7 Sales</Badge>
+          <Badge variant="indigo">7.7 Sales</Badge>
           <Badge variant="pink">iPhone 15</Badge>
         </HStack>
         <Text variant="body2" bold mt="16px">
