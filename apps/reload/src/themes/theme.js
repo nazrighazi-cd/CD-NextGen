@@ -30,7 +30,12 @@ const theme = extendTheme({
     },
     pink: {
       50: '#FFCCE4',
+      600: '#CC005F',
       700: '#990047',
+    },
+    indigo: {
+      50: '#EEF4FF',
+      700: '#3538CD',
     },
   },
   components: {
@@ -116,13 +121,13 @@ const theme = extendTheme({
           bg: 'yellow.500',
           _text: { color: 'primary.600' },
         },
-        blue: {
-          bg: 'primary.5',
-          _text: { color: 'primary.600' },
+        indigo: {
+          bg: 'indigo.50',
+          _text: { color: 'indigo.700' },
         },
         pink: {
-          bg: 'pink.50',
-          _text: { color: 'pink.700' },
+          bg: 'pink.600',
+          _text: { color: 'white' },
         },
       },
     },

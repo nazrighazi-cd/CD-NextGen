@@ -37,9 +37,7 @@ const Cheatsheet = () => {
 
   return (
     <ScrollView>
-      <Arrowleft />
       <Box bg="white" px="3" py="4">
-        <Card />
         {/* Typography */}
         <Text color="primary.600">Typography (Text)</Text>
         <Text variant="h1">Heading 1</Text>
@@ -75,8 +73,8 @@ const Cheatsheet = () => {
           <Badge variant="popular" mr="1">
             Popular
           </Badge>
-          <Badge variant="blue" mr="1">
-            Blue
+          <Badge variant="indigo" mr="1">
+            Indigo
           </Badge>
           <Badge variant="pink">Pink</Badge>
         </HStack>
