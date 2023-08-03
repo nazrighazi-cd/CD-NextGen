@@ -16,6 +16,7 @@ import {
   Modal,
   ScrollView,
   Pressable,
+  Avatar,
 } from 'native-base';
 import { Calendars, Copy } from '@cd-next-gen-app/icons';
 
@@ -58,9 +59,9 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
             {/* RELOAD CARD */}
             <Box variant="shadow" bg="#4481ED">
               <HStack space={[4, 3]} justifyContent="space-between">
-                <Box variant="iconRounded">
+                <Avatar variant="rounded">
                   <Copy width={14} height={14} color="#1561E8" />
-                </Box>
+                </Avatar>
                 <Box>
                   <Text variant="body1" color="white" pb="1.0">
                     60 19 23456789
