@@ -23,12 +23,21 @@ const theme = extendTheme({
     primary: {
       5: '#E8EFFD',
       25: '#A1C0F6',
+      300: '#4481ED',
       600: '#1561E8',
+      700: '#114EBA',
     },
     success: {
+      25: '#F6FEF9',
+      50: '#ECFDF3',
+      100: '#D1FADF',
+      300: '#6CE9A6',
       500: '#12B76A',
+      700: '#027A48',
     },
     error: {
+      50: '#FEF3F2',
+      100: '#FEE4E2',
       600: '#D92D20',
     },
     yellow: {
@@ -100,6 +109,62 @@ const theme = extendTheme({
         },
       },
     },
+    Alert: {
+      defaultProps: {
+        rounded: '12px',
+        padding: '16px',
+        justifyContent: 'flex',
+        _text: { fontSize: '14px' },
+      },
+      variants: {
+        info: {
+          bg: 'primary.5',
+          borderColor: 'primary.300',
+          _text: { color: 'primary.700' },
+          borderWidth: 1,
+        },
+        success: {
+          bg: 'success.25',
+          borderColor: 'success.300',
+          _text: { color: 'success.700' },
+          borderWidth: 1,
+        },
+      },
+    },
+    Avatar: {
+      defaultProps: {
+        variant: 'primary',
+      },
+      variants: {
+        primary: {
+          bg: 'white',
+          borderColor: 'gray.200',
+          borderWidth: 1,
+          rounded: '10px',
+        },
+        error: {
+          bg: 'error.100',
+          borderColor: 'error.50',
+          borderWidth: 6,
+          rounded: 'full',
+        },
+        success: {
+          bg: 'success.100',
+          borderColor: 'success.50',
+          borderWidth: 6,
+          rounded: 'full',
+        },
+        rounded: {
+          bg: 'gray.50',
+          rounded: '16px',
+          shadow: '2',
+        },
+        circle: {
+          bg: 'gray.100',
+          rounded: 'full',
+        },
+      },
+    },
     Badge: {
       defaultProps: {
         rounded: 'full',
@@ -130,6 +195,10 @@ const theme = extendTheme({
         celcomBlue: {
           bg: 'celcomBlue.500',
           _text: { color: 'white' },
+        },
+        gray: {
+          bg: 'gray.100',
+          _text: { color: 'black' },
         },
         indigo: {
           bg: 'indigo.50',
@@ -175,16 +244,6 @@ const theme = extendTheme({
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-        },
-        iconRounded: {
-          bg: 'gray.200',
-          padding: '16px',
-          borderRadius: '16px',
-        },
-        iconCircle: {
-          bg: 'gray.100',
-          padding: '16px',
-          rounded: 'full',
         },
         listing: {
           flexDirection: 'row',
