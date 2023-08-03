@@ -20,6 +20,10 @@ const FloatingInput = ({ placeholder, value, label, InputRightElement }) => {
         value={value}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
+        _focus={{
+          paddingTop: '24px',
+          paddingBottom: '12px',
+        }}
         InputRightElement={
           InputRightElement && (
             <Icon as={InputRightElement} mr="2" color="gray.500" />

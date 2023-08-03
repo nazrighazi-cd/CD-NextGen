@@ -17,6 +17,9 @@ const theme = extendTheme({
       500: '#667085',
       700: '#344054',
     },
+    celcomBlue: {
+      500: '#009DE0',
+    },
     primary: {
       5: '#E8EFFD',
       25: '#A1C0F6',
@@ -24,6 +27,9 @@ const theme = extendTheme({
     },
     success: {
       500: '#12B76A',
+    },
+    error: {
+      600: '#D92D20',
     },
     yellow: {
       500: '#FFE600',
@@ -98,7 +104,7 @@ const theme = extendTheme({
       defaultProps: {
         rounded: 'full',
         variant: 'default',
-        _text: { fontSize: '10px' },
+        _text: { fontSize: '12px', fontWeight: 'normal' },
       },
       variants: {
         default: {
@@ -121,6 +127,10 @@ const theme = extendTheme({
           bg: 'yellow.500',
           _text: { color: 'primary.600' },
         },
+        celcomBlue: {
+          bg: 'celcomBlue.500',
+          _text: { color: 'white' },
+        },
         indigo: {
           bg: 'indigo.50',
           _text: { color: 'indigo.700' },
@@ -128,6 +138,10 @@ const theme = extendTheme({
         pink: {
           bg: 'pink.600',
           _text: { color: 'white' },
+        },
+        yellow: {
+          bg: 'yellow.500',
+          _text: { color: 'black' },
         },
       },
     },
@@ -200,6 +214,22 @@ const theme = extendTheme({
             bg: 'primary.600',
           },
         },
+        secondaryGray: {
+          bg: 'white',
+          _text: { color: 'gray.700' },
+          borderColor: 'gray.300',
+          borderWidth: 1,
+        },
+        secondaryColor: {
+          bg: 'white',
+          _text: { color: 'primary.600' },
+          borderColor: 'primary.600',
+          borderWidth: 1,
+        },
+        destructive: {
+          bg: 'error.600',
+          _text: { color: 'white' },
+        },
         tab: {
           paddingLeft: '8px',
           paddingRight: '8px',
@@ -211,18 +241,6 @@ const theme = extendTheme({
           paddingLeft: '8px',
           paddingRight: '8px',
           borderColor: 'gray.300',
-          borderWidth: 1,
-        },
-        secondaryGray: {
-          bg: 'white',
-          _text: { color: 'gray.700' },
-          borderColor: 'gray.300',
-          borderWidth: 1,
-        },
-        secondaryColor: {
-          bg: 'white',
-          _text: { color: 'primary.600' },
-          borderColor: 'primary.600',
           borderWidth: 1,
         },
       },
@@ -253,8 +271,6 @@ const theme = extendTheme({
           bg: 'white',
           placeholderTextColor: 'white',
           borderColor: 'gray.300',
-          paddingTop: '24px',
-          paddingBottom: '12px',
         },
       },
     },
