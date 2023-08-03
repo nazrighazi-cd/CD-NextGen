@@ -113,7 +113,7 @@ const theme = extendTheme({
       defaultProps: {
         rounded: '12px',
         padding: '16px',
-        justifyContent: 'flex',
+        paddingLeft: '0px',
         _text: { fontSize: '14px' },
       },
       variants: {

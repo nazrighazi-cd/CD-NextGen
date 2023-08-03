@@ -10,6 +10,7 @@ import {
   Button,
   Checkbox,
   HStack,
+  VStack,
   IconButton,
   Input,
   Switch,
@@ -77,12 +78,17 @@ const Cheatsheet = () => {
         </Text>
 
         <Alert variant="success" mb="2">
-          <Check color="#027A48" />
-          Insufficient funds in your wallet.
+          <VStack w="90%">
+            <Check color="#027A48" />
+            <Text color="#027A48">Insufficient funds in your wallet.</Text>
+          </VStack>
         </Alert>
+
         <Alert variant="info" mb="4">
-          <InfoCircle color="#114EBA" />
-          Insufficient funds in your wallet.
+          <VStack w="90%">
+            <InfoCircle color="#114EBA" />
+            <Text color="#114EBA">Insufficient funds in your wallet.</Text>
+          </VStack>
         </Alert>
 
         {/* Avatar */}
