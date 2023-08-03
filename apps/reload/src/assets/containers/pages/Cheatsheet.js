@@ -1,25 +1,33 @@
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 import {
-  useTheme,
-  HStack,
-  Box,
-  Text,
+  Radio,
+  Modal,
+  Alert,
+  Avatar,
   Badge,
+  Box,
   Button,
+  Checkbox,
+  HStack,
   IconButton,
   Input,
   Switch,
-  Checkbox,
-  Radio,
-  Modal,
+  Text,
+  useTheme,
 } from 'native-base';
 
 // Components
 import FloatingInput from '../../../themes/components/FloatingInput';
 
 // Icons
-import { CalendarRefresh } from '../../icons';
+import {
+  CalendarRefresh,
+  InfoCircle,
+  Check,
+  HelpCircle,
+  Passcode,
+} from '../../icons';
 import { Twitter } from '../../icons';
 import { LinkedIn } from '../../icons';
 import { Visa } from '../../icons';
@@ -39,31 +47,79 @@ const Cheatsheet = () => {
     <ScrollView>
       <Box bg="white" px="3" py="4">
         {/* Typography */}
-        <Text color="primary.600">Typography (Text)</Text>
-        <Text variant="h1">Heading 1</Text>
-        <Text variant="h2">Heading 2</Text>
-        <Text variant="h3">Heading 3</Text>
-        <Text variant="h4">Heading 4</Text>
-        <Text variant="h5">Heading 5</Text>
-        <Text variant="h6">Heading 6</Text>
-        <Text variant="h7">Heading 7</Text>
-        <Text variant="h8">Heading 8</Text>
-        <Text variant="body1">Body larger</Text>
+        <Text variant="h5" mb="2" bold>
+          Typography
+        </Text>
+        {/* Heading */}
+        <Text color="primary.600">Heading</Text>
+        <Text variant="h1">h1 - Heading 1</Text>
+        <Text variant="h2">h2 - Heading 2</Text>
+        <Text variant="h3">h3 - Heading 3</Text>
+        <Text variant="h4">h4 - Heading 4</Text>
+        <Text variant="h5">h5 - Heading 5</Text>
+        <Text variant="h6">h6 - Heading 6</Text>
+        <Text variant="h7">h7 - Heading 7</Text>
+        <Text variant="h8">h8 - Heading 8</Text>
+        {/* Body + Label */}
+        <Text color="primary.600" mt="2">
+          Body + Label
+        </Text>
         <Text>Default Body</Text>
-        <Text variant="body2">Body smaller</Text>
-        <Text variant="label">Label</Text>
+        <Text variant="body1">body1 - Body larger</Text>
+        <Text variant="body2">body2 - Body smaller</Text>
+        <Text variant="label">label - Label</Text>
+
+        <Text variant="h5" bold mt="4" mb="2">
+          NativeBase Components
+        </Text>
+
+        {/* Alert */}
+        <Text color="primary.600" mb="2">
+          Alert
+        </Text>
+
+        <Alert variant="success" mb="2">
+          <Check color="#027A48" />
+          Insufficient funds in your wallet.
+        </Alert>
+        <Alert variant="info" mb="4">
+          <InfoCircle color="#114EBA" />
+          Insufficient funds in your wallet.
+        </Alert>
+
+        {/* Avatar */}
+        <Text color="primary.600" mb="2">
+          Avatar
+        </Text>
+        <HStack>
+          <Avatar mr="2">
+            <Passcode color="#667085" />
+          </Avatar>
+          <Avatar variant="success" mr="2">
+            <Check color="#027A48" />
+          </Avatar>
+          <Avatar variant="error" mr="2">
+            <HelpCircle color="#D92D20" />
+          </Avatar>
+          <Avatar variant="rounded" mr="2">
+            <Twitter />
+          </Avatar>
+          <Avatar variant="circle">
+            <Twitter />
+          </Avatar>
+        </HStack>
 
         {/* Badges */}
         <Text color="primary.600" mt="4" mb="2">
           Badges
         </Text>
         <HStack>
-          <Badge mr="1">Default</Badge>
-        </HStack>
-        <HStack mt="2">
+          <Badge mr="1">Primary</Badge>
           <Badge variant="outline" mr="1">
             Outline
           </Badge>
+        </HStack>
+        <HStack mt="2">
           <Badge variant="success" mr="1">
             Success
           </Badge>
@@ -73,11 +129,31 @@ const Cheatsheet = () => {
           <Badge variant="popular" mr="1">
             Popular
           </Badge>
+        </HStack>
+        <HStack mt="2">
+          <Badge variant="celcomBlue" mr="1">
+            Celcom Blue
+          </Badge>
+          <Badge variant="gray" mr="1">
+            Gray
+          </Badge>
           <Badge variant="indigo" mr="1">
             Indigo
           </Badge>
-          <Badge variant="pink">Pink</Badge>
+          <Badge variant="pink" mr="1">
+            Pink
+          </Badge>
+          <Badge variant="yellow">Yellow</Badge>
         </HStack>
+
+        {/* Box */}
+        <Text color="primary.600" mt="4" mb="2">
+          Box
+        </Text>
+        <Box variant="shadow" mb="2">
+          Shadow
+        </Box>
+        <Box variant="border">Border</Box>
 
         {/* Buttons */}
         <Text color="primary.600" mt="4" mb="2">
@@ -87,64 +163,41 @@ const Cheatsheet = () => {
           <Button mr="1" mb="2">
             Primary
           </Button>
-          <Button variant="link">Button Link</Button>
+          <Button mr="1" mb="2" isDisabled>
+            Primary
+          </Button>
         </HStack>
         <HStack>
-          <Button variant="secondaryGray" mr="1">
+          <Button variant="secondaryGray" mr="1" mb="2">
             Secondary
           </Button>
-          <Button variant="secondaryColor">Secondary</Button>
+          <Button variant="secondaryGray" mr="1" mb="2" isDisabled>
+            Secondary
+          </Button>
         </HStack>
-
-        {/* Icon Buttons */}
-        <Text color="primary.600" mt="4" mb="2">
-          Icon Buttons
-        </Text>
         <HStack>
-          <IconButton icon={<Twitter />} />
-          <IconButton icon={<LinkedIn />} mx="2" />
+          <Button variant="secondaryColor" mr="1" mb="2">
+            Secondary
+          </Button>
+          <Button variant="secondaryColor" mr="1" mb="2" isDisabled>
+            Secondary
+          </Button>
         </HStack>
-
-        {/* Icon Variations */}
-        <Text color="primary.600" mt="4" mb="2">
-          Icon Variations
-        </Text>
         <HStack>
-          <Box variant="iconRounded">
-            <Twitter color="#000" width="24px" height="24px" />
-          </Box>
-          <Box variant="iconCircle" ml="2">
-            <LinkedIn width="24px" height="24px" />
-          </Box>
+          <Button variant="destructive" mr="1" mb="2">
+            Destructive
+          </Button>
+          <Button variant="destructive" mr="1" mb="2" isDisabled>
+            Destructive
+          </Button>
         </HStack>
-
-        {/* Input */}
-        <Text color="primary.600" mt="4" mb="2">
-          Input
-        </Text>
-        <FloatingInput label="Default Input" placeholder="Default Input" />
-        <FloatingInput
-          label="Input with Icon"
-          placeholder="Input with Icon"
-          InputRightElement={<CalendarRefresh />}
-        />
-
-        {/* Form Control */}
-        <Text color="primary.600" mt="4" mb="2">
-          Toggle, Checkbox & Radio button
-        </Text>
-        {/* Toggle */}
-        <HStack alignItems="center">
-          <Switch />
-          <Checkbox.Group flexDirection="row" alignItems="center" ml="3">
-            <Checkbox accessibilityLabel="Checkbox"></Checkbox>
-            <Text ml="2">Checkbox</Text>
-          </Checkbox.Group>
-          <Radio.Group>
-            <Radio ml="4" accessibilityLabel="Radio">
-              Radio
-            </Radio>
-          </Radio.Group>
+        <HStack>
+          <Button variant="link" mr="1">
+            Button Link
+          </Button>
+          <Button variant="link" mr="1" isDisabled>
+            Button Link
+          </Button>
         </HStack>
 
         {/* Tabs */}
@@ -157,6 +210,27 @@ const Cheatsheet = () => {
           <Button variant="tab">Add-Ons</Button>
           <Button variant="tab">Subscriptions</Button>
         </Button.Group>
+
+        {/* Icon Buttons */}
+        <Text color="primary.600" mt="4" mb="2">
+          Icon Buttons
+        </Text>
+        <HStack>
+          <IconButton icon={<Twitter />} />
+          <IconButton icon={<LinkedIn />} mx="2" />
+        </HStack>
+
+        {/* Input */}
+        <Text color="primary.600" mt="4" mb="2">
+          Input
+        </Text>
+        <Input placeholder="Default Input" mb="2" />
+
+        <FloatingInput
+          label="Floating Input"
+          placeholder="Floating Input"
+          InputRightElement={<CalendarRefresh />}
+        />
 
         {/* Modal */}
         <Text color="primary.600" mt="4" mb="2">
@@ -200,37 +274,37 @@ const Cheatsheet = () => {
           </Modal.Content>
         </Modal>
 
-        {/* Custom Component */}
-        {/* App Bar */}
-        <Text color="primary.600" mt="4">
-          App Bar (Custom Component)
+        {/* On-Offs */}
+        <Text color="primary.600" mt="4" mb="2">
+          On-Offs
         </Text>
+        {/* Toggle */}
+        <HStack alignItems="center">
+          <Switch />
+          <Checkbox.Group flexDirection="row" alignItems="center" ml="3">
+            <Checkbox accessibilityLabel="Checkbox"></Checkbox>
+            <Text ml="2">Checkbox</Text>
+          </Checkbox.Group>
+          <Radio.Group>
+            <Radio ml="4" accessibilityLabel="Radio">
+              Radio
+            </Radio>
+          </Radio.Group>
+        </HStack>
+
+        {/* Custom Components */}
+        <Text variant="h5" mt="3" mb="2" bold>
+          Custom Components
+        </Text>
+
+        {/* App Bar */}
+        <Text color="primary.600">App Bar (Custom Component)</Text>
         <Box variant="header">
           <Arrowleft color="black" />
           <Text variant="h6" bold>
             Reload
           </Text>
           <Twitter color="white" />
-        </Box>
-
-        {/* Cards */}
-        <Text color="primary.600" mt="4" mb="2">
-          Cards (Custom Component)
-        </Text>
-        <Box variant="shadow" mb="2">
-          Shadow
-        </Box>
-        <Box variant="border">Border</Box>
-
-        {/* Selection */}
-        <Text color="primary.600" mt="4" mb="2">
-          Selection (Custom Component)
-        </Text>
-        <Box variant="selection">
-          <Text>Threshold</Text>
-          <Radio.Group>
-            <Radio accessibilityLabel="Threshold"></Radio>
-          </Radio.Group>
         </Box>
 
         {/* Listing */}
@@ -248,6 +322,17 @@ const Cheatsheet = () => {
           <Box>
             <ChevronRight color="#aaa" />
           </Box>
+        </Box>
+
+        {/* Selection */}
+        <Text color="primary.600" mt="4" mb="2">
+          Selection (Custom Component)
+        </Text>
+        <Box variant="selection">
+          <Text>Threshold</Text>
+          <Radio.Group>
+            <Radio accessibilityLabel="Threshold"></Radio>
+          </Radio.Group>
         </Box>
       </Box>
     </ScrollView>
