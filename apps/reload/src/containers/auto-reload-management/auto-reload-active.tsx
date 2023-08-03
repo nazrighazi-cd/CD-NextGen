@@ -15,9 +15,7 @@ import {
 } from 'native-base';
 // Icons
 
-import { InfoCircle } from '../../assets/icons';
-import { Visa } from '../../assets/icons';
-import { Copy } from '../../assets/icons';
+import { InfoCircle, Visa, Copy } from '@cd-next-gen-app/icons';
 
 const AutoReloadActive = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

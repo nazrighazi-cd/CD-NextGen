@@ -13,8 +13,7 @@ import {
   Modal,
 } from 'native-base';
 // Icons
-import { InfoCircle } from '../../assets/icons';
-import { Copy } from '../../assets/icons';
+import { InfoCircle, Copy } from '@cd-next-gen-app/icons';
 
 const ReloadPin = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

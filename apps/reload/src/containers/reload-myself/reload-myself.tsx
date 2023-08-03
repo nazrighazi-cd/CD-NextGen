@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'native-base';
 //Icons
-import { Copy } from '../../assets/icons';
+import { Copy } from '@cd-next-gen-app/icons';
 
 const ReloadWallet = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

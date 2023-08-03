@@ -2,13 +2,15 @@ import React from 'react';
 // Native Base Components
 import { useTheme, Pressable, Text, Box, HStack, VStack } from 'native-base';
 // Icons
-import { FileMedal } from '../assets/icons';
-import { File } from '../assets/icons';
-import { Passcode } from '../assets/icons';
-import { AutoBilling } from '../assets/icons';
-import { CalendarRefresh } from '../assets/icons';
-import { History } from '../assets/icons';
-import { CurrencyRefresh } from '../assets/icons';
+import {
+  FileMedal,
+  File,
+  Passcode,
+  AutoBilling,
+  CalendarRefresh,
+  History,
+  CurrencyRefresh,
+} from '@cd-next-gen-app/icons';
 
 const max_length = 11;
 

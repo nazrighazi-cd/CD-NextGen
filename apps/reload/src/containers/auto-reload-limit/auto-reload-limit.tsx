@@ -14,7 +14,7 @@ import {
   ScrollView,
 } from 'native-base';
 //Icons
-import { Copy } from '../../assets/icons';
+import { Copy } from '@cd-next-gen-app/icons';
 // Components
 import FloatingInput from '../../themes/components/FloatingInput';
 

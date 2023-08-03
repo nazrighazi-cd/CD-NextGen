@@ -2,7 +2,7 @@ import React from 'react';
 //  Native Base Components
 import { useTheme, Icon, Box, Text, VStack, Button } from 'native-base';
 // Icons
-import { Copy } from '../../assets/icons';
+import { Copy } from '@cd-next-gen-app/icons';
 
 const SuccessReceipt = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

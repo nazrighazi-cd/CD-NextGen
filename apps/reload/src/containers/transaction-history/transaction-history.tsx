@@ -13,8 +13,7 @@ import {
   ScrollView,
 } from 'native-base';
 // Icons
-import { Settings } from '../../assets/icons';
-import { Calendars } from '../../assets/icons';
+import { Settings, Calendars } from '@cd-next-gen-app/icons';
 
 // MOCK DATA
 const transactions = [

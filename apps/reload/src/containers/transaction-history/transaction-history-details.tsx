@@ -11,10 +11,8 @@ import {
   IconButton,
 } from 'native-base';
 // Icons
-import { Copy } from '../../assets/icons';
-import { Twitter } from '../../assets/icons';
-import { Facebook } from '../../assets/icons';
-import { LinkedIn } from '../../assets/icons';
+import { Copy, Twitter, Facebook, LinkedIn } from '@cd-next-gen-app/icons';
+
 // Images
 import Transaction from '../../assets/images/transactionHistory.png';
 

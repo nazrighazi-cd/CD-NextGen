@@ -3,10 +3,7 @@ import React from 'react';
 import { useTheme, Box, HStack, Text, Pressable } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
-import { Boost } from '../../assets/icons';
-import { GrabPay } from '../../assets/icons';
-import { MAE } from '../../assets/icons';
-import { TouchnGo } from '../../assets/icons';
+import { Boost, GrabPay, MAE, TouchnGo } from '@cd-next-gen-app/icons';
 
 const EWallet = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

@@ -19,14 +19,14 @@ import {
 import FloatingInput from '../../../themes/components/FloatingInput';
 
 // Icons
-import { CalendarRefresh } from '../../icons';
-import { Twitter } from '../../icons';
-import { LinkedIn } from '../../icons';
-import { Visa } from '../../icons';
-import { Arrowleft } from '../../icons';
-import { ChevronRight } from '../../icons';
-
-import { Card } from '@cd-next-gen-app/ui-components';
+import {
+  CalendarRefresh,
+  Twitter,
+  LinkedIn,
+  Visa,
+  Arrowleft,
+  ChevronRight,
+} from '@cd-next-gen-app/icons';
 
 const Cheatsheet = () => {
   const theme = useTheme();

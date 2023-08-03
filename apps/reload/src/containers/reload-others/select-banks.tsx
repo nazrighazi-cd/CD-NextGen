@@ -11,14 +11,17 @@ import {
 // Icons
 import { ChevronRightIcon } from 'native-base';
 
-import { AffinBank } from '../../assets/icons';
-import { AgroBank } from '../../assets/icons';
-import { AllianceBank } from '../../assets/icons';
-import { AmBank } from '../../assets/icons';
-import { BankIslam } from '../../assets/icons';
-import { Muamalat } from '../../assets/icons';
-import { BankRakyat } from '../../assets/icons';
-import { CIMB } from '../../assets/icons';
+import {
+  AffinBank,
+  AgroBank,
+  AllianceBank,
+  AmBank,
+  BankIslam,
+  Muamalat,
+  BankRakyat,
+  CIMB,
+} from '@cd-next-gen-app/icons';
+
 const Banks = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 

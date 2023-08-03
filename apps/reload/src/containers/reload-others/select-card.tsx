@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import { useTheme, HStack, Box, Text, Badge, Pressable } from 'native-base';
 //Icons
 import { ChevronRightIcon, AddIcon } from 'native-base';
-import { Check } from '../../assets/icons';
-import { Visa } from '../../assets/icons';
-import { Mastercard } from '../../assets/icons';
+import { Check, Visa, Mastercard } from '@cd-next-gen-app/icons';
 
 const SelectCard = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

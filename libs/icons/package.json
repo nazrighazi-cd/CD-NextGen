@@ -1,0 +1,11 @@
+{
+  "name": "cd-nextgen-icons",
+  "version": "1.0.0",
+  "description": "collection of icons for cd next gen development",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CelcomDigi",
+  "license": "ISC"
+}

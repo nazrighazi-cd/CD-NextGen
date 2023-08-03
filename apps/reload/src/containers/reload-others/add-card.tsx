@@ -12,8 +12,8 @@ import {
   Button,
 } from 'native-base';
 // Icons
-import { Mastercard } from '../../assets/icons';
-import { HelpCircle } from '../../assets/icons';
+import { Mastercard, HelpCircle } from '@cd-next-gen-app/icons';
+
 // Components
 import FloatingInput from '../../themes/components/FloatingInput';
 

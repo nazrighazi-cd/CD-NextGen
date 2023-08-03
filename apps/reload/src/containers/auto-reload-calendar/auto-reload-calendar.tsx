@@ -17,10 +17,9 @@ import {
   ScrollView,
   Pressable,
 } from 'native-base';
+import { Calendars, Copy } from '@cd-next-gen-app/icons';
 
 // Icons
-import { Calendars } from '../../assets/icons';
-import { Copy } from '../../assets/icons';
 
 const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

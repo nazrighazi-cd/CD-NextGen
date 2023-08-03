@@ -13,7 +13,7 @@ import {
   ScrollView,
 } from 'native-base';
 // Icons
-import { Contact } from '../../assets/icons';
+import { Contact } from '@cd-next-gen-app/icons';
 // Components
 import FloatingInput from '../../themes/components/FloatingInput';
 

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 // Native Base Components
 import { useTheme, Box, HStack, Text, Input, Button, Modal } from 'native-base';
 // Icons
-import { Contact } from '../../assets/icons';
-import { InfoCircle } from '../../assets/icons';
+import { Contact, InfoCircle } from '@cd-next-gen-app/icons';
+
 // Components
 import FloatingInput from '../../themes/components/FloatingInput';
 

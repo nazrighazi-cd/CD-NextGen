@@ -3,50 +3,44 @@ import { ScrollView } from 'react-native';
 import { useTheme, HStack, Box, Text, VStack, Spacer } from 'native-base';
 
 //Icons
-import { Arrowleft } from '../../icons';
-import { AutoBilling } from '../../icons';
-import { Calendars } from '../../icons';
-import { CalendarRefresh } from '../../icons';
-import { Check } from '../../icons';
-import { ChevronRight } from '../../icons';
-import { Close } from '../../icons';
-import { Contact } from '../../icons';
-import { Copy } from '../../icons';
-import { CurrencyRefresh } from '../../icons';
-import { File } from '../../icons';
-import { FileMedal } from '../../icons';
-import { HelpCircle } from '../../icons';
-import { History } from '../../icons';
-import { InfoCircle } from '../../icons';
-import { Passcode } from '../../icons';
-import { Plus } from '../../icons';
-import { Settings } from '../../icons';
-
-// Social Icons
-import { Facebook } from '../../icons';
-import { LinkedIn } from '../../icons';
-import { Twitter } from '../../icons';
-
-//Payment Method Icons
-import { ApplePay } from '../../icons';
-import { Mastercard } from '../../icons';
-import { Visa } from '../../icons';
-
-//e-Wallet Icons
-import { Boost } from '../../icons';
-import { GrabPay } from '../../icons';
-import { MAE } from '../../icons';
-import { TouchnGo } from '../../icons';
-
-//Bank Icons
-import { AffinBank } from '../../icons';
-import { AgroBank } from '../../icons';
-import { AllianceBank } from '../../icons';
-import { AmBank } from '../../icons';
-import { BankIslam } from '../../icons';
-import { BankRakyat } from '../../icons';
-import { CIMB } from '../../icons';
-import { Muamalat } from '../../icons';
+import {
+  Arrowleft,
+  AutoBilling,
+  Calendars,
+  CalendarRefresh,
+  Check,
+  ChevronRight,
+  Close,
+  Contact,
+  Copy,
+  CurrencyRefresh,
+  File,
+  FileMedal,
+  HelpCircle,
+  History,
+  InfoCircle,
+  Passcode,
+  Plus,
+  Settings,
+  Facebook,
+  LinkedIn,
+  Twitter,
+  ApplePay,
+  Mastercard,
+  Visa,
+  Boost,
+  GrabPay,
+  MAE,
+  TouchnGo,
+  AffinBank,
+  AgroBank,
+  AllianceBank,
+  AmBank,
+  BankIslam,
+  BankRakyat,
+  CIMB,
+  Muamalat,
+} from '@cd-next-gen-app/icons';
 
 const Icons = () => {
   const theme = useTheme();
