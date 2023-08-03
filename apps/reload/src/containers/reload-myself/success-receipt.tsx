@@ -25,12 +25,12 @@ const SuccessReceipt = ({ navigation }: { navigation: any }) => {
 
       {/* Footer */}
       <Box m="16px">
-        <Button mb="10px" onPress={() => navigation.navigate('Reload Myself')}>
+        <Button mb="10px" onPress={() => navigation.navigate('Main List')}>
           CTA
         </Button>
         <Button
           variant="secondaryGray"
-          onPress={() => navigation.navigate('Reload Myself')}
+          onPress={() => navigation.navigate('Main List')}
         >
           Secondary CTA
         </Button>

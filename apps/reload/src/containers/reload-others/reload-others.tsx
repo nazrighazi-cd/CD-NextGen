@@ -20,6 +20,9 @@ import FloatingInput from '../../themes/components/FloatingInput';
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
+  // Payment Method Max
+  const max_length = 12;
+
   // Mock Data
   const reloadAmount = [
     { id: '1', price: '5', validity: 'Valid for 5 Days', tag: 'Popular' },
@@ -63,7 +66,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
       <ScrollView>
         <Box flex={1} m="16px">
           {/* RELOAD CARD - OTHERS */}
-          <Box variant="shadow" rounded="lg">
+          <Box variant="shadow" rounded="lg" pb="24px">
             <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>
@@ -155,8 +158,10 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
                             borderColor={isPressed ? 'primary.600' : 'gray.300'}
                             borderWidth={isPressed ? '2' : '1'}
                           >
-                            <Text variant="body2" bold>
-                              {payment.method}
+                            <Text variant="body2" bold textAlign="center">
+                              {payment.method.length > max_length
+                                ? payment.method.replace(/(.{7})/g, '$1\n')
+                                : payment.method}
                             </Text>
                             {payment.extra ? (
                               <Text variant="label" color="primary.600">

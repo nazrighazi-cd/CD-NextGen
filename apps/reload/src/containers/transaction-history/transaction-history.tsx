@@ -21,6 +21,20 @@ const transactions = [
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
+    date: '2023-08-04',
+    icon: <Calendars color="#667085" />,
+  },
+  {
+    service: 'Billing',
+    amount: '110',
+    description: 'Postpaid 50 Bill',
+    date: '2023-08-03',
+    icon: <Calendars color="#667085" />,
+  },
+  {
+    service: 'Billing',
+    amount: '110',
+    description: 'Postpaid 50 Bill',
     date: '2023-07-26',
     icon: <Calendars color="#667085" />,
   },
@@ -249,10 +263,13 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
         </Box>
 
         {/* TRANSACTION HISTORY LIST */}
-        <Box mt="16px">
-          <Text variant="label" bold color="#667085">
-            {selectedBadge}
-          </Text>
+        <Box mt="6px">
+          {/* Selected Badge from filter */}
+          {selectedBadge ? (
+            <Text variant="label" bold color="#667085">
+              {selectedBadge}
+            </Text>
+          ) : null}
           {/* History List */}
           <FlatList
             data={selectedBadge ? tempfilteredTabData : filteredTabData}
@@ -309,23 +326,35 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
               <Text variant="h6" bold color="gray.900">
                 Filter by
               </Text>
-              <HStack alignItems="center" pt={2} space={1}>
+              <HStack alignItems="center" pt={2} space={3}>
                 <Pressable onPress={() => handleFilterSelection('Today')}>
-                  <Badge variant="outline">{'Today'}</Badge>
+                  <Badge variant="outline" px="24px">
+                    {'Today'}
+                  </Badge>
                 </Pressable>
                 <Pressable onPress={() => handleFilterSelection('Last 7 Days')}>
-                  <Badge variant="outline">{'Last 7 Days'}</Badge>
+                  <Badge variant="outline" px="24px">
+                    {'Last 7 Days'}
+                  </Badge>
                 </Pressable>
                 <Pressable onPress={() => handleFilterSelection('This Month')}>
-                  <Badge variant="outline">{'This Month'}</Badge>
+                  <Badge variant="outline" px="24px">
+                    {'This Month'}
+                  </Badge>
                 </Pressable>
+              </HStack>
+              <HStack alignItems="center" pt={2} space={3}>
                 <Pressable
                   onPress={() => handleFilterSelection('Last 3 Months')}
                 >
-                  <Badge variant="outline">{'Last 3 Months'}</Badge>
+                  <Badge variant="outline" px="24px">
+                    {'Last 3 Months'}
+                  </Badge>
                 </Pressable>
                 <Pressable onPress={() => handleFilterSelection('2022')}>
-                  <Badge variant="outline">{'2022'}</Badge>
+                  <Badge variant="outline" px="24px">
+                    {'2022'}
+                  </Badge>
                 </Pressable>
               </HStack>
             </Modal.Content>

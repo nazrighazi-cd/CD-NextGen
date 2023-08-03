@@ -59,7 +59,12 @@ const EWallet = ({ navigation }: { navigation: any }) => {
                     height: '100%',
                   })}
                 </Box>
-                <Text variant="body">{item.method}</Text>
+                <Text
+                  variant="body"
+                  onPress={() => navigation.navigate('Partners')}
+                >
+                  {item.method}
+                </Text>
               </HStack>
               <Pressable onPress={() => navigation.navigate('Partners')}>
                 <ChevronRightIcon

@@ -24,7 +24,7 @@ const ReloadViaPin = () => {
       <Box flex={1} bg="white">
         <Box flex={1} m="16px">
           {/* ENTER MOBILE NUMBER */}
-          <Box variant="shadow" rounded="lg">
+          <Box variant="shadow" rounded="lg" pb="24px">
             <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>

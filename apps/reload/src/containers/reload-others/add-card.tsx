@@ -17,7 +17,7 @@ import { Mastercard, HelpCircle } from '@cd-next-gen-app/icons';
 // Components
 import FloatingInput from '../../themes/components/FloatingInput';
 
-const AddCard = () => {
+const AddCard = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
   const handleTnC = () => {
@@ -61,7 +61,7 @@ const AddCard = () => {
             </HStack>
 
             {/* Checkbox */}
-            <HStack justifyContent="space-between" mt="16px" px="16px">
+            <HStack justifyContent="space-between" mt="24px" px="5px">
               <Checkbox value="red" defaultIsChecked>
                 <Text variant="body" color="gray.700">
                   Save this card
@@ -88,7 +88,9 @@ const AddCard = () => {
 
         {/* FOOTER */}
         <Box mx="16px" mb="16px">
-          <Button>Continue</Button>
+          <Button onPress={() => navigation.navigate('Main List')}>
+            Continue
+          </Button>
         </Box>
       </Box>
     </>

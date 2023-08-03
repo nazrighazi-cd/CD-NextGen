@@ -19,6 +19,9 @@ import { Copy } from '@cd-next-gen-app/icons';
 const ReloadWallet = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
+  // Payment Method Max
+  const max_length = 12;
+
   // Mock Data
   const reloadAmount = [
     { id: '1', price: '5', validity: 'Valid for 5 Days', tag: 'Popular' },
@@ -168,8 +171,10 @@ const ReloadWallet = ({ navigation }: { navigation: any }) => {
                             borderColor={isPressed ? 'primary.600' : 'gray.300'}
                             borderWidth={isPressed ? '2' : '1'}
                           >
-                            <Text variant="body2" bold>
-                              {payment.method}
+                            <Text variant="body2" bold textAlign="center">
+                              {payment.method.length > max_length
+                                ? payment.method.replace(/(.{7})/g, '$1\n')
+                                : payment.method}
                             </Text>
                             {payment.extra ? (
                               <Text variant="label" color="primary.600">

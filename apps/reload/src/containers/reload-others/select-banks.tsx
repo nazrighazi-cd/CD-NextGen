@@ -97,11 +97,15 @@ const Banks = ({ navigation }: { navigation: any }) => {
                       height: '100%',
                     })}
                   </Box>
-                  <Text variant="body" pl={4}>
+                  <Text
+                    variant="body"
+                    pl={4}
+                    onPress={() => navigation.navigate('Select Card')}
+                  >
                     {item.method}
                   </Text>
                 </HStack>
-                <Pressable onPress={() => navigation.navigate('Reload Others')}>
+                <Pressable onPress={() => navigation.navigate('Select Card')}>
                   <ChevronRightIcon />
                 </Pressable>
               </Box>

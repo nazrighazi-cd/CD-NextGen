@@ -38,12 +38,6 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
     rowsAmount.push(row);
   }
 
-  //Input Disabled
-  const [number, setNumber] = useState('');
-  const onHandleNumber = (number) => {
-    setNumber(number);
-  };
-
   return (
     <Box flex={1} bg="white">
       <ScrollView>
@@ -78,12 +72,11 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
               1. Auto Reload when credit balance falls below:
             </Text>
             {/* Amount Input */}
-            <Box pb="5px">
+            <Box pb="20px">
               <FloatingInput
                 label="Bill Amount"
                 placeholder="Enter an amount"
-                value={number}
-                onChangeText={onHandleNumber}
+                name="bill"
                 type="number"
               />
             </Box>
@@ -152,7 +145,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
       {/* FOOTER */}
       <Box m="16px">
         <Button
-          isDisabled={!number}
+          // isDisabled={!isNumber}
           onPress={() => navigation.navigate('Select Cards')}
         >
           Continue

@@ -168,7 +168,8 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
         {/* FOOTER */}
         <Box m="16px">
           <Button
-          // isDisabled={!number || !isNaN || number < 5 || number > 100}
+            // isDisabled={!number || !isNaN || number < 5 || number > 100}
+            onPress={() => navigation.navigate('Select Cards')}
           >
             Continue
           </Button>
