@@ -77,17 +77,33 @@ const Cheatsheet = () => {
           Alert
         </Text>
 
-        <Alert variant="success" mb="2">
+        <Alert variant="info" mb="2">
           <VStack w="90%">
-            <Check color="#027A48" />
-            <Text color="#027A48">Insufficient funds in your wallet.</Text>
+            <InfoCircle color="#114EBA" width="20px" />
+            <Text color="#114EBA" mt="2">
+              Insufficient funds in your wallet.
+            </Text>
+            <HStack alignItems="center" mt="2">
+              <Text variant="body2" color="#114EBA" mr="2">
+                Top up now
+              </Text>
+              <ChevronRight color="#114EBA" width="16px" />
+            </HStack>
           </VStack>
         </Alert>
 
-        <Alert variant="info" mb="4">
+        <Alert variant="success" mb="4">
           <VStack w="90%">
-            <InfoCircle color="#114EBA" />
-            <Text color="#114EBA">Insufficient funds in your wallet.</Text>
+            <Check color="#027A48" width="20px" />
+            <Text color="#027A48" mt="2">
+              Insufficient funds in your wallet.
+            </Text>
+            <HStack alignItems="center" mt="2">
+              <Text variant="body2" color="#027A48" mr="2">
+                Top up now
+              </Text>
+              <ChevronRight color="#027A48" width="16px" />
+            </HStack>
           </VStack>
         </Alert>
 
@@ -233,7 +249,7 @@ const Cheatsheet = () => {
         <FloatingInput
           label="Floating Input"
           placeholder="Floating Input"
-          InputRightElement={<CalendarRefresh />}
+          InputRightElement={<CalendarRefresh color="#667085" />}
         />
 
         {/* Modal */}
