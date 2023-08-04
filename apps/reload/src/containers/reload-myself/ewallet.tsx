@@ -38,41 +38,36 @@ const EWallet = ({ navigation }: { navigation: any }) => {
         <Box variant="shadow" py="0px">
           {/* List of eWallet */}
           {paymentData.map((item, index) => (
-            <Box
-              borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-              borderColor="gray.200"
-              py="16px"
-              flexDir="row"
-              alignItems="center"
-              justifyContent="space-between"
+            <Pressable
+              onPress={() => navigation.navigate('Partners')}
               key={index}
             >
-              <HStack alignItems="center">
-                <Box
-                  w="40px"
-                  h="40px"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  {React.cloneElement(item.icons, {
-                    width: '75%',
-                    height: '100%',
-                  })}
-                </Box>
-                <Text
-                  variant="body"
-                  onPress={() => navigation.navigate('Partners')}
-                >
-                  {item.method}
-                </Text>
-              </HStack>
-              <Pressable onPress={() => navigation.navigate('Partners')}>
-                <ChevronRightIcon
-                  mt={3}
-                  onPress={() => navigation.navigate('Partners')}
-                />
-              </Pressable>
-            </Box>
+              <Box
+                borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
+                borderColor="gray.200"
+                py="16px"
+                flexDir="row"
+                alignItems="center"
+                justifyContent="space-between"
+                key={index}
+              >
+                <HStack alignItems="center">
+                  <Box
+                    w="40px"
+                    h="40px"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    {React.cloneElement(item.icons, {
+                      width: '75%',
+                      height: '100%',
+                    })}
+                  </Box>
+                  <Text variant="body">{item.method}</Text>
+                </HStack>
+                <ChevronRightIcon mt={3} />
+              </Box>
+            </Pressable>
           ))}
         </Box>
       </Box>

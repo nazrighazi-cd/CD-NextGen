@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //  Native Base Components
 import {
   useTheme,
@@ -22,6 +22,9 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
 
   // Payment Method Max
   const max_length = 12;
+
+  // Input Disable
+  const [form, setForm] = useState({ mobile: null });
 
   // Mock Data
   const reloadAmount = [
@@ -74,6 +77,9 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
               label="Mobile Number"
               placeholder="+60"
               InputRightElement={<Contact color="#667085" />}
+              type="number"
+              value={form.mobile}
+              changeText={(e: number) => setForm({ mobile: e })}
             />
           </Box>
           {/* SELECT AMOUNT CARD */}
@@ -193,7 +199,6 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
       {/* FOOTER */}
       <Box m="16px">
         {/* Total Payment */}
-
         <HStack justifyContent="space-between">
           <Box>
             <Text variant="body2">Total Payment</Text>
@@ -201,7 +206,10 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
               RM XXX
             </Text>
           </Box>
-          <Button onPress={() => navigation.navigate('Select Card')}>
+          <Button
+            isDisabled={!form.mobile}
+            onPress={() => navigation.navigate('Select Card')}
+          >
             Continue
           </Button>
         </HStack>

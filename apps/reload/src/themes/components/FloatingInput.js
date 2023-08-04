@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Input, Icon } from 'native-base';
 
-const FloatingInput = ({ placeholder, value, label, InputRightElement }) => {
+const FloatingInput = ({
+  placeholder,
+  value,
+  label,
+  InputRightElement,
+  changeText,
+  type = 'default',
+}) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
-  const [inputText, setInputText] = useState('');
   const handleInputFocus = () => {
     setIsInputFocused(true);
   };
@@ -19,8 +25,10 @@ const FloatingInput = ({ placeholder, value, label, InputRightElement }) => {
         placeholder={placeholder}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
-        value={inputText}
-        onChangeText={(username) => setInputText(username)}
+        type={type}
+        keyboardType={type == 'number' ? 'number-pad' : type}
+        value={value}
+        onChangeText={(username) => changeText(username)}
         _focus={{
           paddingTop: '24px',
           paddingBottom: '12px',

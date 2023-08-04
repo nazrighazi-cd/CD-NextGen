@@ -22,6 +22,9 @@ import FloatingInput from '../../themes/components/FloatingInput';
 const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
+  // Input Disable
+  const [form, setForm] = useState({ amount: null });
+
   // Mock Data
   const reloadAmount = [
     { price: '5', validity: 'Valid for 5 Days', tag: 'Popular' },
@@ -76,8 +79,9 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
               <FloatingInput
                 label="Bill Amount"
                 placeholder="Enter an amount"
-                name="bill"
                 type="number"
+                value={form.amount}
+                changeText={(e: number) => setForm({ amount: e })}
               />
             </Box>
             {/* Additional Text */}
@@ -145,7 +149,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
       {/* FOOTER */}
       <Box m="16px">
         <Button
-          // isDisabled={!isNumber}
+          isDisabled={!form.amount || form.amount < 5 || form.amount > 100}
           onPress={() => navigation.navigate('Select Cards')}
         >
           Continue
