@@ -60,7 +60,7 @@ const AddCard = ({ navigation }: { navigation: any }) => {
           </HStack>
 
           {/* Checkbox */}
-          <HStack justifyContent="space-between" mt="24px" px="5px">
+          <HStack justifyContent="space-between" mt="8px" px="5px">
             <Checkbox value="red" defaultIsChecked>
               <Text variant="body" color="gray.700">
                 Save this card

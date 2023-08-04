@@ -1,6 +1,6 @@
 import React from 'react';
 //  Native Base Components
-import { useTheme, Icon, Box, Text, VStack, Button } from 'native-base';
+import { useTheme, Box, Text, VStack, Button, Avatar } from 'native-base';
 // Icons
 import { Copy } from '@cd-next-gen-app/icons';
 
@@ -11,9 +11,9 @@ const SuccessReceipt = ({ navigation }: { navigation: any }) => {
     <>
       <Box m="24px" flex={1} justifyContent="center" alignItems="center">
         <VStack justifyContent="space-between" alignItems="center" space={4}>
-          <Box variant="iconCircle" bg="gray.300" p="40px">
+          <Avatar variant="circle" bg="gray.300" p="70px">
             <Copy color="#1561E8" />
-          </Box>
+          </Avatar>
           <Text variant="h6" bold>
             Main label with max 32 Char(s)
           </Text>

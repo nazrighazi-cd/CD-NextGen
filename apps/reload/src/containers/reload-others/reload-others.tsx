@@ -66,7 +66,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
       <ScrollView>
         <Box flex={1} m="16px">
           {/* RELOAD CARD - OTHERS */}
-          <Box variant="shadow" rounded="lg" pb="24px">
+          <Box variant="shadow" rounded="lg">
             <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>

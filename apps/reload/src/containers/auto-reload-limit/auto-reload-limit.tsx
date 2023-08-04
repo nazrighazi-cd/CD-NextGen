@@ -72,7 +72,7 @@ const AutoReloadLimit = ({ navigation }: { navigation: any }) => {
               1. Auto Reload when credit balance falls below:
             </Text>
             {/* Amount Input */}
-            <Box pb="20px">
+            <Box pb="8px">
               <FloatingInput
                 label="Bill Amount"
                 placeholder="Enter an amount"
