@@ -99,6 +99,10 @@ export default (env) => {
           '../../libs/ui-components/src/index.ts',
           import.meta.url
         ).pathname,
+        '@cd-next-gen-app/icons': new URL(
+          '../../libs/icons/src/index.ts',
+          import.meta.url
+        ).pathname,
       },
     },
     /**
