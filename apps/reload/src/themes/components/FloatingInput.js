@@ -4,7 +4,7 @@ import { Text, Input, Icon } from 'native-base';
 
 const FloatingInput = ({ placeholder, value, label, InputRightElement }) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
-
+  const [inputText, setInputText] = useState('');
   const handleInputFocus = () => {
     setIsInputFocused(true);
   };
@@ -17,12 +17,17 @@ const FloatingInput = ({ placeholder, value, label, InputRightElement }) => {
     <View style={styles.container}>
       <Input
         placeholder={placeholder}
-        value={value}
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
+        value={inputText}
+        onChangeText={(username) => setInputText(username)}
         _focus={{
           paddingTop: '24px',
           paddingBottom: '12px',
+          _android: {
+            paddingTop: '17px',
+            paddingBottom: '3px',
+          },
         }}
         InputRightElement={
           InputRightElement && (

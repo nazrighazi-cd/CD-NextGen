@@ -328,8 +328,12 @@ const theme = extendTheme({
         placeholderTextColor: 'gray.500',
         _focus: {
           bg: 'white',
-          placeholderTextColor: 'white',
+          placeholderTextColor: 'transparent',
           borderColor: 'gray.300',
+        },
+        _android: {
+          paddingTop: '10px',
+          paddingBottom: '10px',
         },
       },
     },

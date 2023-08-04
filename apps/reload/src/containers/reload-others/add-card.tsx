@@ -26,74 +26,72 @@ const AddCard = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <>
-      <Box flex={1} bg="white">
-        {/* CARD DETAILS  */}
-        <Box flex={1} m="16px">
-          <Box variant="shadow">
-            <Text variant="h7" bold mb="16px">
-              Card Details
-            </Text>
+    <Box flex={1} bg="white">
+      {/* CARD DETAILS  */}
+      <Box flex={1} m="16px">
+        <Box variant="shadow">
+          <Text variant="h7" bold mb="16px">
+            Card Details
+          </Text>
 
-            {/* Credit Card Information */}
-            <Box w="100%" mb="16px">
-              <Input
-                placeholder="Card Number"
-                InputRightElement={
-                  <Box pr={2}>
-                    <HelpCircle color="#98A2B3" />
-                  </Box>
-                }
-                InputLeftElement={
-                  <Box pl={2}>
-                    <Mastercard />
-                  </Box>
-                }
-              />
-            </Box>
-            <HStack justifyContent="space-between">
-              <Box w="48%">
-                <FloatingInput label="Exp. Date" placeholder="Expiry Date" />
-              </Box>
-              <Box w="48%">
-                <FloatingInput label="CVV/CVC" placeholder="CVV/CVC" />
-              </Box>
-            </HStack>
-
-            {/* Checkbox */}
-            <HStack justifyContent="space-between" mt="24px" px="5px">
-              <Checkbox value="red" defaultIsChecked>
-                <Text variant="body" color="gray.700">
-                  Save this card
-                </Text>
-              </Checkbox>
-              <Checkbox value="red">
-                <Text variant="body" color="gray.700">
-                  Save as default
-                </Text>
-              </Checkbox>
-            </HStack>
-
-            {/* Description Text */}
-            <Text variant="label" px="16px" mt="16px">
-              Your card may be charged to ensure it’s valid. The amount will be
-              automatically refunded. By adding a card, you have read and agree
-              to our{' '}
-              <Text variant="label" color="primary.600" onPress={handleTnC}>
-                terms and conditions.
-              </Text>
-            </Text>
+          {/* Credit Card Information */}
+          <Box w="100%" mb="16px">
+            <Input
+              placeholder="Card Number"
+              InputRightElement={
+                <Box pr={2}>
+                  <HelpCircle color="#98A2B3" />
+                </Box>
+              }
+              InputLeftElement={
+                <Box pl={2}>
+                  <Mastercard />
+                </Box>
+              }
+            />
           </Box>
-        </Box>
+          <HStack justifyContent="space-between">
+            <Box w="48%">
+              <FloatingInput label="Exp. Date" placeholder="Expiry Date" />
+            </Box>
+            <Box w="48%">
+              <FloatingInput label="CVV/CVC" placeholder="CVV/CVC" />
+            </Box>
+          </HStack>
 
-        {/* FOOTER */}
-        <Box mx="16px" mb="16px">
-          <Button onPress={() => navigation.navigate('Main List')}>
-            Continue
-          </Button>
+          {/* Checkbox */}
+          <HStack justifyContent="space-between" mt="24px" px="5px">
+            <Checkbox value="red" defaultIsChecked>
+              <Text variant="body" color="gray.700">
+                Save this card
+              </Text>
+            </Checkbox>
+            <Checkbox value="red">
+              <Text variant="body" color="gray.700">
+                Save as default
+              </Text>
+            </Checkbox>
+          </HStack>
+
+          {/* Description Text */}
+          <Text variant="label" px="16px" mt="16px">
+            Your card may be charged to ensure it’s valid. The amount will be
+            automatically refunded. By adding a card, you have read and agree to
+            our{' '}
+            <Text variant="label" color="primary.600" onPress={handleTnC}>
+              terms and conditions.
+            </Text>
+          </Text>
         </Box>
       </Box>
-    </>
+
+      {/* FOOTER */}
+      <Box mx="16px" mb="16px">
+        <Button onPress={() => navigation.navigate('Main List')}>
+          Continue
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
