@@ -22,6 +22,7 @@ const theme = extendTheme({
     },
     primary: {
       5: '#E8EFFD',
+      10: '#D0DFFA',
       25: '#A1C0F6',
       300: '#4481ED',
       600: '#1561E8',
@@ -167,9 +168,20 @@ const theme = extendTheme({
     },
     Badge: {
       defaultProps: {
-        rounded: 'full',
         variant: 'default',
-        _text: { fontSize: '12px', fontWeight: 'normal' },
+        size: 'sm',
+        rounded: 'full',
+        _text: { fontWeight: 'normal' },
+      },
+      sizes: {
+        sm: {
+          _text: { fontSize: '12px' },
+        },
+        md: {
+          _text: { fontSize: '14px' },
+          paddingLeft: '12px',
+          paddingRight: '12px',
+        },
       },
       variants: {
         default: {
@@ -301,6 +313,18 @@ const theme = extendTheme({
           paddingRight: '8px',
           borderColor: 'gray.300',
           borderWidth: 1,
+        },
+        pill: {
+          paddingLeft: '16px',
+          paddingRight: '16px',
+          _text: { color: 'gray.500' },
+        },
+        pillActive: {
+          bg: 'primary.10',
+          paddingLeft: '14px',
+          paddingRight: '14px',
+          borderRadius: '20px',
+          _text: { color: 'primary.700' },
         },
       },
     },

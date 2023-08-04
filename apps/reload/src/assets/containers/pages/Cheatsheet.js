@@ -134,8 +134,10 @@ const Cheatsheet = () => {
           Badges
         </Text>
         <HStack>
-          <Badge mr="1">Primary</Badge>
-          <Badge variant="outline" mr="1">
+          <Badge mr="1" size="md">
+            Primary
+          </Badge>
+          <Badge variant="outline" mr="1" size="md">
             Outline
           </Badge>
         </HStack>
@@ -224,11 +226,20 @@ const Cheatsheet = () => {
         <Text color="primary.600" mt="4" mb="2">
           Tabs (Button)
         </Text>
-        <Button.Group isAttached>
+        <Button.Group isAttached mb="2">
           <Button variant="tabActive">All Transactions</Button>
           <Button variant="tab">Billing</Button>
           <Button variant="tab">Add-Ons</Button>
           <Button variant="tab">Subscriptions</Button>
+        </Button.Group>
+
+        <Button.Group isAttached>
+          <Box>
+            <Button variant="pillActive">Popular</Button>
+          </Box>
+          <Button variant="pill">All</Button>
+          <Button variant="pill">Billing</Button>
+          <Button variant="pill">Email</Button>
         </Button.Group>
 
         {/* Icon Buttons */}
