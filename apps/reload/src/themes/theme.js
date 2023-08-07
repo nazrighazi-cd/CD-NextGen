@@ -15,6 +15,7 @@ const theme = extendTheme({
       300: '#D0D5DD',
       400: '#98A2B3',
       500: '#667085',
+      600: '#475467',
       700: '#344054',
     },
     celcomBlue: {
@@ -315,8 +316,8 @@ const theme = extendTheme({
           borderWidth: 1,
         },
         pill: {
-          paddingLeft: '16px',
-          paddingRight: '16px',
+          paddingLeft: '14px',
+          paddingRight: '14px',
           _text: { color: 'gray.500' },
         },
         pillActive: {
@@ -350,6 +351,10 @@ const theme = extendTheme({
         paddingBottom: '18px',
         fontSize: '14px',
         placeholderTextColor: 'gray.500',
+        _disabled: {
+          bg: 'gray.300',
+          placeholderTextColor: 'gray.700',
+        },
         _focus: {
           bg: 'white',
           placeholderTextColor: 'transparent',

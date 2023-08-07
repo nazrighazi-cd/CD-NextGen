@@ -233,10 +233,8 @@ const Cheatsheet = () => {
           <Button variant="tab">Subscriptions</Button>
         </Button.Group>
 
-        <Button.Group isAttached>
-          <Box>
-            <Button variant="pillActive">Popular</Button>
-          </Box>
+        <Button.Group>
+          <Button variant="pillActive">Popular</Button>
           <Button variant="pill">All</Button>
           <Button variant="pill">Billing</Button>
           <Button variant="pill">Email</Button>
@@ -256,6 +254,7 @@ const Cheatsheet = () => {
           Input
         </Text>
         <Input placeholder="Default Input" mb="2" />
+        <Input placeholder="Default Input Disabled" mb="2" isDisabled />
 
         <FloatingInput
           label="Floating Input"
