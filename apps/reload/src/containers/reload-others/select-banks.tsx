@@ -76,39 +76,38 @@ const Banks = ({ navigation }: { navigation: any }) => {
           <Box variant="shadow" py="0px">
             {/* List of Banks */}
             {paymentData.map((item, index) => (
-              <Box
-                borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
-                borderColor="gray.200"
-                py="16px"
-                flexDir="row"
-                alignItems="center"
-                justifyContent="space-between"
+              <Pressable
+                onPress={() => navigation.navigate('Select Card')}
                 key={index}
               >
-                <HStack alignItems="center">
-                  <Box
-                    w="50px"
-                    h="25px"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    {React.cloneElement(item.icons, {
-                      width: '100%',
-                      height: '100%',
-                    })}
-                  </Box>
-                  <Text
-                    variant="body"
-                    pl={4}
-                    onPress={() => navigation.navigate('Select Card')}
-                  >
-                    {item.method}
-                  </Text>
-                </HStack>
-                <Pressable onPress={() => navigation.navigate('Select Card')}>
+                <Box
+                  borderBottomWidth={index === paymentData.length - 1 ? 0 : 1}
+                  borderColor="gray.200"
+                  py="16px"
+                  flexDir="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  key={index}
+                >
+                  <HStack alignItems="center">
+                    <Box
+                      w="50px"
+                      h="25px"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      {React.cloneElement(item.icons, {
+                        width: '100%',
+                        height: '100%',
+                      })}
+                    </Box>
+                    <Text variant="body" pl={4}>
+                      {item.method}
+                    </Text>
+                  </HStack>
                   <ChevronRightIcon />
-                </Pressable>
-              </Box>
+                </Box>
+              </Pressable>
             ))}
           </Box>
         </Box>

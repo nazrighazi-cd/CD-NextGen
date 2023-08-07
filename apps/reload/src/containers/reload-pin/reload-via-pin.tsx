@@ -7,8 +7,11 @@ import { Contact, InfoCircle } from '@cd-next-gen-app/icons';
 // Components
 import FloatingInput from '../../themes/components/FloatingInput';
 
-const ReloadViaPin = () => {
+const ReloadViaPin = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
+
+  // Input Disable
+  const [form, setForm] = useState({ mobile: null });
 
   // Modal
   const [bottomModal, setBottomModal] = useState(false);
@@ -24,7 +27,7 @@ const ReloadViaPin = () => {
       <Box flex={1} bg="white">
         <Box flex={1} m="16px">
           {/* ENTER MOBILE NUMBER */}
-          <Box variant="shadow" rounded="lg" pb="24px">
+          <Box variant="shadow" rounded="lg">
             <Text variant="h8" bold pb="16px">
               1. Select or Enter Mobile Number
             </Text>
@@ -32,6 +35,9 @@ const ReloadViaPin = () => {
               label="Mobile Number"
               placeholder="+60"
               InputRightElement={<Contact color="#667085" />}
+              type="number"
+              value={form.mobile}
+              changeText={(e: number) => setForm({ mobile: e })}
             />
           </Box>
 
@@ -57,7 +63,12 @@ const ReloadViaPin = () => {
           </Box>
         </Box>
         <Box m="16px">
-          <Button isDisabled={!pinNumber}>Continue</Button>
+          <Button
+            onPress={() => navigation.navigate('Main List')}
+            isDisabled={!pinNumber}
+          >
+            Continue
+          </Button>
         </Box>
       </Box>
 
