@@ -226,18 +226,25 @@ const Cheatsheet = () => {
         <Text color="primary.600" mt="4" mb="2">
           Tabs (Button)
         </Text>
-        <Button.Group isAttached mb="2">
+        <Button.Group size="md" isAttached mb="3">
           <Button variant="tabActive">All Transactions</Button>
           <Button variant="tab">Billing</Button>
           <Button variant="tab">Add-Ons</Button>
           <Button variant="tab">Subscriptions</Button>
         </Button.Group>
 
-        <Button.Group>
+        <Button.Group size="md" mb="3">
           <Button variant="pillActive">Popular</Button>
           <Button variant="pill">All</Button>
           <Button variant="pill">Billing</Button>
           <Button variant="pill">Email</Button>
+        </Button.Group>
+
+        <Button.Group size="sm">
+          <Button variant="pillOutlineActive">Bundle</Button>
+          <Button variant="pillOutline">Internet</Button>
+          <Button variant="pillOutline">Roaming</Button>
+          <Button variant="pillOutline">Social Media</Button>
         </Button.Group>
 
         {/* Icon Buttons */}

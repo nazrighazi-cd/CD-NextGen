@@ -282,11 +282,23 @@ const theme = extendTheme({
     Button: {
       defaultProps: {
         variant: 'default',
+        size: 'lg',
       },
       baseStyle: {
         rounded: 'full',
         paddingLeft: '50px',
         paddingRight: '50px',
+      },
+      sizes: {
+        sm: {
+          _text: { fontSize: '12px' },
+        },
+        md: {
+          _text: { fontSize: '14px' },
+        },
+        lg: {
+          _text: { fontSize: '16px' },
+        },
       },
       variants: {
         default: {
@@ -326,16 +338,31 @@ const theme = extendTheme({
           borderWidth: 1,
         },
         pill: {
-          paddingLeft: '14px',
-          paddingRight: '14px',
+          paddingLeft: '16px',
+          paddingRight: '16px',
           _text: { color: 'gray.500' },
         },
         pillActive: {
           bg: 'primary.10',
-          paddingLeft: '14px',
-          paddingRight: '14px',
+          paddingLeft: '16px',
+          paddingRight: '16px',
           borderRadius: '20px',
           _text: { color: 'primary.700' },
+        },
+        pillOutline: {
+          paddingLeft: '12px',
+          paddingRight: '12px',
+          _text: { color: 'gray.700' },
+          borderColor: 'gray.300',
+          borderWidth: 1,
+        },
+        pillOutlineActive: {
+          paddingLeft: '12px',
+          paddingRight: '12px',
+          borderRadius: '20px',
+          _text: { color: 'primary.600' },
+          borderColor: 'primary.600',
+          borderWidth: 1,
         },
       },
     },
