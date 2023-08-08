@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import { ISvgProps } from '../utils/ISvgProps';
-export function ChevronRight({
+export function Coins({
   width = 24,
   height = 24,
   color = '#000000',
@@ -22,9 +22,9 @@ export function ChevronRight({
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={strokeWidth}
-        d="m9 18 6-6-6-6"
+        d="M15.938 15.938A7.001 7.001 0 0 0 15 2a7.001 7.001 0 0 0-6.938 6.062M7.5 13 9 12v5.5m-1.5 0h3M16 15a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
       />
     </Svg>
   );
 }
-export default ChevronRight;
+export default Coins;

@@ -4,17 +4,25 @@ import { useTheme, HStack, Box, Text, VStack, Spacer } from 'native-base';
 
 //Icons
 import {
+  AlertTriangle,
   Arrowleft,
   AutoBilling,
+  Bill01,
+  Bill02,
   Calendars,
   CalendarRefresh,
   Check,
   ChevronRight,
   Close,
+  Coins,
+  CoinsHand,
   Contact,
   Copy,
   CurrencyRefresh,
+  Download,
+  Edit,
   File,
+  FileAttachment,
   FileMedal,
   HelpCircle,
   History,
@@ -22,6 +30,7 @@ import {
   Passcode,
   Plus,
   Settings,
+  Simcard,
   Facebook,
   LinkedIn,
   Twitter,
@@ -189,6 +198,75 @@ const Icons = () => {
                 settings-04
               </Text>
             </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <AlertTriangle />{' '}
+              <Text textAlign="center" width={120} color="black">
+                alert-triangle
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <Bill01 />{' '}
+              <Text textAlign="center" width={120} color="black">
+                bill-01
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <Bill02 />{' '}
+              <Text textAlign="center" width={120} color="black">
+                bill-02
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <Coins />{' '}
+              <Text textAlign="center" width={120} color="black">
+                coins
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <CoinsHand />{' '}
+              <Text textAlign="center" width={120} color="black">
+                coins-hand
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <Download />{' '}
+              <Text textAlign="center" width={120} color="black">
+                download
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <Edit />{' '}
+              <Text textAlign="center" width={120} color="black">
+                edit
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <FileAttachment />{' '}
+              <Text textAlign="center" width={120} color="black">
+                file-attachment
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <Simcard />{' '}
+              <Text textAlign="center" width={120} color="black">
+                simcard
+              </Text>
+            </Box>
+            <Spacer></Spacer>
           </HStack>
         </VStack>
 

@@ -1,15 +1,23 @@
 //Icons
+export * from './AlertTriangle';
 export * from './Arrowleft';
 export * from './AutoBilling';
+export * from './Bill01';
+export * from './Bill02';
 export * from './Calendars';
 export * from './CalendarRefresh';
 export * from './Check';
 export * from './ChevronRight';
 export * from './Close';
+export * from './Coins';
+export * from './CoinsHand';
 export * from './Contact';
 export * from './Copy';
 export * from './CurrencyRefresh';
+export * from './Download';
+export * from './Edit';
 export * from './File';
+export * from './FileAttachment';
 export * from './FileMedal';
 export * from './HelpCircle';
 export * from './History';
@@ -17,6 +25,7 @@ export * from './InfoCircle';
 export * from './Passcode';
 export * from './Plus';
 export * from './Settings';
+export * from './Simcard';
 
 //Social Icons
 export * from './social/Facebook';

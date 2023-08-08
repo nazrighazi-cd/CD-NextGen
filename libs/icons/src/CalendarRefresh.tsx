@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../../utils/ISvgProps';
+import { ISvgProps } from '../utils/ISvgProps';
 
 export function CalendarRefresh({
   width = 24,
@@ -11,26 +11,26 @@ export function CalendarRefresh({
 }: ISvgProps) {
   return (
     <Svg
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
       width={width}
       height={height}
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
     >
       <Path
-        d="M21 12.5V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22H11.5M21 10H3M16 2V6M8 2V6"
         stroke={color}
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="M21 12.5V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 4 17.88 4 16.2 4H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 6.28 3 7.12 3 8.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 22 6.12 22 7.8 22h3.7M21 10H3m13-8v4M8 2v4"
       />
       <Path
-        d="M18.6181 22C18.6181 22 18.907 21.9575 20.103 20.7274C21.299 19.4972 21.299 17.5028 20.103 16.2726C19.6793 15.8368 19.1623 15.5553 18.6181 15.4283M18.6181 22L20.6597 22M18.6181 22L18.6181 19.9M16.3819 15C16.3819 15 16.093 15.0425 14.897 16.2726C13.701 17.5028 13.701 19.4972 14.897 20.7274C15.3207 21.1632 15.8377 21.4447 16.3819 21.5717M16.3819 15L14.3403 15M16.3819 15L16.3819 17.1"
         stroke={color}
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="M18.618 22s.289-.043 1.485-1.273a3.214 3.214 0 0 0 0-4.454 3.025 3.025 0 0 0-1.485-.845m0 6.572h2.042m-2.042 0v-2.1M16.382 15s-.289.043-1.485 1.273a3.214 3.214 0 0 0 0 4.454c.424.436.94.718 1.485.845m0-6.572H14.34m2.042 0v2.1"
       />
     </Svg>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../../utils/ISvgProps';
+import { ISvgProps } from '../utils/ISvgProps';
 export function InfoCircle({
   width = 24,
   height = 24,
@@ -18,11 +18,11 @@ export function InfoCircle({
       {...props}
     >
       <Path
-        d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
         stroke={color}
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="M12 16v-4m0-4h.01M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"
       />
     </Svg>
   );

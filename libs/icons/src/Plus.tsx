@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../../utils/ISvgProps';
+import { ISvgProps } from '../utils/ISvgProps';
 export function Plus({
   width = 24,
   height = 24,
@@ -18,11 +18,11 @@ export function Plus({
       {...props}
     >
       <Path
-        d="M12 5V19M5 12H19"
         stroke={color}
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="M12 5v14m-7-7h14"
       />
     </Svg>
   );

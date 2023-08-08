@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../../utils/ISvgProps';
+import { ISvgProps } from '../utils/ISvgProps';
 export function Arrowleft({
   width = 24,
   height = 24,
@@ -18,11 +18,11 @@ export function Arrowleft({
       {...props}
     >
       <Path
-        d="M19 12H5M5 12L12 19M5 12L12 5"
         stroke={color}
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="M19 12H5m0 0 7 7m-7-7 7-7"
       />
     </Svg>
   );
