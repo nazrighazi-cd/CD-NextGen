@@ -144,6 +144,12 @@ const theme = extendTheme({
           borderWidth: 1,
           rounded: '10px',
         },
+        info: {
+          bg: 'primary.10',
+          borderColor: 'primary.5',
+          borderWidth: 6,
+          rounded: 'full',
+        },
         error: {
           bg: 'error.100',
           borderColor: 'error.50',
@@ -203,6 +209,10 @@ const theme = extendTheme({
         },
         popular: {
           bg: 'yellow.500',
+          _text: { color: 'primary.600' },
+        },
+        blue: {
+          bg: 'primary.5',
           _text: { color: 'primary.600' },
         },
         celcomBlue: {

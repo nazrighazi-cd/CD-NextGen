@@ -83,12 +83,6 @@ const Cheatsheet = () => {
             <Text color="#114EBA" mt="2">
               Insufficient funds in your wallet.
             </Text>
-            <HStack alignItems="center" mt="2">
-              <Text variant="body2" color="#114EBA" mr="2">
-                Top up now
-              </Text>
-              <ChevronRight color="#114EBA" width="16px" />
-            </HStack>
           </VStack>
         </Alert>
 
@@ -114,6 +108,9 @@ const Cheatsheet = () => {
         <HStack>
           <Avatar mr="2">
             <Passcode color="#667085" />
+          </Avatar>
+          <Avatar variant="info" mr="2">
+            <CalendarRefresh color="#1561E8" />
           </Avatar>
           <Avatar variant="success" mr="2">
             <Check color="#027A48" />
@@ -153,6 +150,9 @@ const Cheatsheet = () => {
           </Badge>
         </HStack>
         <HStack mt="2">
+          <Badge variant="blue" mr="1">
+            Blue
+          </Badge>
           <Badge variant="celcomBlue" mr="1">
             Celcom Blue
           </Badge>
