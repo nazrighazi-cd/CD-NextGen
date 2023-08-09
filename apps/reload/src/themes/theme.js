@@ -38,9 +38,20 @@ const theme = extendTheme({
       700: '#027A48',
     },
     error: {
+      25: '#FFFBFA',
       50: '#FEF3F2',
       100: '#FEE4E2',
+      300: '#FDA29B',
+      500: '#F04438',
       600: '#D92D20',
+      700: '#B42318',
+    },
+    warning: {
+      25: '#FFFCF5',
+      300: '#FEC84B',
+      500: '#F79009',
+      600: '#DC6803',
+      700: '#B54708',
     },
     yellow: {
       500: '#FFE600',
@@ -131,6 +142,18 @@ const theme = extendTheme({
           _text: { color: 'success.700' },
           borderWidth: 1,
         },
+        warning: {
+          bg: 'warning.25',
+          borderColor: 'warning.300',
+          _text: { color: 'warning.700' },
+          borderWidth: 1,
+        },
+        error: {
+          bg: 'error.25',
+          borderColor: 'error.300',
+          _text: { color: 'error.700' },
+          borderWidth: 1,
+        },
       },
     },
     Avatar: {
@@ -201,6 +224,14 @@ const theme = extendTheme({
         },
         success: {
           bg: 'success.500',
+          _text: { color: 'white' },
+        },
+        warning: {
+          bg: 'warning.500',
+          _text: { color: 'white' },
+        },
+        error: {
+          bg: 'error.500',
           _text: { color: 'white' },
         },
         info: {

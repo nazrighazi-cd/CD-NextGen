@@ -86,17 +86,35 @@ const Cheatsheet = () => {
           </VStack>
         </Alert>
 
-        <Alert variant="success" mb="4">
+        <Alert variant="success" mb="2">
           <VStack w="90%">
             <Check color="#027A48" width="20px" />
             <Text color="#027A48" mt="2">
               Insufficient funds in your wallet.
             </Text>
+          </VStack>
+        </Alert>
+
+        <Alert variant="warning" mb="2">
+          <VStack w="90%">
+            <InfoCircle color="#DC6803" width="20px" />
+            <Text color="#DC6803" mt="2">
+              Insufficient funds in your wallet.
+            </Text>
+          </VStack>
+        </Alert>
+
+        <Alert variant="error" mb="4">
+          <VStack w="90%">
+            <InfoCircle color="#B42318" width="20px" />
+            <Text color="#B42318" mt="2">
+              Insufficient funds in your wallet.
+            </Text>
             <HStack alignItems="center" mt="2">
-              <Text variant="body2" color="#027A48" mr="2">
+              <Text variant="body2" color="#B42318" mr="2">
                 Top up now
               </Text>
-              <ChevronRight color="#027A48" width="16px" />
+              <ChevronRight color="#B42318" width="16px" />
             </HStack>
           </VStack>
         </Alert>
@@ -141,6 +159,12 @@ const Cheatsheet = () => {
         <HStack mt="2">
           <Badge variant="success" mr="1">
             Success
+          </Badge>
+          <Badge variant="warning" mr="1">
+            Warning
+          </Badge>
+          <Badge variant="error" mr="1">
+            Error
           </Badge>
           <Badge variant="info" mr="1">
             Info
@@ -240,11 +264,26 @@ const Cheatsheet = () => {
           <Button variant="pill">Email</Button>
         </Button.Group>
 
-        <Button.Group size="sm">
+        <Button.Group size="sm" mb="3">
           <Button variant="pillOutlineActive">Bundle</Button>
           <Button variant="pillOutline">Internet</Button>
           <Button variant="pillOutline">Roaming</Button>
           <Button variant="pillOutline">Social Media</Button>
+        </Button.Group>
+
+        <Button.Group
+          size="lg"
+          display="flex"
+          bg="gray.100"
+          rounded="full"
+          p="1.5"
+        >
+          <Button variant="pillActive" w="50%">
+            Popular
+          </Button>
+          <Button variant="pill" w="50%">
+            All
+          </Button>
         </Button.Group>
 
         {/* Icon Buttons */}
