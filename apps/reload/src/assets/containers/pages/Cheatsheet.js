@@ -190,18 +190,18 @@ const Cheatsheet = () => {
           </Button>
         </HStack>
         <HStack>
-          <Button variant="secondaryGray" mr="1" mb="2">
+          <Button colorScheme="primary" variant="outline" mr="1" mb="2">
             Secondary
           </Button>
-          <Button variant="secondaryGray" mr="1" mb="2" isDisabled>
+          <Button variant="secondaryColor" mr="1" mb="2" isDisabled>
             Secondary
           </Button>
         </HStack>
         <HStack>
-          <Button variant="secondaryColor" mr="1" mb="2">
+          <Button variant="secondaryGray" mr="1" mb="2">
             Secondary
           </Button>
-          <Button variant="secondaryColor" mr="1" mb="2" isDisabled>
+          <Button variant="secondaryGray" mr="1" mb="2" isDisabled>
             Secondary
           </Button>
         </HStack>
@@ -261,7 +261,7 @@ const Cheatsheet = () => {
           Input
         </Text>
         <Input placeholder="Default Input" mb="2" />
-        <Input placeholder="Default Input Disabled" mb="2" isDisabled />
+        <Input placeholder="Default Input (sm)" size="sm" mb="2" />
 
         <FloatingInput
           label="Floating Input"

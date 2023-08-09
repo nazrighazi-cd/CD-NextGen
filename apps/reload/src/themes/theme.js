@@ -382,10 +382,8 @@ const theme = extendTheme({
     Input: {
       defaultProps: {
         bg: 'white',
+        size: 'md',
         borderRadius: '8px',
-        padding: '12px',
-        paddingTop: '18px',
-        paddingBottom: '18px',
         fontSize: '14px',
         placeholderTextColor: 'gray.500',
         _disabled: {
@@ -401,6 +399,10 @@ const theme = extendTheme({
           paddingTop: '10px',
           paddingBottom: '10px',
         },
+      },
+      sizes: {
+        sm: { padding: '12px', paddingTop: '12px', paddingBottom: '12px' },
+        md: { padding: '12px', paddingTop: '18px', paddingBottom: '18px' },
       },
     },
     Modal: {
