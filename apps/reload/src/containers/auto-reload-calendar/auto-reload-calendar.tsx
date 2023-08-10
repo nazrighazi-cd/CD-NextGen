@@ -52,128 +52,124 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
   }
 
   return (
-    <>
-      <Box flex={1} bg="white">
-        <ScrollView>
-          <Box flex={1} m="16px">
-            {/* RELOAD CARD */}
-            <Box variant="shadow" bg="#4481ED">
-              <HStack space={[4, 3]} justifyContent="space-between">
-                <Avatar variant="rounded">
-                  <Copy width={14} height={14} color="#1561E8" />
-                </Avatar>
-                <Box>
-                  <Text variant="body1" color="white" pb="1.0">
-                    60 19 23456789
-                  </Text>
-                  <Text variant="label" bold color="white">
-                    Reload before 28/07/2023
-                  </Text>
-                </Box>
-                <Spacer />
-                <Box alignItems="flex-end">
-                  <Badge variant="success">Active</Badge>
-                  <Text variant="h5" bold color="#FFFFFF">
-                    RM XX.XX
-                  </Text>
-                </Box>
-              </HStack>
-            </Box>
-
-            {/* DATE MONTH */}
-            <Box variant="shadow" mt="16px">
-              <Text variant="h8" bold pb="16px">
-                1. Date of the month
-              </Text>
-              {/* Amount Input */}
-              <Box pb="5px">
-                <Input
-                  placeholder="Choose between 1 and 28 of the month"
-                  InputRightElement={
-                    <Box pr={3}>
-                      <Calendars
-                        color="#667085"
-                        onPress={() => setDefaultModal(true)}
-                      />
-                    </Box>
-                  }
-                  value={selected?.slice(-2)}
-                  keyboardType="numeric"
-                ></Input>
+    <Box flex={1} bg="white">
+      <ScrollView>
+        <Box flex={1} m="16px">
+          {/* RELOAD CARD */}
+          <Box variant="shadow" bg="#4481ED">
+            <HStack space={[4, 3]} justifyContent="space-between">
+              <Avatar variant="rounded">
+                <Copy width={14} height={14} color="#1561E8" />
+              </Avatar>
+              <Box>
+                <Text variant="body1" color="white" pb="1.0">
+                  60 19 23456789
+                </Text>
+                <Text variant="label" bold color="white">
+                  Reload before 28/07/2023
+                </Text>
               </Box>
-              {/* Additional Text */}
-              <Text variant="label" pb="8px" color="gray.500">
-                Amount must be between RM5 - RM100
-              </Text>
-            </Box>
-
-            {/* SELECT AMOUNT CARD */}
-            <Box variant="shadow" mt="16px">
-              <Text variant="h8" bold pb="16px">
-                2. Select Amount
-              </Text>
-              {/* Card Reload */}
-              <VStack justifyContent="center">
-                {rowsAmount.map((row, index) => (
-                  <HStack key={index} justifyContent="space-between">
-                    {row.map((amount, itemIndex) => (
-                      <Pressable key={itemIndex}>
-                        {({ isPressed }) => {
-                          return (
-                            <Box
-                              variant="border"
-                              key={itemIndex}
-                              w="94px"
-                              h="72px"
-                              px="4px"
-                              justifyContent="center"
-                              alignItems="center"
-                              mb="16px"
-                              bg={isPressed ? 'primary.5' : 'white'}
-                              borderColor={
-                                isPressed ? 'primary.600' : 'gray.300'
-                              }
-                              borderWidth={isPressed ? '2' : '1'}
-                            >
-                              <Text variant="h6" bold>
-                                RM{amount.price}
-                              </Text>
-                              <Text variant="label">{amount.validity}</Text>
-                              {/* Tag */}
-                              {amount.tag ? (
-                                <Badge
-                                  variant="popular"
-                                  position="absolute"
-                                  top={isPressed ? '-11' : '-10'}
-                                >
-                                  {amount.tag}
-                                </Badge>
-                              ) : null}
-                            </Box>
-                          );
-                        }}
-                      </Pressable>
-                    ))}
-                  </HStack>
-                ))}
-              </VStack>
-              {/* Additional Text */}
-              <Text variant="label" pb="8px" color="gray.500">
-                Non-Malaysians will be subjected to 6% SST.
-              </Text>
-            </Box>
+              <Spacer />
+              <Box alignItems="flex-end">
+                <Badge variant="success">Active</Badge>
+                <Text variant="h5" bold color="#FFFFFF">
+                  RM XX.XX
+                </Text>
+              </Box>
+            </HStack>
           </Box>
-        </ScrollView>
 
-        {/* FOOTER */}
-        <Box m="16px">
-          <Button
-            // isDisabled={!number || !isNaN || number < 5 || number > 100}
-            onPress={() => navigation.navigate('Select Cards')}
-          >
-            Continue
-          </Button>
+          {/* DATE MONTH */}
+          <Box variant="shadow" mt="16px">
+            <Text variant="h8" bold pb="16px">
+              1. Date of the month
+            </Text>
+            {/* Amount Input */}
+            <Box pb="5px">
+              <Input
+                placeholder="Choose between 1 and 28 of the month"
+                InputRightElement={
+                  <Box pr={3}>
+                    <Calendars
+                      color="#667085"
+                      onPress={() => setDefaultModal(true)}
+                    />
+                  </Box>
+                }
+                value={selected?.slice(-2)}
+                keyboardType="numeric"
+              ></Input>
+            </Box>
+            {/* Additional Text */}
+            <Text variant="label" pb="8px" color="gray.500">
+              Amount must be between RM5 - RM100
+            </Text>
+          </Box>
+
+          {/* SELECT AMOUNT CARD */}
+          <Box variant="shadow" mt="16px">
+            <Text variant="h8" bold pb="16px">
+              2. Select Amount
+            </Text>
+            {/* Card Reload */}
+            <VStack justifyContent="center">
+              {rowsAmount.map((row, index) => (
+                <HStack key={index} justifyContent="space-between">
+                  {row.map((amount, itemIndex) => (
+                    <Pressable key={itemIndex}>
+                      {({ isPressed }) => {
+                        return (
+                          <Box
+                            variant="border"
+                            key={itemIndex}
+                            w="94px"
+                            h="72px"
+                            px="4px"
+                            justifyContent="center"
+                            alignItems="center"
+                            mb="16px"
+                            bg={isPressed ? 'primary.5' : 'white'}
+                            borderColor={isPressed ? 'primary.600' : 'gray.300'}
+                            borderWidth={isPressed ? '2' : '1'}
+                          >
+                            <Text variant="h6" bold>
+                              RM{amount.price}
+                            </Text>
+                            <Text variant="label">{amount.validity}</Text>
+                            {/* Tag */}
+                            {amount.tag ? (
+                              <Badge
+                                variant="popular"
+                                position="absolute"
+                                top={isPressed ? '-11' : '-10'}
+                              >
+                                {amount.tag}
+                              </Badge>
+                            ) : null}
+                          </Box>
+                        );
+                      }}
+                    </Pressable>
+                  ))}
+                </HStack>
+              ))}
+            </VStack>
+            {/* Additional Text */}
+            <Text variant="label" pb="8px" color="gray.500">
+              Non-Malaysians will be subjected to 6% SST.
+            </Text>
+          </Box>
         </Box>
+      </ScrollView>
+
+      {/* FOOTER */}
+      <Box m="16px">
+        <Button
+          // isDisabled={!number || !isNaN || number < 5 || number > 100}
+          onPress={() => navigation.navigate('Select Cards')}
+        >
+          Continue
+        </Button>
       </Box>
 
       {/* CALENDAR MODAL */}
@@ -215,7 +211,7 @@ const AutoReloadCalendar = ({ navigation }: { navigation: any }) => {
           </Text>
         </Modal.Content>
       </Modal>
-    </>
+    </Box>
   );
 };
 export default AutoReloadCalendar;

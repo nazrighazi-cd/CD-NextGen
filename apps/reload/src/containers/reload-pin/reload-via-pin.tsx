@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 // Native Base Components
-import { useTheme, Box, HStack, Text, Input, Button, Modal } from 'native-base';
+import {
+  useTheme,
+  Box,
+  HStack,
+  Text,
+  Input,
+  Button,
+  Modal,
+  ScrollView,
+} from 'native-base';
 // Icons
 import { Contact, InfoCircle } from '@cd-next-gen-app/icons';
 
@@ -23,8 +32,8 @@ const ReloadViaPin = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <>
-      <Box flex={1} bg="white">
+    <Box flex={1} bg="white">
+      <ScrollView>
         <Box flex={1} m="16px">
           {/* ENTER MOBILE NUMBER */}
           <Box variant="shadow" rounded="lg">
@@ -62,14 +71,16 @@ const ReloadViaPin = ({ navigation }: { navigation: any }) => {
             />
           </Box>
         </Box>
-        <Box m="16px">
-          <Button
-            onPress={() => navigation.navigate('Main List')}
-            isDisabled={!pinNumber}
-          >
-            Continue
-          </Button>
-        </Box>
+      </ScrollView>
+
+      {/* FOOTER */}
+      <Box m="16px">
+        <Button
+          onPress={() => navigation.navigate('Main List')}
+          isDisabled={!pinNumber}
+        >
+          Continue
+        </Button>
       </Box>
 
       {/* PIN RELOAD MODAL */}
@@ -95,7 +106,7 @@ const ReloadViaPin = ({ navigation }: { navigation: any }) => {
           </Text>
         </Modal.Content>
       </Modal>
-    </>
+    </Box>
   );
 };
 

@@ -196,6 +196,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
           </Box>
         </Box>
       </ScrollView>
+
       {/* FOOTER */}
       <Box m="16px">
         {/* Total Payment */}

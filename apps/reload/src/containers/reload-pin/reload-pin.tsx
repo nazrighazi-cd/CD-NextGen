@@ -12,6 +12,7 @@ import {
   Spacer,
   Modal,
   Avatar,
+  ScrollView,
 } from 'native-base';
 // Icons
 import { InfoCircle, Copy } from '@cd-next-gen-app/icons';
@@ -29,8 +30,8 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <>
-      <Box flex={1} bg="white">
+    <Box flex={1} bg="white">
+      <ScrollView>
         <Box flex={1} m="16px">
           {/* RELOAD CARD */}
           <Box variant="shadow" bg="#4481ED">
@@ -77,16 +78,16 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
             />
           </Box>
         </Box>
+      </ScrollView>
 
-        {/* FOOTER */}
-        <Box m="16px">
-          <Button
-            onPress={() => navigation.navigate('Reload Via Pin')}
-            isDisabled={!pinNumber}
-          >
-            Continue
-          </Button>
-        </Box>
+      {/* FOOTER */}
+      <Box m="16px">
+        <Button
+          onPress={() => navigation.navigate('Reload Via Pin')}
+          isDisabled={!pinNumber}
+        >
+          Continue
+        </Button>
       </Box>
 
       {/* PIN RELOAD MODAL */}
@@ -112,7 +113,7 @@ const ReloadPin = ({ navigation }: { navigation: any }) => {
           </Text>
         </Modal.Content>
       </Modal>
-    </>
+    </Box>
   );
 };
 
