@@ -23,17 +23,18 @@ import FloatingInput from '../../../themes/components/FloatingInput';
 
 // Icons
 import {
-  CalendarRefresh,
-  Twitter,
-  LinkedIn,
-  Visa,
+  AlertCircle,
+  AlertTriangle,
   Arrowleft,
+  Calendars,
+  CheckCircle,
   ChevronRight,
   InfoCircle,
-  Check,
-  HelpCircle,
-  Passcode,
-} from '@cd-next-gen-app/icons';
+  LinkedIn,
+  Lock01,
+  Twitter,
+  Visa,
+} from '../../../../../../libs/icons/src';
 
 const Cheatsheet = () => {
   const theme = useTheme();
@@ -88,7 +89,7 @@ const Cheatsheet = () => {
 
         <Alert variant="success" mb="2">
           <VStack w="90%">
-            <Check color="#027A48" width="20px" />
+            <CheckCircle color="#027A48" width="20px" />
             <Text color="#027A48" mt="2">
               Insufficient funds in your wallet.
             </Text>
@@ -97,7 +98,7 @@ const Cheatsheet = () => {
 
         <Alert variant="warning" mb="2">
           <VStack w="90%">
-            <InfoCircle color="#DC6803" width="20px" />
+            <AlertTriangle color="#DC6803" width="20px" />
             <Text color="#DC6803" mt="2">
               Insufficient funds in your wallet.
             </Text>
@@ -106,7 +107,7 @@ const Cheatsheet = () => {
 
         <Alert variant="error" mb="4">
           <VStack w="90%">
-            <InfoCircle color="#B42318" width="20px" />
+            <AlertCircle color="#B42318" width="20px" />
             <Text color="#B42318" mt="2">
               Insufficient funds in your wallet.
             </Text>
@@ -125,16 +126,16 @@ const Cheatsheet = () => {
         </Text>
         <HStack>
           <Avatar mr="2">
-            <Passcode color="#667085" />
+            <Lock01 color="#667085" />
           </Avatar>
           <Avatar variant="info" mr="2">
-            <CalendarRefresh color="#1561E8" />
+            <InfoCircle color="#1561E8" />
           </Avatar>
           <Avatar variant="success" mr="2">
-            <Check color="#027A48" />
+            <CheckCircle color="#027A48" />
           </Avatar>
           <Avatar variant="error" mr="2">
-            <HelpCircle color="#D92D20" />
+            <AlertTriangle color="#D92D20" />
           </Avatar>
           <Avatar variant="rounded" mr="2">
             <Twitter />
@@ -271,13 +272,7 @@ const Cheatsheet = () => {
           <Button variant="pillOutline">Social Media</Button>
         </Button.Group>
 
-        <Button.Group
-          size="lg"
-          display="flex"
-          bg="gray.100"
-          rounded="full"
-          p="1.5"
-        >
+        <Button.Group bg="gray.100" rounded="full" p="1.5">
           <Button variant="pillActive" w="50%">
             Popular
           </Button>
@@ -305,7 +300,7 @@ const Cheatsheet = () => {
         <FloatingInput
           label="Floating Input"
           placeholder="Floating Input"
-          InputRightElement={<CalendarRefresh color="#667085" />}
+          InputRightElement={<Calendars color="#667085" />}
         />
 
         {/* Modal */}
