@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../utils/ISvgProps';
+import { ISvgProps } from '../../utils/ISvgProps';
 
 export function CalendarRefresh({
   width = 24,

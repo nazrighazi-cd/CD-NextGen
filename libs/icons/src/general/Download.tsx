@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../utils/ISvgProps';
-export function HelpCircle({
+import { ISvgProps } from '../../utils/ISvgProps';
+export function Download({
   width = 24,
   height = 24,
   color = '#000000',
@@ -22,9 +22,9 @@ export function HelpCircle({
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={strokeWidth}
-        d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3m.08 4h.01M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"
+        d="M21 21H3m15-10-6 6m0 0-6-6m6 6V3"
       />
     </Svg>
   );
 }
-export default HelpCircle;
+export default Download;

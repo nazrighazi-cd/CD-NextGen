@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../utils/ISvgProps';
-export function Close({
+import { ISvgProps } from '../../utils/ISvgProps';
+export function CheckCircle({
   width = 24,
   height = 24,
   color = '#000000',
@@ -22,9 +22,9 @@ export function Close({
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={strokeWidth}
-        d="M18 6 6 18M6 6l12 12"
+        d="m7.5 12 3 3 6-6m5.5 3c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"
       />
     </Svg>
   );
 }
-export default Close;
+export default CheckCircle;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../utils/ISvgProps';
-export function Settings({
+import { ISvgProps } from '../../utils/ISvgProps';
+export function FileAttachment({
   width = 24,
   height = 24,
   color = '#000000',
@@ -18,13 +18,13 @@ export function Settings({
       {...props}
     >
       <Path
-        d="M3 8L15 8M15 8C15 9.65686 16.3431 11 18 11C19.6569 11 21 9.65685 21 8C21 6.34315 19.6569 5 18 5C16.3431 5 15 6.34315 15 8ZM9 16L21 16M9 16C9 17.6569 7.65685 19 6 19C4.34315 19 3 17.6569 3 16C3 14.3431 4.34315 13 6 13C7.65685 13 9 14.3431 9 16Z"
         stroke={color}
-        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={strokeWidth}
+        d="M20 7v-.2c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C17.72 2 16.88 2 15.2 2H8.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C4 4.28 4 5.12 4 6.8v10.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C6.28 22 7.12 22 8.8 22h3.7m0-11H8m3.5 4H8m8-8H8m10 11v-5.5a1.5 1.5 0 0 1 3 0V18a3 3 0 1 1-6 0v-4"
       />
     </Svg>
   );
 }
-export default Settings;
+export default FileAttachment;

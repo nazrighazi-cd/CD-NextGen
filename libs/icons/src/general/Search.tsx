@@ -1,7 +1,7 @@
 import React from 'react';
-import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../utils/ISvgProps';
-export function Plus({
+import Svg, { Path, G, Rect, Defs, ClipPath } from 'react-native-svg';
+import { ISvgProps } from '../../utils/ISvgProps';
+export function Search({
   width = 24,
   height = 24,
   color = '#000000',
@@ -12,7 +12,7 @@ export function Plus({
     <Svg
       width={width}
       height={height}
-      viewBox="0 0 24 24"
+      viewBox="0 0 25 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -22,9 +22,9 @@ export function Plus({
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={strokeWidth}
-        d="M12 5v14m-7-7h14"
+        d="m21 21-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
       />
     </Svg>
   );
 }
-export default Plus;
+export default Search;

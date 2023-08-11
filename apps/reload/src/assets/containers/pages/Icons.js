@@ -12,6 +12,7 @@ import {
   Calendars,
   CalendarRefresh,
   Check,
+  CheckCircle,
   ChevronRight,
   Close,
   Coins,
@@ -27,8 +28,10 @@ import {
   HelpCircle,
   History,
   InfoCircle,
+  Lock01,
   Passcode,
   Plus,
+  Search,
   Settings,
   Simcard,
   Facebook,
@@ -267,6 +270,27 @@ const Icons = () => {
               </Text>
             </Box>
             <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <Search />{' '}
+              <Text textAlign="center" width={120} color="black">
+                search-md
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <Lock01 />{' '}
+              <Text textAlign="center" width={120} color="black">
+                lock-01
+              </Text>
+            </Box>
+            <Spacer></Spacer>
+            <Box alignItems="center" p="10px">
+              <CheckCircle />{' '}
+              <Text textAlign="center" width={120} color="black">
+                check-circle
+              </Text>
+            </Box>
           </HStack>
         </VStack>
 

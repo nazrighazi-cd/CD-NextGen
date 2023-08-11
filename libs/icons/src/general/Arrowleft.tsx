@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { ISvgProps } from '../utils/ISvgProps';
-export function Download({
+import { ISvgProps } from '../../utils/ISvgProps';
+export function Arrowleft({
   width = 24,
   height = 24,
   color = '#000000',
@@ -13,7 +13,7 @@ export function Download({
       width={width}
       height={height}
       viewBox="0 0 24 24"
-      fill="none"
+      fill={color}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -22,9 +22,10 @@ export function Download({
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={strokeWidth}
-        d="M21 21H3m15-10-6 6m0 0-6-6m6 6V3"
+        d="M19 12H5m0 0 7 7m-7-7 7-7"
       />
     </Svg>
   );
 }
-export default Download;
+
+export default Arrowleft;
