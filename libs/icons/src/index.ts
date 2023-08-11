@@ -1,4 +1,5 @@
 //Icons
+export * from './general/AlertCircle';
 export * from './general/AlertTriangle';
 export * from './general/Arrowleft';
 export * from './general/AutoBilling';

@@ -4,6 +4,7 @@ import { useTheme, HStack, Box, Text, VStack, Spacer } from 'native-base';
 
 //Icons
 import {
+  AlertCircle,
   AlertTriangle,
   Arrowleft,
   AutoBilling,
@@ -291,6 +292,15 @@ const Icons = () => {
                 check-circle
               </Text>
             </Box>
+          </HStack>
+          <HStack mt="5">
+            <Box alignItems="center" p="10px">
+              <AlertCircle />{' '}
+              <Text textAlign="center" width={120} color="black">
+                alert-circle
+              </Text>
+            </Box>
+            <Spacer></Spacer>
           </HStack>
         </VStack>
 
