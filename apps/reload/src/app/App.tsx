@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // NativeBase
 import { NativeBaseProvider } from 'native-base';
 // Theme
-import theme from '../themes/theme';
+import theme from '../../../../libs/themes/theme';
 // Pages
 import Home from '../containers/home';
 // Icons

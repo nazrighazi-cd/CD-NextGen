@@ -1,9 +1,8 @@
 import * as React from 'react';
 // Navigation
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// NativeBase
 // Theme
-import theme from '../themes/theme';
+import theme from '../../../../libs/themes/theme';
 // Pages
 import Cheatsheet from '../assets/containers/pages/Cheatsheet';
 import Icons from '../assets/containers/pages/Icons';
