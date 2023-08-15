@@ -48,6 +48,7 @@ const theme = extendTheme({
     },
     warning: {
       25: '#FFFCF5',
+      100: '#FEF0C7',
       300: '#FEC84B',
       500: '#F79009',
       600: '#DC6803',
@@ -277,17 +278,22 @@ const theme = extendTheme({
           alignItems: 'center',
           flexDirection: 'row',
         },
-        shadow: {
-          bg: 'gray.50',
-          padding: '16px',
-          shadow: '2',
-          borderRadius: '16px',
-        },
         border: {
           padding: '16px',
           borderRadius: '10px',
           borderWidth: 1,
           borderColor: 'gray.300',
+        },
+        gradientWarning: {
+          bg: 'warning.100',
+          padding: '16px',
+          borderRadius: '10px',
+        },
+        shadow: {
+          bg: 'gray.50',
+          padding: '16px',
+          shadow: '2',
+          borderRadius: '16px',
         },
         selection: {
           width: '50%',
@@ -474,11 +480,15 @@ const theme = extendTheme({
       defaultProps: {
         size: 'sm',
         _text: { fontSize: '16px' },
-        bg: 'primary.600',
+        width: '20px',
+        height: '20px',
         _checked: {
           _icon: {
-            color: `white`,
+            color: 'white',
+            width: '16px',
+            height: '16px',
           },
+          bg: 'primary.600',
         },
       },
     },

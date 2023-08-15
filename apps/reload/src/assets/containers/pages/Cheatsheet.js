@@ -27,6 +27,7 @@ import {
   AlertTriangle,
   Arrowleft,
   Calendars,
+  Check,
   CheckCircle,
   ChevronRight,
   InfoCircle,
@@ -200,6 +201,10 @@ const Cheatsheet = () => {
         <Box variant="shadow" mb="2">
           Shadow
         </Box>
+        <Box variant="gradientWarning" mb="4">
+          Gradient Warning
+        </Box>
+
         <Box variant="border">Border</Box>
 
         {/* Buttons */}
@@ -350,15 +355,22 @@ const Cheatsheet = () => {
           On-Offs
         </Text>
         {/* Toggle */}
-        <HStack alignItems="center">
+        <HStack alignItems="center" mb="2">
           <Switch />
           <Checkbox.Group flexDirection="row" alignItems="center" ml="3">
             <Checkbox accessibilityLabel="Checkbox"></Checkbox>
             <Text ml="2">Checkbox</Text>
           </Checkbox.Group>
+        </HStack>
+        <HStack alignItems="center" mb="3">
           <Radio.Group>
-            <Radio ml="4" accessibilityLabel="Radio">
+            <Radio ml="2" accessibilityLabel="Radio">
               Radio
+            </Radio>
+          </Radio.Group>
+          <Radio.Group>
+            <Radio ml="4" accessibilityLabel="Radio" icon={<Check />}>
+              Radio Checked
             </Radio>
           </Radio.Group>
         </HStack>
