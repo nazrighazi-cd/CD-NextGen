@@ -19,7 +19,7 @@ import {
 } from 'native-base';
 
 // Components
-import FloatingInput from '../../../themes/components/FloatingInput';
+import FloatingInput from '../../../../libs/themes/components/FloatingInput';
 
 // Icons
 import {
@@ -28,13 +28,14 @@ import {
   Arrowleft,
   Calendars,
   CheckCircle,
+  Check,
   ChevronRight,
   InfoCircle,
   LinkedIn,
   Lock01,
   Twitter,
   Visa,
-} from '../../../../../../libs/icons/src';
+} from '../../../../libs/icons/src';
 
 const Cheatsheet = () => {
   const theme = useTheme();
@@ -200,6 +201,7 @@ const Cheatsheet = () => {
         <Box variant="shadow" mb="2">
           Shadow
         </Box>
+
         <Box variant="border">Border</Box>
 
         {/* Buttons */}
@@ -350,15 +352,20 @@ const Cheatsheet = () => {
           On-Offs
         </Text>
         {/* Toggle */}
-        <HStack alignItems="center">
+        <HStack alignItems="center" mb="2">
           <Switch />
           <Checkbox.Group flexDirection="row" alignItems="center" ml="3">
             <Checkbox accessibilityLabel="Checkbox"></Checkbox>
             <Text ml="2">Checkbox</Text>
           </Checkbox.Group>
+        </HStack>
+        <HStack alignItems="center" ml="2" mb="4">
           <Radio.Group>
-            <Radio ml="4" accessibilityLabel="Radio">
-              Radio
+            <Radio accessibilityLabel="Radio">Radio</Radio>
+          </Radio.Group>
+          <Radio.Group>
+            <Radio ml="4" accessibilityLabel="Radio" icon={<Check />}>
+              Radio Checked
             </Radio>
           </Radio.Group>
         </HStack>

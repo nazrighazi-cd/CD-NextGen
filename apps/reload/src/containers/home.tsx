@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Theme
 import theme from '../../../../libs/themes/theme';
 // Pages
-import Cheatsheet from '../assets/containers/pages/Cheatsheet';
+import Cheatsheet from './Cheatsheet';
 import Icons from '../assets/containers/pages/Icons';
 import MainList from '../containers/main-list';
 import ReloadMyself from '../containers/reload-myself/reload-myself';
@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <NativeBaseProvider theme={theme}>
       <Stack.Navigator
-        initialRouteName="Main List"
+        initialRouteName="Cheatsheet"
         screenOptions={{
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',

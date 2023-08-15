@@ -473,12 +473,15 @@ const theme = extendTheme({
     Radio: {
       defaultProps: {
         size: 'sm',
-        _text: { fontSize: '16px' },
-        bg: 'primary.600',
+        width: '20px',
+        height: '20px',
         _checked: {
           _icon: {
-            color: `white`,
+            color: 'white',
+            width: '16px',
+            height: '16px',
           },
+          bg: 'primary.600',
         },
       },
     },
