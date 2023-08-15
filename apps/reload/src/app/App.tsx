@@ -8,7 +8,6 @@ import { NativeBaseProvider } from 'native-base';
 import theme from '../../../../libs/themes/theme';
 // Pages
 import Home from '../containers/home';
-// Icons
 
 const Stack = createNativeStackNavigator();
 
@@ -20,12 +19,10 @@ export default function App() {
           initialRouteName="Home"
           screenOptions={{
             headerShown: false,
-
             // headerLeft: ({ canGoBack, onPress }) =>
             //   canGoBack && <ArrowLeft color="#000000" onPress={onPress} />,
           }}
         >
-          {/* Styling Cheatsheet */}
           <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
       </NavigationContainer>
