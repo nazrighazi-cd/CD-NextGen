@@ -24,7 +24,6 @@ import TransactionHistoryDetails from '../containers/transaction-history/transac
 import SelectCards from '../containers/auto-reload-limit/select-cards';
 import AutoReloadActive from '../containers/auto-reload-management/auto-reload-active';
 import { NativeBaseProvider } from 'native-base';
-// Icons
 
 const Stack = createNativeStackNavigator();
 
