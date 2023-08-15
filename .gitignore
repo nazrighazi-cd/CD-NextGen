@@ -110,3 +110,4 @@ yarn-error.log
 
 apps/host-app-e2e/artifacts
 apps/mfe/reload-e2e/artifacts
+apps/b2c/main-e2e/artifacts

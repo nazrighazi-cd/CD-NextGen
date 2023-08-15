@@ -1,12 +1,11 @@
 {
-  "name": "@cd-next-gen-app/reload",
+  "name": "b2c-main",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "ios": "npx react-native run-ios",
     "android": "npx react-native run-android",
-    "start-webpack ": "npx react-native webpack-start --port 9000",
-    "start-webpack-standalone ": "npx react-native webpack-start"
+    "start-webpack": "npx react-native webpack-start"
   },
   "dependencies": {
     "@testing-library/jest-native": "*",
