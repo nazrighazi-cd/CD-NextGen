@@ -215,7 +215,7 @@ const TransactionHistory = ({ navigation }: { navigation: any }) => {
     <Box bg="white" h="100%" w="100%" maxWidth="100%">
       {/* TAB */}
       <Box alignItems="center" mt="16px">
-        <Button.Group isAttached>
+        <Button.Group isAttached size="md" mb="3">
           <Button
             variant={activeTab === 'All Transactions' ? 'tabActive' : 'tab'}
             onPress={() => handleTabClick('All Transactions')}
