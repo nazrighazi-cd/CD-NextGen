@@ -2,8 +2,6 @@ import path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import * as Repack from '@callstack/repack';
 
-const STANDALONE = Boolean(process.env.STANDALONE);
-
 /**
  * More documentation, installation, usage, motivation and differences with Metro is available at:
  * https://github.com/callstack/repack/blob/main/README.md
@@ -95,17 +93,14 @@ export default (env) => {
        * dependency. You might need it when using workspaces/monorepos or unconventional project
        * structure. For simple/typical project you won't need it.
        */
-      // alias: {
-      //   'react-native': reactNativePath,
-      // },
       alias: {
         'react-native': reactNativePath,
         '@cd-next-gen-app/ui-components': new URL(
-          '../../libs/ui-components/src/index.ts',
+          '../../../libs/ui-components/src/index.ts',
           import.meta.url
         ).pathname,
         '@cd-next-gen-app/icons': new URL(
-          '../../libs/icons/src/index.ts',
+          '../../../libs/icons/src/index.ts',
           import.meta.url
         ).pathname,
       },
@@ -248,12 +243,9 @@ export default (env) => {
           assetsPath,
         },
       }),
-
       new Repack.plugins.ModuleFederationPlugin({
-        name: 'reload',
-        exposes: {
-          './App': './src/containers/home',
-        },
+        name: 'b2c-main-app',
+
         // remotes: {
         //   mfe_poc_main :"mfe_poc_main@dynamic",
         // },
