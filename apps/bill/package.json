@@ -9,6 +9,13 @@
     "react": "*",
     "react-native": "*",
     "react-native-svg": "*",
-    "metro-config": "*"
+    "babel-loader": "*",
+    "webpack": "*",
+    "metro-config": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*",
+    "native-base": "*",
+    "react-native-safe-area-context": "*"
   }
 }

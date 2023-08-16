@@ -23,6 +23,7 @@ import TransactionHistory from '../containers/transaction-history/transaction-hi
 import TransactionHistoryDetails from '../containers/transaction-history/transaction-history-details';
 import SelectCards from '../containers/auto-reload-limit/select-cards';
 import AutoReloadActive from '../containers/auto-reload-management/auto-reload-active';
+// Native Base
 import { NativeBaseProvider } from 'native-base';
 
 const Stack = createNativeStackNavigator();
@@ -31,7 +32,7 @@ const Home = () => {
   return (
     <NativeBaseProvider theme={theme}>
       <Stack.Navigator
-        initialRouteName="Cheatsheet"
+        initialRouteName="Main List"
         screenOptions={{
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
