@@ -27,9 +27,15 @@ import { NativeBaseProvider } from 'native-base';
 
 const Stack = createNativeStackNavigator();
 
+const config = {
+  dependencies: {
+    'linear-gradient': require('react-native-linear-gradient').default,
+  },
+};
+
 const Home = () => {
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider theme={theme} config={config}>
       <Stack.Navigator
         initialRouteName="Cheatsheet"
         screenOptions={{

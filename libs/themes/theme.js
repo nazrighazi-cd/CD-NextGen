@@ -48,6 +48,7 @@ const theme = extendTheme({
     },
     warning: {
       25: '#FFFCF5',
+      100: '#FEF0C7',
       300: '#FEC84B',
       500: '#F79009',
       600: '#DC6803',
@@ -280,8 +281,21 @@ const theme = extendTheme({
         shadow: {
           bg: 'gray.50',
           padding: '16px',
-          shadow: '2',
           borderRadius: '16px',
+          shadow: '2',
+        },
+        gradient: {
+          // bg: 'warning.100',
+          bg: {
+            linearGradient: {
+              colors: ['warning.100', 'white'],
+              start: [0, 0],
+              end: [1, 0],
+            },
+          },
+          padding: '16px',
+          borderRadius: '16px',
+          // shadow: '4',
         },
         border: {
           padding: '16px',

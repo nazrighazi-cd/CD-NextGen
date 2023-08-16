@@ -26,6 +26,7 @@
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
     "react-native-screens": "*",
-    "react-native-calendars": "*"
+    "react-native-calendars": "*",
+    "react-native-linear-gradient": "*"
   }
 }

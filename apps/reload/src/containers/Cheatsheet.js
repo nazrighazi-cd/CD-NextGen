@@ -201,8 +201,10 @@ const Cheatsheet = () => {
         <Box variant="shadow" mb="2">
           Shadow
         </Box>
-
-        <Box variant="border">Border</Box>
+        <Box variant="border" mb="2">
+          Border
+        </Box>
+        <Box variant="gradient">Gradient</Box>
 
         {/* Buttons */}
         <Text color="primary.600" mt="4" mb="2">
