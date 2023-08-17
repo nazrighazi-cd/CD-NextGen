@@ -16,6 +16,7 @@
     "@react-navigation/native-stack": "*",
     "react-native-screens": "*",
     "native-base": "*",
-    "react-native-safe-area-context": "*"
+    "react-native-safe-area-context": "*",
+    "@callstack/repack": "*"
   }
 }
