@@ -20,7 +20,7 @@ const Home = () => {
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerTitleStyle: {
-            fontFamily: 'Montserrat-Regular',
+            fontFamily: 'Montserrat-Bold',
           },
         }}
       >
