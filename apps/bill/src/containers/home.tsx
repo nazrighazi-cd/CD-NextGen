@@ -7,8 +7,8 @@ import theme from '../../../../libs/themes/theme';
 import { NativeBaseProvider } from 'native-base';
 // Pages
 import MainList from './main-list';
-import { PayMyself } from './pay-myself/pay-myself';
-import { PayOthers } from './pay-others/pay-others';
+import PayMyself from './pay-myself/pay-myself';
+import PayOthers from './pay-others/pay-others';
 import BillDetails from './bill-details/bill-details';
 import EditTotal from './pay-myself/edit-total-payment';
 import MyselfBillDetails from './pay-myself/myself-bill-details';
