@@ -8,6 +8,7 @@ import { NativeBaseProvider } from 'native-base';
 // Pages
 import MainList from './main-list';
 import { PayMyself } from './pay-myself/pay-myself';
+import { PayOthers } from './pay-others/pay-others';
 import BillDetails from './bill-details/bill-details';
 import EditTotal from './pay-myself/edit-total-payment';
 import MyselfBillDetails from './pay-myself/myself-bill-details';
@@ -65,6 +66,11 @@ const Home = () => {
           options={{ title: 'Receipt' }}
           name="Receipt"
           component={SuccessReceipt}
+        />
+        <Stack.Screen
+          options={{ title: 'Bill Details' }}
+          name="Bill Details"
+          component={BillDetails}
         />
         <Stack.Screen
           options={{ title: 'Bill Details' }}
