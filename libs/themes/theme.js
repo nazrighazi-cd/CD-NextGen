@@ -298,6 +298,7 @@ const theme = extendTheme({
           // shadow: '4',
         },
         border: {
+          bg: 'white',
           padding: '16px',
           borderRadius: '10px',
           borderWidth: 1,
