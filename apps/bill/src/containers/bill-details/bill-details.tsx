@@ -76,8 +76,6 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
     },
   ];
 
-  const [value, setValue] = React.useState('one');
-
   return (
     <>
       <Box flex={1} bg="white">
