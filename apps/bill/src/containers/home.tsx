@@ -7,6 +7,7 @@ import theme from '../../../../libs/themes/theme';
 import MainList from './main-list';
 import { PayMyself } from './pay-myself/pay-myself';
 import { PayOthers } from './pay-others/pay-others';
+import BillDetails from './bill-details/bill-details';
 // Native Base
 import { NativeBaseProvider } from 'native-base';
 
@@ -37,9 +38,14 @@ const Home = () => {
           component={PayMyself}
         />
         <Stack.Screen
-          options={{ title: 'Pay For Others' }}
-          name="Pay Others"
-          component={PayOthers}
+          options={{ title: 'Bill Details' }}
+          name="Bill Details"
+          component={BillDetails}
+        />
+        <Stack.Screen
+          options={{ title: 'Bill Details' }}
+          name="Bill Details"
+          component={BillDetails}
         />
       </Stack.Navigator>
     </NativeBaseProvider>
