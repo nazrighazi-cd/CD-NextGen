@@ -38,9 +38,9 @@ const Home = () => {
           component={PayMyself}
         />
         <Stack.Screen
-          options={{ title: 'Bill Details' }}
-          name="Bill Details"
-          component={BillDetails}
+          options={{ title: 'Pay For Others' }}
+          name="Pay Others"
+          component={PayOthers}
         />
         <Stack.Screen
           options={{ title: 'Bill Details' }}
