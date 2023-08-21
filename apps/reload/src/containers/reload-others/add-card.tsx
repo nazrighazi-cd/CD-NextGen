@@ -16,7 +16,7 @@ import {
 import { Mastercard, HelpCircle } from '@cd-next-gen-app/icons';
 
 // Components
-import FloatingInput from '../../themes/components/FloatingInput';
+import FloatingInput from 'libs/themes/components/FloatingInput';
 
 const AddCard = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
