@@ -48,10 +48,7 @@ const PrincipleLines = ({ navigation }: { navigation: any }) => {
           {/* Principle Lines Card*/}
           <Box variant="shadow">
             {principleLines.map((item, index) => (
-              <Pressable
-                onPress={() => navigation.navigate('Add Card')}
-                key={index}
-              >
+              <Pressable>
                 <Box
                   key={index}
                   variant="listing"

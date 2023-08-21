@@ -210,10 +210,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
           {/* Supplementary Lines Card*/}
           <Box variant="shadow" mt="16px">
             {supLines.map((item, index) => (
-              <Pressable
-                onPress={() => navigation.navigate('Add Card')}
-                key={index}
-              >
+              <Pressable>
                 <Box
                   key={index}
                   variant="listing"
@@ -262,10 +259,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
           {/* Bill Statement Card*/}
           <Box variant="shadow" mt="16px">
             {billData.map((item, index) => (
-              <Pressable
-                onPress={() => navigation.navigate('Add Card')}
-                key={index}
-              >
+              <Pressable>
                 <Box
                   key={index}
                   variant="listing"
