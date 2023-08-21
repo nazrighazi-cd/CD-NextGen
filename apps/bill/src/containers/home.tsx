@@ -11,6 +11,9 @@ import MainList from './main-list';
 import PayMyself from './pay-myself/pay-myself';
 import PayOthers from './pay-others/pay-others';
 import BillDetails from './bill-details/bill-details';
+import BillStatement from './bill-statements/bill-statements';
+import PrincipleLines from './bill-details/principle-lines';
+import SupplementaryLines from './bill-details/supplementary-lines';
 import EditTotal from './pay-myself/edit-total-payment';
 import MyselfBillDetails from './pay-myself/myself-bill-details';
 import SelectWallet from './pay-myself/select-ewallet';
@@ -110,6 +113,21 @@ const Home = () => {
           options={{ title: 'Bill Details' }}
           name="Bill Details"
           component={BillDetails}
+        />
+        <Stack.Screen
+          options={{ title: 'Bill Statements' }}
+          name="Bill Statements"
+          component={BillStatement}
+        />
+        <Stack.Screen
+          options={{ title: 'Supplementary Lines' }}
+          name="Supplementary Lines"
+          component={SupplementaryLines}
+        />
+        <Stack.Screen
+          options={{ title: 'Principle Lines' }}
+          name="Principle Lines"
+          component={PrincipleLines}
         />
         <Stack.Screen
           options={{ title: 'Auto Billing' }}
