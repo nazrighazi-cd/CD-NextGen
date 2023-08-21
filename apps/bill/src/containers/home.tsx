@@ -10,6 +10,9 @@ import MainList from './main-list';
 import PayMyself from './pay-myself/pay-myself';
 import PayOthers from './pay-others/pay-others';
 import BillDetails from './bill-details/bill-details';
+import BillStatement from './bill-statements/bill-statements';
+import PrincipleLines from './bill-details/principle-lines';
+import SupplementaryLines from './bill-details/supplementary-lines';
 import EditTotal from './pay-myself/edit-total-payment';
 import MyselfBillDetails from './pay-myself/myself-bill-details';
 import SelectWallet from './pay-myself/select-ewallet';
@@ -21,6 +24,7 @@ import AddCard from './pay-others/add-card';
 import AutoBilling from './auto-billing/auto-billing';
 import AutoBillCard from './auto-billing/select-card';
 import Summary from './auto-billing/summary';
+import BankPortal from './pay-others/bank-portal';
 import SelectBank from './pay-others/select-bank';
 
 const Stack = createNativeStackNavigator();
@@ -70,6 +74,11 @@ const Home = () => {
           component={AddCard}
         />
         <Stack.Screen
+          options={{ title: 'Bank Portal' }}
+          name="Bank Portal"
+          component={BankPortal}
+        />
+        <Stack.Screen
           options={{ title: 'Edit Total Payment' }}
           name="Edit Total Payment"
           component={EditTotal}
@@ -98,6 +107,21 @@ const Home = () => {
           options={{ title: 'Bill Details' }}
           name="Bill Details"
           component={BillDetails}
+        />
+        <Stack.Screen
+          options={{ title: 'Bill Statements' }}
+          name="Bill Statements"
+          component={BillStatement}
+        />
+        <Stack.Screen
+          options={{ title: 'Supplementary Lines' }}
+          name="Supplementary Lines"
+          component={SupplementaryLines}
+        />
+        <Stack.Screen
+          options={{ title: 'Principle Lines' }}
+          name="Principle Lines"
+          component={PrincipleLines}
         />
         <Stack.Screen
           options={{ title: 'Auto Billing' }}

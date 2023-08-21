@@ -21,7 +21,7 @@ import {
   CIMB,
 } from '@cd-next-gen-app/icons';
 
-const SelectBank = ({ navigation }) => {
+const SelectBank = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
   // Mock Data
