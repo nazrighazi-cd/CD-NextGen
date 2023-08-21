@@ -21,7 +21,7 @@ import {
   CIMB,
 } from '@cd-next-gen-app/icons';
 
-const Banks = ({ navigation }: { navigation: any }) => {
+const SelectBank = ({ navigation }) => {
   const theme = useTheme();
 
   // Mock Data
@@ -115,4 +115,4 @@ const Banks = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default Banks;
+export default SelectBank;

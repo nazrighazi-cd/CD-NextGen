@@ -59,6 +59,7 @@ export const MyselfBillDetails = ({ navigation }) => {
   return (
     <Box flex={1} bg="white">
       <ScrollView>
+        {/* BILL DETAILS CARD */}
         <Box variant="shadow" m="16px">
           {msisdnNumber.map((item, index) => (
             <Box
@@ -111,6 +112,8 @@ export const MyselfBillDetails = ({ navigation }) => {
               ) : null}
             </Box>
           ))}
+
+          {/* FOOTER */}
           <HStack justifyContent="space-between" pt="16px">
             <Text variant="h6">Total amount</Text>
             <Text variant="h6" bold>

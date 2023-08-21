@@ -87,7 +87,7 @@ export const PayMyself = ({ navigation }) => {
       pages: 'Select Card',
       tag: null,
     },
-    { method: 'Online Banking', extra: null, pages: 'Select Banks', tag: null },
+    { method: 'Online Banking', extra: null, pages: 'Select Bank', tag: null },
   ];
 
   const rowsPayment = [];
@@ -103,7 +103,7 @@ export const PayMyself = ({ navigation }) => {
           {/* SELECT ACCOUNT TO PAY */}
           <Box variant="shadow">
             <HStack justifyContent="space-between" mb={2}>
-              <Text variant="body2" bold>
+              <Text variant="h8" bold>
                 Select Account To Pay
               </Text>
               <Pressable
@@ -226,9 +226,9 @@ export const PayMyself = ({ navigation }) => {
           </Box>
         </Box>
       </ScrollView>
+
       {/* FOOTER */}
       <Box m="16px">
-        {/* Total Payment */}
         <HStack justifyContent="space-between">
           <Box>
             <Text variant="body2">Total Payment</Text>

@@ -3,7 +3,6 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Theme
 import theme from '../../../../libs/themes/theme';
-
 // Native Base
 import { NativeBaseProvider } from 'native-base';
 // Pages
@@ -22,6 +21,7 @@ import AddCard from './pay-others/add-card';
 import AutoBilling from './auto-billing/auto-billing';
 import AutoBillCard from './auto-billing/select-card';
 import Summary from './auto-billing/summary';
+import SelectBank from './pay-others/select-bank';
 
 const Stack = createNativeStackNavigator();
 
@@ -113,6 +113,11 @@ const Home = () => {
           options={{ title: 'Summary' }}
           name="Auto Billing Summary"
           component={Summary}
+        />
+        <Stack.Screen
+          options={{ title: 'Select Bank' }}
+          name="Select Bank"
+          component={SelectBank}
         />
       </Stack.Navigator>
     </NativeBaseProvider>
