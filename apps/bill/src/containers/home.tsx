@@ -22,6 +22,7 @@ import AddCard from './pay-others/add-card';
 import AutoBilling from './auto-billing/auto-billing';
 import AutoBillCard from './auto-billing/select-card';
 import Summary from './auto-billing/summary';
+import BankPortal from './pay-others/back-portal';
 
 const Stack = createNativeStackNavigator();
 
@@ -68,6 +69,11 @@ const Home = () => {
           options={{ title: 'Add Card' }}
           name="Add Card"
           component={AddCard}
+        />
+        <Stack.Screen
+          options={{ title: 'Bank Portal' }}
+          name="Bank Portal"
+          component={BankPortal}
         />
         <Stack.Screen
           options={{ title: 'Edit Total Payment' }}

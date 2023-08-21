@@ -89,7 +89,7 @@ const AddCard = ({ navigation }: { navigation: any }) => {
       </ScrollView>
       {/* FOOTER */}
       <Box mx="16px" mb="16px">
-        <Button onPress={() => navigation.navigate('Main List')}>
+        <Button onPress={() => navigation.navigate('Select Card')}>
           Continue
         </Button>
       </Box>

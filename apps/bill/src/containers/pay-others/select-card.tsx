@@ -51,7 +51,7 @@ const SelectCard = ({ navigation }: { navigation: any }) => {
             {/* List of Card Options */}
             {paymentData.map((item, index) => (
               <Pressable
-                onPress={() => navigation.navigate('Add Card')}
+                onPress={() => navigation.navigate('Bank Portal')}
                 key={index}
               >
                 <Box key={index} variant="listing">
