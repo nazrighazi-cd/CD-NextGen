@@ -3,6 +3,7 @@ import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Theme
 import theme from '../../../../libs/themes/theme';
+
 // Native Base
 import { NativeBaseProvider } from 'native-base';
 // Pages
@@ -18,6 +19,9 @@ import SuccessReceipt from './pay-myself/success-receipt';
 import ChooseRecipient from './pay-others/choose-recipient';
 import SelectCard from './pay-others/select-card';
 import AddCard from './pay-others/add-card';
+import AutoBilling from './auto-billing/auto-billing';
+import AutoBillCard from './auto-billing/select-card';
+import Summary from './auto-billing/summary';
 
 const Stack = createNativeStackNavigator();
 
@@ -94,6 +98,21 @@ const Home = () => {
           options={{ title: 'Bill Details' }}
           name="Bill Details"
           component={BillDetails}
+        />
+        <Stack.Screen
+          options={{ title: 'Auto Billing' }}
+          name="Auto Billing"
+          component={AutoBilling}
+        />
+        <Stack.Screen
+          options={{ title: 'Select Card' }}
+          name="Auto Billing Select Card"
+          component={AutoBillCard}
+        />
+        <Stack.Screen
+          options={{ title: 'Summary' }}
+          name="Auto Billing Summary"
+          component={Summary}
         />
       </Stack.Navigator>
     </NativeBaseProvider>
