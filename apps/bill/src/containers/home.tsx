@@ -22,7 +22,7 @@ import AddCard from './pay-others/add-card';
 import AutoBilling from './auto-billing/auto-billing';
 import AutoBillCard from './auto-billing/select-card';
 import Summary from './auto-billing/summary';
-import BankPortal from './pay-others/back-portal';
+import BankPortal from './pay-others/bank-portal';
 
 const Stack = createNativeStackNavigator();
 
