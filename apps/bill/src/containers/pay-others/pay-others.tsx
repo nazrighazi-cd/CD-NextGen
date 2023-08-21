@@ -23,7 +23,7 @@ export const PayOthers = ({ navigation }: { navigation: any }) => {
   const paymentMethod = [
     {
       method: 'e-Wallet',
-      pages: 'Select eWallet',
+      pages: 'Select Wallet',
       tag: 'Popular',
     },
     {
@@ -65,24 +65,14 @@ export const PayOthers = ({ navigation }: { navigation: any }) => {
             <FloatingInput
               placeholder="+60"
               label="Mobile Number"
-              InputRightElement={<Contact color="#667085" />}
+              InputRightElement={
+                <Contact
+                  color="#667085"
+                  onPress={() => navigation.navigate('Choose Recipient')}
+                />
+              }
             />
           </Box>
-
-          {/* Contacts List */}
-          {/* <Text variant="h8" bold mt="3" mb="1.5">
-            Recent Contacts
-          </Text>
-          <Box variant="shadow" pt="0">
-            {msisdnNumber.map((item, index) => (
-              <Box borderBottomWidth="1" borderColor="#ddd" py="4">
-                <Text>{item.name}</Text>
-                <Text variant="body2" color="gray.600">
-                  {item.msisdn}
-                </Text>
-              </Box>
-            ))}
-          </Box> */}
 
           {/* Amount to Pay */}
           <Box variant="shadow" mt="3">
@@ -146,47 +136,6 @@ export const PayOthers = ({ navigation }: { navigation: any }) => {
               </HStack>
             ))}
           </Box>
-
-          {/* Payment Methods */}
-          {/* <Box variant="shadow" mt="3">
-            
-            <HStack flex="1" justifyContent="space-between" mt="2">
-              <Box
-                variant="border"
-                flex="1"
-                mr="1"
-                justifyContent="space-between"
-              >
-                <Badge
-                  variant="popular"
-                  mt="-3"
-                  position="absolute"
-                  alignSelf="center"
-                >
-                  Popular
-                </Badge>
-                <Text
-                  variant="h8"
-                  bold
-                  color="gray.700"
-                  textAlign="center"
-                  mt="2"
-                >
-                  eWallet
-                </Text>
-              </Box>
-              <Box variant="border" flex="1" mx="1">
-                <Text variant="h8" bold color="gray.700" textAlign="center">
-                  Credit Card
-                </Text>
-              </Box>
-              <Box variant="border" flex="1" ml="1">
-                <Text variant="h8" bold color="gray.700" textAlign="center">
-                  Online Banking
-                </Text>
-              </Box>
-            </HStack>
-          </Box> */}
         </Box>
       </ScrollView>
 
@@ -201,8 +150,8 @@ export const PayOthers = ({ navigation }: { navigation: any }) => {
             </Text>
           </Box>
           <Button
-          // isDisabled={!form.mobile}
-          // onPress={() => navigation.navigate('Select Card')}
+            // isDisabled={!form.mobile}
+            onPress={() => navigation.navigate('Select Card')}
           >
             Continue
           </Button>
