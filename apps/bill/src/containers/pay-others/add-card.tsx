@@ -77,7 +77,7 @@ const AddCard = ({ navigation }: { navigation: any }) => {
 
             {/* Description Text */}
             <Text variant="label" px="16px" mt="16px">
-              Your card may be charged to ensure it’s valid. The amount will be
+              Your card may be charged to ensure it's valid. The amount will be
               automatically refunded. By adding a card, you have read and agree
               to our{' '}
               <Text variant="label" color="primary.600" onPress={handleTnC}>
