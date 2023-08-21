@@ -17,6 +17,7 @@ import PartnerLink from './pay-myself/partner-link';
 import SuccessReceipt from './pay-myself/success-receipt';
 import ChooseRecipient from './pay-others/choose-recipient';
 import SelectCard from './pay-others/select-card';
+import AddCard from './pay-others/add-card';
 
 const Stack = createNativeStackNavigator();
 
@@ -58,6 +59,11 @@ const Home = () => {
           options={{ title: 'Select Card' }}
           name="Select Card"
           component={SelectCard}
+        />
+        <Stack.Screen
+          options={{ title: 'Add Card' }}
+          name="Add Card"
+          component={AddCard}
         />
         <Stack.Screen
           options={{ title: 'Edit Total Payment' }}

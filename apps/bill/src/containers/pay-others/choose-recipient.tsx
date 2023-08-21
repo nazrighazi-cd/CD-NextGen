@@ -1,15 +1,6 @@
 import React from 'react';
 // Native Base
-import {
-  Badge,
-  Box,
-  Button,
-  HStack,
-  VStack,
-  Text,
-  Pressable,
-  ScrollView,
-} from 'native-base';
+import { Box, Text, Pressable, ScrollView } from 'native-base';
 
 import FloatingInput from '../../../../../libs/themes/components/FloatingInput';
 
