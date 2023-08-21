@@ -15,7 +15,7 @@ import {
 // Icons
 import { Contact } from '@cd-next-gen-app/icons';
 // Components
-import FloatingInput from '../../themes/components/FloatingInput';
+import FloatingInput from 'libs/themes/components/FloatingInput';
 
 const ReloadOthers = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
@@ -164,7 +164,7 @@ const ReloadOthers = ({ navigation }: { navigation: any }) => {
                             borderColor={isPressed ? 'primary.600' : 'gray.300'}
                             borderWidth={isPressed ? '2' : '1'}
                           >
-                            <Text variant="body2" bold textAlign="center">
+                            <Text variant="h8" bold textAlign="center">
                               {payment.method.length > max_length
                                 ? payment.method.replace(/(.{7})/g, '$1\n')
                                 : payment.method}

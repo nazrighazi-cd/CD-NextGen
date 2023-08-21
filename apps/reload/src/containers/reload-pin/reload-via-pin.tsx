@@ -14,7 +14,7 @@ import {
 import { Contact, InfoCircle } from '@cd-next-gen-app/icons';
 
 // Components
-import FloatingInput from '../../themes/components/FloatingInput';
+import FloatingInput from 'libs/themes/components/FloatingInput';
 
 const ReloadViaPin = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();

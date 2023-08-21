@@ -199,16 +199,11 @@ export const PayMyself = ({ navigation }) => {
                             borderColor={isPressed ? 'primary.600' : 'gray.300'}
                             borderWidth={isPressed ? '2' : '1'}
                           >
-                            <Text variant="body2" bold textAlign="center">
+                            <Text variant="h8" bold textAlign="center">
                               {payment.method.length > max_length
                                 ? payment.method.replace(/(.{7})/g, '$1\n')
                                 : payment.method}
                             </Text>
-                            {payment.extra ? (
-                              <Text variant="label" color="primary.600">
-                                {payment.extra}
-                              </Text>
-                            ) : null}
 
                             {/* Tag  */}
                             {payment.tag ? (
