@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 
 // Native Base Components
-import {
-  useTheme,
-  Pressable,
-  Box,
-  Text,
-  Badge,
-  HStack,
-  ScrollView,
-  Spacer,
-  Button,
-} from 'native-base';
+import { Pressable, Box, Text, Badge, HStack, ScrollView } from 'native-base';
 
 // Icons
-import { InfoCircle, ChevronRight } from '@cd-next-gen-app/icons';
+import { ChevronRight } from '@cd-next-gen-app/icons';
 
 // Supplementary Lines Mock Data
 const supLines = [
@@ -22,31 +12,37 @@ const supLines = [
     id: '1',
     principleNo: '019-6650001',
     tag: 'Active',
+    variant: 'success',
   },
   {
     id: '2',
     principleNo: '019-6650002',
     tag: 'Active',
+    variant: 'success',
   },
   {
     id: '3',
     principleNo: '019-6650003',
     tag: 'Active',
+    variant: 'success',
   },
   {
     id: '4',
     principleNo: '019-6650004',
     tag: 'Suspended',
+    variant: 'warning',
   },
   {
     id: '5',
     principleNo: '019-6650005',
     tag: 'Active',
+    variant: 'success',
   },
   {
     id: '6',
     principleNo: '019-6650006',
     tag: 'Line Barred',
+    variant: 'error',
   },
 ];
 
@@ -71,7 +67,7 @@ const SupplementaryLines = ({ navigation }: { navigation: any }) => {
                         {item.principleNo}
                       </Text>
                       {item.tag ? (
-                        <Badge variant="success">{item.tag}</Badge>
+                        <Badge variant={item.variant}>{item.tag}</Badge>
                       ) : null}
                     </Box>
                   </HStack>

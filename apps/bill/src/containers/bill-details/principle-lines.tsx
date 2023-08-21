@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 
 // Native Base Components
-import {
-  useTheme,
-  Pressable,
-  Box,
-  Text,
-  Badge,
-  HStack,
-  ScrollView,
-  Spacer,
-  Button,
-} from 'native-base';
+import { Pressable, Box, Text, Badge, HStack, ScrollView } from 'native-base';
 
 // Icons
-import { InfoCircle, ChevronRight } from '@cd-next-gen-app/icons';
+import { ChevronRight } from '@cd-next-gen-app/icons';
 
 // Principle Lines Mock Data
 const principleLines = [
@@ -22,16 +12,19 @@ const principleLines = [
     id: '1',
     principleNo: '019-9980001',
     tag: 'Active',
+    variant: 'success',
   },
   {
     id: '2',
     principleNo: '019-9980002',
-    tag: 'LineBarred',
+    tag: 'Line Barred',
+    variant: 'error',
   },
   {
     id: '3',
     principleNo: '019-9980003',
     tag: 'Suspended',
+    variant: 'warning',
   },
   {
     id: '4',
@@ -63,7 +56,7 @@ const PrincipleLines = ({ navigation }: { navigation: any }) => {
                         {item.principleNo}
                       </Text>
                       {item.tag ? (
-                        <Badge variant="success">{item.tag}</Badge>
+                        <Badge variant={item.variant}>{item.tag}</Badge>
                       ) : null}
                     </Box>
                   </HStack>
