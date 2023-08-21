@@ -30,6 +30,7 @@ const principleLines = [
     id: '4',
     principleNo: '019-9980004',
     tag: 'Active',
+    variant: 'success',
   },
 ];
 
