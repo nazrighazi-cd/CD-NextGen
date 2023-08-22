@@ -37,6 +37,9 @@ const Summary = ({ navigation }: { navigation: any }) => {
                 key={index}
                 variant="listing"
                 borderBottomWidth={index === summaryData.length - 1 ? 0 : 1}
+                paddingBottom={
+                  index === summaryData.length - 1 ? '0px' : '16px'
+                }
               >
                 <Box flexDirection="row" alignItems="center">
                   <Text variant="body">{item.method}</Text>

@@ -79,11 +79,7 @@ const Home = () => {
           name="Select Card"
           component={SelectCard}
         />
-        <Stack.Screen
-          options={{ title: 'Add Card' }}
-          name="Add Card"
-          component={AddCard}
-        />
+
         <Stack.Screen
           options={{ title: 'Bank Portal' }}
           name="Bank Portal"
