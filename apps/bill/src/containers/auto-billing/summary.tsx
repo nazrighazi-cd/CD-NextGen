@@ -1,68 +1,58 @@
 import React, { useState } from 'react';
 // Native Base Components
-import { useTheme, HStack, Box, Text, Badge, Pressable } from 'native-base';
+import { useTheme, Box, Text, Button, ScrollView } from 'native-base';
 //Icons
-import { ChevronRightIcon, AddIcon } from 'native-base';
 import { Check, Visa, Mastercard } from '@cd-next-gen-app/icons';
 
 const Summary = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
   // Mock Data
-  const paymentData = [
+  const summaryData = [
     {
       id: '1',
-      method: 'Maybank 9807',
-      icons: <Visa />,
-      tag: 'Default',
-      check: 'Yes',
+      method: 'Auto Billing',
+      desc: 'On',
     },
     {
       id: '2',
-      method: 'Citibank 0929',
-      icons: <Mastercard />,
-      tag: null,
-      check: null,
+      method: 'Mobile number',
+      desc: '0178654238',
+    },
+    {
+      id: '3',
+      method: 'Card number',
+      desc: 'Maybank 9807',
     },
   ];
 
   return (
     <Box flex={1} bg="white">
-      <Box m="16px">
-        <Box variant="shadow" pt="0px">
-          {/* List of Card Options */}
-          {paymentData.map((item, index) => (
-            <Pressable
-              onPress={() => navigation.navigate('Add Card')}
-              key={index}
-            >
-              <Box key={index} variant="listing">
-                <HStack alignItems="center">
-                  <Box
-                    w="50px"
-                    h="40px"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    {React.cloneElement(item.icons, {
-                      width: '75%',
-                      height: '100%',
-                    })}
-                  </Box>
-                  <Box flexDirection="row" alignItems="center">
-                    <Text variant="body" pr={2}>
-                      {item.method}
-                    </Text>
-                    {item.tag ? (
-                      <Badge variant="indigo">{item.tag}</Badge>
-                    ) : null}
-                  </Box>
-                </HStack>
-                <Text></Text>
+      <ScrollView>
+        <Box m="16px">
+          <Box variant="shadow" pt="0px">
+            {/* List of Card Options */}
+            {summaryData.map((item, index) => (
+              <Box
+                key={index}
+                variant="listing"
+                borderBottomWidth={index === summaryData.length - 1 ? 0 : 1}
+              >
+                <Box flexDirection="row" alignItems="center">
+                  <Text variant="body">{item.method}</Text>
+                </Box>
+                <Box alignItems="flex-end">
+                  <Text bold>{item.desc}</Text>
+                </Box>
               </Box>
-            </Pressable>
-          ))}
+            ))}
+          </Box>
         </Box>
+      </ScrollView>
+      <Box m="16px">
+        <Button onPress={() => navigation.navigate('Open Link')}>
+          Continue
+        </Button>
       </Box>
     </Box>
   );

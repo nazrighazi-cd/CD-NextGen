@@ -15,7 +15,7 @@ import {
 // Icons
 import { Bill01, Edit } from '@cd-next-gen-app/icons';
 // Components
-import FloatingInput from 'libs/themes/components/FloatingInput';
+import FloatingInput from '../../../../../libs/themes/components/FloatingInput';
 
 export const EditTotal = ({ navigation }) => {
   // Modal States

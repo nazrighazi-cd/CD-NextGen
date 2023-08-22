@@ -49,7 +49,7 @@ const AutoBillCard = ({ navigation }: { navigation: any }) => {
             {/* List of Card Options */}
             {paymentData.map((item, index) => (
               <Pressable
-                onPress={() => navigation.navigate('Add Card')}
+                onPress={() => navigation.navigate('Auto Billing Summary')}
                 key={index}
               >
                 <Box key={index} variant="listing">
@@ -69,14 +69,10 @@ const AutoBillCard = ({ navigation }: { navigation: any }) => {
                       <Text variant="body" pr={2}>
                         {item.method}
                       </Text>
-                      {item.tag ? (
-                        <Badge variant="indigo">{item.tag}</Badge>
-                      ) : null}
+                      {item.tag ? <Badge>{item.tag}</Badge> : null}
                     </Box>
                   </HStack>
-                  <ChevronRightIcon
-                    onPress={() => navigation.navigate('Auto Billing Summary')}
-                  />
+                  <ChevronRightIcon />
                 </Box>
               </Pressable>
             ))}

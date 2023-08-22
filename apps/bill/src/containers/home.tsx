@@ -28,6 +28,7 @@ import BankPortal from './pay-others/bank-portal';
 import Cheatsheet from './Cheatsheet';
 import SelectBank from './pay-others/select-bank';
 import BillDetail from './bill-statements/bill-detail';
+import Partners from './auto-billing/open-link';
 
 const Stack = createNativeStackNavigator();
 
@@ -157,6 +158,16 @@ const Home = () => {
           options={{ title: 'Select Bank' }}
           name="Select Bank"
           component={SelectBank}
+        />
+        <Stack.Screen
+          options={{ title: 'Partners' }}
+          name="Open Link"
+          component={Partners}
+        />
+        <Stack.Screen
+          options={{ title: 'Add Card' }}
+          name="Add Card"
+          component={AddCard}
         />
       </Stack.Navigator>
     </NativeBaseProvider>
