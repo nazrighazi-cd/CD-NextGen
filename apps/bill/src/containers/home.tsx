@@ -27,6 +27,7 @@ import Summary from './auto-billing/summary';
 import BankPortal from './pay-others/bank-portal';
 import Cheatsheet from './Cheatsheet';
 import SelectBank from './pay-others/select-bank';
+import BillDetail from './bill-statements/bill-detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -121,6 +122,11 @@ const Home = () => {
           options={{ title: 'Bill Statements' }}
           name="Bill Statements"
           component={BillStatement}
+        />
+        <Stack.Screen
+          options={{ title: 'Bill Details' }}
+          name="Bill Detail"
+          component={BillDetail}
         />
         <Stack.Screen
           options={{ title: 'Supplementary Lines' }}
