@@ -10,7 +10,6 @@ import {
 } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
-
 import {
   AffinBank,
   AgroBank,
@@ -22,7 +21,7 @@ import {
   CIMB,
 } from '@cd-next-gen-app/icons';
 
-const Banks = ({ navigation }: { navigation: any }) => {
+const SelectBank = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
 
   // Mock Data
@@ -77,7 +76,7 @@ const Banks = ({ navigation }: { navigation: any }) => {
             {/* List of Banks */}
             {paymentData.map((item, index) => (
               <Pressable
-                onPress={() => navigation.navigate('Bank Portal')}
+                onPress={() => navigation.navigate('Select Card')}
                 key={index}
               >
                 <Box
@@ -116,4 +115,4 @@ const Banks = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default Banks;
+export default SelectBank;

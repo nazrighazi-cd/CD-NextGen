@@ -10,7 +10,6 @@ import {
 } from 'native-base';
 // Icons
 import { ChevronRightIcon } from 'native-base';
-
 import {
   AffinBank,
   AgroBank,

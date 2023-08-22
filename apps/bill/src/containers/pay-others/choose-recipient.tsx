@@ -21,7 +21,7 @@ export const ChooseRecipient = ({ navigation }: { navigation: any }) => {
       method: 'Credit Card',
       pages: 'Select Cards',
     },
-    { method: 'Online Banking', pages: 'Select Banks', tag: null },
+    { method: 'Online Banking', pages: 'Select Bank', tag: null },
   ];
 
   const rowsPayment = [];
