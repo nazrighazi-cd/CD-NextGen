@@ -11,6 +11,7 @@ import {
   ScrollView,
   Spacer,
   Button,
+  Modal,
 } from 'native-base';
 
 // Icons
@@ -18,6 +19,7 @@ import { InfoCircle, ChevronRight } from '@cd-next-gen-app/icons';
 
 const BillDetails = ({ navigation }: { navigation: any }) => {
   const theme = useTheme();
+  const [bottomModal, setBottomModal] = useState(false);
 
   // Bill Statement Card Mock Data
   const billStat = [
@@ -30,6 +32,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
       tag: 'Active',
     },
   ];
+
   // Bill Details Card Mock Data
   const billDetails = [
     {
@@ -161,21 +164,23 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                       {item.info}
                     </Text>
                   </Box>
-                  {item.icons ? (
-                    <Box
-                      w="20px"
-                      h="20px"
-                      justifyContent="center"
-                      alignItems="center"
-                      ml="8px"
-                    >
-                      {React.cloneElement(item.icons, {
-                        width: '75%',
-                        height: '100%',
-                        color: '#667085',
-                      })}
-                    </Box>
-                  ) : null}
+                  <Pressable onPress={() => setBottomModal(true)}>
+                    {item.icons ? (
+                      <Box
+                        w="20px"
+                        h="20px"
+                        justifyContent="center"
+                        alignItems="center"
+                        ml="8px"
+                      >
+                        {React.cloneElement(item.icons, {
+                          width: '75%',
+                          height: '100%',
+                          color: '#667085',
+                        })}
+                      </Box>
+                    ) : null}
+                  </Pressable>
                 </HStack>
                 <HStack alignItems="center">
                   <Text variant="body" bold>
@@ -287,6 +292,29 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
           </Box>
         </Box>
       </ScrollView>
+
+      {/* Tooltip Modal Info */}
+      <Modal
+        variant="bottom"
+        isOpen={bottomModal}
+        onClose={() => setBottomModal(false)}
+        accessibilityLabel="Default Modal"
+      >
+        <Modal.Content
+          justifyContent="flex-end"
+          width="100%"
+          borderTopRadius="24px"
+          borderBottomRadius="0px"
+        >
+          <Modal.CloseButton />
+          <Text variant="h5" bold color="gray.900">
+            Label with max 30 Char(s)
+          </Text>
+          <Text variant="body" color="gray.600" pt={3}>
+            Help / Tooltips copy for max 200 Char(s) Up to 5 lines.
+          </Text>
+        </Modal.Content>
+      </Modal>
 
       {/* CTA Button */}
       <Box m="16px">
