@@ -24,14 +24,21 @@ import AutoBillCard from './auto-billing/select-card';
 import Summary from './auto-billing/summary';
 import BankPortal from './pay-others/bank-portal';
 import Banks from './pay-others/select-bank';
+import Cheatsheet from './Cheatsheet';
 
 const Stack = createNativeStackNavigator();
+
+const config = {
+  dependencies: {
+    'linear-gradient': require('react-native-linear-gradient').default,
+  },
+};
 
 const Home = () => {
   return (
     <NativeBaseProvider theme={theme}>
       <Stack.Navigator
-        initialRouteName="Main List"
+        initialRouteName="Cheatsheet"
         screenOptions={{
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
@@ -40,6 +47,8 @@ const Home = () => {
           },
         }}
       >
+        {/* Theme Cheatsheet */}
+        <Stack.Screen name="Cheatsheet" component={Cheatsheet} />
         {/* Pages */}
         <Stack.Screen
           options={{ headerShown: false }}
