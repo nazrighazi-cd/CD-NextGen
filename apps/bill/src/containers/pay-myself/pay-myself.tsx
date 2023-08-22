@@ -124,7 +124,7 @@ export const PayMyself = ({ navigation }) => {
                   return (
                     <Box
                       variant="border"
-                      mb="8 px"
+                      mb="8px"
                       bg={isPressed ? 'primary.5' : 'white'}
                       borderColor={isPressed ? 'primary.600' : 'gray.300'}
                     >
