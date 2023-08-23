@@ -167,7 +167,7 @@ const TransactionHistory = ({ navigation }) => {
   // Select Filter from Modal
   const handleFilterSelection = (filter) => {
     setSelectedBadge(filter);
-    setBottomModal(false);
+    setBottomModal(true);
     onFilterData(filter);
   };
   // Filter by:
@@ -236,7 +236,13 @@ const TransactionHistory = ({ navigation }) => {
               data={selectedBadge ? tempfilteredTabData : filteredTabData}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item, index }) => (
-                <Box key={index} flexDir="row" justifyContent="space-between">
+                <Box
+                  key={index}
+                  flexDir="row"
+                  justifyContent="space-between"
+                  borderBottomWidth={1}
+                  borderBottomColor="gray.200"
+                >
                   <HStack py="16px" space={2}>
                     <VStack>
                       <Text variant="body" color="gray.700">
@@ -248,7 +254,9 @@ const TransactionHistory = ({ navigation }) => {
                     </VStack>
                   </HStack>
                   <HStack alignItems="center" space="4px">
-                    <Text variant="body">RM {item.amount}</Text>
+                    <Text variant="body" bold>
+                      RM {item.amount}
+                    </Text>
                     <ChevronRight width={20} color="#475467" />
                   </HStack>
                 </Box>
@@ -268,6 +276,7 @@ const TransactionHistory = ({ navigation }) => {
               width="100%"
               borderTopRadius="24px"
               borderBottomRadius="0px"
+              backgroundColor="white"
             >
               <Modal.CloseButton />
               {/* Date Filter */}
@@ -280,33 +289,74 @@ const TransactionHistory = ({ navigation }) => {
                 </Text>
                 <HStack alignItems="center" space="12px">
                   <Pressable onPress={() => handleFilterSelection('Today')}>
-                    <Badge variant="outline">{'Today'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={selectedBadge === 'Today' ? null : 'outline'}
+                    >
+                      {'Today'}
+                    </Badge>
                   </Pressable>
                   <Pressable
                     onPress={() => handleFilterSelection('Last 7 Days')}
                   >
-                    <Badge variant="outline">{'Last 7 Days'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={
+                        selectedBadge === 'Last 7 Days' ? null : 'outline'
+                      }
+                    >
+                      {'Last 7 Days'}
+                    </Badge>
                   </Pressable>
                   <Pressable
                     onPress={() => handleFilterSelection('This Month')}
                   >
-                    <Badge variant="outline">{'This Month'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={
+                        selectedBadge === 'This Month' ? null : 'outline'
+                      }
+                    >
+                      {'This Month'}
+                    </Badge>
                   </Pressable>
                 </HStack>
                 <HStack alignItems="center" pt="12px" space="12px">
                   <Pressable
                     onPress={() => handleFilterSelection('Last 3 Months')}
                   >
-                    <Badge variant="outline">{'Last 3 Months'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={
+                        selectedBadge === 'Last 3 Months' ? null : 'outline'
+                      }
+                    >
+                      {'Last 3 Months'}
+                    </Badge>
+                  </Pressable>
+                  <Pressable onPress={() => handleFilterSelection('2023')}>
+                    <Badge
+                      size="md"
+                      variant={selectedBadge === '2023' ? null : 'outline'}
+                    >
+                      {'2023'}
+                    </Badge>
                   </Pressable>
                   <Pressable onPress={() => handleFilterSelection('2022')}>
-                    <Badge variant="outline">{'2023'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={selectedBadge === '2022' ? null : 'outline'}
+                    >
+                      {'2022'}
+                    </Badge>
                   </Pressable>
-                  <Pressable onPress={() => handleFilterSelection('2022')}>
-                    <Badge variant="outline">{'2022'}</Badge>
-                  </Pressable>
-                  <Pressable onPress={() => handleFilterSelection('2022')}>
-                    <Badge variant="outline">{'2021'}</Badge>
+                  <Pressable onPress={() => handleFilterSelection('2021')}>
+                    <Badge
+                      size="md"
+                      variant={selectedBadge === '2021' ? null : 'outline'}
+                    >
+                      {'2021'}
+                    </Badge>
                   </Pressable>
                 </HStack>
               </Box>
@@ -318,24 +368,56 @@ const TransactionHistory = ({ navigation }) => {
                 </Text>
                 <HStack alignItems="center" space="12px">
                   <Pressable onPress={() => handleTabClick('All Transactions')}>
-                    <Badge variant="outline">{'All'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={
+                        activeTab === 'All Transactions' ? null : 'outline'
+                      }
+                    >
+                      {'All'}
+                    </Badge>
                   </Pressable>
                   <Pressable onPress={() => handleTabClick('Reload')}>
-                    <Badge variant="outline">{'Reload'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={activeTab === 'Reload' ? null : 'outline'}
+                    >
+                      {'Reload'}
+                    </Badge>
                   </Pressable>
                   <Pressable onPress={() => handleTabClick('Add-Ons')}>
-                    <Badge variant="outline">{'Add-Ons'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={activeTab === 'Add-Ons' ? null : 'outline'}
+                    >
+                      {'Add-Ons'}
+                    </Badge>
                   </Pressable>
                   <Pressable onPress={() => handleTabClick('Billing')}>
-                    <Badge variant="outline">{'Billing'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={activeTab === 'Billing' ? null : 'outline'}
+                    >
+                      {'Billing'}
+                    </Badge>
                   </Pressable>
                 </HStack>
                 <HStack alignItems="center" pt="12px" space="12px">
                   <Pressable onPress={() => handleTabClick('Subscriptions')}>
-                    <Badge variant="outline">{'Subscriptions'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={activeTab === 'Subscriptions' ? null : 'outline'}
+                    >
+                      {'Subscriptions'}
+                    </Badge>
                   </Pressable>
                   <Pressable onPress={() => handleTabClick('Vouchers')}>
-                    <Badge variant="outline">{'Vouchers'}</Badge>
+                    <Badge
+                      size="md"
+                      variant={activeTab === 'Vouchers' ? null : 'outline'}
+                    >
+                      {'Vouchers'}
+                    </Badge>
                   </Pressable>
                 </HStack>
               </Box>
@@ -344,7 +426,9 @@ const TransactionHistory = ({ navigation }) => {
                 <Button variant="secondaryGray" width="48%">
                   Reset
                 </Button>
-                <Button width="48%">Apply</Button>
+                <Button width="48%" onPress={() => setBottomModal(false)}>
+                  Apply
+                </Button>
               </HStack>
             </Modal.Content>
           </Modal>
