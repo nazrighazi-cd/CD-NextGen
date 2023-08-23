@@ -17,6 +17,8 @@
     "react-native-screens": "*",
     "native-base": "*",
     "react-native-safe-area-context": "*",
-    "@callstack/repack": "*"
+    "@callstack/repack": "*",
+    "react-native-linear-gradient": "*",
+    "moment": "*"
   }
 }
