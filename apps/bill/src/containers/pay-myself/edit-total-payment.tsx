@@ -169,13 +169,15 @@ export const EditTotal = ({ navigation }) => {
             Minimum pay bill amount is RM 1.
           </Text>
           <Box mt="30px">
-            <Button
-              mb="12px"
-              onPress={() => navigation.navigate('Edit Total Payment')}
-            >
+            <Button mb="12px" onPress={() => setDefaultModal(false)}>
               Confirm
             </Button>
-            <Button variant="secondaryGray">Cancel</Button>
+            <Button
+              variant="secondaryGray"
+              onPress={() => setDefaultModal(false)}
+            >
+              Cancel
+            </Button>
           </Box>
         </Modal.Content>
       </Modal>
