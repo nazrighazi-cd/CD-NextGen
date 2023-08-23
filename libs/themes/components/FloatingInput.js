@@ -6,6 +6,7 @@ const FloatingInput = ({
   placeholder,
   value,
   label,
+  InputLeftElement,
   InputRightElement,
   changeText,
   type = 'default',
@@ -37,10 +38,15 @@ const FloatingInput = ({
             paddingBottom: '3px',
           },
         }}
+        InputLeftElement={
+          InputLeftElement ? (
+            <Icon as={InputLeftElement} mr="3" color="gray.500" />
+          ) : null
+        }
         InputRightElement={
-          InputRightElement && (
+          InputRightElement ? (
             <Icon as={InputRightElement} mr="2" color="gray.500" />
-          )
+          ) : null
         }
       ></Input>
       {isInputFocused ? (

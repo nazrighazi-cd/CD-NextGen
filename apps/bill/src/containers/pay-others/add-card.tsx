@@ -38,13 +38,10 @@ const AddCard = ({ navigation }: { navigation: any }) => {
 
             {/* Credit Card Information */}
             <Box w="100%" mb="16px">
-              <Input
+              <FloatingInput
                 placeholder="Card Number"
-                InputRightElement={
-                  <Box pr={2}>
-                    <HelpCircle color="#98A2B3" />
-                  </Box>
-                }
+                label="Card Number"
+                InputRightElement={<HelpCircle color="#98A2B3" />}
                 InputLeftElement={
                   <Box pl={2}>
                     <Mastercard />

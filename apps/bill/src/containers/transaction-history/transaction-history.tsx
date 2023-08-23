@@ -275,7 +275,7 @@ const TransactionHistory = ({ navigation }) => {
                 <Text variant="h5" bold color="gray.900" pb="19px">
                   Filter
                 </Text>
-                <Text variant="h6" color="gray.900" pb="16px">
+                <Text variant="h6" fontWeight="600" color="gray.900" pb="16px">
                   Date Range
                 </Text>
                 <HStack alignItems="center" space="12px">
@@ -313,7 +313,7 @@ const TransactionHistory = ({ navigation }) => {
               <Box borderBottomWidth={1} borderBottomColor="gray.200"></Box>
               {/* Type Filter */}
               <Box pt="24px">
-                <Text variant="h6" color="gray.900" pb="16px">
+                <Text variant="h6" fontWeight="600" color="gray.900" pb="16px">
                   Type
                 </Text>
                 <HStack alignItems="center" space="12px">

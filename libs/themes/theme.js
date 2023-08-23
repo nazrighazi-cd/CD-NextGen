@@ -1,6 +1,13 @@
 import { extendTheme } from 'native-base';
 
 const theme = extendTheme({
+  fontConfig: {
+    Montserrat: {
+      600: {
+        normal: 'Montserrat-SemiBold',
+      },
+    },
+  },
   fonts: {
     heading: 'Montserrat-Regular',
     body: 'Lato-Regular',
