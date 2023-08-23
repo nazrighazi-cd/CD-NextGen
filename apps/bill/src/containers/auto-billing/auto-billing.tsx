@@ -11,7 +11,6 @@ import {
   Badge,
   Avatar,
   Center,
-  VStack,
   Modal,
   Button,
 } from 'native-base';
@@ -20,7 +19,15 @@ import { InfoCircle, Copy } from '@cd-next-gen-app/icons';
 
 export const AutoBilling = ({ navigation }: { navigation: any }) => {
   const [defaultModal, setDefaultModal] = useState(false);
-  const toggleSwitch = () => setDefaultModal((previousState) => !previousState);
+  const [isSwitchOn, setSwitchOn] = useState(false);
+
+  const toggleSwitch = () => {
+    setSwitchOn(!isSwitchOn);
+    if (isSwitchOn) {
+      // If the switch is toggled off, also open the modal
+      setDefaultModal(true);
+    }
+  };
 
   return (
     <Box flex={1} bg="white">
@@ -42,7 +49,7 @@ export const AutoBilling = ({ navigation }: { navigation: any }) => {
               </Box>
               <Spacer />
               <Box alignItems="flex-end">
-                <Switch onValueChange={toggleSwitch} value={defaultModal} />
+                <Switch value={isSwitchOn} onValueChange={toggleSwitch} />
               </Box>
             </HStack>
           </Box>
@@ -121,10 +128,18 @@ export const AutoBilling = ({ navigation }: { navigation: any }) => {
                 interruptions.
               </Text>
               <Box pt={4}>
-                <Button>Confirm</Button>
+                <Button onPress={() => setDefaultModal(false)}>Confirm</Button>
               </Box>
               <Box pt={3}>
-                <Button variant="secondaryColor">Cancel</Button>
+                <Button
+                  variant="secondaryColor"
+                  onPress={() => {
+                    setSwitchOn(true);
+                    setDefaultModal(false);
+                  }}
+                >
+                  Cancel
+                </Button>
               </Box>
             </Modal.Content>
           </Modal>
