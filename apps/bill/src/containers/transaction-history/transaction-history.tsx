@@ -21,43 +21,43 @@ const transactions = [
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 80 Bill',
     date: '2023-08-23',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 80 Bill',
     date: '2023-08-03',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 70 Bill',
     date: '2023-07-26',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 70 Bill',
     date: '2023-07-20',
   },
   {
     service: 'Add-Ons',
     amount: '7',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 70 Bill',
     date: '2023-07-25',
   },
   {
     service: 'Subscriptions',
     amount: '110',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 60 Bill',
     date: '2023-06-15',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 50 Bill',
+    description: 'Postpaid 60 Bill',
     date: '2023-06-20',
   },
   {
@@ -76,7 +76,7 @@ const transactions = [
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
-    date: '2022-06-20',
+    date: '2022-05-20',
   },
   {
     service: 'Add-Ons',
@@ -89,6 +89,12 @@ const transactions = [
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-05-04',
+  },
+  {
+    service: 'Subscriptions',
+    amount: '110',
+    description: 'Test',
+    date: '2022-04-04',
   },
 ];
 
@@ -104,19 +110,19 @@ function filterPastSevenDaysTransactions(transactions) {
 // FILTER SPECIFIC MONTH
 function filterTransactionsByMonth(transactions, targetMonth) {
   return transactions.filter((transaction) => {
-    const transactionDate = new Date(transaction.date);
-    const transactionMonth = transactionDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
+    const transactionDate = moment(transaction.date);
+    const transactionMonth = transactionDate.month() + 1; // Jan = 0, add 1 for actual month number
     return transactionMonth === targetMonth;
   });
 }
 // FILTER THREE MONTH
 function filterLastThreeMonthsTransactions(transactions) {
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
+  const currentMonth = currentDate.getMonth() + 1; // Jan = 0, add 1 for actual month number
   const currentYear = currentDate.getFullYear();
   return transactions.filter((transaction) => {
     const transactionDate = new Date(transaction.date);
-    const transactionMonth = transactionDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
+    const transactionMonth = transactionDate.getMonth() + 1; // Jan = 0, add 1 for actual month number
     const transactionYear = transactionDate.getFullYear();
     const monthsDiff =
       (currentYear - transactionYear) * 12 + (currentMonth - transactionMonth);
@@ -125,12 +131,10 @@ function filterLastThreeMonthsTransactions(transactions) {
 }
 // FILTER LAST YEAR
 function filterLastYearTransactions(transactions) {
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
+  const currentDate = moment();
   return transactions.filter((transaction) => {
-    const transactionDate = new Date(transaction.date);
-    const transactionYear = transactionDate.getFullYear();
-    const yearsDiff = currentYear - transactionYear;
+    const transactionDate = moment(transaction.date);
+    const yearsDiff = currentDate.diff(transactionDate, 'years');
     return yearsDiff === 1;
   });
 }
@@ -139,16 +143,6 @@ const TransactionHistory = ({ navigation }) => {
   const theme = useTheme();
   // MODAL
   const [bottomModal, setBottomModal] = useState(false);
-
-  // GROUP DATA
-  const groupTransaction = transactions.reduce((acc, item) => {
-    const monthYear = moment(item.date).format('MMMM yyyy');
-    if (!acc[monthYear]) {
-      acc[monthYear] = [];
-    }
-    acc[monthYear].push(item);
-    return acc;
-  }, {});
 
   // FILTER TABS
   const [activeTab, setActiveTab] = useState('All Transactions');
