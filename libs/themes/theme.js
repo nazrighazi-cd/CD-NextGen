@@ -289,20 +289,19 @@ const theme = extendTheme({
           bg: 'gray.50',
           padding: '16px',
           borderRadius: '16px',
-          shadow: '2',
+          shadow: '1',
         },
         gradient: {
-          // bg: 'warning.100',
-          bg: {
-            linearGradient: {
-              colors: ['warning.100', 'white'],
-              start: [0, 0],
-              end: [1, 0],
-            },
-          },
+          bg: 'warning.100',
+          // bg: {
+          //   linearGradient: {
+          //     colors: ['warning.100', 'white'],
+          //     start: [0, 0],
+          //     end: [1, 0],
+          //   },
+          // },
           padding: '16px',
           borderRadius: '16px',
-          // shadow: '4',
         },
         border: {
           bg: 'white',
