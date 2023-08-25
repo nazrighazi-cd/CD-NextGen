@@ -100,6 +100,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
     return acc;
   }, {});
 
+  console.log(groupedDataByMonth);
   // Sort data by month and year in desc order
   for (const monthYear in groupedDataByMonth) {
     groupedDataByMonth[monthYear].sort(sortByDate);
@@ -182,12 +183,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                                 <HStack>
                                   <VStack>
                                     <Box>
-                                      <Text>{item.title}</Text>
-                                      <Text color="#475467">
-                                        {moment(item.date).format(
-                                          'D MMMM yyyy'
-                                        )}
-                                      </Text>
+                                      <Text>Yearly Tax Statement</Text>
                                     </Box>
                                   </VStack>
                                   <Spacer />
@@ -196,9 +192,6 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                                     alignItems="center"
                                   >
                                     <HStack>
-                                      <Text bold pr="8px">
-                                        {item.total}
-                                      </Text>
                                       <Box>
                                         <ChevronRight width={20} />
                                       </Box>
