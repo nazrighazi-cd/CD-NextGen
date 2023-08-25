@@ -137,7 +137,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
               </Button>
             </Button.Group>
           </Box>
-
+          {/* Annually tab */}
           {selectedTab === 'annually'
             ? Object.keys(selectedGroupedData)
                 .reverse()
@@ -182,12 +182,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                                 <HStack>
                                   <VStack>
                                     <Box>
-                                      <Text>{item.title}</Text>
-                                      <Text color="#475467">
-                                        {moment(item.date).format(
-                                          'D MMMM yyyy'
-                                        )}
-                                      </Text>
+                                      <Text>Yearly Tax Statement</Text>
                                     </Box>
                                   </VStack>
                                   <Spacer />
@@ -196,9 +191,6 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                                     alignItems="center"
                                   >
                                     <HStack>
-                                      <Text bold pr="8px">
-                                        {item.total}
-                                      </Text>
                                       <Box>
                                         <ChevronRight width={20} />
                                       </Box>
@@ -213,7 +205,8 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                     </Pressable>
                   );
                 })
-            : Object.keys(selectedGroupedData).map((groupKey) => {
+            : //   Monthly tab
+              Object.keys(selectedGroupedData).map((groupKey) => {
                 const statementsToDisplay = selectedGroupedData[groupKey];
 
                 return (
@@ -285,6 +278,16 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
               })}
         </Box>
       </ScrollView>
+
+      {/* Footer */}
+      <Box m="16px">
+        <HStack justifyContent="space-between">
+          <Box justifyContent="center" alignItems="center">
+            <Text variant="body1">3 selected</Text>
+          </Box>
+          <Button>Download</Button>
+        </HStack>
+      </Box>
     </Box>
   );
 };
