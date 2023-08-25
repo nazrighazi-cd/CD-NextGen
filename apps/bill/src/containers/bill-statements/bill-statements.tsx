@@ -100,7 +100,6 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
     return acc;
   }, {});
 
-  console.log(groupedDataByMonth);
   // Sort data by month and year in desc order
   for (const monthYear in groupedDataByMonth) {
     groupedDataByMonth[monthYear].sort(sortByDate);
@@ -138,7 +137,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
               </Button>
             </Button.Group>
           </Box>
-
+          {/* Annually tab */}
           {selectedTab === 'annually'
             ? Object.keys(selectedGroupedData)
                 .reverse()
@@ -206,7 +205,8 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                     </Pressable>
                   );
                 })
-            : Object.keys(selectedGroupedData).map((groupKey) => {
+            : //   Monthly tab
+              Object.keys(selectedGroupedData).map((groupKey) => {
                 const statementsToDisplay = selectedGroupedData[groupKey];
 
                 return (
@@ -278,6 +278,16 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
               })}
         </Box>
       </ScrollView>
+
+      {/* Footer */}
+      <Box m="16px">
+        <HStack justifyContent="space-between">
+          <Box justifyContent="center" alignItems="center">
+            <Text variant="body1">3 selected</Text>
+          </Box>
+          <Button>Download</Button>
+        </HStack>
+      </Box>
     </Box>
   );
 };
