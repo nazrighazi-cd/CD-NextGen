@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Native Base
 import {
   Box,
@@ -96,6 +96,44 @@ export const PayMyself = ({ navigation }) => {
     rowsPayment.push(row);
   }
 
+  // Pressable Card
+  const [accountChecked, setaccountChecked] = useState(
+    new Array(msisdnNumber.length).fill(false)
+  );
+  const selectedAccountPay = (index) => {
+    const newaccountChecked = [...accountChecked];
+    newaccountChecked[index] = !newaccountChecked[index];
+    setaccountChecked(newaccountChecked);
+  };
+  const [paymentChecked, setpaymentChecked] = useState(
+    new Array(msisdnNumber.length).fill(false)
+  );
+  const selectedPayment = (itemIndex) => {
+    const newpaymentChecked = [...paymentChecked];
+    newpaymentChecked[itemIndex] = !newpaymentChecked[itemIndex];
+    setpaymentChecked(newpaymentChecked);
+  };
+
+  // Selected Two Cards
+  const [selectedCards, setSelectedCards] = useState([]);
+  const handleCardClick = (cardId) => {
+    // Check if the card is already selected
+    if (selectedCards.includes(cardId)) {
+      setSelectedCards(selectedCards.filter((id) => id !== cardId));
+    } else {
+      setSelectedCards([...selectedCards, cardId]);
+    }
+  };
+
+  // Continue
+  const handleContinue = (paymentMethod) => {
+    if (selectedCards.length === 2) {
+      navigation.navigate(paymentMethod.pages);
+    } else {
+      return <Text variant="h8">Please select both selection</Text>;
+    }
+  };
+
   return (
     <Box flex={1} bg="white">
       <ScrollView>
@@ -119,53 +157,56 @@ export const PayMyself = ({ navigation }) => {
             </HStack>
             {/* List */}
             {msisdnNumber.map((item, index) => (
-              <Pressable key={index}>
-                {({ isPressed }) => {
-                  return (
-                    <Box
-                      variant="border"
-                      mb="8px"
-                      bg={isPressed ? 'primary.5' : 'white'}
-                      borderColor={isPressed ? 'primary.600' : 'gray.300'}
-                    >
-                      <HStack>
-                        <Box>
-                          <Text variant="body" bold>
-                            {item.msisdn}
-                          </Text>
-                          <Text variant="body">RM {item.amount}</Text>
-                        </Box>
-                        <Spacer />
-                        <Box alignItems="flex-end" mr={3}>
-                          <HStack space={2}>
-                            <Badge
-                              variant={
-                                item.tag === 'Suspended' ? 'warning' : 'success'
-                              }
-                            >
-                              {item.tag}
-                            </Badge>
-                            {item.tagLine ? (
-                              <Badge>{item.tagLine}</Badge>
-                            ) : null}
-                          </HStack>
-                          <Text variant="label" mt={1}>
-                            Due on {item.due}
-                          </Text>
-                        </Box>
-                        <Box mt={2}>
-                          <Radio.Group name="myRadioGroup">
-                            <Radio
-                              value="one"
-                              accessibilityLabel="Threshold"
-                              icon={<Check />}
-                            ></Radio>
-                          </Radio.Group>
-                        </Box>
-                      </HStack>
-                    </Box>
-                  );
+              <Pressable
+                key={index}
+                onPress={() => {
+                  selectedAccountPay(index);
+                  handleCardClick(1);
                 }}
+              >
+                <Box
+                  variant="border"
+                  mb="8px"
+                  bg={accountChecked[index] ? 'primary.5' : 'white'}
+                  borderColor={
+                    accountChecked[index] ? 'primary.600' : 'gray.300'
+                  }
+                  borderWidth={accountChecked[index] ? '2' : '1'}
+                >
+                  <HStack>
+                    <Box>
+                      <Text variant="body" bold>
+                        {item.msisdn}
+                      </Text>
+                      <Text variant="body">RM {item.amount}</Text>
+                    </Box>
+                    <Spacer />
+                    <Box alignItems="flex-end" mr={3}>
+                      <HStack space={2}>
+                        <Badge
+                          variant={
+                            item.tag === 'Suspended' ? 'warning' : 'success'
+                          }
+                        >
+                          {item.tag}
+                        </Badge>
+                        {item.tagLine ? <Badge>{item.tagLine}</Badge> : null}
+                      </HStack>
+                      <Text variant="label" mt={1}>
+                        Due on {item.due}
+                      </Text>
+                    </Box>
+                    <Box mt={2}>
+                      <Radio.Group name="myRadioGroup">
+                        <Radio
+                          value="one"
+                          accessibilityLabel="Threshold"
+                          icon={<Check />}
+                        ></Radio>
+                      </Radio.Group>
+                    </Box>
+                  </HStack>
+                </Box>
               </Pressable>
             ))}
           </Box>
@@ -181,43 +222,45 @@ export const PayMyself = ({ navigation }) => {
                 <HStack key={index} justifyContent="space-between">
                   {row.map((payment, itemIndex) => (
                     <Pressable
-                      onPress={() => navigation.navigate(payment.pages)}
+                      onPress={() => {
+                        selectedPayment(itemIndex);
+                        handleCardClick(2);
+                        navigation.navigate(payment.pages);
+                      }}
                       key={itemIndex}
                     >
-                      {({ isPressed }) => {
-                        return (
-                          <Box
-                            variant="border"
-                            key={itemIndex}
-                            w="94px"
-                            h="72px"
-                            px="4px"
-                            justifyContent="center"
-                            alignItems="center"
-                            mb="16px"
-                            bg={isPressed ? 'primary.5' : 'white'}
-                            borderColor={isPressed ? 'primary.600' : 'gray.300'}
-                            borderWidth={isPressed ? '2' : '1'}
-                          >
-                            <Text variant="h8" bold textAlign="center">
-                              {payment.method.length > max_length
-                                ? payment.method.replace(/(.{7})/g, '$1\n')
-                                : payment.method}
-                            </Text>
+                      <Box
+                        variant="border"
+                        key={itemIndex}
+                        w="94px"
+                        h="72px"
+                        px="4px"
+                        justifyContent="center"
+                        alignItems="center"
+                        mb="16px"
+                        bg={paymentChecked[itemIndex] ? 'primary.5' : 'white'}
+                        borderColor={
+                          paymentChecked[itemIndex] ? 'primary.600' : 'gray.300'
+                        }
+                        borderWidth={paymentChecked[itemIndex] ? '2' : '1'}
+                      >
+                        <Text variant="h8" bold textAlign="center">
+                          {payment.method.length > max_length
+                            ? payment.method.replace(/(.{7})/g, '$1\n')
+                            : payment.method}
+                        </Text>
 
-                            {/* Tag  */}
-                            {payment.tag ? (
-                              <Badge
-                                variant="popular"
-                                position="absolute"
-                                top={isPressed ? '-11' : '-10'}
-                              >
-                                {payment.tag}
-                              </Badge>
-                            ) : null}
-                          </Box>
-                        );
-                      }}
+                        {/* Tag  */}
+                        {payment.tag ? (
+                          <Badge
+                            variant="popular"
+                            position="absolute"
+                            top={paymentChecked[itemIndex] ? '-11' : '-10'}
+                          >
+                            {payment.tag}
+                          </Badge>
+                        ) : null}
+                      </Box>
                     </Pressable>
                   ))}
                 </HStack>
@@ -243,9 +286,7 @@ export const PayMyself = ({ navigation }) => {
               />
             </Box>
           </Box>
-          <Button onPress={() => navigation.navigate('Select Wallet')}>
-            Continue
-          </Button>
+          <Button onPress={() => handleContinue}>Continue</Button>
         </HStack>
       </Box>
     </Box>
