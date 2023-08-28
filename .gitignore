@@ -112,3 +112,5 @@ apps/host-app-e2e/artifacts
 apps/mfe/reload-e2e/artifacts
 apps/b2c/main-e2e/artifacts
 apps/bill-e2e/artifacts
+apps/b2b2c/main-e2e/artifacts
+apps/b2b2c/reload-e2e/artifacts
