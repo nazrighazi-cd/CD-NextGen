@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 // Native Base Components
 import {
-  useTheme,
   Text,
   Box,
   HStack,
@@ -21,43 +20,43 @@ const transactions = [
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 80 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-08-23',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 80 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-08-03',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 70 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-07-26',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 70 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-07-20',
   },
   {
     service: 'Add-Ons',
     amount: '7',
-    description: 'Postpaid 70 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-07-25',
   },
   {
     service: 'Subscriptions',
     amount: '110',
-    description: 'Postpaid 60 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-06-15',
   },
   {
     service: 'Billing',
     amount: '110',
-    description: 'Postpaid 60 Bill',
+    description: 'Postpaid 50 Bill',
     date: '2023-06-20',
   },
   {
@@ -76,7 +75,7 @@ const transactions = [
     service: 'Billing',
     amount: '110',
     description: 'Postpaid 50 Bill',
-    date: '2022-05-20',
+    date: '2022-06-20',
   },
   {
     service: 'Add-Ons',
@@ -89,12 +88,6 @@ const transactions = [
     amount: '110',
     description: 'Postpaid 50 Bill',
     date: '2022-05-04',
-  },
-  {
-    service: 'Subscriptions',
-    amount: '110',
-    description: 'Test',
-    date: '2022-04-04',
   },
 ];
 
@@ -110,19 +103,19 @@ function filterPastSevenDaysTransactions(transactions) {
 // FILTER SPECIFIC MONTH
 function filterTransactionsByMonth(transactions, targetMonth) {
   return transactions.filter((transaction) => {
-    const transactionDate = moment(transaction.date);
-    const transactionMonth = transactionDate.month() + 1; // Jan = 0, add 1 for actual month number
+    const transactionDate = new Date(transaction.date);
+    const transactionMonth = transactionDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
     return transactionMonth === targetMonth;
   });
 }
 // FILTER THREE MONTH
 function filterLastThreeMonthsTransactions(transactions) {
   const currentDate = new Date();
-  const currentMonth = currentDate.getMonth() + 1; // Jan = 0, add 1 for actual month number
+  const currentMonth = currentDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
   const currentYear = currentDate.getFullYear();
   return transactions.filter((transaction) => {
     const transactionDate = new Date(transaction.date);
-    const transactionMonth = transactionDate.getMonth() + 1; // Jan = 0, add 1 for actual month number
+    const transactionMonth = transactionDate.getMonth() + 1; // January is 0, so we add 1 to get the actual month number.
     const transactionYear = transactionDate.getFullYear();
     const monthsDiff =
       (currentYear - transactionYear) * 12 + (currentMonth - transactionMonth);
@@ -131,97 +124,106 @@ function filterLastThreeMonthsTransactions(transactions) {
 }
 // FILTER LAST YEAR
 function filterLastYearTransactions(transactions) {
-  const currentDate = moment();
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
   return transactions.filter((transaction) => {
-    const transactionDate = moment(transaction.date);
-    const yearsDiff = currentDate.diff(transactionDate, 'years');
+    const transactionDate = new Date(transaction.date);
+    const transactionYear = transactionDate.getFullYear();
+    const yearsDiff = currentYear - transactionYear;
     return yearsDiff === 1;
   });
 }
 
-const TransactionHistory = ({ navigation }) => {
-  const theme = useTheme();
+const TransactionHistory = () => {
   // MODAL
   const [bottomModal, setBottomModal] = useState(false);
 
-  // FILTER TABS
-  const [activeTab, setActiveTab] = useState('All Transactions');
-  const [filteredTabData, setFilteredTabData] = useState([]);
-  const [tempfilteredTabData, setTempFilteredTabData] = useState([]);
-  // Filter by Tab
-  const handleTabClick = (tab) => {
-    setSelectedBadge(null);
-    setActiveTab(tab);
-    setTempFilteredTabData([]);
-    if (tab === 'All Transactions') {
-      setFilteredTabData(transactions);
+  // FILTER TYPE
+  const [activeType, setActiveType] = useState('All Transactions');
+  const [filteredTypeData, setFilteredTypeData] = useState([]);
+  const [tempfilteredTypeData, setTempFilteredTypeData] = useState([]);
+  // Filter by Type
+  const handleTypeClick = (type) => {
+    setSelectedDate(null);
+    setActiveType(type);
+    setTempFilteredTypeData([]);
+    if (type === 'All Transactions') {
+      setFilteredTypeData(transactions);
     } else {
-      const filtered = transactions.filter((item) => item.service === tab);
-      setFilteredTabData(filtered);
+      const filtered = transactions.filter((item) => item.service === type);
+      setFilteredTypeData(filtered);
     }
   };
   // Initialize filteredData with All when the component mounts
   useEffect(() => {
-    setFilteredTabData(transactions);
+    setFilteredTypeData(transactions);
   }, []);
 
   // FILTER BADGE
-  const [selectedBadge, setSelectedBadge] = useState(null);
+  const [activeDate, setActiveDate] = useState('All Date');
+  const [selectedDate, setSelectedDate] = useState(null);
   // Select Filter from Modal
   const handleFilterSelection = (filter) => {
-    setSelectedBadge(filter);
-    setBottomModal(true);
+    setSelectedDate(filter);
     onFilterData(filter);
+    setActiveDate(filter);
   };
   // Filter by:
-  const onFilterData = (selectedBadge = 'Today') => {
-    // Filter transactions based on the selected badge
-    let filteredTransactions = [];
-    if (selectedBadge === 'Today') {
-      const today = new Date();
-      filteredTransactions = filteredTabData.filter((transaction) => {
-        const transactionDate = new Date(transaction.date);
-        return (
-          transactionDate.getDate() === today.getDate() &&
-          transactionDate.getMonth() === today.getMonth() &&
-          transactionDate.getFullYear() === today.getFullYear()
-        );
-      });
-    } else if (selectedBadge === 'Last 7 Days') {
-      filteredTransactions = filterPastSevenDaysTransactions(filteredTabData);
-    } else if (selectedBadge === 'This Month') {
+  const onFilterData = (selectedDate = 'All Date') => {
+    // Filter transactions based on the selected
+    let filteredTransactions = transactions;
+    if (selectedDate === 'All Date') {
+      filteredTransactions = transactions;
+    } else if (selectedDate === 'Last 7 Days') {
+      filteredTransactions = filterPastSevenDaysTransactions(filteredTypeData);
+    } else if (selectedDate === 'This Month') {
       const currentMonth = new Date().getMonth() + 1;
       filteredTransactions = filterTransactionsByMonth(
-        filteredTabData,
+        filteredTypeData,
         currentMonth
       );
-    } else if (selectedBadge === 'Last 3 Months') {
-      filteredTransactions = filterLastThreeMonthsTransactions(filteredTabData);
-    } else if (selectedBadge === '2022') {
-      filteredTransactions = filterLastYearTransactions(filteredTabData);
+    } else if (selectedDate === 'Last 3 Months') {
+      filteredTransactions =
+        filterLastThreeMonthsTransactions(filteredTypeData);
+    } else if (selectedDate === '2022') {
+      filteredTransactions = filterLastYearTransactions(filteredTypeData);
     }
-    setTempFilteredTabData(filteredTransactions);
+    setTempFilteredTypeData(filteredTransactions);
   };
+
+  // DATA GROUPING
+  const groupingData = selectedDate ? tempfilteredTypeData : filteredTypeData;
+  const groupedData = {};
+  groupingData.forEach((item) => {
+    const date = new Date(item.date);
+    const monthYear = `${date.toLocaleString('default', {
+      month: 'long',
+    })} ${date.getFullYear()}`;
+    if (!groupedData[monthYear]) {
+      groupedData[monthYear] = [];
+    }
+    groupedData[monthYear].push(item);
+  });
 
   return (
     <Box bg="white" h="100%" w="100%" maxWidth="100%">
       <Box m="16px">
         {/* MY TRANSACTION */}
         <Box flexDir="row" justifyContent="space-between">
-          {activeTab ? <Text variant="body">{activeTab}</Text> : null}
+          {activeType ? <Text variant="body">{activeType}</Text> : null}
           <Box alignContent="flex-end" flexDir="row" alignItems="center">
-            <Box>
-              <Settings width="20px" color="#1561E8" />
-            </Box>
-            <Box pl="10px">
-              <Text
-                variant="body"
-                color="primary.600"
-                onPress={() => setBottomModal(true)}
-              >
-                Filter
-              </Text>
-            </Box>
+            <Pressable onPress={() => setBottomModal(true)}>
+              <Box flexDir="row">
+                <Box>
+                  <Settings width="20px" color="#1561E8" />
+                </Box>
+                <Box pl="10px">
+                  <Text variant="body" color="primary.600">
+                    Filter
+                  </Text>
+                </Box>
+              </Box>
+            </Pressable>
           </Box>
         </Box>
       </Box>
@@ -230,64 +232,47 @@ const TransactionHistory = ({ navigation }) => {
           {/* TRANSACTION HISTORY LIST */}
           <Box>
             {/* Selected Badge from filter */}
-            {selectedBadge ? (
-              <Text variant="h8" bold py="8px">
-                {selectedBadge}
+            {selectedDate ? (
+              <Text variant="h8" bold pb="8px">
+                {selectedDate}
               </Text>
             ) : null}
             {/* History List */}
-            <Box variant="shadow" py="0px">
-              {selectedBadge
-                ? tempfilteredTabData.map((item, index) => (
-                    <Box
-                      key={index}
-                      flexDir="row"
-                      justifyContent="space-between"
-                      borderBottomWidth={1}
-                      borderBottomColor="gray.200"
-                      py="16px"
-                    >
-                      <VStack>
-                        <Text variant="body" color="gray.700">
-                          {item.service}
-                        </Text>
-                        <Text variant="body2" color="gray.600">
-                          {item.description}
-                        </Text>
-                      </VStack>
-                      <HStack alignItems="center" space="4px">
-                        <Text variant="body" bold>
-                          RM {item.amount}
-                        </Text>
-                        <ChevronRight width={20} color="#475467" />
-                      </HStack>
-                    </Box>
-                  ))
-                : filteredTabData.map((item, index) => (
-                    <Box
-                      key={index}
-                      flexDir="row"
-                      justifyContent="space-between"
-                      borderBottomWidth={1}
-                      borderBottomColor="gray.200"
-                      py="16px"
-                    >
-                      <VStack>
-                        <Text variant="body" color="gray.700">
-                          {item.service}
-                        </Text>
-                        <Text variant="body2" color="gray.600">
-                          {item.description}
-                        </Text>
-                      </VStack>
-                      <HStack alignItems="center" space="4px">
-                        <Text variant="body" bold>
-                          RM {item.amount}
-                        </Text>
-                        <ChevronRight width={20} color="#475467" />
-                      </HStack>
-                    </Box>
-                  ))}
+            <Box>
+              {Object.keys(groupedData).map((monthYear) => (
+                <Box key={monthYear} pb="8px">
+                  <Text variant="h8" bold pb="8px">
+                    {monthYear}
+                  </Text>
+                  <Box variant="shadow" py="0px">
+                    {groupedData[monthYear].map((item, index) => (
+                      <Box
+                        key={index}
+                        flexDir="row"
+                        justifyContent="space-between"
+                        borderBottomWidth={1}
+                        borderBottomColor="gray.200"
+                        py="16px"
+                      >
+                        <VStack>
+                          <Text variant="body" color="gray.700">
+                            {item.service}
+                          </Text>
+                          <Text variant="body2" color="gray.600">
+                            {item.description}
+                          </Text>
+                        </VStack>
+                        <HStack alignItems="center" space="4px">
+                          <Text variant="body" bold>
+                            RM {item.amount}
+                          </Text>
+                          <ChevronRight width={20} color="#475467" />
+                        </HStack>
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              ))}
             </Box>
 
             {/* FILTER MODAL */}
@@ -319,12 +304,14 @@ const TransactionHistory = ({ navigation }) => {
                     Date Range
                   </Text>
                   <HStack alignItems="center" space="12px">
-                    <Pressable onPress={() => handleFilterSelection('Today')}>
+                    <Pressable
+                      onPress={() => handleFilterSelection('All Date')}
+                    >
                       <Badge
                         size="md"
-                        variant={selectedBadge === 'Today' ? null : 'outline'}
+                        variant={activeDate === 'All Date' ? null : 'outline'}
                       >
-                        {'Today'}
+                        {'All'}
                       </Badge>
                     </Pressable>
                     <Pressable
@@ -333,7 +320,7 @@ const TransactionHistory = ({ navigation }) => {
                       <Badge
                         size="md"
                         variant={
-                          selectedBadge === 'Last 7 Days' ? null : 'outline'
+                          activeDate === 'Last 7 Days' ? null : 'outline'
                         }
                       >
                         {'Last 7 Days'}
@@ -344,9 +331,7 @@ const TransactionHistory = ({ navigation }) => {
                     >
                       <Badge
                         size="md"
-                        variant={
-                          selectedBadge === 'This Month' ? null : 'outline'
-                        }
+                        variant={activeDate === 'This Month' ? null : 'outline'}
                       >
                         {'This Month'}
                       </Badge>
@@ -359,7 +344,7 @@ const TransactionHistory = ({ navigation }) => {
                       <Badge
                         size="md"
                         variant={
-                          selectedBadge === 'Last 3 Months' ? null : 'outline'
+                          activeDate === 'Last 3 Months' ? null : 'outline'
                         }
                       >
                         {'Last 3 Months'}
@@ -368,7 +353,7 @@ const TransactionHistory = ({ navigation }) => {
                     <Pressable onPress={() => handleFilterSelection('2023')}>
                       <Badge
                         size="md"
-                        variant={selectedBadge === '2023' ? null : 'outline'}
+                        variant={activeDate === '2023' ? null : 'outline'}
                       >
                         {'2023'}
                       </Badge>
@@ -376,7 +361,7 @@ const TransactionHistory = ({ navigation }) => {
                     <Pressable onPress={() => handleFilterSelection('2022')}>
                       <Badge
                         size="md"
-                        variant={selectedBadge === '2022' ? null : 'outline'}
+                        variant={activeDate === '2022' ? null : 'outline'}
                       >
                         {'2022'}
                       </Badge>
@@ -384,7 +369,7 @@ const TransactionHistory = ({ navigation }) => {
                     <Pressable onPress={() => handleFilterSelection('2021')}>
                       <Badge
                         size="md"
-                        variant={selectedBadge === '2021' ? null : 'outline'}
+                        variant={activeDate === '2021' ? null : 'outline'}
                       >
                         {'2021'}
                       </Badge>
@@ -392,6 +377,7 @@ const TransactionHistory = ({ navigation }) => {
                   </HStack>
                 </Box>
                 <Box borderBottomWidth={1} borderBottomColor="gray.200"></Box>
+
                 {/* Type Filter */}
                 <Box pt="24px">
                   <Text
@@ -404,63 +390,64 @@ const TransactionHistory = ({ navigation }) => {
                   </Text>
                   <HStack alignItems="center" space="12px">
                     <Pressable
-                      onPress={() => handleTabClick('All Transactions')}
+                      onPress={() => handleTypeClick('All Transactions')}
                     >
                       <Badge
                         size="md"
                         variant={
-                          activeTab === 'All Transactions' ? null : 'outline'
+                          activeType === 'All Transactions' ? null : 'outline'
                         }
                       >
                         {'All'}
                       </Badge>
                     </Pressable>
-                    <Pressable onPress={() => handleTabClick('Reload')}>
+                    <Pressable onPress={() => handleTypeClick('Reload')}>
                       <Badge
                         size="md"
-                        variant={activeTab === 'Reload' ? null : 'outline'}
+                        variant={activeType === 'Reload' ? null : 'outline'}
                       >
                         {'Reload'}
                       </Badge>
                     </Pressable>
-                    <Pressable onPress={() => handleTabClick('Add-Ons')}>
+                    <Pressable onPress={() => handleTypeClick('Add-Ons')}>
                       <Badge
                         size="md"
-                        variant={activeTab === 'Add-Ons' ? null : 'outline'}
+                        variant={activeType === 'Add-Ons' ? null : 'outline'}
                       >
                         {'Add-Ons'}
                       </Badge>
                     </Pressable>
-                    <Pressable onPress={() => handleTabClick('Billing')}>
+                    <Pressable onPress={() => handleTypeClick('Billing')}>
                       <Badge
                         size="md"
-                        variant={activeTab === 'Billing' ? null : 'outline'}
+                        variant={activeType === 'Billing' ? null : 'outline'}
                       >
                         {'Billing'}
                       </Badge>
                     </Pressable>
                   </HStack>
                   <HStack alignItems="center" pt="12px" space="12px">
-                    <Pressable onPress={() => handleTabClick('Subscriptions')}>
+                    <Pressable onPress={() => handleTypeClick('Subscriptions')}>
                       <Badge
                         size="md"
                         variant={
-                          activeTab === 'Subscriptions' ? null : 'outline'
+                          activeType === 'Subscriptions' ? null : 'outline'
                         }
                       >
                         {'Subscriptions'}
                       </Badge>
                     </Pressable>
-                    <Pressable onPress={() => handleTabClick('Vouchers')}>
+                    <Pressable onPress={() => handleTypeClick('Vouchers')}>
                       <Badge
                         size="md"
-                        variant={activeTab === 'Vouchers' ? null : 'outline'}
+                        variant={activeType === 'Vouchers' ? null : 'outline'}
                       >
                         {'Vouchers'}
                       </Badge>
                     </Pressable>
                   </HStack>
                 </Box>
+
                 {/* Button */}
                 <HStack pt="32px" space="16px" justifyContent="space-between">
                   <Button variant="secondaryGray" width="48%">
