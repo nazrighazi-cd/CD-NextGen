@@ -188,7 +188,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
           info: 'Previous Overdue',
           value: '-RM40.00',
           icons: <AlertTriangle />,
-          textColor: '#F79009',
+          color: '#F79009',
         },
         {
           id: 4,
@@ -294,7 +294,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                   {/* Bill Details */}
                   <Box key={item.id} variant="shadow" mt="16px">
                     {item.billDetails.map((detail, index) => (
-                      <Box>
+                      <Box key={detail.id}>
                         {detail.id ? (
                           <Box
                             key={detail.id}
@@ -305,11 +305,17 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                           >
                             <HStack>
                               <Box>
-                                <Text variant="body" color="#667085">
+                                <Text
+                                  variant="body"
+                                  color={
+                                    detail.info === 'Previous Overdue'
+                                      ? '#F79009'
+                                      : '#667085'
+                                  }
+                                >
                                   {detail.info}
                                 </Text>
                               </Box>
-
                               <Pressable onPress={() => setBottomModal(true)}>
                                 <Box
                                   w="20px"
@@ -319,16 +325,27 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                                   ml="8px"
                                 >
                                   {React.cloneElement(detail.icons, {
-                                    width: '75%',
-                                    height: '100%',
-                                    color: '#667085',
+                                    width: '20px',
+                                    height: '20px',
+                                    color:
+                                      detail.info === 'Previous Overdue'
+                                        ? '#F79009'
+                                        : '#667085',
                                   })}
                                 </Box>
                               </Pressable>
                             </HStack>
 
                             <HStack alignItems="center">
-                              <Text variant="body" bold>
+                              <Text
+                                variant="body"
+                                bold
+                                color={
+                                  detail.info === 'Previous Overdue'
+                                    ? '#F79009'
+                                    : undefined
+                                }
+                              >
                                 {detail.value}
                               </Text>
                             </HStack>
@@ -343,26 +360,29 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                     <Text variant="body1" bold>
                       Supplementary Lines
                     </Text>
-                    <Box
-                      alignContent="flex-end"
-                      flexDir="row"
-                      alignItems="center"
-                    >
-                      <Box pl="10px">
-                        <Text
-                          variant="body"
-                          color="primary.600"
-                          onPress={() =>
-                            navigation.navigate('Supplementary Lines')
-                          }
-                        >
-                          View All
-                        </Text>
+                    {item.supplementaryLine &&
+                    item.supplementaryLine.length > 0 ? (
+                      <Box
+                        alignContent="flex-end"
+                        flexDir="row"
+                        alignItems="center"
+                      >
+                        <Box pl="10px">
+                          <Text
+                            variant="body"
+                            color="primary.600"
+                            onPress={() =>
+                              navigation.navigate('Supplementary Lines')
+                            }
+                          >
+                            View All
+                          </Text>
+                        </Box>
+                        <Box>
+                          <ChevronRight width="20px" color="#1561E8" />
+                        </Box>
                       </Box>
-                      <Box>
-                        <ChevronRight width="20px" color="#1561E8" />
-                      </Box>
-                    </Box>
+                    ) : null}
                   </Box>
 
                   {/* Supplementary Lines Cards */}
