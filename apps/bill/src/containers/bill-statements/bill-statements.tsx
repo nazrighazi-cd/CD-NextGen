@@ -132,7 +132,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
 
   // Handle radio button click
   const handleRadioClick = (groupKey) => {
-    console.log(`Clicked ${groupKey}`);
+    // console.log(`Clicked ${groupKey}`);
     const updatedSelectedRadios = {
       ...selectedRadios,
     };
@@ -207,7 +207,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                               <Radio
                                 value="one"
                                 color={isSelected ? 'primary.600' : '#D0D5DD'}
-                                accessibilityLabel="Threshold"
+                                accessibilityLabel="CheckButton"
                                 icon={<Check />}
                               />
                             </Radio.Group>
@@ -248,7 +248,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                                         color={
                                           isSelected ? 'primary.600' : '#D0D5DD'
                                         }
-                                        accessibilityLabel="Threshold"
+                                        accessibilityLabel="CheckButton"
                                         icon={<Check />}
                                       />
                                     </Radio.Group>
@@ -286,7 +286,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                             <Radio
                               value="one"
                               color={isSelected ? 'primary.600' : '#D0D5DD'}
-                              accessibilityLabel="Threshold"
+                              accessibilityLabel="CheckButton"
                               icon={<Check />}
                             />
                           </Radio.Group>
@@ -335,7 +335,7 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                                         color={
                                           isSelected ? 'primary.600' : '#D0D5DD'
                                         }
-                                        accessibilityLabel="Threshold"
+                                        accessibilityLabel="CheckButton"
                                         icon={<Check />}
                                       />
                                     </Radio.Group>
