@@ -299,8 +299,9 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                           <Box
                             key={detail.id}
                             variant="listing"
-                            borderBottomWidth={
-                              index === item.billDetails.length - 1 ? 0 : 1
+                            borderBottomWidth={0}
+                            borderTopWidth={
+                              index === item.billDetails.length - 1 ? 1 : 0
                             }
                           >
                             <HStack>
