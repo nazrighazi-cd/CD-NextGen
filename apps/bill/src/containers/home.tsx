@@ -31,6 +31,7 @@ import BillDetailMonthly from './bill-statements/bill-detail-monthly';
 import BillDetailYearly from './bill-statements/bill-detail-yearly';
 import TransactionHistory from './transaction-history/transaction-history';
 import Partners from './auto-billing/open-link';
+import SupplementaryDetails from './bill-details/bill-details-supplementary';
 
 const Stack = createNativeStackNavigator();
 
@@ -115,6 +116,11 @@ const Home = () => {
           options={{ title: 'Bill Details' }}
           name="Bill Details"
           component={BillDetails}
+        />
+        <Stack.Screen
+          options={{ title: 'Bill Details' }}
+          name="Bill Details Supplementary"
+          component={SupplementaryDetails}
         />
         <Stack.Screen
           options={{ title: 'Bill Statements' }}

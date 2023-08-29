@@ -54,7 +54,11 @@ const SupplementaryLines = ({ navigation }: { navigation: any }) => {
           {/* Supplementary Lines Card*/}
           <Box variant="shadow">
             {supLines.map((item, index) => (
-              <Pressable>
+              <Pressable
+                onPress={() =>
+                  navigation.navigate('Bill Details Supplementary')
+                }
+              >
                 <Box
                   key={index}
                   variant="listing"
