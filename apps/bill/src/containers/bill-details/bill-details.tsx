@@ -54,11 +54,10 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
           icons: <InfoCircle />,
         },
         {
-          id: 3,
-          info: 'Previous Overdue',
-          value: '-RM40.00',
-          icons: <AlertTriangle />,
-          textColor: '#F79009',
+          id: null,
+          info: null,
+          value: null,
+          icons: null,
         },
         {
           id: 4,
@@ -295,42 +294,46 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                   {/* Bill Details */}
                   <Box key={item.id} variant="shadow" mt="16px">
                     {item.billDetails.map((detail, index) => (
-                      <Box
-                        key={detail.id}
-                        variant="listing"
-                        borderBottomWidth={
-                          index === item.billDetails.length - 1 ? 0 : 1
-                        }
-                      >
-                        <HStack>
-                          <Box>
-                            <Text variant="body" color="#667085">
-                              {detail.info}
-                            </Text>
-                          </Box>
-                          <Pressable onPress={() => setBottomModal(true)}>
-                            {detail.icons ? (
-                              <Box
-                                w="20px"
-                                h="20px"
-                                justifyContent="center"
-                                alignItems="center"
-                                ml="8px"
-                              >
-                                {React.cloneElement(detail.icons, {
-                                  width: '75%',
-                                  height: '100%',
-                                  color: '#667085',
-                                })}
+                      <Box>
+                        {detail.id ? (
+                          <Box
+                            key={detail.id}
+                            variant="listing"
+                            borderBottomWidth={
+                              index === item.billDetails.length - 1 ? 0 : 1
+                            }
+                          >
+                            <HStack>
+                              <Box>
+                                <Text variant="body" color="#667085">
+                                  {detail.info}
+                                </Text>
                               </Box>
-                            ) : null}
-                          </Pressable>
-                        </HStack>
-                        <HStack alignItems="center">
-                          <Text variant="body" bold>
-                            {detail.value}
-                          </Text>
-                        </HStack>
+
+                              <Pressable onPress={() => setBottomModal(true)}>
+                                <Box
+                                  w="20px"
+                                  h="20px"
+                                  justifyContent="center"
+                                  alignItems="center"
+                                  ml="8px"
+                                >
+                                  {React.cloneElement(detail.icons, {
+                                    width: '75%',
+                                    height: '100%',
+                                    color: '#667085',
+                                  })}
+                                </Box>
+                              </Pressable>
+                            </HStack>
+
+                            <HStack alignItems="center">
+                              <Text variant="body" bold>
+                                {detail.value}
+                              </Text>
+                            </HStack>
+                          </Box>
+                        ) : null}
                       </Box>
                     ))}
                   </Box>
