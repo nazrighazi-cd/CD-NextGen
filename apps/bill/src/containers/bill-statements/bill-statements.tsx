@@ -12,10 +12,11 @@ import {
   VStack,
   Pressable,
   Radio,
+  Alert,
 } from 'native-base';
 
 // Icons
-import { ChevronRight, Check } from '@cd-next-gen-app/icons';
+import { ChevronRight, Check, CheckCircle } from '@cd-next-gen-app/icons';
 
 //Mock Data
 const billStat = [
@@ -64,18 +65,22 @@ const billStat = [
   },
 ];
 
-// Sort data by date
-const sortByDate = (a, b) => {
-  const dateA = new Date(`${a.date}`).valueOf();
-  const dateB = new Date(`${b.date}`).valueOf();
-  if (dateA > dateB) {
-    return -1;
-  }
-  return 1;
-};
-
 const BillStatement = ({ navigation }: { navigation: any }) => {
+  // State variables
   const [selectedTab, setSelectedTab] = useState('monthly'); // 'monthly' or 'annually'
+  const [selectedRadios, setSelectedRadios] = useState({});
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false); //success alert
+  const [showFooter, setShowFooter] = useState(false); //footer
+
+  // Sort data by date
+  const sortByDate = (a, b) => {
+    const dateA = new Date(`${a.date}`).valueOf();
+    const dateB = new Date(`${b.date}`).valueOf();
+    if (dateA > dateB) {
+      return -1;
+    }
+    return 1;
+  };
 
   // Sort data by date for 'Monthly tab'
   const sortedByDate = billStat.sort(sortByDate);
@@ -113,7 +118,47 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
   if (selectedTab === 'annually') {
     yearKeys.reverse();
   }
-  const toggleTab = (tab) => setSelectedTab(tab);
+
+  // Function to toggle between tabs
+  const toggleTab = (tab) => {
+    setSelectedRadios({}); // Reset when change tab
+    setSelectedTab(tab);
+  };
+
+  // Count of selected radio buttons
+  const selectedCount = Object.values(selectedRadios).filter(
+    (isSelected) => isSelected
+  ).length;
+
+  // Handle radio button click
+  const handleRadioClick = (groupKey) => {
+    console.log(`Clicked ${groupKey}`);
+    const updatedSelectedRadios = {
+      ...selectedRadios,
+    };
+    updatedSelectedRadios[groupKey] = !updatedSelectedRadios[groupKey];
+    setSelectedRadios(updatedSelectedRadios);
+    setShowFooter(true); //Show footer when click
+  };
+
+  // Download button click
+  const handleDownload = () => {
+    const selectedItems = Object.entries(selectedRadios)
+      .filter(([_, isSelected]) => isSelected)
+      .map(([groupKey, _]) => groupKey);
+
+    if (selectedItems.length === 0) {
+      return;
+    }
+
+    setShowSuccessAlert(true); // Show success alert
+    setShowFooter(false); // Hide footer
+
+    setTimeout(() => {
+      setShowSuccessAlert(false); // Hide success alert
+      setShowFooter(true); // Show footer again
+    }, 2000);
+  };
 
   return (
     <Box flex={1} bg="white">
@@ -137,81 +182,16 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
               </Button>
             </Button.Group>
           </Box>
+
           {/* Annually tab */}
           {selectedTab === 'annually'
             ? Object.keys(selectedGroupedData)
                 .reverse()
                 .map((groupKey) => {
-                  const statementsToDisplay = selectedGroupedData[groupKey];
+                  const isSelected = selectedRadios[groupKey]; // Check if radio is selected
 
                   return (
                     <Pressable key={groupKey}>
-                      {({ isPressed }) => (
-                        <Box mt="16px">
-                          <HStack>
-                            <Text variant="body2" bold>
-                              {groupKey}
-                            </Text>
-                            <Spacer />
-                            <Box pr="16px">
-                              <Radio.Group name="myRadioGroup">
-                                <Radio
-                                  value="one"
-                                  color={isPressed ? 'none' : '#D0D5DD'}
-                                  accessibilityLabel="Threshold"
-                                  icon={<Check />}
-                                />
-                              </Radio.Group>
-                            </Box>
-                          </HStack>
-                          {statementsToDisplay.map((item) => (
-                            <Pressable
-                              key={item.id}
-                              onPress={() => navigation.navigate('Bill Detail')}
-                            >
-                              <Box
-                                variant="shadow"
-                                shadow="0px"
-                                mt="8px"
-                                bg={isPressed ? 'primary.5' : '#F9FAFB'}
-                                borderColor={
-                                  isPressed ? 'primary.600' : '#F9FAFB'
-                                }
-                                borderWidth={isPressed ? '2' : '2'}
-                              >
-                                <HStack>
-                                  <VStack>
-                                    <Box>
-                                      <Text>Yearly Tax Statement</Text>
-                                    </Box>
-                                  </VStack>
-                                  <Spacer />
-                                  <Box
-                                    justifyContent="center"
-                                    alignItems="center"
-                                  >
-                                    <HStack>
-                                      <Box>
-                                        <ChevronRight width={20} />
-                                      </Box>
-                                    </HStack>
-                                  </Box>
-                                </HStack>
-                              </Box>
-                            </Pressable>
-                          ))}
-                        </Box>
-                      )}
-                    </Pressable>
-                  );
-                })
-            : //   Monthly tab
-              Object.keys(selectedGroupedData).map((groupKey) => {
-                const statementsToDisplay = selectedGroupedData[groupKey];
-
-                return (
-                  <Pressable key={groupKey}>
-                    {({ isPressed }) => (
                       <Box mt="16px">
                         <HStack>
                           <Text variant="body2" bold>
@@ -219,60 +199,156 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
                           </Text>
                           <Spacer />
                           <Box pr="16px">
-                            <Radio.Group name="myRadioGroup">
+                            <Radio.Group
+                              name="myRadioGroup"
+                              value={isSelected ? 'one' : 'two'}
+                              onChange={(value) => handleRadioClick(groupKey)}
+                            >
                               <Radio
                                 value="one"
-                                color={isPressed ? 'none' : '#D0D5DD'}
+                                color={isSelected ? 'primary.600' : '#D0D5DD'}
                                 accessibilityLabel="Threshold"
                                 icon={<Check />}
                               />
                             </Radio.Group>
                           </Box>
                         </HStack>
-                        {statementsToDisplay.map((item) => (
-                          <Pressable
-                            key={item.id}
-                            onPress={() => navigation.navigate('Bill Detail')}
+                        <Pressable
+                          onPress={() =>
+                            navigation.navigate('Bill Detail Yearly')
+                          }
+                        >
+                          <Box
+                            variant="shadow"
+                            shadow="0px"
+                            mt="8px"
+                            bg={isSelected ? 'primary.5' : '#F9FAFB'}
+                            borderColor={isSelected ? 'primary.600' : '#F9FAFB'}
+                            borderWidth={isSelected ? '2' : '2'}
                           >
-                            <Box
-                              variant="shadow"
-                              shadow="0px"
-                              mt="8px"
-                              bg={isPressed ? 'primary.5' : '#F9FAFB'}
-                              borderColor={
-                                isPressed ? 'primary.600' : '#F9FAFB'
-                              }
-                              borderWidth={isPressed ? '2' : '2'}
-                            >
-                              <HStack>
-                                <VStack>
-                                  <Box>
-                                    <Text>{item.title}</Text>
-                                    <Text color="#475467">
-                                      {moment(item.date).format('D MMMM yyyy')}
-                                    </Text>
-                                  </Box>
-                                </VStack>
-                                <Spacer />
-                                <Box
-                                  justifyContent="center"
-                                  alignItems="center"
-                                >
-                                  <HStack>
-                                    <Text bold pr="8px">
-                                      {item.total}
-                                    </Text>
-                                    <Box>
-                                      <ChevronRight width={20} />
-                                    </Box>
-                                  </HStack>
+                            <HStack>
+                              <VStack>
+                                <Box>
+                                  <Text>Yearly Tax Statement</Text>
                                 </Box>
-                              </HStack>
-                            </Box>
-                          </Pressable>
-                        ))}
+                              </VStack>
+                              <Spacer />
+                              <Box justifyContent="center" alignItems="center">
+                                <HStack>
+                                  {isSelected ? (
+                                    <Radio.Group
+                                      name="myRadioGroup"
+                                      value={isSelected ? 'one' : 'two'}
+                                      onChange={() =>
+                                        handleRadioClick(groupKey)
+                                      }
+                                    >
+                                      <Radio
+                                        value="one"
+                                        color={
+                                          isSelected ? 'primary.600' : '#D0D5DD'
+                                        }
+                                        accessibilityLabel="Threshold"
+                                        icon={<Check />}
+                                      />
+                                    </Radio.Group>
+                                  ) : (
+                                    <ChevronRight width={20} />
+                                  )}
+                                </HStack>
+                              </Box>
+                            </HStack>
+                          </Box>
+                        </Pressable>
                       </Box>
-                    )}
+                    </Pressable>
+                  );
+                })
+            : //   Monthly tab
+              Object.keys(selectedGroupedData).map((groupKey) => {
+                const statementsToDisplay = selectedGroupedData[groupKey];
+                const isSelected = selectedRadios[groupKey]; // Check if radio is selected
+
+                return (
+                  <Pressable key={groupKey}>
+                    <Box mt="16px">
+                      <HStack>
+                        <Text variant="body2" bold>
+                          {groupKey}
+                        </Text>
+                        <Spacer />
+                        <Box pr="16px">
+                          <Radio.Group
+                            name="myRadioGroup"
+                            value={isSelected ? 'one' : 'two'}
+                            onChange={(value) => handleRadioClick(groupKey)}
+                          >
+                            <Radio
+                              value="one"
+                              color={isSelected ? 'primary.600' : '#D0D5DD'}
+                              accessibilityLabel="Threshold"
+                              icon={<Check />}
+                            />
+                          </Radio.Group>
+                        </Box>
+                      </HStack>
+                      {statementsToDisplay.map((item) => (
+                        <Pressable
+                          key={item.id}
+                          onPress={() =>
+                            navigation.navigate('Bill Detail Monthly')
+                          }
+                        >
+                          <Box
+                            variant="shadow"
+                            shadow="0px"
+                            mt="8px"
+                            bg={isSelected ? 'primary.5' : '#F9FAFB'}
+                            borderColor={isSelected ? 'primary.600' : '#F9FAFB'}
+                            borderWidth={isSelected ? '2' : '2'}
+                          >
+                            <HStack>
+                              <VStack>
+                                <Box>
+                                  <Text>{item.title}</Text>
+                                  <Text color="#475467">
+                                    {moment(item.date).format('D MMMM yyyy')}
+                                  </Text>
+                                </Box>
+                              </VStack>
+                              <Spacer />
+                              <Box justifyContent="center" alignItems="center">
+                                <HStack>
+                                  <Text bold pr="8px">
+                                    {item.total}
+                                  </Text>
+                                  {isSelected ? (
+                                    <Radio.Group
+                                      name="myRadioGroup"
+                                      value={isSelected ? 'one' : 'two'}
+                                      onChange={() =>
+                                        handleRadioClick(groupKey)
+                                      }
+                                    >
+                                      <Radio
+                                        value="one"
+                                        color={
+                                          isSelected ? 'primary.600' : '#D0D5DD'
+                                        }
+                                        accessibilityLabel="Threshold"
+                                        icon={<Check />}
+                                      />
+                                    </Radio.Group>
+                                  ) : (
+                                    <ChevronRight width={20} />
+                                  )}
+                                </HStack>
+                              </Box>
+                            </HStack>
+                          </Box>
+                        </Pressable>
+                      ))}
+                    </Box>
                   </Pressable>
                 );
               })}
@@ -280,14 +356,48 @@ const BillStatement = ({ navigation }: { navigation: any }) => {
       </ScrollView>
 
       {/* Footer */}
-      <Box m="16px">
-        <HStack justifyContent="space-between">
-          <Box justifyContent="center" alignItems="center">
-            <Text variant="body1">3 selected</Text>
+      {(selectedTab === 'monthly' || selectedTab === 'annually') &&
+        showFooter &&
+        selectedCount > 0 && (
+          <Box m="16px">
+            <HStack justifyContent="space-between">
+              <Box justifyContent="center" alignItems="center">
+                <Text variant="body1">
+                  {selectedCount}{' '}
+                  {selectedCount === 1 ? 'selected' : 'selected'}
+                </Text>
+              </Box>
+              <Button onPress={handleDownload}>Download</Button>
+            </HStack>
           </Box>
-          <Button>Download</Button>
-        </HStack>
-      </Box>
+        )}
+
+      {/* Success Alert */}
+      {showSuccessAlert && (
+        <Box m="16px">
+          <Alert variant="success">
+            <Box justifyContent="center" alignItems="center">
+              <HStack>
+                <Box
+                  justifyContent="center"
+                  alignItems="center"
+                  pl="12px"
+                  mr="8px"
+                >
+                  <CheckCircle color="#027A48" width="16px" />
+                </Box>
+                <Box>
+                  <Text variant="body2">
+                    {selectedCount} item
+                    {selectedCount === 1 ? ' will' : 's will'} be downloaded.
+                    See notification for details.
+                  </Text>
+                </Box>
+              </HStack>
+            </Box>
+          </Alert>
+        </Box>
+      )}
     </Box>
   );
 };

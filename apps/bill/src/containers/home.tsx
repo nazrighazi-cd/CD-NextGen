@@ -27,7 +27,8 @@ import Summary from './auto-billing/summary';
 import BankPortal from './pay-others/bank-portal';
 import Cheatsheet from './Cheatsheet';
 import SelectBank from './pay-others/select-bank';
-import BillDetail from './bill-statements/bill-detail';
+import BillDetailMonthly from './bill-statements/bill-detail-monthly';
+import BillDetailYearly from './bill-statements/bill-detail-yearly';
 import TransactionHistory from './transaction-history/transaction-history';
 import Partners from './auto-billing/open-link';
 
@@ -80,7 +81,6 @@ const Home = () => {
           name="Select Card"
           component={SelectCard}
         />
-
         <Stack.Screen
           options={{ title: 'Bank Portal' }}
           name="Bank Portal"
@@ -123,8 +123,14 @@ const Home = () => {
         />
         <Stack.Screen
           options={{ title: 'Bill Details' }}
-          name="Bill Detail"
-          component={BillDetail}
+          name="Bill Detail Monthly"
+          component={BillDetailMonthly}
+        />
+
+        <Stack.Screen
+          options={{ title: 'Bill Details' }}
+          name="Bill Detail Yearly"
+          component={BillDetailYearly}
         />
         <Stack.Screen
           options={{ title: 'Supplementary Lines' }}
