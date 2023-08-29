@@ -15,11 +15,9 @@ import {
 import { Check, ChevronRight, Edit } from '@cd-next-gen-app/icons';
 
 export const PayMyself = ({ navigation }) => {
-  // Radio Button
-  const [value, setValue] = React.useState('one');
-
-  // Payment Method Max
-  const max_length = 12;
+  const [value, setValue] = useState('one');
+  const [selectedRadios, setSelectedRadios] = useState({});
+  const [selectedCard, setSelectedCard] = useState({});
 
   // Mock Data
   const msisdnNumber = [
@@ -96,42 +94,25 @@ export const PayMyself = ({ navigation }) => {
     rowsPayment.push(row);
   }
 
-  // Pressable Card
-  const [accountChecked, setaccountChecked] = useState(
-    new Array(msisdnNumber.length).fill(false)
-  );
-  const selectedAccountPay = (index) => {
-    const newaccountChecked = [...accountChecked];
-    newaccountChecked[index] = !newaccountChecked[index];
-    setaccountChecked(newaccountChecked);
-  };
-  const [paymentChecked, setpaymentChecked] = useState(
-    new Array(msisdnNumber.length).fill(false)
-  );
-  const selectedPayment = (itemIndex) => {
-    const newpaymentChecked = [...paymentChecked];
-    newpaymentChecked[itemIndex] = !newpaymentChecked[itemIndex];
-    setpaymentChecked(newpaymentChecked);
+  // Payment Method Max
+  const max_length = 12;
+
+  // Handle radio click
+  const handleRadioClick = (index) => {
+    const updatedSelectedRadios = {
+      ...selectedRadios,
+    };
+    updatedSelectedRadios[index] = !updatedSelectedRadios[index];
+    setSelectedRadios(updatedSelectedRadios);
   };
 
-  // Selected Two Cards
-  const [selectedCards, setSelectedCards] = useState([]);
-  const handleCardClick = (cardId) => {
-    // Check if the card is already selected
-    if (selectedCards.includes(cardId)) {
-      setSelectedCards(selectedCards.filter((id) => id !== cardId));
-    } else {
-      setSelectedCards([...selectedCards, cardId]);
-    }
-  };
-
-  // Continue
-  const handleContinue = (paymentMethod) => {
-    if (selectedCards.length === 2) {
-      navigation.navigate(paymentMethod.pages);
-    } else {
-      return <Text variant="h8">Please select both selection</Text>;
-    }
+  // Handle card click
+  const handleCardClick = (itemIndex) => {
+    const updatedSelectedCard = {
+      ...selectedCard,
+    };
+    updatedSelectedCard[itemIndex] = !updatedSelectedCard[itemIndex];
+    setSelectedCard(updatedSelectedCard);
   };
 
   return (
@@ -156,59 +137,59 @@ export const PayMyself = ({ navigation }) => {
               </Pressable>
             </HStack>
             {/* List */}
-            {msisdnNumber.map((item, index) => (
-              <Pressable
-                key={index}
-                onPress={() => {
-                  selectedAccountPay(index);
-                  handleCardClick(1);
-                }}
-              >
-                <Box
-                  variant="border"
-                  mb="8px"
-                  bg={accountChecked[index] ? 'primary.5' : 'white'}
-                  borderColor={
-                    accountChecked[index] ? 'primary.600' : 'gray.300'
-                  }
-                  borderWidth={accountChecked[index] ? '2' : '1'}
-                >
-                  <HStack>
-                    <Box>
-                      <Text variant="body" bold>
-                        {item.msisdn}
-                      </Text>
-                      <Text variant="body">RM {item.amount}</Text>
-                    </Box>
-                    <Spacer />
-                    <Box alignItems="flex-end" mr={3}>
-                      <HStack space={2}>
-                        <Badge
-                          variant={
-                            item.tag === 'Suspended' ? 'warning' : 'success'
-                          }
+            {msisdnNumber.map((item, index) => {
+              const isSelected = selectedRadios[index];
+              return (
+                <Pressable key={index}>
+                  <Box
+                    variant="border"
+                    mb="8px"
+                    bg={isSelected ? 'primary.5' : 'white'}
+                    borderColor={isSelected ? 'primary.600' : 'gray.300'}
+                    borderWidth={isSelected ? '2' : '1'}
+                  >
+                    <HStack>
+                      <Box>
+                        <Text variant="body" bold>
+                          {item.msisdn}
+                        </Text>
+                        <Text variant="body">RM {item.amount}</Text>
+                      </Box>
+                      <Spacer />
+                      <Box alignItems="flex-end" mr={3}>
+                        <HStack space={2}>
+                          <Badge
+                            variant={
+                              item.tag === 'Suspended' ? 'warning' : 'success'
+                            }
+                          >
+                            {item.tag}
+                          </Badge>
+                          {item.tagLine ? <Badge>{item.tagLine}</Badge> : null}
+                        </HStack>
+                        <Text variant="label" mt={1}>
+                          Due on {item.due}
+                        </Text>
+                      </Box>
+                      <Box mt={2}>
+                        <Radio.Group
+                          name="myRadioGroup"
+                          value={isSelected ? 'one' : 'two'}
+                          onChange={(value) => handleRadioClick(index)}
                         >
-                          {item.tag}
-                        </Badge>
-                        {item.tagLine ? <Badge>{item.tagLine}</Badge> : null}
-                      </HStack>
-                      <Text variant="label" mt={1}>
-                        Due on {item.due}
-                      </Text>
-                    </Box>
-                    <Box mt={2}>
-                      <Radio.Group name="myRadioGroup">
-                        <Radio
-                          value="one"
-                          accessibilityLabel="Threshold"
-                          icon={<Check />}
-                        ></Radio>
-                      </Radio.Group>
-                    </Box>
-                  </HStack>
-                </Box>
-              </Pressable>
-            ))}
+                          <Radio
+                            value="one"
+                            accessibilityLabel="CheckButton"
+                            icon={<Check />}
+                            color={isSelected ? 'primary.600' : '#D0D5DD'}
+                          ></Radio>
+                        </Radio.Group>
+                      </Box>
+                    </HStack>
+                  </Box>
+                </Pressable>
+              );
+            })}
           </Box>
 
           {/* SELECT PAYMENT METHOD CARD */}
@@ -220,49 +201,49 @@ export const PayMyself = ({ navigation }) => {
             <VStack justifyContent="center">
               {rowsPayment.map((row, index) => (
                 <HStack key={index} justifyContent="space-between">
-                  {row.map((payment, itemIndex) => (
-                    <Pressable
-                      onPress={() => {
-                        selectedPayment(itemIndex);
-                        handleCardClick(2);
-                        navigation.navigate(payment.pages);
-                      }}
-                      key={itemIndex}
-                    >
-                      <Box
-                        variant="border"
+                  {row.map((payment, itemIndex) => {
+                    const isSelected = selectedCard[itemIndex];
+                    return (
+                      <Pressable
+                        onPress={() => {
+                          navigation.navigate(payment.pages);
+                          handleCardClick(itemIndex);
+                        }}
                         key={itemIndex}
-                        w="94px"
-                        h="72px"
-                        px="4px"
-                        justifyContent="center"
-                        alignItems="center"
-                        mb="16px"
-                        bg={paymentChecked[itemIndex] ? 'primary.5' : 'white'}
-                        borderColor={
-                          paymentChecked[itemIndex] ? 'primary.600' : 'gray.300'
-                        }
-                        borderWidth={paymentChecked[itemIndex] ? '2' : '1'}
                       >
-                        <Text variant="h8" bold textAlign="center">
-                          {payment.method.length > max_length
-                            ? payment.method.replace(/(.{7})/g, '$1\n')
-                            : payment.method}
-                        </Text>
+                        <Box
+                          variant="border"
+                          key={itemIndex}
+                          w="94px"
+                          h="72px"
+                          px="4px"
+                          justifyContent="center"
+                          alignItems="center"
+                          mb="16px"
+                          bg={isSelected ? 'primary.5' : 'white'}
+                          borderColor={isSelected ? 'primary.600' : 'gray.300'}
+                          borderWidth={isSelected ? '2' : '1'}
+                        >
+                          <Text variant="h8" bold textAlign="center">
+                            {payment.method.length > max_length
+                              ? payment.method.replace(/(.{7})/g, '$1\n')
+                              : payment.method}
+                          </Text>
 
-                        {/* Tag  */}
-                        {payment.tag ? (
-                          <Badge
-                            variant="popular"
-                            position="absolute"
-                            top={paymentChecked[itemIndex] ? '-11' : '-10'}
-                          >
-                            {payment.tag}
-                          </Badge>
-                        ) : null}
-                      </Box>
-                    </Pressable>
-                  ))}
+                          {/* Tag  */}
+                          {payment.tag ? (
+                            <Badge
+                              variant="popular"
+                              position="absolute"
+                              top={isSelected ? '-11' : '-10'}
+                            >
+                              {payment.tag}
+                            </Badge>
+                          ) : null}
+                        </Box>
+                      </Pressable>
+                    );
+                  })}
                 </HStack>
               ))}
             </VStack>
@@ -286,7 +267,7 @@ export const PayMyself = ({ navigation }) => {
               />
             </Box>
           </Box>
-          <Button onPress={() => handleContinue}>Continue</Button>
+          <Button>Continue</Button>
         </HStack>
       </Box>
     </Box>
