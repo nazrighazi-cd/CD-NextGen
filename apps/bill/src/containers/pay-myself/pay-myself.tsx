@@ -4,7 +4,6 @@ import {
   Box,
   Text,
   HStack,
-  VStack,
   Badge,
   Radio,
   Spacer,
@@ -198,55 +197,53 @@ export const PayMyself = ({ navigation }) => {
               Select Payment Method
             </Text>
             {/* Payment Option Card */}
-            <VStack justifyContent="center">
-              {rowsPayment.map((row, index) => (
-                <HStack key={index} justifyContent="space-between">
-                  {row.map((payment, itemIndex) => {
-                    const isSelected = selectedCard[itemIndex];
-                    return (
-                      <Pressable
-                        onPress={() => {
-                          navigation.navigate(payment.pages);
-                          handleCardClick(itemIndex);
-                        }}
+            {rowsPayment.map((row, index) => (
+              <HStack key={index} justifyContent="space-between">
+                {row.map((payment, itemIndex) => {
+                  const isSelected = selectedCard[itemIndex];
+                  return (
+                    <Pressable
+                      onPress={() => {
+                        navigation.navigate(payment.pages);
+                        handleCardClick(itemIndex);
+                      }}
+                      key={itemIndex}
+                    >
+                      <Box
+                        variant="border"
                         key={itemIndex}
+                        w="94px"
+                        h="72px"
+                        px="4px"
+                        justifyContent="center"
+                        alignItems="center"
+                        mb="16px"
+                        bg={isSelected ? 'primary.5' : 'white'}
+                        borderColor={isSelected ? 'primary.600' : 'gray.300'}
+                        borderWidth={isSelected ? '2' : '1'}
                       >
-                        <Box
-                          variant="border"
-                          key={itemIndex}
-                          w="94px"
-                          h="72px"
-                          px="4px"
-                          justifyContent="center"
-                          alignItems="center"
-                          mb="16px"
-                          bg={isSelected ? 'primary.5' : 'white'}
-                          borderColor={isSelected ? 'primary.600' : 'gray.300'}
-                          borderWidth={isSelected ? '2' : '1'}
-                        >
-                          <Text variant="h8" bold textAlign="center">
-                            {payment.method.length > max_length
-                              ? payment.method.replace(/(.{7})/g, '$1\n')
-                              : payment.method}
-                          </Text>
+                        <Text variant="h8" bold textAlign="center">
+                          {payment.method.length > max_length
+                            ? payment.method.replace(/(.{7})/g, '$1\n')
+                            : payment.method}
+                        </Text>
 
-                          {/* Tag  */}
-                          {payment.tag ? (
-                            <Badge
-                              variant="popular"
-                              position="absolute"
-                              top={isSelected ? '-11' : '-10'}
-                            >
-                              {payment.tag}
-                            </Badge>
-                          ) : null}
-                        </Box>
-                      </Pressable>
-                    );
-                  })}
-                </HStack>
-              ))}
-            </VStack>
+                        {/* Tag  */}
+                        {payment.tag ? (
+                          <Badge
+                            variant="popular"
+                            position="absolute"
+                            top={isSelected ? '-11' : '-10'}
+                          >
+                            {payment.tag}
+                          </Badge>
+                        ) : null}
+                      </Box>
+                    </Pressable>
+                  );
+                })}
+              </HStack>
+            ))}
           </Box>
         </Box>
       </ScrollView>

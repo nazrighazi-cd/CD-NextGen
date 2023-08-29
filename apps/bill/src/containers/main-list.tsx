@@ -45,7 +45,7 @@ const MainList = ({ navigation }: { navigation: any }) => {
     },
     {
       name: 'Billing',
-      pages: 'Quick Billing',
+      pages: 'Supplementary Line',
       icons: <Bill02 strokeWidth={1.5} color="#000000" />,
     },
   ];

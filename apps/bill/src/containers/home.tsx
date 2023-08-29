@@ -32,6 +32,7 @@ import BillDetailYearly from './bill-statements/bill-detail-yearly';
 import TransactionHistory from './transaction-history/transaction-history';
 import Partners from './auto-billing/open-link';
 import SupplementaryDetails from './bill-details/bill-details-supplementary';
+import SupplementaryLine from './pay-myself/supplementary-line';
 
 const Stack = createNativeStackNavigator();
 
@@ -182,6 +183,11 @@ const Home = () => {
           options={{ title: 'Add Card' }}
           name="Add Card"
           component={AddCard}
+        />
+        <Stack.Screen
+          options={{ title: 'Pay Bill' }}
+          name="Supplementary Line"
+          component={SupplementaryLine}
         />
       </Stack.Navigator>
     </NativeBaseProvider>
