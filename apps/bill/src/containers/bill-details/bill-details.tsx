@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Dimensions, View } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
+import {
+  GestureHandlerRootView,
+  ScrollView,
+} from 'react-native-gesture-handler';
 
 // Native Base Components
 import {
@@ -9,12 +13,10 @@ import {
   Text,
   Badge,
   HStack,
-  ScrollView,
   Spacer,
   Button,
   Modal,
   Avatar,
-  FlatList,
 } from 'native-base';
 
 // Icons
@@ -218,239 +220,153 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
     },
   ];
 
-  const width = Dimensions.get('window').width;
+  const { width, height } = Dimensions.get('window');
 
   return (
     <Box flex={1} bg="white">
-      <Box m="16px" flex={1}>
-        {/* Principle Lines */}
-        <Box flexDir="row" justifyContent="space-between">
-          <Text variant="body1" bold>
-            Principle Lines
-          </Text>
-          <Box alignContent="flex-end" flexDir="row" alignItems="center">
-            <Box pl="10px">
-              <Text
-                variant="body"
-                color="primary.600"
-                onPress={() => navigation.navigate('Supplementary Lines')}
-              >
-                View All
-              </Text>
-            </Box>
-            <Box>
-              <ChevronRight width="20px" color="#1561E8" />
-            </Box>
+      {/* Principle Lines */}
+      <Box
+        mt="16px"
+        ml="16px"
+        mr="16px"
+        flexDir="row"
+        justifyContent="space-between"
+      >
+        <Text variant="body1" bold>
+          Principle Lines
+        </Text>
+        <Box alignContent="flex-end" flexDir="row" alignItems="center">
+          <Box pl="10px">
+            <Text
+              variant="body"
+              color="primary.600"
+              onPress={() => navigation.navigate('Supplementary Lines')}
+            >
+              View All
+            </Text>
+          </Box>
+          <Box>
+            <ChevronRight width="20px" color="#1561E8" />
           </Box>
         </Box>
+      </Box>
 
-        {/* Carousel */}
-        <View style={{ flex: 1 }}>
-          <Carousel
-            loop
-            width={width}
-            height={500}
-            data={principleLines}
-            onSnapToItem={(index) => console.log('current index:', index)}
-            renderItem={({ item }) => (
-              <Box mr="32px">
-                <ScrollView>
-                  <Box key={item.id} variant="shadow" mt="16px">
-                    <HStack justifyContent="space-between">
-                      <Text variant="body1"> {item.phoneNo}</Text>
-                      {item.tag ? (
-                        <Badge variant={item.variant}>{item.tag}</Badge>
-                      ) : null}
-                    </HStack>
-                    <Box pt="12px">
-                      <Text variant="label" color="#98A2B3">
-                        Due On
-                      </Text>
-                      <Text variant="body"> {item.due}</Text>
-                    </Box>
-                    <HStack>
-                      <Spacer />
-                      {item.total ? (
-                        <Text pt="12px" color={item.dueColor}>
-                          Total Due
-                        </Text>
-                      ) : null}
-                    </HStack>
-                    <HStack justifyContent="space-between">
-                      <Box>
-                        <Text variant="label" color="#98A2B3">
-                          Account Number
-                        </Text>
-                        <Text variant="body"> {item.accNo}</Text>
-                      </Box>
-                      {item.total ? (
-                        <Text variant="h2" bold color={item.textColor}>
-                          {item.total}
-                        </Text>
-                      ) : null}
-                    </HStack>
+      {/* Carousel */}
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <Carousel
+          loop
+          width={width}
+          data={principleLines}
+          onSnapToItem={(index) => console.log('current index:', index)}
+          renderItem={({ item }) => (
+            <ScrollView>
+              <Box m="16px">
+                <Box key={item.id} variant="shadow">
+                  <HStack justifyContent="space-between">
+                    <Text variant="body1"> {item.phoneNo}</Text>
+                    {item.tag ? (
+                      <Badge variant={item.variant}>{item.tag}</Badge>
+                    ) : null}
+                  </HStack>
+                  <Box pt="12px">
+                    <Text variant="label" color="#98A2B3">
+                      Due On
+                    </Text>
+                    <Text variant="body"> {item.due}</Text>
                   </Box>
-
-                  {/* Bill Details */}
-                  <Box key={item.id} variant="shadow" mt="16px">
-                    {item.billDetails.map((detail, index) => (
-                      <Box key={detail.id}>
-                        {detail.id ? (
-                          <Box
-                            key={detail.id}
-                            variant="listing"
-                            borderBottomWidth={0}
-                            borderTopWidth={
-                              index === item.billDetails.length - 1 ? 1 : 0
-                            }
-                          >
-                            <HStack>
-                              <Box>
-                                <Text
-                                  variant="body"
-                                  color={
-                                    detail.info === 'Previous Overdue'
-                                      ? '#F79009'
-                                      : '#667085'
-                                  }
-                                >
-                                  {detail.info}
-                                </Text>
-                              </Box>
-                              <Pressable onPress={() => setBottomModal(true)}>
-                                <Box
-                                  w="20px"
-                                  h="20px"
-                                  justifyContent="center"
-                                  alignItems="center"
-                                  ml="8px"
-                                >
-                                  {React.cloneElement(detail.icons, {
-                                    width: '20px',
-                                    height: '20px',
-                                    color:
-                                      detail.info === 'Previous Overdue'
-                                        ? '#F79009'
-                                        : '#667085',
-                                  })}
-                                </Box>
-                              </Pressable>
-                            </HStack>
-
-                            <HStack alignItems="center">
+                  <HStack>
+                    <Spacer />
+                    {item.total ? (
+                      <Text pt="12px" color={item.dueColor}>
+                        Total Due
+                      </Text>
+                    ) : null}
+                  </HStack>
+                  <HStack justifyContent="space-between">
+                    <Box>
+                      <Text variant="label" color="#98A2B3">
+                        Account Number
+                      </Text>
+                      <Text variant="body"> {item.accNo}</Text>
+                    </Box>
+                    {item.total ? (
+                      <Text variant="h2" bold color={item.textColor}>
+                        {item.total}
+                      </Text>
+                    ) : null}
+                  </HStack>
+                </Box>
+                {/* Bill Details */}
+                <Box key={item.id} variant="shadow" mt="16px">
+                  {item.billDetails.map((detail, index) => (
+                    <Box key={detail.id}>
+                      {detail.id ? (
+                        <Box
+                          key={detail.id}
+                          variant="listing"
+                          borderBottomWidth={0}
+                          borderTopWidth={
+                            index === item.billDetails.length - 1 ? 1 : 0
+                          }
+                        >
+                          <HStack>
+                            <Box>
                               <Text
                                 variant="body"
-                                bold
                                 color={
                                   detail.info === 'Previous Overdue'
-                                    ? '#F79009'
-                                    : undefined
+                                    ? item.textColor // Color based on principle status
+                                    : '#667085'
                                 }
                               >
-                                {detail.value}
+                                {detail.info}
                               </Text>
-                            </HStack>
-                          </Box>
-                        ) : null}
-                      </Box>
-                    ))}
-                  </Box>
-
-                  {/* Supplementary Lines */}
-                  <Box mt="16px" flexDir="row" justifyContent="space-between">
-                    <Text variant="body1" bold>
-                      Supplementary Lines
-                    </Text>
-                    {item.supplementaryLine &&
-                    item.supplementaryLine.length > 0 ? (
-                      <Box
-                        alignContent="flex-end"
-                        flexDir="row"
-                        alignItems="center"
-                      >
-                        <Box pl="10px">
-                          <Text
-                            variant="body"
-                            color="primary.600"
-                            onPress={() =>
-                              navigation.navigate('Supplementary Lines')
-                            }
-                          >
-                            View All
-                          </Text>
-                        </Box>
-                        <Box>
-                          <ChevronRight width="20px" color="#1561E8" />
-                        </Box>
-                      </Box>
-                    ) : null}
-                  </Box>
-
-                  {/* Supplementary Lines Cards */}
-
-                  <Box key={item.id} variant="shadow" mt="16px">
-                    {item.supplementaryLine &&
-                      item.supplementaryLine.map((supLine, index) => (
-                        <Pressable key={supLine.id}>
-                          <Box
-                            variant="listing"
-                            pt="0px"
-                            borderBottomWidth={
-                              index === item.supplementaryLine.length - 1
-                                ? 0
-                                : 1
-                            }
-                          >
-                            <HStack alignItems="center">
-                              <Box flexDirection="row" alignItems="center">
-                                <Text variant="body" pr={2}>
-                                  {supLine.supNo}
-                                </Text>
-                                {supLine.tag ? (
-                                  <Badge variant={supLine.variant}>
-                                    {supLine.tag}
-                                  </Badge>
-                                ) : null}
-                              </Box>
-                            </HStack>
-                            <Box>
-                              <ChevronRight color="#475467" />
                             </Box>
-                          </Box>
-                        </Pressable>
-                      ))}
+                            <Pressable onPress={() => setBottomModal(true)}>
+                              <Box
+                                w="20px"
+                                h="20px"
+                                justifyContent="center"
+                                alignItems="center"
+                                ml="8px"
+                              >
+                                {React.cloneElement(detail.icons, {
+                                  width: '20px',
+                                  height: '20px',
+                                  color:
+                                    detail.info === 'Previous Overdue'
+                                      ? item.textColor // Color based on principle status
+                                      : '#667085',
+                                })}
+                              </Box>
+                            </Pressable>
+                          </HStack>
 
-                    {/* Supplementary card if data is null */}
-                    {(!item.supplementaryLine ||
-                      item.supplementaryLine.length === 0) && (
-                      <Pressable>
-                        <HStack justifyContent="center" space={[3, 2]}>
-                          <Box flexDirection="row" alignItems="center">
-                            <Avatar variant="info" width="32px" height="32px">
-                              <Simcard
-                                color="#1561E8"
-                                width="16px"
-                                height="16px"
-                              />
-                            </Avatar>
-                          </Box>
-
-                          <Box>
-                            <Text variant="body" color="#344054">
-                              There is no supplementary line belong to this
-                              principal line.
+                          <HStack alignItems="center">
+                            <Text
+                              variant="body"
+                              bold
+                              color={
+                                detail.info === 'Previous Overdue'
+                                  ? item.textColor // Color based on principle status
+                                  : '#667085'
+                              }
+                            >
+                              {detail.value}
                             </Text>
-                          </Box>
-                        </HStack>
-                      </Pressable>
-                    )}
-                  </Box>
-
-                  {/* Bill Statement */}
-                  <Box mt="16px" flexDir="row" justifyContent="space-between">
-                    <Text variant="body1" bold>
-                      Bill Statement
-                    </Text>
+                          </HStack>
+                        </Box>
+                      ) : null}
+                    </Box>
+                  ))}
+                </Box>
+                {/* Supplementary Lines */}
+                <Box mt="16px" flexDir="row" justifyContent="space-between">
+                  <Text variant="body1" bold>
+                    Supplementary Lines
+                  </Text>
+                  {item.supplementaryLine &&
+                  item.supplementaryLine.length > 0 ? (
                     <Box
                       alignContent="flex-end"
                       flexDir="row"
@@ -460,7 +376,9 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                         <Text
                           variant="body"
                           color="primary.600"
-                          onPress={() => navigation.navigate('Bill Statements')}
+                          onPress={() =>
+                            navigation.navigate('Supplementary Lines')
+                          }
                         >
                           View All
                         </Text>
@@ -469,45 +387,124 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
                         <ChevronRight width="20px" color="#1561E8" />
                       </Box>
                     </Box>
-                  </Box>
-                  {/* Bill Statement Cards */}
-
-                  <Box key={item.id} variant="shadow" mt="16px">
-                    {item.billStat &&
-                      item.billStat.map((billItem, index) => (
-                        <Pressable key={billItem.id}>
-                          <Box
-                            variant="listing"
-                            pt="0px"
-                            borderBottomWidth={
-                              index === item.billStat.length - 1 ? 0 : 1
-                            }
-                          >
-                            <HStack alignItems="center">
-                              <Box flexDirection="row" alignItems="center">
-                                <Text variant="body" pr={2}>
-                                  {billItem.date}
-                                </Text>
-                              </Box>
-                            </HStack>
-                            <Box>
-                              <HStack>
-                                <Text variant="body" bold>
-                                  {billItem.value}
-                                </Text>
-                                <ChevronRight />
-                              </HStack>
+                  ) : null}
+                </Box>
+                {/* Supplementary Lines Cards */}
+                <Box key={item.id} variant="shadow" mt="16px">
+                  {item.supplementaryLine &&
+                    item.supplementaryLine.map((supLine, index) => (
+                      <Pressable key={supLine.id}>
+                        <Box
+                          variant="listing"
+                          pt="0px"
+                          borderBottomWidth={
+                            index === item.supplementaryLine.length - 1 ? 0 : 1
+                          }
+                        >
+                          <HStack alignItems="center">
+                            <Box flexDirection="row" alignItems="center">
+                              <Text variant="body" pr={2}>
+                                {supLine.supNo}
+                              </Text>
+                              {supLine.tag ? (
+                                <Badge variant={supLine.variant}>
+                                  {supLine.tag}
+                                </Badge>
+                              ) : null}
                             </Box>
+                          </HStack>
+                          <Box>
+                            <ChevronRight color="#475467" />
                           </Box>
-                        </Pressable>
-                      ))}
+                        </Box>
+                      </Pressable>
+                    ))}
+
+                  {/* Supplementary card if data is null */}
+                  {(!item.supplementaryLine ||
+                    item.supplementaryLine.length === 0) && (
+                    <Pressable>
+                      <HStack justifyContent="center" space={[3, 2]}>
+                        <Box flexDirection="row" alignItems="center">
+                          <Avatar variant="info" width="32px" height="32px">
+                            <Simcard
+                              color="#1561E8"
+                              width="16px"
+                              height="16px"
+                            />
+                          </Avatar>
+                        </Box>
+
+                        <Box>
+                          <Text variant="body" color="#344054">
+                            There is no supplementary line belong to this
+                            principal line.
+                          </Text>
+                        </Box>
+                      </HStack>
+                    </Pressable>
+                  )}
+                </Box>
+                {/* Bill Statement */}
+                <Box mt="16px" flexDir="row" justifyContent="space-between">
+                  <Text variant="body1" bold>
+                    Bill Statement
+                  </Text>
+                  <Box
+                    alignContent="flex-end"
+                    flexDir="row"
+                    alignItems="center"
+                  >
+                    <Box pl="10px">
+                      <Text
+                        variant="body"
+                        color="primary.600"
+                        onPress={() => navigation.navigate('Bill Statements')}
+                      >
+                        View All
+                      </Text>
+                    </Box>
+                    <Box>
+                      <ChevronRight width="20px" color="#1561E8" />
+                    </Box>
                   </Box>
-                </ScrollView>
+                </Box>
+                {/* Bill Statement Cards */}
+                <Box key={item.id} variant="shadow" mt="16px">
+                  {item.billStat &&
+                    item.billStat.map((billItem, index) => (
+                      <Pressable key={billItem.id}>
+                        <Box
+                          variant="listing"
+                          pt="0px"
+                          borderBottomWidth={
+                            index === item.billStat.length - 1 ? 0 : 1
+                          }
+                        >
+                          <HStack alignItems="center">
+                            <Box flexDirection="row" alignItems="center">
+                              <Text variant="body" pr={2}>
+                                {billItem.date}
+                              </Text>
+                            </Box>
+                          </HStack>
+                          <Box>
+                            <HStack>
+                              <Text variant="body" bold>
+                                {billItem.value}
+                              </Text>
+                              <ChevronRight />
+                            </HStack>
+                          </Box>
+                        </Box>
+                      </Pressable>
+                    ))}
+                </Box>
               </Box>
-            )}
-          />
-        </View>
-      </Box>
+            </ScrollView>
+          )}
+        />
+      </GestureHandlerRootView>
 
       {/* Tooltip Modal Info */}
       <Modal
