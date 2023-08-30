@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "@react-native-clipboard/clipboard": "^1.11.2",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "moment": "^2.29.4",
