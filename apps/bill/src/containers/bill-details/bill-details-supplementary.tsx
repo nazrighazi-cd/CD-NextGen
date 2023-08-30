@@ -75,164 +75,166 @@ const SupplementaryDetails = ({ navigation }: { navigation: any }) => {
 
   return (
     <Box flex={1} bg="white">
-      <Box m="16px" flex={1}>
+      <Box flex={1}>
         {supplementaryLine.map((item) => (
           <ScrollView key={item.id}>
             {/* Supplementary Lines */}
-            <Box flexDir="row" justifyContent="space-between">
-              <Text variant="body1" bold>
-                Supplementary Lines
-              </Text>
-            </Box>
-            <Box key={item.id} variant="shadow" mt="16px">
-              <HStack justifyContent="space-between">
-                <Text variant="body1"> {item.phoneNo}</Text>
-                {item.tag ? (
-                  <Badge variant={item.variant}>{item.tag}</Badge>
-                ) : null}
-              </HStack>
-              <Box pt="12px">
-                <Text variant="label" color="#98A2B3">
-                  Due On
+            <Box m="16px">
+              <Box flexDir="row" justifyContent="space-between">
+                <Text variant="body1" bold>
+                  Supplementary Lines
                 </Text>
-                <Text variant="body"> {item.due}</Text>
               </Box>
-              <HStack>
-                <Spacer />
-                {item.total ? (
-                  <Text pt="12px" color={item.dueColor}>
-                    Total Due
-                  </Text>
-                ) : null}
-              </HStack>
-              <HStack justifyContent="space-between">
-                <Box>
+              <Box key={item.id} variant="shadow" mt="16px">
+                <HStack justifyContent="space-between">
+                  <Text variant="body1"> {item.phoneNo}</Text>
+                  {item.tag ? (
+                    <Badge variant={item.variant}>{item.tag}</Badge>
+                  ) : null}
+                </HStack>
+                <Box pt="12px">
                   <Text variant="label" color="#98A2B3">
-                    Account Number
+                    Due On
                   </Text>
-                  <Text variant="body"> {item.accNo}</Text>
+                  <Text variant="body"> {item.due}</Text>
                 </Box>
-                {item.total ? (
-                  <Text variant="h2" bold color={item.textColor}>
-                    {item.total}
-                  </Text>
-                ) : null}
-              </HStack>
-            </Box>
-            {/* Bill Details */}
-            <Box variant="shadow" mt="16px">
-              {item.billDetails.map((detail, index) => (
-                <Box key={detail.id}>
-                  {detail.id ? (
-                    <Box
-                      key={detail.id}
-                      variant="listing"
-                      borderBottomWidth={0}
-                      borderTopWidth={
-                        index === item.billDetails.length - 1 ? 1 : 0
-                      }
-                    >
-                      <HStack>
-                        <Box>
+                <HStack>
+                  <Spacer />
+                  {item.total ? (
+                    <Text pt="12px" color={item.dueColor}>
+                      Total Due
+                    </Text>
+                  ) : null}
+                </HStack>
+                <HStack justifyContent="space-between">
+                  <Box>
+                    <Text variant="label" color="#98A2B3">
+                      Account Number
+                    </Text>
+                    <Text variant="body"> {item.accNo}</Text>
+                  </Box>
+                  {item.total ? (
+                    <Text variant="h2" bold color={item.textColor}>
+                      {item.total}
+                    </Text>
+                  ) : null}
+                </HStack>
+              </Box>
+              {/* Bill Details */}
+              <Box variant="shadow" mt="16px">
+                {item.billDetails.map((detail, index) => (
+                  <Box key={detail.id}>
+                    {detail.id ? (
+                      <Box
+                        key={detail.id}
+                        variant="listing"
+                        borderBottomWidth={0}
+                        borderTopWidth={
+                          index === item.billDetails.length - 1 ? 1 : 0
+                        }
+                      >
+                        <HStack>
+                          <Box>
+                            <Text
+                              variant="body"
+                              color={
+                                detail.info === 'Previous Overdue'
+                                  ? '#F79009'
+                                  : '#667085'
+                              }
+                            >
+                              {detail.info}
+                            </Text>
+                          </Box>
+                          <Pressable onPress={() => setBottomModal(true)}>
+                            <Box
+                              w="20px"
+                              h="20px"
+                              justifyContent="center"
+                              alignItems="center"
+                              ml="8px"
+                            >
+                              {React.cloneElement(detail.icons, {
+                                width: '20px',
+                                height: '20px',
+                                color:
+                                  detail.info === 'Previous Overdue'
+                                    ? '#F79009'
+                                    : '#667085',
+                              })}
+                            </Box>
+                          </Pressable>
+                        </HStack>
+
+                        <HStack alignItems="center">
                           <Text
                             variant="body"
+                            bold
                             color={
                               detail.info === 'Previous Overdue'
                                 ? '#F79009'
-                                : '#667085'
+                                : undefined
                             }
                           >
-                            {detail.info}
+                            {detail.value}
                           </Text>
-                        </Box>
-                        <Pressable onPress={() => setBottomModal(true)}>
-                          <Box
-                            w="20px"
-                            h="20px"
-                            justifyContent="center"
-                            alignItems="center"
-                            ml="8px"
-                          >
-                            {React.cloneElement(detail.icons, {
-                              width: '20px',
-                              height: '20px',
-                              color:
-                                detail.info === 'Previous Overdue'
-                                  ? '#F79009'
-                                  : '#667085',
-                            })}
-                          </Box>
-                        </Pressable>
-                      </HStack>
-
-                      <HStack alignItems="center">
-                        <Text
-                          variant="body"
-                          bold
-                          color={
-                            detail.info === 'Previous Overdue'
-                              ? '#F79009'
-                              : undefined
-                          }
-                        >
-                          {detail.value}
-                        </Text>
-                      </HStack>
-                    </Box>
-                  ) : null}
-                </Box>
-              ))}
-            </Box>
-            {/* Bill Statement */}
-            <Box mt="16px" flexDir="row" justifyContent="space-between">
-              <Text variant="body1" bold>
-                Bill Statement
-              </Text>
-              <Box alignContent="flex-end" flexDir="row" alignItems="center">
-                <Box pl="10px">
-                  <Text
-                    variant="body"
-                    color="primary.600"
-                    onPress={() => navigation.navigate('Bill Statements')}
-                  >
-                    View All
-                  </Text>
-                </Box>
-                <Box>
-                  <ChevronRight width="20px" color="#1561E8" />
-                </Box>
-              </Box>
-            </Box>
-            {/* Bill Statement Cards */}
-            <Box key={item.id} variant="shadow" mt="16px">
-              {item.billStat &&
-                item.billStat.map((billItem, index) => (
-                  <Pressable key={billItem.id}>
-                    <Box
-                      variant="listing"
-                      pt="0px"
-                      borderBottomWidth={
-                        index === item.billStat.length - 1 ? 0 : 1
-                      }
-                    >
-                      <HStack alignItems="center">
-                        <Box flexDirection="row" alignItems="center">
-                          <Text variant="body" pr={2}>
-                            {billItem.date}
-                          </Text>
-                        </Box>
-                      </HStack>
-                      <Box>
-                        <HStack>
-                          <Text variant="body" bold>
-                            {billItem.value}
-                          </Text>
-                          <ChevronRight />
                         </HStack>
                       </Box>
-                    </Box>
-                  </Pressable>
+                    ) : null}
+                  </Box>
                 ))}
+              </Box>
+              {/* Bill Statement */}
+              <Box mt="16px" flexDir="row" justifyContent="space-between">
+                <Text variant="body1" bold>
+                  Bill Statement
+                </Text>
+                <Box alignContent="flex-end" flexDir="row" alignItems="center">
+                  <Box pl="10px">
+                    <Text
+                      variant="body"
+                      color="primary.600"
+                      onPress={() => navigation.navigate('Bill Statements')}
+                    >
+                      View All
+                    </Text>
+                  </Box>
+                  <Box>
+                    <ChevronRight width="20px" color="#1561E8" />
+                  </Box>
+                </Box>
+              </Box>
+              {/* Bill Statement Cards */}
+              <Box key={item.id} variant="shadow" mt="16px">
+                {item.billStat &&
+                  item.billStat.map((billItem, index) => (
+                    <Pressable key={billItem.id}>
+                      <Box
+                        variant="listing"
+                        pt="0px"
+                        borderBottomWidth={
+                          index === item.billStat.length - 1 ? 0 : 1
+                        }
+                      >
+                        <HStack alignItems="center">
+                          <Box flexDirection="row" alignItems="center">
+                            <Text variant="body" pr={2}>
+                              {billItem.date}
+                            </Text>
+                          </Box>
+                        </HStack>
+                        <Box>
+                          <HStack>
+                            <Text variant="body" bold>
+                              {billItem.value}
+                            </Text>
+                            <ChevronRight />
+                          </HStack>
+                        </Box>
+                      </Box>
+                    </Pressable>
+                  ))}
+              </Box>
             </Box>
           </ScrollView>
         ))}
