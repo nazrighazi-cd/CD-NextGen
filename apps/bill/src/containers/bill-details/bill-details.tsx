@@ -220,7 +220,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
     },
   ];
 
-  const { width, height } = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
 
   return (
     <Box flex={1} bg="white">
@@ -240,7 +240,7 @@ const BillDetails = ({ navigation }: { navigation: any }) => {
             <Text
               variant="body"
               color="primary.600"
-              onPress={() => navigation.navigate('Supplementary Lines')}
+              onPress={() => navigation.navigate('Principle Lines')}
             >
               View All
             </Text>

@@ -42,7 +42,7 @@ const PrincipleLines = ({ navigation }: { navigation: any }) => {
           {/* Principle Lines Card*/}
           <Box variant="shadow">
             {principleLines.map((item, index) => (
-              <Pressable>
+              <Pressable onPress={() => navigation.navigate('Bill Details')}>
                 <Box
                   key={index}
                   variant="listing"
