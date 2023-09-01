@@ -24,7 +24,7 @@
       "executor": "@nx/react-native:bundle",
       "outputs": ["{options.bundleOutput}"],
       "options": {
-        "entryFile": "src/main.tsx",
+        "entryFile": "src/index.tsx",
         "platform": "ios",
         "bundleOutput": "dist/apps/b2b2c/addon/ios/main.jsbundle"
       }
@@ -54,7 +54,7 @@
       "executor": "@nx/react-native:bundle",
       "outputs": ["{options.bundleOutput}"],
       "options": {
-        "entryFile": "src/main.tsx",
+        "entryFile": "src/index.tsx",
         "platform": "android",
         "bundleOutput": "dist/apps/b2b2c/addon/android/main.jsbundle"
       }
