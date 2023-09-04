@@ -23,7 +23,7 @@ import {InfoCircle, Close,ChevronRight,History} from '../../../../../../libs/ico
 import ArrowLeft from '../../../../../../libs/icons/src/general/Arrowleft';
 
 const AddOn = ({route, navigation}: any) => {
-  const {phone, isDigiPhone} = route.params;
+  const {phone = '0161234567', isDigiPhone = true} = route?.params ?? {}
   const [isModalError, setIsModalError] = useState(false)
   const [bottomModal, setbottomModal] = useState(false);
   const [isHide, setIsHide] = useState(false);
@@ -196,6 +196,7 @@ const AddOn = ({route, navigation}: any) => {
   };
 
   return (
+    <>
       <Box flex={1} bg="#001870">
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
@@ -315,8 +316,8 @@ const AddOn = ({route, navigation}: any) => {
             height={'md'}
           />
         )}
-
-<Modal
+      </Box>
+      <Modal
         variant="bottom"
         isOpen={bottomModal}
         onClose={setbottomModal}
@@ -407,8 +408,7 @@ const AddOn = ({route, navigation}: any) => {
         </Modal.Content>
       </Modal>
       <ModalError title="Unsubscribe confirmation" body="Are you sure to stop the subscription for the customer." button_yes="Unsubscribe" onClose={setIsModalError} isOpen={isModalError} onPress={()=>{}}/>
-
-      </Box>
-    );
+    </>
+  );
 };
 export default AddOn;

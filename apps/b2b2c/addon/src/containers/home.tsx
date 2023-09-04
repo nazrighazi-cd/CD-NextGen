@@ -9,10 +9,11 @@ import { NativeBaseProvider } from 'native-base';
 import Cheatsheet from './Cheatsheet';
 import AddOn from './add-on/AddOn';
 import Internet from './add-on/Internet';
+import ArrowLeft from '../../../../../libs/icons/src/general/Arrowleft';
 
 const Stack = createNativeStackNavigator();
 
-
+import { Pressable } from 'native-base';
 const Home = () => {
   return (
     <NativeBaseProvider theme={theme}>
@@ -33,6 +34,14 @@ const Home = () => {
 
       </Stack.Navigator>
     </NativeBaseProvider>
+  );
+};
+
+const backArrow = (navigation) => {
+  return (
+    <Pressable onPress={() => navigation.goBack()}>
+      <ArrowLeft color="#FFF" />
+    </Pressable>
   );
 };
 

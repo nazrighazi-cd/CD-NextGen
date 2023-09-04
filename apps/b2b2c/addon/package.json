@@ -2,13 +2,30 @@
   "name": "b2b2c-addon",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "ios": "npx react-native run-ios",
+    "android": "npx react-native run-android",
+    "start-webpack": "npx react-native webpack-start"
+  },
   "dependencies": {
+    "@callstack/repack": "*",
+    "@react-native-clipboard/clipboard": "*",
+    "@react-native/metro-config": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "babel-loader": "*",
+    "metro-config": "*",
+    "native-base": "*",
     "react": "*",
     "react-native": "*",
+    "react-native-calendars": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
     "react-native-svg": "*",
-    "metro-config": "*",
-    "react-native-svg-transformer": "*"
+    "terser-webpack-plugin": "*",
+    "webpack": "*",
+    "webpack-cli": "*"
   }
 }
