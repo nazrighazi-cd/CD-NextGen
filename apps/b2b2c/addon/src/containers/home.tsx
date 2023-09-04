@@ -31,7 +31,6 @@ const Home = () => {
         <Stack.Screen name="Cheatsheet" component={Cheatsheet} />
         <Stack.Screen name="AddOn" component={AddOn} />
         <Stack.Screen name="Internet" component={Internet} />
-
       </Stack.Navigator>
     </NativeBaseProvider>
   );

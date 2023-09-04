@@ -18,13 +18,13 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx start reload"
+        "command": "nx start addon"
       }
     },
     "patch-ios-incremental-build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "touch apps/reload/ios/.xcode.env"
+        "command": "touch apps/addon/ios/.xcode.env"
       }
     },
     "run-ios": {
@@ -48,7 +48,7 @@
       "options": {
         "entryFile": "src/main.tsx",
         "platform": "ios",
-        "bundleOutput": "dist/apps/b2b2c/reload/ios/main.jsbundle"
+        "bundleOutput": "dist/apps/b2b2c/addon/ios/main.jsbundle"
       }
     },
     "run-android": {
@@ -98,7 +98,7 @@
       "options": {
         "entryFile": "src/main.tsx",
         "platform": "android",
-        "bundleOutput": "dist/apps/b2b2c/reload/android/main.jsbundle"
+        "bundleOutput": "dist/apps/b2b2c/addon/android/main.jsbundle"
       }
     },
     "sync-deps": {
@@ -116,7 +116,7 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "apps/b2b2c/reload/**/*.{ts,tsx,js,jsx}"
+          "apps/b2b2c/addon/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
@@ -126,7 +126,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "apps/b2b2c/reload/jest.config.ts",
+        "jestConfig": "apps/b2b2c/addon/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {

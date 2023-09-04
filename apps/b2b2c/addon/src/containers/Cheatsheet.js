@@ -382,7 +382,7 @@ const Cheatsheet = () => {
         <Box variant="header">
           <Arrowleft color="black" />
           <Text variant="h6" bold>
-            Reload
+            Add On
           </Text>
           <Twitter color="white" />
         </Box>

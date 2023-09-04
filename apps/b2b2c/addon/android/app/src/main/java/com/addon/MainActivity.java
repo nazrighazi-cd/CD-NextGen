@@ -1,4 +1,4 @@
-package com.reload;
+package com.addon;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
