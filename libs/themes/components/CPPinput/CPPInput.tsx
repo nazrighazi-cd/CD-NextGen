@@ -60,6 +60,7 @@ export default function CPPInput({isOpen, onClose, onPress}: props) {
           <Button
             onPress={() => {
               console.log('hello world');
+              onPress();
             }}
             mr="1"
             mb="2">
