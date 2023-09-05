@@ -310,6 +310,19 @@ const theme = extendTheme({
           borderWidth: 1,
           borderColor: 'gray.300',
         },
+        borderWithoutPadding: {
+          paddingTop:'12px',
+          marginBottom: '16px',
+          borderRadius: '10px',
+          borderWidth: 1,
+          borderColor: 'gray.300',        
+        },
+        borderWithoutBottom: {
+          paddingTop:'12px',
+          borderRadius: '10px',
+          borderWidth: 1,
+          borderColor: 'gray.300',        
+        },
         selection: {
           width: '50%',
           padding: '16px',
@@ -375,6 +388,11 @@ const theme = extendTheme({
         destructive: {
           bg: 'error.600',
           _text: { color: 'white' },
+        },
+        destructiveOutline: {
+          _text: { color: 'error.600' },
+          borderColor: 'error.600',
+          borderWidth: 1,
         },
         tab: {
           paddingLeft: '8px',
@@ -467,7 +485,6 @@ const theme = extendTheme({
           width: '100%',
         },
       },
-
       variants: {
         bottom: {
           justifyContent: 'flex-end',

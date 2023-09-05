@@ -22,6 +22,7 @@ import ModalError from '../../components/ModalError/ModalError';
 import {InfoCircle, Close,ChevronRight,History} from '../../../../../../libs/icons/src';
 import ArrowLeft from '../../../../../../libs/icons/src/general/Arrowleft';
 
+
 const AddOn = ({route, navigation}: any) => {
   const {phone = '0161234567', isDigiPhone = true} = route?.params ?? {}
   const [isModalError, setIsModalError] = useState(false)
@@ -53,7 +54,7 @@ const AddOn = ({route, navigation}: any) => {
     },
     {
       id: '2',
-      tag: 'Internet',
+      tag: 'Big Data Deals',
       type: 'One Time Pass',
       title: '20GB + 6.5GB Hotspot 3Mbps',
       price : 8,
@@ -128,7 +129,7 @@ const AddOn = ({route, navigation}: any) => {
       return rowsActive.map((row, index) => (
         <HStack key={index}>
           {row.map((data, itemIndex) => (
-            <Pressable onPress={() => { setSelectAmount(data.id); setAmount(data.price) }} flex={1} key={itemIndex} mb="16px" pr={ itemIndex/2 === 0 ? 2:0 }  pl={itemIndex/2 === 0 ? 0:2}>
+            <Pressable onPress={() => { setSelectAmount(data.id); setAmount(data.price) }} flex={0.5} key={itemIndex} mb="16px" pr={ itemIndex/2 === 0 ? 4:0 }>
               <Box
                 variant="borderWithoutPadding"
                 key={itemIndex}
@@ -139,15 +140,15 @@ const AddOn = ({route, navigation}: any) => {
                 }
                 bg={selectAmount === data.id ? 'primary.10' : 'white'}
                 borderWidth={'1'}>
-                <Text variant="h6" bold pb={'2'} color={'primary.600'}>
+                <Text variant="h6" bold pb={'1'} color={'primary.600'}>
                   RM{data.price}
                 </Text>
                 <Divider w={'full'} orientation="horizontal"   bg={ selectAmount === data.id ? 'primary.600' : 'gray.300'}/>
-                <Box height={"75px"} justifyContent="start" alignItems="center" p={'2'}>
+                <Box height={"80px"} justifyContent="start" alignItems="center" p={'1'}>
                   <Text variant="h6" bold textAlign={'center'}>
                     {data.title}
                   </Text>
-                  <Text variant="label" pt={'1'}>{data.validity}</Text>
+                  <Text variant="label">{data.validity}</Text>
                 </Box>
                 {/* Tag */}
                 {data.isPopular  ? (
@@ -165,7 +166,6 @@ const AddOn = ({route, navigation}: any) => {
         </HStack>
       ));
     }else{
-
       return list.map(data => {
         return (
           <Box key={data.id} variant={'shadow'} mb={5}>
@@ -205,7 +205,7 @@ const AddOn = ({route, navigation}: any) => {
           }>
           <Box flex={1}>
             <Box borderRadius={'5px'} mx="17px" bg="#FFF">
-              <HStack py={5} justifyContent="space-evenly">
+              <HStack py={4} justifyContent="space-evenly">
                 <VStack flex={1} paddingLeft={5}>
                   <Text color={'#98A2B3'}>Mobile</Text>
                   <Text mb={1} bold>
@@ -229,7 +229,7 @@ const AddOn = ({route, navigation}: any) => {
                   </Text>
                 </VStack>
               </HStack>
-              <VStack py={5} pl={5} bg={'#F2F4F7'}>
+              <VStack py={2} pl={5} bg={'#F2F4F7'}>
                 <Text color={'#98A2B3'}>Prepaid Balance</Text>
                 <Text variant={'h4'} bold>
                   RM5.00
@@ -243,8 +243,9 @@ const AddOn = ({route, navigation}: any) => {
                   Proceed to Discover Add-Ons
                 </Text>
                 <HStack justifyContent='space-evenly'>
-                  <Pressable width={'70px'} height={'70px'} bg="#F9FAFB" m={1}  p={2} 
-                    onPress={() => navigation.navigate('Internet', {
+                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                    onPress={() => navigation.navigate('DiscoverAddOn', {
+                      title: 'Internet',
                       phone: phone,
                       isDigiPhone: phone.includes('016'),
                     })
@@ -252,25 +253,43 @@ const AddOn = ({route, navigation}: any) => {
                     <InfoCircle />
                     <Text>Internet</Text>
                   </Pressable>
-                  <Box width={'70px'} height={'70px'} bg="#F9FAFB" m={1}  p={2}>
+                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                    onPress={() => navigation.navigate('DiscoverAddOn', {
+                      title: 'IDD',
+                      phone: phone,
+                      isDigiPhone: phone.includes('016'),
+                    })
+                    }>
                     <InfoCircle />
                     <Text>IDD</Text>
-                  </Box>
-                  <Box width={'70px'} height={'70px'} bg="#F9FAFB" m={1}  p={2}>
+                  </Pressable>
+                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                    onPress={() => navigation.navigate('DiscoverAddOn', {
+                      title: 'Roaming',
+                      phone: phone,
+                      isDigiPhone: phone.includes('016'),
+                    })
+                    }>
                     <InfoCircle />
                     <Text>Roaming</Text>
-                  </Box>
-                  <Box width={'70px'} height={'70px'} bg="#F9FAFB" m={1}  p={2}>
+                  </Pressable>
+                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                    onPress={() => navigation.navigate('DiscoverAddOn', {
+                      title: 'VAS',
+                      phone: phone,
+                      isDigiPhone: phone.includes('016'),
+                    })
+                    }>
                     <InfoCircle />
                     <Text>Others</Text>
-                  </Box>
+                  </Pressable>
                 </HStack>
                 </Box>
                 <Box mx="17px"  bg="#F9FAFB">
                 <Text variant="h5" bold py="16px">
                   Customer's Add On
                 </Text>
-                {isDigiPhone && <Button.Group bg="gray.100" rounded="full" p="1.5" mb={"16px"}>
+                {isDigiPhone && <Button.Group bg="gray.100" rounded="full" p="1.5" mb={"24px"}>
                     {paymentTab.map(item => (
                         <Button
                           key={item.id.toString()}

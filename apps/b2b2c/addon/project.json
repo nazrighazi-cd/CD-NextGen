@@ -24,7 +24,7 @@
     "patch-ios-incremental-build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "touch apps/addon/ios/.xcode.env"
+        "command": "touch apps/b2b2c/addon/ios/.xcode.env"
       }
     },
     "run-ios": {

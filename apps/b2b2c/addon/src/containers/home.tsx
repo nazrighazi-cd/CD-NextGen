@@ -8,8 +8,9 @@ import { NativeBaseProvider } from 'native-base';
 // Pages
 import Cheatsheet from './Cheatsheet';
 import AddOn from './add-on/AddOn';
-import Internet from './add-on/Internet';
+import DiscoverAddOn from './add-on/DiscoverAddOn';
 import ArrowLeft from '../../../../../libs/icons/src/general/Arrowleft';
+import Close from '../../../../../libs/icons/src/general/Close';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,14 +24,22 @@ const Home = () => {
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerTitleStyle: {
-            fontFamily: 'Montserrat-Bold',
+            color: '#FFF',
+          },
+          headerStyle: {
+            backgroundColor: '#001870',
           },
         }}
       >
         {/* Theme Cheatsheet */}
         <Stack.Screen name="Cheatsheet" component={Cheatsheet} />
-        <Stack.Screen name="AddOn" component={AddOn} />
-        <Stack.Screen name="Internet" component={Internet} />
+        <Stack.Screen name="AddOn" component={AddOn}   options={{ title: 'ADD-ONS' }}/>
+        <Stack.Screen name="DiscoverAddOn" component={DiscoverAddOn} options={({ navigation, route }) => ({
+          title :route.params.title,
+          headerLeft: ({ canGoBack }) => canGoBack && backArrow(navigation),
+          headerRight: () => exitIcon(navigation),
+
+        })} />
       </Stack.Navigator>
     </NativeBaseProvider>
   );
@@ -40,6 +49,14 @@ const backArrow = (navigation) => {
   return (
     <Pressable onPress={() => navigation.goBack()}>
       <ArrowLeft color="#FFF" />
+    </Pressable>
+  );
+};
+
+const exitIcon = (navigation) => {
+  return (
+    <Pressable onPress={() => navigation.goBack()}>
+      <Close color="#FFF" />
     </Pressable>
   );
 };
