@@ -217,12 +217,12 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                   selectAmount === data.id ? 'primary.600' : 'gray.300'
                 }
                 bg={selectAmount === data.id ? 'primary.10' : 'white'}
-                borderWidth={'1'}>
-                <Text variant="h6" bold pb={'1'} color={'primary.600'}>
+                borderWidth={1}>
+                <Text variant="h6" bold pb={1} color={'primary.600'}>
                   RM{data.price}
                 </Text>
                 <Divider w={'full'} orientation="horizontal"   bg={ selectAmount === data.id ? 'primary.600' : 'gray.300'}/>
-                <Box height={type===true ?"80px":"55px"} justifyContent="start" alignItems="center" p={'1'}>
+                <Box height={type===true ?75:55} justifyContent="start" alignItems="center" p={1}>
                   <Text variant="h6" bold textAlign={'center'}>
                     {data.title}
                   </Text>
@@ -234,7 +234,7 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                     variant={"popular"}
                     position="absolute"
                     size={'md'}
-                    top="-12">
+                    top={-12}>
                     {data.tag}
                   </Badge>
                 ) : null}
@@ -264,11 +264,11 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                 'gray.300'
                 }
                 bg={'white'}
-                m={'4'}
-                mb={'0'}
-                p={'2'}
-                borderWidth={'1'} >
-               <Box height={"55px"} p={'1'}>
+                m={6}
+                mb={-2}
+                p={2}
+                borderWidth={1} >
+               <Box height={55} p={1}>
                   <Text variant="h6" bold >
                     {data.title}
                   </Text>
@@ -280,7 +280,7 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                     variant={"popular"}
                     position="absolute"
                     size={'md'}
-                    top="-12">
+                    top={-12}>
                     {"Recommended"}
                   </Badge>
                 ) : null}
@@ -307,12 +307,12 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                   selectAmount === data.id ? 'primary.600' : 'gray.300'
                 }
                 bg={selectAmount === data.id ? 'primary.10' : 'white'}
-                borderWidth={'1'}>
-                <Text variant="h6" bold pb={'1'} color={'primary.600'}>
+                borderWidth={1}>
+                <Text variant="h6" bold pb={1} color={'primary.600'}>
                   RM{data.price}
                 </Text>
                 <Divider w={'full'} orientation="horizontal"   bg={ selectAmount === data.id ? 'primary.600' : 'gray.300'}/>
-                <Box height={type==="just4ME™" ?"80px":"55px"} justifyContent="start" alignItems="center" p={'1'}>
+                <Box height={type==="just4ME™" ?75:55} justifyContent="start" alignItems="center" p={1}>
                   <Text variant="h6" bold textAlign={'center'}>
                     {data.title}
                   </Text>
@@ -324,7 +324,7 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                     variant={"popular"}
                     position="absolute"
                     size={'md'}
-                    top="-12">
+                    top={-12}>
                     {data.tag}
                   </Badge>
                 ) : null}
@@ -345,18 +345,18 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
           }>
           <Box flex={1}>
             <Box flex={1}  bg="#F9FAFB">
-              <Box  bg="#E8EFFD" px='17px' pb="16px">
-                <Text variant="h5" bold py="16px">
+              <Box  bg="#E8EFFD" p={4}>
+                <Text variant="h5" bold py={4}>
                   Select {route.params.title}
                 </Text>
-                <Text variant="b2" pb="10px">
+                <Text variant="b2" mb={4}>
                   Search for customer’s preferred {route.params.title} Add On.
                 </Text>
-                <VStack w="100%" space={25} alignSelf="center" mb={"16px"}>
-                  <Input placeholder="Search" width="100%" borderRadius="10" fontSize="14" py="3" px="1" InputLeftElement={<Box p="3"><Search color="gray"/></Box>}/>
+                <VStack w="100%" space={25} alignSelf="center" mb={4}>
+                  <Input placeholder="Search" width="100%" borderRadius={10} fontSize={14} py={3} px={1} InputLeftElement={<Box p={3}><Search color="gray"/></Box>}/>
                 </VStack>
 
-                {isDigiPhone && <Button.Group bg="gray.100" rounded="full" p="1.5" mb={"4px"}>
+                {isDigiPhone && <Button.Group bg="gray.100" rounded="full" p={1} mb={1}>
                     {internetTab.map(item => (
                         <Button
                           key={item.id.toString()}
@@ -373,22 +373,22 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                 </Button.Group>}
               </Box>
               {activeTab === 0 ? <>
-                <Box px='17px'>
-                  <Text variant="h5" bold py="14px">
+                <Box px={4}>
+                  <Text variant="h5" bold py={4}>
                     Ultra House Pass
                   </Text>
                   {renderlist(ultraHourPass, false)}
                 </Box>
 
-                <Box px='17px'>
-                  <Text variant="h5" bold py="14px">
+                <Box px={4}>
+                <Text variant="h5" bold py={4}>
                     Internet Pass
                   </Text>
                   {renderlist(internetPass, false)}
                 </Box>
 
-                <Box px='17px'>
-                  <Text variant="h5" bold py="14px">
+                <Box px={4}>
+                <Text variant="h5" bold py={4}>
                     just4ME™
                   </Text>
                   {renderlist(just4Me, true)}
@@ -399,7 +399,7 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
           </Box>
         </ScrollView>
       {/* FOOTER */}
-        <Box safeAreaBottom bg="#FFF" p={"16px"}>
+        <Box safeAreaBottom bg="#FFF" px={4} pt={4}>
         {/* Total Payment */}
         <HStack justifyContent="space-between">
           <Box>
@@ -436,7 +436,7 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
               <ArrowLeft />
             </Pressable>
             <HStack justifyContent={'space-between'}>
-              <Text flex={1} variant="h6" bold py="8px">
+              <Text flex={1} variant="h6" bold py={4}>
                 {selectCategory.title}
               </Text>
               {selectCategory.isRecommended &&
@@ -445,11 +445,11 @@ const DiscoverAddOn = ({route, navigation , title}: any) => {
                 </Badge>
               }
             </HStack>
-            <Text pt="4px" pb="24px">
+            <Text pb={6}>
               Select the product variation
             </Text>
             {renderlistAll(selectCategory.title)}
-            <Box bg="#FFF" mx={'-8px'} mb={"10px"} mt={"6px"}>
+            <Box bg="#FFF" mx={-2} mb={2.5}>
               <HStack justifyContent="space-between">
                 <Box>
                   <Text variant="body2">Valid til end of bill cycle</Text>

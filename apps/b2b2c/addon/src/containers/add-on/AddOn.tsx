@@ -185,7 +185,7 @@ const AddOn = ({route, navigation}: any) => {
                 onPress={() => {setbottomModal(true);}}     
                 variant={activeTab === 2 ? 'default' : 'destructiveOutline'}
                 size={'xs'}
-                paddingX={5}>
+                px={5}>
                 {activeTab === 2 ? 'Renew' : 'Unsubscribe'}
               </Button>
             </HStack>
@@ -204,9 +204,9 @@ const AddOn = ({route, navigation}: any) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
           <Box flex={1}>
-            <Box borderRadius={'5px'} mx="17px" bg="#FFF">
+            <Box borderRadius={5} mx={17} bg="#FFF">
               <HStack py={4} justifyContent="space-evenly">
-                <VStack flex={1} paddingLeft={5}>
+                <VStack flex={1} pl={5}>
                   <Text color={'#98A2B3'}>Mobile</Text>
                   <Text mb={1} bold>
                     {phone}
@@ -219,7 +219,7 @@ const AddOn = ({route, navigation}: any) => {
                   </HStack>
                 </VStack>
                 <Divider h={'full'} orientation="vertical" />
-                <VStack flex={1} paddingLeft={5}>
+                <VStack flex={1} pl={5}>
                   <Text color={'#98A2B3'}>Plan</Text>
                   <Text mb={1} bold>
                     biGBonus 48
@@ -238,12 +238,12 @@ const AddOn = ({route, navigation}: any) => {
             </Box>
 
             <Box flex={1}  bg="#F9FAFB">
-              <Box  bg="#E8EFFD" px='17px' pb="16px">
-                <Text variant="h5" bold py="16px">
+              <Box  bg="#E8EFFD" px={4} pb={4}>
+                <Text variant="h5" bold py={5}>
                   Proceed to Discover Add-Ons
                 </Text>
                 <HStack justifyContent='space-evenly'>
-                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                  <Pressable width={75} height={75} bg="#F9FAFB" m={1} p={2}
                     onPress={() => navigation.navigate('DiscoverAddOn', {
                       title: 'Internet',
                       phone: phone,
@@ -253,7 +253,7 @@ const AddOn = ({route, navigation}: any) => {
                     <InfoCircle />
                     <Text>Internet</Text>
                   </Pressable>
-                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                  <Pressable width={75} height={75} bg="#F9FAFB" m={1} p={2}
                     onPress={() => navigation.navigate('DiscoverAddOn', {
                       title: 'IDD',
                       phone: phone,
@@ -263,7 +263,7 @@ const AddOn = ({route, navigation}: any) => {
                     <InfoCircle />
                     <Text>IDD</Text>
                   </Pressable>
-                  <Pressable width={'75px'} height={'75px'} bg="#F9FAFB" m={1} p={2}
+                  <Pressable width={75} height={75} bg="#F9FAFB" m={1} p={2}
                     onPress={() => navigation.navigate('DiscoverAddOn', {
                       title: 'Roaming',
                       phone: phone,
@@ -286,10 +286,10 @@ const AddOn = ({route, navigation}: any) => {
                 </HStack>
                 </Box>
                 <Box mx="17px"  bg="#F9FAFB">
-                <Text variant="h5" bold py="16px">
+                <Text variant="h5" bold py={4}>
                   Customer's Add On
                 </Text>
-                {isDigiPhone && <Button.Group bg="gray.100" rounded="full" p="1.5" mb={"24px"}>
+                {isDigiPhone && <Button.Group bg="gray.100" rounded="full" p={1.5} mb={8}>
                     {paymentTab.map(item => (
                         <Button
                           key={item.id.toString()}
