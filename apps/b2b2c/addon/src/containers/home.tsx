@@ -9,6 +9,7 @@ import { NativeBaseProvider } from 'native-base';
 import Cheatsheet from './Cheatsheet';
 import AddOn from './add-on/AddOn';
 import DiscoverAddOn from './add-on/DiscoverAddOn';
+import ManageAddOn from './add-on/ManageAddOn';
 import Checkout from './Checkout/Checkout';
 import Payment from './Payment/Payment';
 import OrderSummary from './OrderSummary/OrderSummary';
@@ -25,21 +26,31 @@ const Home = () => {
       <Stack.Navigator
         initialRouteName="AddOn"
         screenOptions={{
+          headerShadowVisible:false,
           headerBackTitleVisible: false,
           headerTitleAlign: 'center',
           headerTitleStyle: {
-            color: '#FFF',
+            color: '#000',
           },
           headerStyle: {
-            backgroundColor: '#001870',
+            backgroundColor: '#FFF',
           },
         }}
       >
         {/* Theme Cheatsheet */}
         <Stack.Screen name="Cheatsheet" component={Cheatsheet} />
-        <Stack.Screen name="AddOn" component={AddOn}   options={{ title: 'ADD-ONS' }}/>
+        <Stack.Screen name="AddOn" component={AddOn} options={({ navigation, route }) => ({
+          title: 'Add On',
+          headerLeft: ({ canGoBack }) => true && backArrowCheatSheet(navigation),
+          headerRight: () => exitIcon(navigation),
+        })} />
         <Stack.Screen name="DiscoverAddOn" component={DiscoverAddOn} options={({ navigation, route }) => ({
-          title: route.params.title,
+          title: 'Add On',
+          headerLeft: ({ canGoBack }) => canGoBack && backArrow(navigation),
+          headerRight: () => exitIcon(navigation),
+        })} />
+          <Stack.Screen name="ManageAddOn" component={ManageAddOn} options={({ navigation, route }) => ({
+          title: 'Add On',
           headerLeft: ({ canGoBack }) => canGoBack && backArrow(navigation),
           headerRight: () => exitIcon(navigation),
         })} />
@@ -65,7 +76,15 @@ const Home = () => {
 const backArrow = (navigation) => {
   return (
     <Pressable onPress={() => navigation.goBack()}>
-      <ArrowLeft color="#FFF" />
+      <ArrowLeft color="#000" />
+    </Pressable>
+  );
+};
+
+const backArrowCheatSheet = (navigation) => {
+  return (
+    <Pressable onPress={() => navigation.navigate('Cheatsheet')}>
+      <ArrowLeft color="#000" />
     </Pressable>
   );
 };
@@ -73,7 +92,7 @@ const backArrow = (navigation) => {
 const exitIcon = (navigation) => {
   return (
     <Pressable onPress={() => navigation.goBack()}>
-      <Close color="#FFF" />
+      <Close color="#000" />
     </Pressable>
   );
 };

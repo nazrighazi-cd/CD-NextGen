@@ -291,6 +291,12 @@ const theme = extendTheme({
           borderRadius: '16px',
           shadow: '1',
         },
+        topShadow: {
+          bg: 'gray.50',
+          padding: '16px',
+          borderRadius: '16px',
+          shadow: '4',
+        },
         gradient: {
           bg: 'warning.100',
           // bg: {
@@ -419,6 +425,18 @@ const theme = extendTheme({
           borderRadius: '20px',
           _text: { color: 'primary.700' },
         },
+        pillTab: {
+          paddingLeft: '0px',
+          paddingRight: '0px',
+          _text: { color: 'gray.500' },
+        },
+        pillTabActive: {
+          bg: 'primary.10',
+          paddingLeft: '0px',
+          paddingRight: '0px',
+          borderRadius: '20px',
+          _text: { color: 'primary.700' },
+        },
         pillOutline: {
           paddingLeft: '12px',
           paddingRight: '12px',
@@ -432,6 +450,17 @@ const theme = extendTheme({
           borderRadius: '20px',
           _text: { color: 'primary.600' },
           borderColor: 'primary.600',
+          borderWidth: 1,
+        },
+        pink: {
+          paddingLeft: '0',
+          paddingRight: '0',
+          width:'100px',
+          height:'48px',
+          borderRadius: '20px',
+          bg: 'pink.600',
+          _text: { color: 'white' },
+          borderColor: 'pink.600',
           borderWidth: 1,
         },
       },
