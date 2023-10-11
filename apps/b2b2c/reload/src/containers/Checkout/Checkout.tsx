@@ -84,7 +84,7 @@ const Checkout = ({navigation}: {navigation: any}) => {
         px={4}
         py={'16px'}>
         <Text>Total</Text>
-        <Text color={'gray.900'}>RM 15.00</Text>
+        <Text color={'gray.900'} bold>RM 15.00</Text>
       </Box>
       <Box flex={1} mx={4}>
         <Box

@@ -1,8 +1,5 @@
-import React, {  useState } from 'react';
-import {
-  Platform,
-  RefreshControl,
-} from 'react-native';
+import React, { useState } from 'react';
+import { Platform, RefreshControl } from 'react-native';
 //  Native Base Components
 import {
   useTheme,
@@ -18,17 +15,14 @@ import {
 } from 'native-base';
 //Icons
 
-const Reload = ({route , navigation}: any) => {
+const Reload = ({ route, navigation }: any) => {
+  const { phone = '0123319066', isDigiPhone = true } = route?.params ?? {};
+  const [activeTab, setActiveTab] = useState(0);
 
-  const {phone = '0123319066', isDigiPhone = true} = route?.params ?? {}
-  const [activeTab, setActiveTab] = useState(0)
-
-  const [selectAmount, setSelectAmount] = useState<string|null>(null)
-  const [amount, setAmount] = useState(0)
+  const [selectAmount, setSelectAmount] = useState<string | null>(null);
+  const [amount, setAmount] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
 
-  
-  
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -40,16 +34,16 @@ const Reload = ({route , navigation}: any) => {
 
   // Mock Data
   const reloadAmount = [
-    {id: '1', price: 5, validity: 'Valid for 5 Days', tag: 'Popular'},
-    {id: '2', price: 6, validity: 'Valid for 5 Days', tag: null},
-    {id: '3', price: 7, validity: 'Valid for 5 Days', tag: 'Popular'},
-    {id: '4', price: 8, validity: 'Valid for 5 Days', tag: null},
-    {id: '5', price: 9, validity: 'Valid for 5 Days', tag: null},
-    {id: '6', price: 10, validity: 'Valid for 5 Days', tag: null},
-    {id: '15', price: 9, validity: 'Valid for 5 Days', tag: null},
-    {id: '16', price: 10, validity: 'Valid for 5 Days', tag: null},
-    {id: '115', price: 9, validity: 'Valid for 5 Days', tag: null},
-    {id: '116', price: 10, validity: 'Valid for 5 Days', tag: null},
+    { id: '1', price: 5, validity: 'Valid for 5 Days', tag: null },
+    { id: '2', price: 6, validity: 'Valid for 5 Days', tag: null },
+    { id: '3', price: 7, validity: 'Valid for 5 Days', tag: null },
+    { id: '4', price: 8, validity: 'Valid for 5 Days', tag: null },
+    { id: '5', price: 9, validity: 'Valid for 5 Days', tag: null },
+    { id: '6', price: 10, validity: 'Valid for 5 Days', tag: null },
+    { id: '15', price: 9, validity: 'Valid for 5 Days', tag: null },
+    { id: '16', price: 10, validity: 'Valid for 5 Days', tag: null },
+    { id: '115', price: 9, validity: 'Valid for 5 Days', tag: null },
+    { id: '116', price: 10, validity: 'Valid for 5 Days', tag: null },
   ];
 
   const paymentTab = [
@@ -86,14 +80,111 @@ const Reload = ({route , navigation}: any) => {
   }
 
   const resetSelect = () => {
-    setAmount(0)
-    setSelectAmount(null)
-  }
-
+    setAmount(0);
+    setSelectAmount(null);
+  };
 
   return (
-    <Box flex={1} bg="#001870">
-      <ScrollView 
+    <Box flex={1} bg="white">
+      <Box mx={5} >
+        <HStack
+          justifyContent={'space-evenly'}
+          bg="#E8EFFD"
+          borderTopRadius={'lg'}
+          p={4}
+        >
+          <VStack>
+            <Text>Mobile</Text>
+            <Text bold>0198877454</Text>
+            <HStack space={2}>
+              <Badge variant={'celcomBlue'}>Celcom</Badge>
+              <Badge variant={'success'}>Active</Badge>
+            </HStack>
+          </VStack>
+          <VStack>
+            <Text>Mobile</Text>
+            <Text bold>Mix & Match 30</Text>
+            <Badge variant={'indigo'} >Active</Badge>
+          </VStack>
+        </HStack>
+        <HStack
+          justifyContent={'space-evenly'}
+          bg="#F9FAFB"
+          borderBottomRadius={'lg'}
+          p={4}
+        >
+          <VStack>
+            <Text>Prepaid Balance</Text>
+            <Text bold>RM5.00</Text>
+          </VStack>
+          <VStack>
+            <Text>Prepaid Balance</Text>
+            <Text bold>RM5.00</Text>
+          </VStack>
+        </HStack>
+      </Box>
+      <Text mx={2} variant={'h2'}>Choose Amount</Text>
+      <ScrollView contentContainerStyle={{paddingTop:20}} showsVerticalScrollIndicator={false} >
+        {rowsAmount.map((row, index) => (
+          <HStack key={index}>
+            {row.map((amount, itemIndex) => (
+              <Pressable
+                onPress={() => {
+                  setSelectAmount(amount.id);
+                  setAmount(amount.price);
+                }}
+                flex={1}
+                key={itemIndex}
+                mb="16px"
+                px={2}
+              >
+                <Box
+                  variant="border"
+                  py={3}
+                  key={itemIndex}
+                  justifyContent="center"
+                  alignItems="center"
+                  borderColor={
+                    selectAmount === amount.id ? 'primary.600' : 'gray.300'
+                  }
+                  bg={selectAmount === amount.id ? 'primary.10' : 'white'}
+                  borderWidth={'1'}
+                >
+                  <Text variant="h6" bold>
+                    RM{amount.price}
+                  </Text>
+                  <Text variant="label">{amount.validity}</Text>
+                  {amount.tag ? (
+                    <Badge
+                      variant="popular"
+                      position="absolute"
+                      size={'md'}
+                      top="-10"
+                    >
+                      {amount.tag}
+                    </Badge>
+                  ) : null}
+                </Box>
+              </Pressable>
+            ))}
+          </HStack>
+        ))}
+      </ScrollView>
+      <Text  mx={2} mt={2}>🟨 Non-Malaysians will be subjected to 6% SST.</Text>
+      <Box  safeAreaBottom bg="#FFF" p={"16px"}>
+        <HStack justifyContent="space-between">
+          <Box>
+            <Text variant="body2">Total Payment</Text>
+            <Text variant="h6" bold color="primary.600">
+              RM {amount || "XXX"}
+            </Text>
+          </Box>
+          <Button isDisabled={!selectAmount} onPress={() => navigation.navigate('Checkout', {isDigiPhone})}>
+            Proceed
+          </Button>
+        </HStack>
+      </Box>
+      {/* <ScrollView 
         contentContainerStyle={{flexGrow:1}}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -157,7 +248,6 @@ const Reload = ({route , navigation}: any) => {
                                 RM{amount.price}
                               </Text>
                               <Text variant="label">{amount.validity}</Text>
-                              {/* Tag */}
                               {amount.tag ? (
                                 <Badge
                                   variant="popular"
@@ -177,9 +267,7 @@ const Reload = ({route , navigation}: any) => {
           </Box>
         </Box>
       </ScrollView>
-      {/* FOOTER */}
       <Box  safeAreaBottom bg="#FFF" p={"16px"}>
-        {/* Total Payment */}
         <HStack justifyContent="space-between">
           <Box>
             <Text variant="body2">Total Payment</Text>
@@ -196,8 +284,7 @@ const Reload = ({route , navigation}: any) => {
 
       {Platform.OS === 'ios'  &&  (
         <Box bg="#F9FAFB"  zIndex={-1} bottom={-100} left={0} right={0} position={'absolute'} height={'md'} />
-      )}
-
+      )} */}
     </Box>
   );
 };

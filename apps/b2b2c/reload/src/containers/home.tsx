@@ -25,6 +25,7 @@ const Home = () => {
           headerTitleStyle: {
             fontFamily: 'Montserrat-Bold',
           },
+          headerShadowVisible: false
         }}
       >
         {/* Theme Cheatsheet */}
